@@ -13,6 +13,7 @@
   // Codes are checked in the browser only, so confirm the discount when you answer on WhatsApp.
   const CODES = {
     'WELCOME10': {pct:10, label:'خصم أول طلب'},
+    'SHUKRAN10': {pct:10, label:'خصم كرت الشكر'},   // printed on the thank-you card inside every box: share a photo, get 10% on the next order
     'RAMADAN15': {pct:15, w:['ramadan'], label:'خصم زينة رمضان'},
     'EID10':     {pct:10, w:['fitr','adha'], label:'خصم العيد'},
     'MAMA15':    {pct:15, w:['mother'], label:'خصم عيد الأم'},
