@@ -8,3 +8,6 @@ media/
 # local tools and their exports (QR cards)
 tools/
 qr-cards/
+
+# private business study and financial model (not for the public site)
+business/
