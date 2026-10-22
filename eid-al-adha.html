@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد الأضحى · Design & Celebrate</title>
+<meta name="description" content="زينة عيد الأضحى: خروف محشو للصغار، حبل «أضحى مبارك»، مجسّم الكعبة المضوّي، سجادات صلاة وأكياس عيدية، مع توصيل لكل سوريا والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Eid al-Adha: a golden-hour morning in Damascus. Sand and terracotta, the sun coming up behind the domes, a lamb at the window. */
+.w-hero{background:radial-gradient(70% 90% at 12% 25%,#F7E2C2 0,transparent 60%),radial-gradient(60% 80% at 92% 85%,#E4E3CC 0,transparent 65%),var(--bg)}
+/* the base state of every moving part is a good still frame (reduced motion ends each animation there) */
+.sun{transform-box:view-box;animation:sunrise 16s ease-in-out infinite alternate}
+@keyframes sunrise{from{transform:translateY(46px)}to{transform:translateY(0)}}
+.rays{transform-box:view-box;transform-origin:230px 262px;animation:turn 90s linear infinite}
+@keyframes turn{to{transform:rotate(360deg)}}
+.glow{transform-box:fill-box;transform-origin:center;animation:breathe 6s ease-in-out infinite alternate}
+@keyframes breathe{from{opacity:.35;transform:scale(.94)}to{opacity:.6;transform:scale(1.04)}}
+.bird{animation:glide var(--d,20s) linear infinite;animation-delay:var(--dl,0s)}
+@keyframes glide{0%{transform:translate(-190px,14px);opacity:0}10%,88%{opacity:1}100%{transform:translate(190px,-14px);opacity:0}}
+.wing{transform-box:fill-box;transform-origin:center;animation:flap .9s ease-in-out infinite alternate}
+@keyframes flap{to{transform:scaleY(.45)}}
+.lamb{transform-box:view-box;animation:bob 2.8s ease-in-out infinite alternate}
+@keyframes bob{to{transform:translateY(-7px)}}
+.lamb-sh{transform-box:fill-box;transform-origin:center;animation:shadow 2.8s ease-in-out infinite alternate}
+@keyframes shadow{to{transform:scaleX(.86);opacity:.6}}
+</style>
+</head>
+<body data-world="adha">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-adha" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">أضحى مبارك<span>وكل عام وأنتم بخير</span></h1>
+      <p class="lede">زينة للبيت، أكياس عيدية للصغار وخروف محشو بيصير رفيق الولاد بالعيد. منوصلك ياهن قبل الوقفة لباب بيتك، وبتدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">تسوّق زينة الأضحى</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٠٪ على زينة العيد <b>EID10</b><button type="button" data-copy-code="EID10">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#B9A2A8"/><stop offset=".38" stop-color="#E7B99A"/><stop offset=".72" stop-color="#F5D49C"/><stop offset="1" stop-color="#F9E6BC"/>
+          </linearGradient>
+          <radialGradient id="sunGlow"><stop offset="0" stop-color="#FFF1C8"/><stop offset="1" stop-color="#FFF1C8" stop-opacity="0"/></radialGradient>
+          <clipPath id="arch"><path d="M70 420V200a160 160 0 0 1 320 0v220z"/></clipPath>
+        </defs>
+
+        <!-- the window: sky, sun, birds and the Damascus skyline, all inside the arch -->
+        <g clip-path="url(#arch)">
+          <rect x="60" y="30" width="340" height="400" fill="url(#sky)"/>
+          <g class="sun">
+            <g class="rays" fill="#FFF4D2" opacity=".42">
+              <path d="M226 262l4-200 4 200z"/><path d="M226 262l4-200 4 200z" transform="rotate(30 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(60 230 262)"/>
+              <path d="M226 262l4-200 4 200z" transform="rotate(90 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(120 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(150 230 262)"/>
+              <path d="M226 262l4-200 4 200z" transform="rotate(180 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(210 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(240 230 262)"/>
+              <path d="M226 262l4-200 4 200z" transform="rotate(270 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(300 230 262)"/><path d="M226 262l4-200 4 200z" transform="rotate(330 230 262)"/>
+            </g>
+            <circle class="glow" cx="230" cy="262" r="96" fill="url(#sunGlow)"/>
+            <circle cx="230" cy="262" r="46" fill="#FBE3A4"/>
+            <circle cx="230" cy="262" r="38" fill="#FFEFC4"/>
+          </g>
+          <!-- birds glide across (base position = the middle of their path) -->
+          <g fill="none" stroke="#6E4A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g transform="translate(200 132)"><g class="bird" style="--d:22s"><path class="wing" d="M0 0q7-7 13 0q6-7 13 0"/></g></g>
+            <g transform="translate(250 162) scale(.75)"><g class="bird" style="--d:22s;--dl:-1.4s"><path class="wing" style="animation-delay:-.4s" d="M0 0q7-7 13 0q6-7 13 0"/></g></g>
+            <g transform="translate(150 108) scale(.6)"><g class="bird" style="--d:28s;--dl:-12s"><path class="wing" style="animation-delay:-.2s" d="M0 0q7-7 13 0q6-7 13 0"/></g></g>
+          </g>
+          <!-- far skyline -->
+          <g fill="#C48A68" opacity=".55">
+            <rect x="60" y="356" width="340" height="70"/>
+            <path d="M74 358a16 14 0 0 1 32 0zM196 358a20 18 0 0 1 40 0zM344 358a18 16 0 0 1 36 0z"/>
+            <rect x="120" y="340" width="40" height="20"/><rect x="250" y="336" width="44" height="24"/>
+          </g>
+          <!-- near skyline: domes and two minarets -->
+          <g fill="#7C4A33">
+            <rect x="60" y="384" width="340" height="40"/>
+            <rect x="78" y="350" width="62" height="40"/><path d="M83 352a26 22 0 0 1 52 0z"/><rect x="108" y="320" width="2" height="12"/>
+            <rect x="148" y="262" width="12" height="124"/><rect x="144" y="290" width="20" height="5" rx="2"/><path d="M148 262l6-20 6 20z"/><circle cx="154" cy="240" r="2.2"/>
+            <rect x="180" y="330" width="100" height="60"/><path d="M188 332a42 40 0 0 1 84 0z"/><rect x="229" y="278" width="2" height="16"/><circle cx="230" cy="277" r="3"/>
+            <rect x="300" y="250" width="12" height="136"/><rect x="296" y="282" width="20" height="5" rx="2"/><path d="M300 250l6-22 6 22z"/><circle cx="306" cy="226" r="2.2"/>
+            <rect x="320" y="348" width="66" height="42"/><path d="M332 350a21 19 0 0 1 42 0z"/>
+          </g>
+          <g fill="#F6D58E" opacity=".85">
+            <rect x="96" y="364" width="6" height="10" rx="3"/><rect x="116" y="364" width="6" height="10" rx="3"/>
+            <rect x="200" y="350" width="7" height="13" rx="3.5"/><rect x="226" y="350" width="8" height="16" rx="4"/><rect x="253" y="350" width="7" height="13" rx="3.5"/>
+            <rect x="340" y="362" width="6" height="10" rx="3"/><rect x="360" y="362" width="6" height="10" rx="3"/>
+          </g>
+        </g>
+        <!-- the arch frame and the sill -->
+        <path d="M70 420V200a160 160 0 0 1 320 0v220" fill="none" stroke="#A0532F" stroke-width="10" stroke-linejoin="round"/>
+        <path d="M82 420V200a148 148 0 0 1 296 0v220" fill="none" stroke="#EBCFA4" stroke-width="2" opacity=".8"/>
+        <path d="M230 30l7 9-7 9-7-9z" fill="#6C7C47"/>
+        <rect x="52" y="418" width="356" height="16" rx="6" fill="#8E4A2B"/>
+        <rect x="52" y="418" width="356" height="5" rx="2.5" fill="#B9724C"/>
+
+        <!-- a fluffy lamb at the window, gently bobbing -->
+        <ellipse class="lamb-sh" cx="298" cy="452" rx="64" ry="7" fill="#5B3A28" opacity=".22"/>
+        <g class="lamb">
+          <rect x="274" y="414" width="9" height="36" rx="4.5" fill="#5B4335"/><rect x="330" y="414" width="9" height="36" rx="4.5" fill="#5B4335"/>
+          <rect x="290" y="418" width="8" height="30" rx="4" fill="#4A362B"/><rect x="316" y="418" width="8" height="30" rx="4" fill="#4A362B"/>
+          <g fill="#E8D5BD">
+            <circle cx="272" cy="402" r="22"/><circle cx="298" cy="390" r="25"/><circle cx="326" cy="392" r="23"/><circle cx="346" cy="408" r="18"/><circle cx="318" cy="418" r="22"/><circle cx="288" cy="420" r="21"/>
+          </g>
+          <g fill="#FFF8EE">
+            <circle cx="270" cy="398" r="20"/><circle cx="296" cy="386" r="23"/><circle cx="324" cy="388" r="21"/><circle cx="343" cy="404" r="16"/><circle cx="316" cy="413" r="20"/><circle cx="287" cy="415" r="19"/>
+          </g>
+          <circle cx="352" cy="398" r="7" fill="#FFF8EE"/>
+          <ellipse cx="229" cy="392" rx="12" ry="5.5" fill="#5B4335" transform="rotate(28 229 392)"/>
+          <ellipse cx="271" cy="390" rx="12" ry="5.5" fill="#5B4335" transform="rotate(-28 271 390)"/>
+          <ellipse cx="250" cy="398" rx="18" ry="21" fill="#6A4C3B"/>
+          <circle cx="250" cy="377" r="9" fill="#FFF8EE"/><circle cx="241" cy="381" r="7" fill="#FFF8EE"/><circle cx="259" cy="381" r="7" fill="#FFF8EE"/>
+          <circle cx="243.5" cy="397" r="3.2" fill="#FFF8EE"/><circle cx="256.5" cy="397" r="3.2" fill="#FFF8EE"/>
+          <circle cx="244" cy="397.6" r="1.8" fill="#2D2019"/><circle cx="257" cy="397.6" r="1.8" fill="#2D2019"/>
+          <ellipse cx="238" cy="405" rx="4" ry="2.4" fill="#E39A80" opacity=".75"/><ellipse cx="262" cy="405" rx="4" ry="2.4" fill="#E39A80" opacity=".75"/>
+          <path d="M247 409q3 3 6 0" fill="none" stroke="#2D2019" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M238 416q12 7 26 0" fill="none" stroke="#A0532F" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="251" cy="422" r="5" fill="#D9A84E"/><circle cx="251" cy="424" r="1.4" fill="#7C4A33"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">زينة الأضحى</h2><p>اختار اللون أو القياس تحت كل قطعة وضيفها لسلتك. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and colours are the owner's to edit) ----------
+  const TERRA = {name:'قرميدي', c:'#A0532F'}, OLIVE = {name:'زيتوني', c:'#6C7C47'}, GOLD = {name:'ذهبي', c:'#C9963F'};
+  const PRODUCTS = [
+    {id:'lamb',    art:'lamb',    name:'خروف العيد المحشو',      desc:'ناعم ومنفوش، مع شريطة وجرس صغير. أحلى هدية للولاد.', price:9, tag:'هدية للصغار', optLabel:'القياس',
+      opts:[{name:'صغير ٢٥ سم', price:9, s:.74}, {name:'وسط ٤٠ سم', price:14, s:.87}, {name:'كبير ٦٠ سم', price:22, s:1}]},
+    {id:'banner',  art:'banner',  name:'حبل «أضحى مبارك» للحيط',  desc:'رايات قماش مع هلال وفانوس، طوله ٢ متر.', price:5, opts:[TERRA, OLIVE, GOLD], tag:'الأكثر طلباً'},
+    {id:'kaaba',   art:'kaaba',   name:'مجسّم الكعبة المضوّي',    desc:'ضو LED دافي ببطاريات، ارتفاع ٢٠ سم. بيحلّي الرف.', price:18, optLabel:'لون الحزام', opts:[{name:'ذهبي', c:'#D3A24A'}, {name:'فضي', c:'#B8BCC0'}]},
+    {id:'rug',     art:'rug',     name:'سجادة صلاة ستان',         desc:'قماش ستان ناعم مع محراب مطرّز، ٧٠×١١٠ سم.', price:12, opts:[{name:'خمري', c:'#8E2F3A'}, OLIVE, {name:'كحلي', c:'#2F4A6B'}, {name:'بيج', c:'#B99A72'}]},
+    {id:'eidiya',  art:'eidiya',  name:'أكياس عيدية',             desc:'١٠ ظروف مطبوعة بخروف وهلال ذهبي.', price:4, opts:[TERRA, OLIVE, GOLD]},
+    {id:'candles', art:'candles', name:'طقم شموع LED للطاولة',     desc:'٣ شموع بضو بيرجف متل الحقيقي، بلا نار ولا شمع سايح.', price:10, optLabel:'لون الشمع', opts:[{name:'عاجي', c:'#EFE3CC'}, GOLD, TERRA]}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour, o = the chosen option) ----------
+  const moon = (x, y, r, f) => `<path d="M${x} ${y-r}a${r} ${r} 0 1 0 ${r*.62} ${r*1.78}A${r*.8} ${r*.8} 0 1 1 ${x} ${y-r}z" fill="${f}"/>`;
+  const lambFace = (x, y, s) => `<g transform="translate(${x} ${y}) scale(${s})">
+      <circle cx="-14" cy="-12" r="9" fill="#FFF8EE"/><circle cx="0" cy="-17" r="10" fill="#FFF8EE"/><circle cx="14" cy="-12" r="9" fill="#FFF8EE"/><circle cx="-18" cy="2" r="9" fill="#FFF8EE"/><circle cx="18" cy="2" r="9" fill="#FFF8EE"/><circle cx="0" cy="12" r="12" fill="#FFF8EE"/>
+      <ellipse cx="0" cy="0" rx="10" ry="12" fill="#6A4C3B"/><circle cx="-4" cy="-1" r="1.6" fill="#FFF8EE"/><circle cx="4" cy="-1" r="1.6" fill="#FFF8EE"/></g>`;
+  const ART = {
+    lamb: (c, o) => { const s = (o && o.s) || 1; return `<ellipse cx="100" cy="182" rx="${70*s}" ry="7" fill="#000" opacity=".08"/>
+      <g transform="translate(100 182) scale(${s}) translate(-100 -182)">
+        <rect x="70" y="140" width="11" height="40" rx="5.5" fill="#5B4335"/><rect x="124" y="140" width="11" height="40" rx="5.5" fill="#5B4335"/>
+        <g fill="#E8D5BD"><circle cx="76" cy="120" r="28"/><circle cx="108" cy="104" r="32"/><circle cx="140" cy="116" r="28"/><circle cx="128" cy="142" r="26"/><circle cx="90" cy="146" r="26"/></g>
+        <g fill="#FFF8EE"><circle cx="74" cy="116" r="26"/><circle cx="106" cy="100" r="30"/><circle cx="138" cy="112" r="26"/><circle cx="126" cy="138" r="24"/><circle cx="88" cy="141" r="24"/><circle cx="160" cy="118" r="8"/></g>
+        <ellipse cx="38" cy="96" rx="15" ry="7" fill="#5B4335" transform="rotate(26 38 96)"/><ellipse cx="86" cy="94" rx="15" ry="7" fill="#5B4335" transform="rotate(-26 86 94)"/>
+        <ellipse cx="62" cy="104" rx="22" ry="26" fill="#6A4C3B"/>
+        <circle cx="62" cy="78" r="11" fill="#FFF8EE"/><circle cx="51" cy="83" r="9" fill="#FFF8EE"/><circle cx="73" cy="83" r="9" fill="#FFF8EE"/>
+        <circle cx="54" cy="103" r="4" fill="#FFF8EE"/><circle cx="70" cy="103" r="4" fill="#FFF8EE"/><circle cx="54.6" cy="103.8" r="2.3" fill="#2D2019"/><circle cx="70.6" cy="103.8" r="2.3" fill="#2D2019"/>
+        <ellipse cx="47" cy="113" rx="5" ry="3" fill="#E39A80" opacity=".75"/><ellipse cx="77" cy="113" rx="5" ry="3" fill="#E39A80" opacity=".75"/>
+        <path d="M58 118q4 4 8 0" fill="none" stroke="#2D2019" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M44 128q18 10 36 0" fill="none" stroke="#A0532F" stroke-width="5" stroke-linecap="round"/><circle cx="62" cy="136" r="6.5" fill="#D9A84E"/>
+      </g>`; },
+    banner: c => `<path d="M12 46Q100 92 188 46" fill="none" stroke="#7A6250" stroke-width="2"/>
+      ${[0,1,2,3,4,5,6].map(i => { const x = 22 + i * 26, y = 50 + Math.sin(i / 6 * Math.PI) * 21; return `<path d="M${x-11} ${y}h22v20l-11 8-11-8z" fill="${i % 2 ? '#FBF3E6' : c}"/>${i % 2 ? moon(x, y + 12, 5, c) : `<path d="M${x} ${y+5}l4 4v8h-8v-8z" fill="#FBF3E6"/>`}`; }).join('')}
+      <text x="100" y="146" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="32" fill="${c}">أضحى مبارك</text>
+      <path d="M52 162h96" stroke="${c}" stroke-width="2" stroke-linecap="round" opacity=".5"/><circle cx="100" cy="162" r="3.5" fill="${c}"/>`,
+    kaaba: c => `<circle cx="100" cy="104" r="80" fill="#F3C978" opacity=".22"/><circle cx="100" cy="104" r="58" fill="#F3C978" opacity=".22"/>
+      <ellipse cx="100" cy="176" rx="74" ry="9" fill="#000" opacity=".1"/>
+      <path d="M40 74l60-22 60 22v90l-60 18-60-18z" fill="#2A2522"/><path d="M100 96v86l60-18V74z" fill="#1C1917"/>
+      <path d="M40 74l60 22 60-22-60-22z" fill="#3A332E"/>
+      <path d="M40 92l60 22 60-22v12l-60 22-60-22z" fill="${c}"/>
+      <path d="M118 128l26-8v30l-26 8z" fill="${c}" opacity=".9"/><path d="M122 132l18-5.5v19l-18 5.5z" fill="#FFE7A6" opacity=".55"/>
+      ${[52,64,76,88].map(x => `<circle cx="${x}" cy="${102 + (x - 40) * .37}" r="1.6" fill="#2A2522" opacity=".5"/>`).join('')}
+      <path d="M32 164l68 20 68-20" fill="none" stroke="${c}" stroke-width="3" stroke-linecap="round" opacity=".7"/>`,
+    rug: c => `<g transform="rotate(-6 100 100)">
+      <g stroke="#D9C6A5" stroke-width="2">${Array.from({length:12}, (_, i) => `<path d="M${50 + i * 9.1} 22v-10M${50 + i * 9.1} 178v10"/>`).join('')}</g>
+      <rect x="46" y="22" width="108" height="156" rx="5" fill="${c}"/>
+      <rect x="54" y="30" width="92" height="140" rx="3" fill="none" stroke="#E9CF95" stroke-width="2.5"/>
+      <path d="M66 160V84q0-30 34-42 34 12 34 42v76z" fill="#fff" opacity=".14"/>
+      <path d="M66 160V84q0-30 34-42 34 12 34 42v76" fill="none" stroke="#E9CF95" stroke-width="2"/>
+      <path d="M100 58l4 6-4 6-4-6z" fill="#E9CF95"/><path d="M92 112h16M96 104h8M96 120h8" stroke="#E9CF95" stroke-width="2" stroke-linecap="round"/>
+      <path d="M58 40h84" stroke="#fff" stroke-width="5" opacity=".18" stroke-linecap="round"/></g>`,
+    eidiya: c => [[-14,56,'#FBF3E6'],[14,144,'#FBF3E6'],[0,100,c]].map(([r,x,f]) => { const ink = f === c ? '#FBF3E6' : c;
+      return `<g transform="rotate(${r} 100 160)"><rect x="${x-34}" y="54" width="68" height="100" rx="7" fill="${f}" stroke="${c}" stroke-width="1.5"/>
+        <path d="M${x-34} 62l34 24 34-24" fill="none" stroke="${ink}" stroke-width="1.5" opacity=".7"/>
+        ${f === c ? lambFace(x, 118, .8) + moon(x + 22, 140, 6, '#E9CF95') : moon(x, 118, 13, ink)}</g>`; }).join(''),
+    candles: c => `<ellipse cx="100" cy="174" rx="80" ry="10" fill="#000" opacity=".08"/><ellipse cx="100" cy="170" rx="74" ry="9" fill="#C9963F" opacity=".35"/>
+      ${[[56,120,22],[144,108,22],[100,86,26]].map(([x,top,w]) => `
+        <circle cx="${x}" cy="${top - 14}" r="22" fill="#FFD98A" opacity=".3"/>
+        <rect x="${x-w}" y="${top}" width="${w*2}" height="${168-top}" rx="6" fill="${c}"/>
+        <rect x="${x-w}" y="${top}" width="${w*.6}" height="${168-top}" rx="6" fill="#fff" opacity=".22"/>
+        <ellipse cx="${x}" cy="${top}" rx="${w}" ry="5" fill="#000" opacity=".08"/>
+        <path d="M${x} ${top-26}q9 12 0 22q-9-10 0-22z" fill="#F7B547"/><path d="M${x} ${top-16}q4 6 0 11q-4-5 0-11z" fill="#FFF3C4"/>`).join('')}`
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'adha', PRODUCTS, (p, o) => ART[p.art]((o && o.c) || '#A0532F', o));
+  const d = DC.daysLeft('adha');
+  document.getElementById('when').innerHTML = DC.WORLDS.adha.icon + `عيد الأضحى${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'spark', colors:['#E9C27A','#F6E3B8','#D9A35E','#FFF4DC'], count:30, dir:-1});
+})();
+</script>
+</body>
+</html>

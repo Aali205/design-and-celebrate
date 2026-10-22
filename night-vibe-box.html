@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Night Vibe Box · Design & Celebrate</title>
+<meta name="description" content="Night Vibe Box: بوكسات جاهزة لسهرة الأفلام وسهرة البنات وعيد الميلاد، بتلات أحجام، مع توصيل بنفس اليوم بدمشق والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Night Vibe Box: an ordinary night made special. Deep indigo sky, a gift box that opens and throws out the night's little things. */
+.w-hero{background:radial-gradient(60% 70% at 18% 30%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 62%),radial-gradient(50% 60% at 85% 88%,color-mix(in srgb,var(--accent-2) 13%,transparent),transparent 66%),var(--bg)}
+.twk{animation:twk 2.4s ease-in-out infinite alternate;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+@keyframes twk{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+
+/* hero box, one 7 s loop: wiggle, the lid lifts and tilts open, light pours out, the things pop up and fall back, the lid closes, a pause */
+.lid{transform-box:view-box;transform-origin:330px 304px;animation:lid 7s cubic-bezier(.4,0,.2,1) infinite}
+@keyframes lid{
+  0%,6%{transform:translate(0,0) rotate(0deg)}
+  9%{transform:translate(0,-5px) rotate(4deg)}
+  11%{transform:translate(0,0) rotate(0deg)}
+  13%{transform:translate(0,-3px) rotate(3deg)}
+  15%{transform:translate(0,0) rotate(0deg)}
+  25%{transform:translate(-8px,-46px) rotate(26deg)}
+  44%{transform:translate(-8px,-52px) rotate(23deg)}
+  62%{transform:translate(-8px,-46px) rotate(26deg)}
+  72%{transform:translate(0,0) rotate(0deg)}
+  75%{transform:translate(0,-4px) rotate(0deg)}
+  78%,100%{transform:translate(0,0) rotate(0deg)}}
+.beam{opacity:0;transform-box:view-box;transform-origin:230px 300px;animation:beam 7s ease-in-out infinite}
+@keyframes beam{0%,17%{opacity:0;transform:scaleY(.3)}28%,58%{opacity:1;transform:scaleY(1)}70%,100%{opacity:0;transform:scaleY(.6)}}
+/* no var() inside keyframes (some browsers drop the value), so each popping thing has its own keyframes */
+.pop{opacity:0;transform-box:fill-box;transform-origin:center;animation-duration:7s;animation-iteration-count:infinite;animation-delay:var(--dl,0s)}
+.p1{animation-name:pop1}
+.p2{animation-name:pop2}
+.p3{animation-name:pop3}
+.p4{animation-name:pop4}
+.p5{animation-name:pop5}
+@keyframes pop1{0%,22%{opacity:0;transform:translate(0,0) rotate(0deg)}23%{opacity:1;transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.15,.8,.3,1)}38%{opacity:1;transform:translate(-128px,-196px) rotate(-24deg);animation-timing-function:cubic-bezier(.6,0,.85,.4)}55%{opacity:1;transform:translate(0,0) rotate(0deg)}57%,100%{opacity:0;transform:translate(0,0) rotate(0deg)}}
+@keyframes pop2{0%,22%{opacity:0;transform:translate(0,0) rotate(0deg)}23%{opacity:1;transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.15,.8,.3,1)}38%{opacity:1;transform:translate(-14px,-252px) rotate(200deg);animation-timing-function:cubic-bezier(.6,0,.85,.4)}55%{opacity:1;transform:translate(0,0) rotate(0deg)}57%,100%{opacity:0;transform:translate(0,0) rotate(0deg)}}
+@keyframes pop3{0%,22%{opacity:0;transform:translate(0,0) rotate(0deg)}23%{opacity:1;transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.15,.8,.3,1)}38%{opacity:1;transform:translate(128px,-150px) rotate(10deg);animation-timing-function:cubic-bezier(.6,0,.85,.4)}55%{opacity:1;transform:translate(0,0) rotate(0deg)}57%,100%{opacity:0;transform:translate(0,0) rotate(0deg)}}
+@keyframes pop4{0%,22%{opacity:0;transform:translate(0,0) rotate(0deg)}23%{opacity:1;transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.15,.8,.3,1)}38%{opacity:1;transform:translate(-120px,-100px) rotate(-28deg);animation-timing-function:cubic-bezier(.6,0,.85,.4)}55%{opacity:1;transform:translate(0,0) rotate(0deg)}57%,100%{opacity:0;transform:translate(0,0) rotate(0deg)}}
+@keyframes pop5{0%,22%{opacity:0;transform:translate(0,0) rotate(0deg)}23%{opacity:1;transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.15,.8,.3,1)}38%{opacity:1;transform:translate(118px,-80px) rotate(18deg);animation-timing-function:cubic-bezier(.6,0,.85,.4)}55%{opacity:1;transform:translate(0,0) rotate(0deg)}57%,100%{opacity:0;transform:translate(0,0) rotate(0deg)}}
+@media (prefers-reduced-motion:reduce){   /* one still frame: the box open, its things floating above it */
+  .lid{animation:none;transform:translate(-8px,-46px) rotate(26deg)}
+  .beam{animation:none;opacity:1}
+  .pop{animation:none;opacity:1}
+  .p1{transform:translate(-128px,-196px) rotate(-24deg)}
+  .p2{transform:translate(-14px,-252px) rotate(200deg)}
+  .p3{transform:translate(128px,-150px) rotate(10deg)}
+  .p4{transform:translate(-120px,-100px) rotate(-28deg)}
+  .p5{transform:translate(118px,-80px) rotate(18deg)}
+}
+
+/* the three box cards */
+.bx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+.bx-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.bx-art{position:relative;aspect-ratio:4/3;display:grid;place-items:center;background:radial-gradient(62% 62% at 50% 62%,color-mix(in srgb,var(--bx) 34%,transparent),transparent 72%),var(--tint)}
+.bx-art svg{width:94%;height:auto;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.bx-card:hover .bx-art svg{transform:translateY(-5px)}
+.peek{animation:peek 3.4s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes peek{from{transform:translateY(4px)}to{transform:translateY(-6px)}}
+.vip{transform-box:fill-box;transform-origin:center bottom;transition:opacity .4s,transform .5s cubic-bezier(.3,1.5,.5,1)}
+.bx-card:not([data-i="2"]) .vip{opacity:0;transform:translateY(12px) scale(.85)}
+.bx-info{padding:20px 22px 22px;display:flex;flex-direction:column;gap:12px;flex:1}
+.bx-latin{font-size:1.05rem;font-style:italic;color:var(--bxt)}
+.bx-info h3{font-size:1.65rem}
+.bx-who{font-size:.86rem;color:var(--dim);margin-top:-4px}
+.bx-in h4{margin:0 0 8px;font:700 1.02rem var(--display);color:var(--accent-2)}
+.bx-list{list-style:none;padding:0;margin:0;display:grid;gap:6px;font-size:.95rem;line-height:1.55}
+.bx-list li{display:flex;gap:10px;align-items:baseline}
+.bx-list li::before{content:"";width:7px;height:7px;border-radius:2px;background:var(--bxt);transform:translateY(-2px) rotate(45deg);flex:none}
+.bx-list .plus::before{background:var(--accent-2)}
+.bx-list em{font-style:normal;font-size:.72rem;font-weight:600;background:var(--accent-2);color:#1d1406;border-radius:999px;padding:0 8px;margin-inline-start:2px}
+
+/* how it works */
+.how{background:color-mix(in srgb,var(--tint) 45%,transparent);border-block:1px solid var(--line)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;list-style:none;padding:0;margin:0}
+.steps li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;gap:14px;align-items:flex-start}
+.steps .n{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 16%,transparent);color:var(--accent);font:700 1.25rem/1 var(--display)}
+.steps h3{font-size:1.22rem}
+.steps p{color:var(--dim);font-size:.93rem;line-height:1.6;margin-top:4px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-world="night">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html" aria-current="page">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-night" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">لكل سهرة<span>إلها بوكس</span></h1>
+      <p class="lede">اختار جوّ سهرتك: أفلام، بنات، أو عيد ميلاد. نحنا منجهّز البوكس ومنغلّفه ومنوصلك ياه بنفس اليوم بدمشق، وبتدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#boxes">اختار بوكسك</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ٢٠٪ على أول بوكس <b>NIGHT20</b><button type="button" data-copy-code="NIGHT20">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470">
+        <defs>
+          <linearGradient id="nbBeam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFE3B3" stop-opacity=".75"/><stop offset=".55" stop-color="#C9B6FF" stop-opacity=".2"/><stop offset="1" stop-color="#C9B6FF" stop-opacity="0"/></linearGradient>
+          <linearGradient id="nbBody" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9C86EC"/><stop offset="1" stop-color="#6A54C4"/></linearGradient>
+          <radialGradient id="nbMoon"><stop offset="0" stop-color="#F5E3C0" stop-opacity=".3"/><stop offset="1" stop-color="#F5E3C0" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- night sky: crescent and twinkling stars -->
+        <circle cx="372" cy="88" r="92" fill="url(#nbMoon)"/>
+        <path d="M372 40a50 50 0 1 0 38 84 40 40 0 1 1-38-84z" fill="#F5E3C0"/>
+        <g fill="#EEEAF8">
+          <path class="twk" d="M70 80l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+          <path class="twk" style="--dl:-.8s" d="M160 34l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
+          <path class="twk" style="--dl:-1.6s" d="M270 70l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z"/>
+          <path class="twk" style="--dl:-.4s" d="M436 210l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#B9A5F5"/>
+          <path class="twk" style="--dl:-2s" d="M36 250l2.5 7 7 2.5-7 2.5-2.5 7-2.5-7-7-2.5 7-2.5z" fill="#F5B98D"/>
+          <path class="twk" style="--dl:-1.2s" d="M112 168l2 6 6 2-6 2-2 6-2-6-6-2 6-2z" fill="#B9A5F5"/>
+          <path class="twk" style="--dl:-2.6s" d="M424 340l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/>
+          <circle cx="216" cy="24" r="1.6"/><circle cx="34" cy="150" r="1.4"/><circle cx="310" cy="20" r="1.4"/><circle cx="452" cy="140" r="1.6"/><circle cx="18" cy="360" r="1.4"/>
+        </g>
+        <ellipse cx="230" cy="424" rx="128" ry="12" fill="#05050F" opacity=".45"/>
+        <!-- light pouring out of the open box -->
+        <polygon class="beam" points="146,300 314,300 420,30 40,30" fill="url(#nbBeam)"/>
+        <!-- the inside of the box, seen when the lid is up -->
+        <rect x="140" y="290" width="180" height="14" rx="3" fill="#2E2466"/>
+        <ellipse class="beam" cx="230" cy="298" rx="86" ry="8" fill="#FFE3B3" opacity=".85"/>
+        <!-- the things that pop out (they rest hidden inside the box) -->
+        <g class="pop p1">
+          <path d="M178 348h36l-6 32h-24z" fill="#E0584E"/><path d="M190 348h7l-1 32h-5zM203 348h7l-2 32h-5z" fill="#FFF4D6"/>
+          <circle cx="184" cy="340" r="9" fill="#FFF4D6"/><circle cx="197" cy="334" r="10" fill="#F7D774"/><circle cx="209" cy="341" r="9" fill="#FFF4D6"/><circle cx="191" cy="326" r="7" fill="#FFF4D6"/><circle cx="204" cy="325" r="6" fill="#FFF4D6"/>
+        </g>
+        <g class="pop p2" style="--dl:.15s">
+          <path d="M232 322L236.4 333.9 249.1 334.4 239.1 342.3 242.6 354.6 232 347.5 221.4 354.6 224.9 342.3 214.9 334.4 227.6 333.9z" fill="#F5D58D"/>
+        </g>
+        <g class="pop p3" style="--dl:.3s">
+          <ellipse cx="262" cy="334" rx="17" ry="21" fill="#F5B98D"/><ellipse cx="256" cy="326" rx="4" ry="7" fill="#fff" opacity=".45"/>
+          <path d="M258 355h8l-4 6z" fill="#F5B98D"/><path d="M262 361q-6 12 2 24" fill="none" stroke="#F5B98D" stroke-width="1.4"/>
+        </g>
+        <g class="pop p4" style="--dl:.1s">
+          <rect x="203" y="318" width="12" height="22" rx="2" fill="#2A2440"/><rect x="200" y="338" width="18" height="5" fill="#2A2440"/>
+          <rect x="196" y="342" width="26" height="30" rx="8" fill="#E58FB0"/><rect x="201" y="347" width="4" height="18" rx="2" fill="#fff" opacity=".45"/>
+        </g>
+        <g class="pop p5" style="--dl:.4s">
+          <circle cx="252" cy="322" r="9" fill="#FFC86B" opacity=".35"/><path d="M252 314c5 6 6 10 0 14-6-4-5-8 0-14z" fill="#FFC86B"/>
+          <rect x="244" y="330" width="16" height="34" rx="3" fill="#F3EBDD"/><ellipse cx="252" cy="330" rx="8" ry="2.5" fill="#D9CDBA"/>
+        </g>
+        <!-- box front -->
+        <rect x="140" y="300" width="180" height="120" rx="8" fill="url(#nbBody)"/>
+        <rect x="220" y="300" width="20" height="120" fill="#F5B98D"/>
+        <rect x="140" y="300" width="180" height="10" fill="#1A1240" opacity=".25"/>
+        <g fill="#F5E3C0" opacity=".8">
+          <path d="M172 344l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M290 372l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/><path d="M184 394l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z"/><path d="M294 330l1.5 4 4 1.5-4 1.5-1.5 4-1.5-4-4-1.5 4-1.5z"/>
+        </g>
+        <!-- lid with a bow, hinged on its right corner -->
+        <g class="lid">
+          <rect x="130" y="270" width="200" height="34" rx="7" fill="#B6A3F7"/>
+          <rect x="130" y="296" width="200" height="8" rx="3" fill="#000" opacity=".12"/>
+          <rect x="220" y="270" width="20" height="34" fill="#F7C7A3"/>
+          <path d="M226 272l-12 26M234 272l12 26" stroke="#F5B98D" stroke-width="6" stroke-linecap="round"/>
+          <path d="M230 270c-14-26-46-26-40-6 4 12 26 10 40 6zM230 270c14-26 46-26 40-6-4 12-26 10-40 6z" fill="#F5B98D"/>
+          <circle cx="230" cy="270" r="7" fill="#E9A57A"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="boxes" aria-labelledby="boxesTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="boxesTitle">اختار جوّ السهرة</h2><p>تلات بوكسات جاهزة، وكل واحد بتلات أحجام. كبس على الحجم وبتشوف شو جوّا البوكس وقديش سعره.</p></div></div>
+    <div class="bx-grid" id="boxGrid"></div>
+  </div>
+</section>
+
+<section class="block how" aria-labelledby="howTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="howTitle">بتلات خطوات</h2></div></div>
+    <ol class="steps">
+      <li><span class="n num">١</span><div><h3>اختار البوكس</h3><p>أفلام، بنات، أو عيد ميلاد. كل بوكس إلو جوّه.</p></div></li>
+      <li><span class="n num">٢</span><div><h3>اختار الحجم</h3><p>صغير، للشلة، أو VIP. وبتشوف شو جوّا كل حجم قبل ما تطلب.</p></div></li>
+      <li><span class="n num">٣</span><div><h3>منوصله بنفس اليوم بدمشق</h3><p>اطلب قبل الساعة ٤ العصر وبيوصلك اليوم، وبتدفع عند الاستلام. باقي المحافظات خلال يومين لأربعة.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="addons" aria-labelledby="addonsTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="addonsTitle">زيدها شوي</h2><p>شغلات صغيرة بتفرق: ضو، بالون رقم، أو كرت بخط اليد. بتنحط جوّا البوكس نفسه.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+(() => {
+  // ---------- small drawing helpers ----------
+  const star5 = (x, y, R, f) => { let d = ''; for (let k = 0; k < 10; k++){ const r = k % 2 ? R * .45 : R, a = Math.PI / 5 * k - Math.PI / 2; d += (k ? 'L' : 'M') + (x + r * Math.cos(a)).toFixed(1) + ' ' + (y + r * Math.sin(a)).toFixed(1); } return `<path d="${d}z" fill="${f}"/>`; };
+  const star4 = (x, y, s, f, cls = '') => `<path ${cls} d="M${x} ${y-s}Q${x} ${y} ${x+s} ${y}Q${x} ${y} ${x} ${y+s}Q${x} ${y} ${x-s} ${y}Q${x} ${y} ${x} ${y-s}z" fill="${f}"/>`;
+
+  // ---------- the three boxes (names, contents and prices are the owner's to edit) ----------
+  // items starting with "+" are the extras a bigger size adds; they get a small tag
+  const HB = '«<span class="latin">Happy Birthday</span>»';
+  const BOXES = [
+    {id:'movie', latin:'Movie Night', name:'سهرة أفلام', bx:'#D8473F', bxt:'#FF9D8A', tag:'الأكثر طلباً',
+     desc:'فشار ومشروب وضو خفيف، وإنتو بس اختاروا الفيلم.', sizes:[
+      {name:'لشخصين', who:'لشخصين', price:15, items:['سطل فشار مع فشار لشخصين','٢ مشروب غازي','شوكولا وكيسين شيبس','٢ شمعة LED','سلسلة ضو صغيرة (٢ متر)']},
+      {name:'للشلة', who:'من ٤ لـ ٦ أشخاص', price:28, items:['٢ سطل فشار مع فشار للشلة','٦ مشروبات','شوكولا وشيبس للكل','٤ شموع LED','سلسلة ضو (٣ متر)']},
+      {name:'VIP', who:'للشلة، مع دلع زيادة', price:45, items:['٢ سطل فشار مع فشار للشلة','٦ مشروبات','شوكولا وشيبس للكل','٤ شموع LED','سلسلة ضو (٣ متر)','+بطانية صغيرة ناعمة','+علبة مكسرات']}]},
+    {id:'girls', latin:'Girls Night', name:'سهرة بنات', bx:'#F2A7B8', bxt:'#F7B8C8',
+     desc:'ماسكات ومناكير وشمعة ريحتها بتجنن، لسهرة حكي للصبح.', sizes:[
+      {name:'لشخصين', who:'لصاحبتين', price:15, items:['٢ ماسك للوجه','طقم مناكير ٣ ألوان','٢ سكرنشي','شمعة معطّرة صغيرة','سناكات خفيفة','سلسلة ضو صغيرة']},
+      {name:'للشلة', who:'من ٤ لـ ٦ بنات', price:28, items:['٦ ماسكات للوجه','طقم مناكير ٦ ألوان','٦ سكرنشي','شمعة معطّرة كبيرة','سناكات للشلة','سلسلة ضو (٣ متر)']},
+      {name:'VIP', who:'للشلة، مع دلع زيادة', price:45, items:['٦ ماسكات للوجه','طقم مناكير ٦ ألوان','٦ سكرنشي','شمعة معطّرة كبيرة','سناكات للشلة','سلسلة ضو (٣ متر)','+ماسك نوم ستان لكل وحدة','+لصقات عيون مرطّبة']}]},
+    {id:'birthday', latin:'Birthday', name:'عيد ميلاد', bx:'#8ED8C0', bxt:'#9EE6CF', tag:'حفلة بعلبة',
+     desc:'كل شي بدك ياه لتقلب الصالون لحفلة، إلا الكيك.', sizes:[
+      {name:'صغير', who:'لحفلة صغيرة بالبيت', price:12, items:['١٠ بالونات + بالون رقم',`لافتة ${HB}`,'١٢ شمعة للكيك','٤ قبعات حفلة','كيس كونفيتي','توبر للكيك']},
+      {name:'للحفلة', who:'لـ ١٠ أشخاص تقريباً', price:22, items:['٢٥ بالون + بالونين رقم',`لافتة ${HB} كبيرة`,'٢٤ شمعة + شمعة نافورة','١٠ قبعات حفلة','٢ كيس كونفيتي','توبر للكيك']},
+      {name:'VIP', who:'حفلة كاملة', price:38, items:['٤٠ بالون مع قوس بالونات','٢ بالون رقم فويل كبار',`لافتة ${HB} وستارة لامعة للحيط`,'٢٤ شمعة + شمعة نافورة','١٥ قبعة وزمامير','كونفيتي','+توبر مكتوب بالاسم']}]}
+  ];
+
+  // ---------- box drawings (viewBox 0 0 320 240): lid propped open behind, things peeking out, the front face on top ----------
+  const BULBS = [[103,156],[122,160],[141,158],[160,150],[179,142],[198,140],[217,143]];
+  const lights = cols => `<path d="M84 146Q122 172 160 150Q198 128 236 152" fill="none" stroke="#2A2440" stroke-width="1.6" opacity=".7"/>` +
+    BULBS.map(([x,y],i) => `<circle cx="${x}" cy="${y+5}" r="9" fill="${cols[i % cols.length]}" opacity=".22"/><circle class="twk" style="--dl:-${(i * .4).toFixed(1)}s" cx="${x}" cy="${y+5}" r="4.5" fill="${cols[i % cols.length]}"/>`).join('');
+  const badge = (t, f, w = 112, fs = 13) => `<rect x="${160 - w/2}" y="176" width="${w}" height="26" rx="13" fill="#1C1D3A" opacity=".9"/><text x="160" y="194" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="${fs}" letter-spacing="1.2" fill="${f}">${t}</text>`;
+  const shell = (b, items, front, extra = '') => `
+    <ellipse cx="160" cy="216" rx="106" ry="10" fill="#05050F" opacity=".35"/>
+    <g transform="rotate(-16 80 112)"><rect x="66" y="88" width="184" height="26" rx="6" fill="${b.lid}"/>${b.lidDeco || ''}<rect x="66" y="108" width="184" height="6" rx="3" fill="#000" opacity=".15"/></g>
+    <rect x="84" y="108" width="152" height="16" rx="3" fill="${b.inner}"/>
+    ${items}
+    <rect x="80" y="120" width="160" height="92" rx="7" fill="${b.body}"/>
+    ${front}
+    <rect x="80" y="120" width="160" height="7" fill="#000" opacity=".14"/>
+    ${star4(36, 44, 8, '#EEEAF8', 'class="twk"')}${star4(290, 70, 6, '#EEEAF8', 'class="twk" style="--dl:-1.3s"')}
+    ${extra}`;
+
+  const BOX_ART = {
+    movie: shell({body:'#D8473F', inner:'#6E1F1B', lid:'#B83A33', lidDeco:[96,126,156,186,216].map(x => `<rect x="${x}" y="88" width="14" height="26" fill="#F7E9D7" opacity=".85"/>`).join('')},
+      `<g class="peek" style="--dl:-1.2s"><g transform="rotate(-12 112 100)"><rect x="98" y="58" width="30" height="70" rx="3" fill="#5A3A2E"/><path d="M98 66h30M98 76h30M113 58v20" stroke="#3E271F" stroke-width="1.5"/><rect x="98" y="82" width="30" height="46" rx="2" fill="#F5B98D"/><path d="M98 82l5 4 5-4 5 4 5-4 5 4 5-4" fill="none" stroke="#E9A57A" stroke-width="1.4"/></g></g>
+       <g class="peek" style="--dl:-.5s"><path d="M184 72h34l-5 56h-24z" fill="#F3EBDD"/><path d="M185.6 90H216.4L215.3 102H186.7z" fill="#D8473F"/><rect x="181" y="64" width="40" height="9" rx="3" fill="#fff"/><path d="M206 64l10-28" stroke="#FF9D8A" stroke-width="4" stroke-linecap="round"/></g>
+       <g class="peek" style="--dl:-2s"><circle cx="158" cy="76" r="11" fill="#FFC86B" opacity=".3"/><path d="M158 66c5 6 6 10 0 14-6-4-5-8 0-14z" fill="#FFC86B"/><rect x="150" y="84" width="16" height="40" rx="3" fill="#F3EBDD"/></g>
+       <g class="peek" style="--dl:-.9s">${[[94,116,9],[108,110,11],[124,115,10],[140,109,11],[156,114,10],[172,110,11],[188,115,10],[204,111,11],[220,115,10],[232,118,8],[116,100,7],[146,98,8],[196,100,7]].map(([x,y,r],i) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${i % 3 ? '#FFF4D6' : '#F7D774'}"/>`).join('')}</g>`,
+      [92,122,152,182,212].map(x => `<rect x="${x}" y="120" width="14" height="92" fill="#F7E9D7" opacity=".9"/>`).join('') + lights(['#F7D774','#FF9D8A','#F3EBDD']) + badge('MOVIE NIGHT', '#F7D774'),
+      `<g class="vip"><ellipse cx="62" cy="214" rx="40" ry="6" fill="#05050F" opacity=".3"/><rect x="26" y="168" width="74" height="46" rx="23" fill="#B9A5F5"/><circle cx="92" cy="191" r="23" fill="#CDBDFA"/><path d="M92 191m-3 0a3 3 0 1 1 6 0a8 8 0 1 1-14 0a13 13 0 1 1 24 0a18 18 0 1 1-34 0" fill="none" stroke="#7B66C9" stroke-opacity=".5" stroke-width="1.6"/><rect x="50" y="167" width="10" height="48" rx="2" fill="#F5B98D"/></g>`),
+
+    girls: shell({body:'#F2A7B8', inner:'#8E4B5E', lid:'#E58FA4', lidDeco:'<rect x="150" y="88" width="16" height="26" fill="#B9A5F5"/>'},
+      `<g class="peek"><rect x="105" y="52" width="14" height="30" rx="3" fill="#2A2440"/><rect x="102" y="80" width="20" height="6" fill="#2A2440"/><rect x="96" y="84" width="32" height="44" rx="9" fill="#C86B9A"/><rect x="102" y="90" width="5" height="26" rx="2.5" fill="#fff" opacity=".4"/></g>
+       <g class="peek" style="--dl:-1s"><circle cx="160" cy="70" r="14" fill="#FFC86B" opacity=".3"/><path d="M160 60c5 6 6 10 0 14-6-4-5-8 0-14z" fill="#FFC86B"/><path d="M160 74v8" stroke="#2A2440" stroke-width="1.5"/><rect x="140" y="80" width="40" height="48" rx="6" fill="#FFF1E6" opacity=".95"/><ellipse cx="160" cy="84" rx="18" ry="4" fill="#F3DCCB"/><rect x="140" y="100" width="40" height="14" fill="#B9A5F5"/></g>
+       <g class="peek" style="--dl:-2s"><g transform="rotate(12 206 96)"><rect x="186" y="58" width="40" height="70" rx="6" fill="#B9A5F5"/><path d="M186 66h40" stroke="#fff" stroke-opacity=".5" stroke-width="2" stroke-dasharray="3 3"/><ellipse cx="206" cy="90" rx="11" ry="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M201 87h3M208 87h3M202 96q4 3 8 0" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></g></g>
+       <ellipse cx="230" cy="116" rx="15" ry="8" fill="none" stroke="#F5B98D" stroke-width="7" stroke-dasharray="4 2"/>`,
+      `<rect x="152" y="120" width="16" height="92" fill="#B9A5F5"/>` + [[96,136],[226,132],[100,204],[222,206],[132,130]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="3" fill="#fff" opacity=".45"/>`).join('') + lights(['#F3EBDD','#B9A5F5','#F7D774']) + badge('GIRLS NIGHT', '#F7B8C8', 104),
+      `<g class="vip"><path d="M208 188q-10 6-8 20M262 188q8 6 6 20" fill="none" stroke="#9C86EC" stroke-width="3" stroke-linecap="round"/><path d="M208 186c4-10 18-12 26-4 8-8 22-6 26 4 2 12-8 20-18 18-4-1-6-5-8-5s-4 4-8 5c-10 2-20-6-18-18z" fill="#B9A5F5"/><path d="M216 192q6 4 12 0M240 192q6 4 12 0" fill="none" stroke="#2A2440" stroke-width="1.6" stroke-linecap="round"/></g>`),
+
+    birthday: shell({body:'#8ED8C0', inner:'#2F7A65', lid:'#7CC8AF', lidDeco:'<rect x="150" y="88" width="16" height="26" fill="#F5B98D"/>'},
+      `<g class="peek" style="--dl:-.4s"><path d="M106 79q8 22 26 44" fill="none" stroke="#C9C4E0" stroke-width="1.2"/><ellipse cx="104" cy="52" rx="22" ry="27" fill="#F5B98D"/><ellipse cx="96" cy="42" rx="5" ry="9" fill="#fff" opacity=".4"/><path d="M100 78h8l-4 6z" fill="#F5B98D"/></g>
+       <g class="peek" style="--dl:-1.4s"><path d="M216 70q-10 26-28 52" fill="none" stroke="#C9C4E0" stroke-width="1.2"/><ellipse cx="216" cy="42" rx="22" ry="27" fill="#B9A5F5"/><ellipse cx="208" cy="32" rx="5" ry="9" fill="#fff" opacity=".4"/><path d="M212 68h8l-4 6z" fill="#B9A5F5"/></g>
+       <g class="peek" style="--dl:-2.2s"><path d="M160 92v30" stroke="#C9C4E0" stroke-width="1.2"/><text x="160" y="94" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="74" fill="#E8C26A">1</text></g>
+       <g class="peek" style="--dl:-.9s"><path d="M212 126L230 82L248 126z" fill="#F5B98D"/><path d="M219 112H241M225 98H235" stroke="#fff" stroke-opacity=".7" stroke-width="3"/><circle cx="230" cy="82" r="5" fill="#fff"/></g>`,
+      `<rect x="152" y="120" width="16" height="92" fill="#F5B98D"/><path d="M84 130Q160 156 236 130" fill="none" stroke="#1C1D3A" stroke-width="1.4" opacity=".6"/>` +
+        [0,1,2,3,4,5,6].map(i => { const t = (i + .5) / 7, x = 84 + 152 * t, y = 130 + 52 * t * (1 - t); return `<path d="M${(x-8).toFixed(1)} ${y.toFixed(1)}h16l-8 16z" fill="${['#F5B98D','#B9A5F5','#F5D58D','#FFFFFF'][i % 4]}"/>`; }).join('') +
+        [[96,170],[226,166],[110,204],[214,206]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="2.5" fill="#F5D58D"/>`).join('') + badge('HAPPY BIRTHDAY', '#F5D58D', 138, 11),
+      [[64,58,'#F5D58D',20],[252,30,'#B9A5F5',-30],[50,150,'#F5B98D',45],[270,150,'#F5D58D',-15]].map(([x,y,f,r]) => `<rect x="${x}" y="${y}" width="9" height="5" rx="1" fill="${f}" transform="rotate(${r} ${x} ${y})"/>`).join('') +
+        `<g class="vip"><path d="M58 114q12 6 24 8M266 106q-14 10-28 16" fill="none" stroke="#C9C4E0" stroke-width="1.2"/><ellipse cx="54" cy="92" rx="18" ry="22" fill="#F5D58D"/><path d="M51 113h6l-3 5z" fill="#F5D58D"/><ellipse cx="268" cy="84" rx="18" ry="22" fill="#F2A7B8"/><path d="M265 105h6l-3 5z" fill="#F2A7B8"/>${star5(160, 30, 10, '#F5D58D')}</g>`)
+  };
+
+  // ---------- render the box cards ----------
+  const boxGrid = document.getElementById('boxGrid');
+  boxGrid.innerHTML = BOXES.map((b, bi) => `
+    <article class="bx-card reveal" data-b="${bi}" data-i="0" style="--bx:${b.bx};--bxt:${b.bxt}">
+      <div class="bx-art">${b.tag ? `<span class="p-tag">${b.tag}</span>` : ''}<svg viewBox="0 0 320 240" role="img" aria-label="بوكس ${b.name}">${BOX_ART[b.id]}</svg></div>
+      <div class="bx-info">
+        <div><span class="latin bx-latin">${b.latin}</span><h3>بوكس ${b.name}</h3></div>
+        <p class="p-desc">${b.desc}</p>
+        <div class="opts" role="group" aria-label="حجم البوكس"><span>الحجم:</span>${b.sizes.map((s, i) => `<button class="opt" type="button" data-s="${i}" aria-pressed="${!i}">${s.name}</button>`).join('')}</div>
+        <p class="bx-who"></p>
+        <div class="bx-in"><h4>شو جوّا البوكس</h4><ul class="bx-list"></ul></div>
+        <div class="p-buy"><span class="price num" aria-live="polite"></span><button class="add" type="button">أضف البوكس للسلة</button></div>
+      </div>
+    </article>`).join('');
+
+  function fill(card, anim){
+    const b = BOXES[+card.dataset.b], s = b.sizes[+card.dataset.i], list = card.querySelector('.bx-list');
+    card.querySelector('.bx-who').textContent = s.who;
+    list.innerHTML = s.items.map(t => t[0] === '+' ? `<li class="plus">${t.slice(1)} <em>${s.name}</em></li>` : `<li>${t}</li>`).join('');
+    card.querySelector('.price').innerHTML = `${DC.money(s.price)} <small>تقريباً</small>`;
+    if (anim && !DC.reduce) list.animate([{opacity:0, transform:'translateY(6px)'}, {opacity:1, transform:'none'}], {duration:320, easing:'cubic-bezier(.2,.8,.2,1)'});
+  }
+  boxGrid.querySelectorAll('.bx-card').forEach(c => fill(c));
+  boxGrid.addEventListener('click', e => {
+    const card = e.target.closest('.bx-card'); if (!card) return;
+    const pick = e.target.closest('.opt');
+    if (pick){
+      card.dataset.i = pick.dataset.s;
+      card.querySelectorAll('.opt').forEach(o => o.setAttribute('aria-pressed', String(o === pick)));
+      fill(card, true);
+      return;
+    }
+    const btn = e.target.closest('.add'); if (!btn) return;
+    const b = BOXES[+card.dataset.b], s = b.sizes[+card.dataset.i];
+    DC.add({w:'night', id:b.id, name:'بوكس ' + b.name, opt:s.name, price:s.price}, btn);
+    btn.textContent = 'انضاف ✓'; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = 'أضف البوكس للسلة'; btn.classList.remove('done'); }, 1400);
+  });
+
+  // ---------- add-ons (standard product grid) ----------
+  const LILAC = {name:'ليلكي', c:'#B9A5F5'}, PEACH = {name:'خوخي', c:'#F5B98D'}, PINK = {name:'زهري', c:'#F2A7B8'};
+  const PRODUCTS = [
+    {id:'starlights', art:'stars',      name:'سلسلة ضو نجوم',       desc:'نجوم LED ببطاريات، ٣ متر، للشباك أو فوق التلفزيون.', price:6, opts:[{name:'أصفر دافي', c:'#F5D58D'}, LILAC, PINK], tag:'بتحلّي أي سهرة'},
+    {id:'numballoon', art:'numballoon', name:'بالون رقم',            desc:'بالون فويل ٨٠ سم. اكتبلنا الرقم بالملاحظات وقت تطلب.', price:3, opts:[{name:'ذهبي', c:'#E3BC63'}, {name:'فضي', c:'#C9CCD8'}, PINK]},
+    {id:'ledcandles', art:'candles',    name:'شموع LED',             desc:'٦ شموع بلا نار ولا دخان، ضوها بيرجف متل الشمع الحقيقي.', price:4, opts:[{name:'كريمي', c:'#F3EBDD'}, {name:'ليلكي', c:'#C9B8F8'}, PEACH]},
+    {id:'handcard',   art:'card',       name:'كرت إهداء مكتوب بخط اليد', desc:'اكتبلنا شو بدك بالملاحظات، ومنكتبه بخط إيدنا ومنحطه جوّا البوكس.', price:1, opts:[LILAC, PEACH, {name:'نعناعي', c:'#8ED8C0'}]},
+    {id:'popcorn',    art:'popcorn',    name:'فشار إضافي',           desc:'كيس فشار كبير جاهز، بيكفي ٤ أشخاص.', price:2, optLabel:'الطعمة', opts:[{name:'مالح'}, {name:'كراميل'}, {name:'جبنة'}]},
+    {id:'blanket',    art:'blanket',    name:'بطانية صغيرة',         desc:'بطانية فرو ناعمة ١٢٠×١٥٠ سم، ملفوفة بشريطة.', price:12, opts:[LILAC, {name:'رمادي', c:'#9C99B5'}, PEACH]}
+  ];
+  const FLAVOUR = {'مالح':'#FFF4D6', 'كراميل':'#E2A85C', 'جبنة':'#F6C94C'};
+  const taper = x0 => (70 + (x0 - 58) * 60 / 84).toFixed(1);   // popcorn bucket stripes follow the bucket's slope
+  const ART = {
+    stars: c => `<path d="M10 46Q100 146 190 46" fill="none" stroke="#8B86A8" stroke-width="1.6"/>` +
+      [0,1,2,3,4,5].map(i => { const t = (i + .5) / 6, x = +(10 + 180 * t).toFixed(1), y = +(46 + 200 * t * (1 - t)).toFixed(1), l = 16 + (i % 2) * 18;
+        return `<path d="M${x} ${y}v${l}" stroke="#8B86A8" stroke-width="1.2"/><circle cx="${x}" cy="${y + l + 12}" r="17" fill="${c}" opacity=".2"/>${star5(x, y + l + 12, 13, c)}`; }).join(''),
+    numballoon: c => `<path d="M100 166q-8 10 0 18t0 14" fill="none" stroke="#8B86A8" stroke-width="1.4"/>
+      <text x="100" y="160" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="170" fill="${c}">7</text>
+      <text x="96" y="156" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="170" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2">7</text>
+      ${star4(40, 50, 9, c)}${star4(166, 60, 7, '#fff')}`,
+    candles: c => `<ellipse cx="100" cy="172" rx="74" ry="6" fill="#000" opacity=".22"/>` +
+      [[46,70],[86,96],[126,60]].map(([x,h]) => { const cx = x + 15, top = 170 - h;
+        return `<circle cx="${cx}" cy="${top - 14}" r="14" fill="#FFC86B" opacity=".25"/><path d="M${cx} ${top - 26}c6 8 7 13 0 18-7-5-6-10 0-18z" fill="#FFC86B"/>
+          <rect x="${x}" y="${top}" width="30" height="${h}" rx="4" fill="${c}"/><rect x="${x + 5}" y="${top + 8}" width="5" height="${h - 16}" rx="2.5" fill="#fff" opacity=".35"/><ellipse cx="${cx}" cy="${top}" rx="15" ry="4" fill="#000" opacity=".12"/>`; }).join(''),
+    card: c => `<g transform="rotate(8 100 110)"><rect x="40" y="60" width="124" height="88" rx="6" fill="${c}"/><path d="M40 64l62 46 62-46" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="2"/></g>
+      <g transform="rotate(-7 100 110)"><rect x="34" y="70" width="120" height="84" rx="6" fill="#FBF6EE"/>
+        <text x="94" y="104" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="20" fill="#5B4FA0">سهرة حلوة</text>
+        <path d="M54 122q10-6 20 0t20 0 20 0 20 0M60 138q10-5 20 0t20 0 18 0" fill="none" stroke="#9A90C8" stroke-width="1.6" stroke-linecap="round"/>${star5(136, 86, 7, c)}</g>`,
+    popcorn: (c, o) => { const k = FLAVOUR[o && o.name] || '#FFF4D6';
+      return `<ellipse cx="100" cy="184" rx="44" ry="5" fill="#000" opacity=".22"/>` +
+        [[48,78,12],[66,66,14],[86,58,15],[106,56,15],[126,62,14],[146,74,12],[60,86,12],[80,80,13],[100,76,14],[120,80,13],[140,88,11],[96,44,10],[74,50,9],[120,46,9]]
+          .map(([x,y,r],i) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${k}"/>${i % 3 ? '' : `<circle cx="${x - r/3}" cy="${y - r/3}" r="${r/3}" fill="#fff" opacity=".5"/>`}`).join('') +
+        `<path d="M58 92H142L130 182H70z" fill="#D8473F"/>` +
+        [66,90,114].map(x => `<path d="M${x} 92h12L${taper(x + 12)} 182H${taper(x)}z" fill="#FBF3E4"/>`).join('') +
+        `<path d="M58 92H142" stroke="#fff" stroke-width="4" stroke-linecap="round"/>`; },
+    blanket: c => `<ellipse cx="100" cy="166" rx="78" ry="8" fill="#000" opacity=".22"/>
+      <rect x="26" y="88" width="128" height="72" rx="36" fill="${c}"/><rect x="26" y="124" width="128" height="36" rx="18" fill="#000" opacity=".12"/>
+      <circle cx="148" cy="124" r="36" fill="${c}"/><circle cx="148" cy="124" r="36" fill="#fff" opacity=".12"/>
+      <path d="M148 124m-4 0a4 4 0 1 1 8 0a10 10 0 1 1-18 0a16 16 0 1 1 30 0a22 22 0 1 1-42 0a28 28 0 1 1 52 2" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="2"/>
+      <rect x="72" y="86" width="14" height="76" rx="3" fill="#F5B98D"/>`
+  };
+  const DEF = {stars:'#F5D58D', numballoon:'#E3BC63', candles:'#F3EBDD', card:'#B9A5F5', blanket:'#B9A5F5'};
+  DC.renderGrid(document.getElementById('grid'), 'night', PRODUCTS, (p, o) => ART[p.art]((o && o.c) || DEF[p.art], o));
+
+  document.getElementById('when').innerHTML = DC.WORLDS.night.icon + 'كل يوم، مو بس بالمناسبات';
+  DCScene(document.querySelector('.w-hero .fx'), {type:'spark', colors:['#B9A5F5','#F5B98D','#FFFFFF'], count:36, dir:-1});
+})();
+</script>
+</body>
+</html>

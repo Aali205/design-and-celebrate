@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد الحب · Design & Celebrate</title>
+<meta name="description" content="هدايا عيد الحب: دباديب، علب ورد بشكل قلب، قلب نيون LED وشموع رومانسية، ملفوفة مع كرت إهداء وتوصيل لكل سوريا والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Valentine's: a soft evening in deep wine. One gift-wrapped heart beats (two quick pulses, then rest), rings of light leave it on every beat, small hearts circle it slowly. */
+.w-hero{background:radial-gradient(60% 80% at 22% 42%,rgb(233 137 159/.2) 0,transparent 62%),radial-gradient(55% 70% at 88% 92%,rgb(243 200 160/.12) 0,transparent 65%),radial-gradient(45% 55% at 72% 8%,rgb(158 47 78/.35) 0,transparent 70%),var(--bg)}
+.beat{transform-box:view-box;transform-origin:230px 242px;animation:beat 1.6s ease-in-out infinite}
+@keyframes beat{0%,40%,100%{transform:scale(1)}8%{transform:scale(1.09)}16%{transform:scale(.98)}24%{transform:scale(1.06)}}
+/* one ring per beat: two rings, 3.2 s each, half a cycle apart */
+.ring{transform-box:view-box;transform-origin:230px 242px;opacity:0;animation:ring 3.2s cubic-bezier(.2,.6,.3,1) infinite;animation-delay:var(--dl,0s)}
+@keyframes ring{0%{transform:scale(.96);opacity:0}6%{opacity:.75}100%{transform:scale(1.5);opacity:0}}
+/* the orbit turns; each small heart turns back the other way so it stays upright */
+.orbit{transform-box:view-box;transform-origin:230px 242px;animation:spin 30s linear infinite}
+.mini{transform-box:fill-box;transform-origin:center;animation:spin 30s linear infinite reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.lovecard{transform-box:view-box;transform-origin:318px 413px;animation:sway 5s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-6deg)}to{transform:rotate(2deg)}}
+.twk{animation:twk 2.4s ease-in-out infinite alternate;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+@keyframes twk{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body data-world="valentine">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-valentine" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">قلبك بهدية<span>بتوصل لحالها</span></h1>
+      <p class="lede">دباديب، علب ورد بشكل قلب، وقلب نيون بيضوّي الغرفة. منلفّلك الهدية ومنحطّلك كرت باسمك، ومنوصلها للي بتحبه وبتدفع عند الاستلام. وإذا إجى برمضان، منوصلها بعد الفطور.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">تسوّق هدايا عيد الحب</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٠٪ على هدايا عيد الحب <b>LOVE10</b><button type="button" data-copy-code="LOVE10">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470">
+        <defs>
+          <radialGradient id="vHeart" cx="38%" cy="30%" r="78%"><stop offset="0" stop-color="#F6AFBF"/><stop offset=".55" stop-color="#E07A93"/><stop offset="1" stop-color="#B24A67"/></radialGradient>
+          <radialGradient id="vHalo"><stop offset="0" stop-color="#E9899F" stop-opacity=".42"/><stop offset="1" stop-color="#E9899F" stop-opacity="0"/></radialGradient>
+          <clipPath id="vClip"><path d="M230 372C150 318 96 266 96 196C96 148 132 112 178 112C204 112 220 126 230 144C240 126 256 112 282 112C328 112 364 148 364 196C364 266 310 318 230 372Z"/></clipPath>
+        </defs>
+        <!-- a soft evening glow behind everything -->
+        <circle cx="230" cy="244" r="215" fill="url(#vHalo)"/>
+        <!-- glow rings that leave the heart on each beat -->
+        <g fill="none" stroke-width="2.5" stroke-linejoin="round">
+          <path class="ring" stroke="#E9899F" d="M230 372C150 318 96 266 96 196C96 148 132 112 178 112C204 112 220 126 230 144C240 126 256 112 282 112C328 112 364 148 364 196C364 266 310 318 230 372Z"/>
+          <path class="ring" style="--dl:-1.6s" stroke="#F3C8A0" d="M230 372C150 318 96 266 96 196C96 148 132 112 178 112C204 112 220 126 230 144C240 126 256 112 282 112C328 112 364 148 364 196C364 266 310 318 230 372Z"/>
+        </g>
+        <!-- small hearts on a slow orbit -->
+        <g class="orbit">
+          <g transform="translate(409 309) scale(1.4)"><path class="mini" d="M0 9C-6 5-10 2-10-2C-10-5-8-8-5-8C-3-8-1-7 0-5C1-7 3-8 5-8C8-8 10-5 10-2C10 2 6 5 0 9Z" fill="#F3C8A0"/></g>
+          <g transform="translate(85 366) scale(1.1)"><path class="mini" d="M0 9C-6 5-10 2-10-2C-10-5-8-8-5-8C-3-8-1-7 0-5C1-7 3-8 5-8C8-8 10-5 10-2C10 2 6 5 0 9Z" fill="#E9899F"/></g>
+          <g transform="translate(197 57) scale(1.2)"><path class="mini" d="M0 9C-6 5-10 2-10-2C-10-5-8-8-5-8C-3-8-1-7 0-5C1-7 3-8 5-8C8-8 10-5 10-2C10 2 6 5 0 9Z" fill="#F7C6D0"/></g>
+          <g transform="translate(51 179) scale(.8)"><path class="mini" d="M0 9C-6 5-10 2-10-2C-10-5-8-8-5-8C-3-8-1-7 0-5C1-7 3-8 5-8C8-8 10-5 10-2C10 2 6 5 0 9Z" fill="#F3C8A0"/></g>
+          <g transform="translate(376 122) scale(.9)"><path class="mini" d="M0 9C-6 5-10 2-10-2C-10-5-8-8-5-8C-3-8-1-7 0-5C1-7 3-8 5-8C8-8 10-5 10-2C10 2 6 5 0 9Z" fill="#E9899F"/></g>
+        </g>
+        <!-- the big heart, wrapped like a gift -->
+        <g class="beat">
+          <path d="M230 372C150 318 96 266 96 196C96 148 132 112 178 112C204 112 220 126 230 144C240 126 256 112 282 112C328 112 364 148 364 196C364 266 310 318 230 372Z" fill="url(#vHeart)"/>
+          <g clip-path="url(#vClip)">
+            <rect x="217" y="100" width="26" height="290" fill="#F3C8A0"/>
+            <rect x="80" y="231" width="300" height="26" fill="#F3C8A0"/>
+            <path d="M222 100v290M238 100v290M80 236h300M80 252h300" stroke="#D9A27A" stroke-width="1.5" opacity=".7"/>
+          </g>
+          <path d="M136 192C134 160 152 136 180 132" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="10" stroke-linecap="round"/>
+          <!-- bow -->
+          <path d="M224 250L204 302L216 298L222 310L236 252Z" fill="#E7B184"/>
+          <path d="M236 250L258 300L245 297L240 309L226 252Z" fill="#D9A27A"/>
+          <path d="M230 244C200 206 158 212 166 240C172 264 206 260 230 244Z" fill="#F3C8A0"/>
+          <path d="M230 244C260 206 302 212 294 240C288 264 254 260 230 244Z" fill="#F3C8A0"/>
+          <path d="M230 244C210 222 184 222 184 238C186 250 208 252 230 244ZM230 244C250 222 276 222 276 238C274 250 252 252 230 244Z" fill="#D9A27A" opacity=".6"/>
+          <ellipse cx="230" cy="244" rx="12" ry="13" fill="#EBB98E"/>
+        </g>
+        <g class="lovecard">
+          <rect x="304" y="392" width="114" height="42" rx="10" fill="#F7E8EB" stroke="#F3C8A0" stroke-width="2"/>
+          <circle cx="318" cy="413" r="4" fill="#25111C"/>
+          <text x="370" y="421" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="20" fill="#9E2F4E">من القلب</text>
+        </g>
+        <g fill="#F3C8A0">
+          <path class="twk" d="M70 100l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+          <path class="twk" style="--dl:-1s" d="M420 230l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+          <path class="twk" style="--dl:-1.8s" d="M40 290l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">هدايا عيد الحب</h2><p>اختار اللون أو الحجم تحت كل هدية وضيفها لسلتك. كل هدية بتوصل ملفوفة مع كرت إهداء، والسلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and colours are the owner's to edit) ----------
+  const RED = {name:'أحمر', c:'#C8394F'}, ROSE = {name:'وردي', c:'#E9899F'}, WHITE = {name:'أبيض', c:'#F7EDEF'}, WINE = {name:'خمري', c:'#8E2E48'},
+        PEACH = {name:'خوخي', c:'#F3C8A0'}, IVORY = {name:'عاجي', c:'#F4E6D4'}, GOLD = {name:'ذهبي', c:'#E8B46E'};
+  const PRODUCTS = [
+    {id:'teddy',    art:'teddy',    name:'دبدوب مع قلب',         desc:'دبدوب ناعم ماسك قلب، بيوصل ملفوف مع كرت إهداء.', price:9, optLabel:'الحجم',
+      opts:[{name:'٣٠ سم', price:9}, {name:'٥٠ سم', price:15}, {name:'٨٠ سم', price:26}], tag:'الأكثر طلباً'},
+    {id:'rosebox',  art:'rosebox',  name:'علبة ورد بشكل قلب',    desc:'علبة قلب مليانة ورد صابون، ريحتها طيبة وما بتدبل.', price:18, opts:[RED, ROSE, WHITE, WINE], tag:'هدية جاهزة'},
+    {id:'neon',     art:'neon',     name:'قلب نيون LED للحيط',   desc:'بيضوّي الغرفة ضو ناعم، بيشتغل USB أو ببطاريات.', price:12, opts:[ROSE, RED, {name:'أبيض دافي', c:'#FCE3C4'}]},
+    {id:'balloons', art:'balloons', name:'بالونات قلوب',          desc:'٢٠ بالون فويل بشكل قلب مع شريط، للحيط أو السقف.', price:6, opts:[ROSE, RED, GOLD]},
+    {id:'candles',  art:'candles',  name:'طقم شموع LED رومانسية', desc:'٦ شمعات بلا نار، ضوها بيرجف متل الحقيقية.', price:11, opts:[IVORY, ROSE, WINE]},
+    {id:'photos',   art:'photos',   name:'سلسلة صور مع ضو',       desc:'٣ متر فيها ٢٠ لمبة و٢٠ مشبك خشب لصوركن سوا.', price:7, opts:[PEACH, ROSE], tag:'جديد'}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour, i = the chosen option's index) ----------
+  // a heart outline in unit space (-1..1 wide, -0.8..1 tall), scaled by s around (x, y)
+  const HP = [[0,1],[-.6,.62],[-1,.3],[-1,-.2],[-1,-.55],[-.74,-.8],[-.45,-.8],[-.24,-.8],[-.08,-.68],[0,-.5],[.08,-.68],[.24,-.8],[.45,-.8],[.74,-.8],[1,-.55],[1,-.2],[1,.3],[.6,.62],[0,1]];
+  const hp = (x, y, s) => { const p = HP.map(([a, b]) => `${+(x + a * s).toFixed(1)} ${+(y + b * s).toFixed(1)}`); return `M${p[0]}C${p.slice(1).join(' ')}Z`; };
+  const heart = (x, y, s, attrs) => `<path d="${hp(x, y, s)}" ${attrs}/>`;
+  const rose = (x, y, r, c) => `<circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><path d="M${x - r * .55} ${y + r * .1}a${r * .55} ${r * .55} 0 1 1 ${r * .5} ${r * .5}M${x} ${y - r * .2}a${r * .28} ${r * .28} 0 1 0 ${r * .3} ${r * .25}" fill="none" stroke="#000" stroke-opacity=".22" stroke-width="1.5" stroke-linecap="round"/>`;
+  const ART = {
+    teddy: (c, i) => { const FUR = '#C89B7B', LT = '#E8C6A6', DK = '#4A2A22', s = [.8, .9, 1][i] || 1;
+      return `<ellipse cx="100" cy="186" rx="${62 * s}" ry="7" fill="#000" opacity=".28"/>
+      <g transform="translate(100 184) scale(${s}) translate(-100 -184)">
+        <circle cx="66" cy="56" r="16" fill="${FUR}"/><circle cx="66" cy="56" r="8" fill="${LT}"/><circle cx="134" cy="56" r="16" fill="${FUR}"/><circle cx="134" cy="56" r="8" fill="${LT}"/>
+        <ellipse cx="100" cy="138" rx="46" ry="44" fill="${FUR}"/><ellipse cx="100" cy="146" rx="28" ry="26" fill="${LT}"/>
+        <circle cx="100" cy="80" r="40" fill="${FUR}"/>
+        <ellipse cx="100" cy="95" rx="18" ry="14" fill="${LT}"/><ellipse cx="100" cy="89" rx="6" ry="4.5" fill="${DK}"/>
+        <path d="M100 93v5M94 99q6 4 12 0" fill="none" stroke="${DK}" stroke-width="1.8" stroke-linecap="round"/>
+        <circle cx="85" cy="76" r="4.2" fill="${DK}"/><circle cx="115" cy="76" r="4.2" fill="${DK}"/><circle cx="86.5" cy="74.5" r="1.3" fill="#fff"/><circle cx="116.5" cy="74.5" r="1.3" fill="#fff"/>
+        <circle cx="76" cy="91" r="5" fill="#E9899F" opacity=".45"/><circle cx="124" cy="91" r="5" fill="#E9899F" opacity=".45"/>
+        <ellipse cx="68" cy="172" rx="18" ry="13" fill="${FUR}"/><ellipse cx="132" cy="172" rx="18" ry="13" fill="${FUR}"/><ellipse cx="68" cy="174" rx="10" ry="7" fill="${LT}"/><ellipse cx="132" cy="174" rx="10" ry="7" fill="${LT}"/>
+        ${heart(100, 138, 30, 'fill="#D65C78"')}<path d="M80 128q2-8 10-9" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="3" stroke-linecap="round"/>
+        <ellipse cx="74" cy="140" rx="12" ry="19" fill="${FUR}" transform="rotate(32 74 140)"/><ellipse cx="126" cy="140" rx="12" ry="19" fill="${FUR}" transform="rotate(-32 126 140)"/>
+      </g>`; },
+    rosebox: c => `<ellipse cx="100" cy="190" rx="64" ry="7" fill="#000" opacity=".28"/>
+      ${heart(100, 112, 74, 'fill="#1E0C16"')}${heart(100, 102, 74, 'fill="#2E1522" stroke="#E2B57E" stroke-width="2"')}
+      ${[[68,72,15],[132,72,15],[100,80,12],[46,100,14],[73,100,14],[100,102,14],[127,100,14],[154,100,14],[59,126,14],[86,126,14],[114,126,14],[141,126,14],[87,150,13],[113,150,13],[100,164,9]].map(([x,y,r]) => rose(x, y, r, c)).join('')}`,
+    neon: c => `<circle cx="100" cy="96" r="80" fill="${c}" opacity=".1"/>
+      <rect x="30" y="28" width="140" height="132" rx="14" fill="#fff" fill-opacity=".05" stroke="#fff" stroke-opacity=".16"/>
+      ${[[40,38],[160,38],[40,150],[160,150]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="2.6" fill="#fff" opacity=".35"/>`).join('')}
+      ${heart(100, 92, 50, `fill="none" stroke="${c}" stroke-width="16" stroke-opacity=".22" stroke-linejoin="round"`)}
+      ${heart(100, 92, 50, `fill="none" stroke="${c}" stroke-width="6" stroke-linejoin="round"`)}
+      ${heart(100, 92, 50, 'fill="none" stroke="#fff" stroke-width="1.8" stroke-opacity=".8" stroke-linejoin="round"')}
+      <path d="M100 160v10q0 10 12 10h38" fill="none" stroke="#8C6A78" stroke-width="2"/><rect x="150" y="175" width="18" height="10" rx="2" fill="#8C6A78"/>`,
+    balloons: c => `<g fill="none" stroke="#CDAEB8" stroke-width="1.3" opacity=".75"><path d="M62 136Q78 164 102 186"/><path d="M108 126Q100 158 102 186"/><path d="M150 144Q128 166 102 186"/></g>
+      ${heart(62, 98, 32, 'fill="#E8B46E"')}<path d="M62 130l-3 6h6z" fill="#E8B46E"/><ellipse cx="48" cy="86" rx="5" ry="9" fill="#fff" opacity=".35" transform="rotate(-30 48 86)"/>
+      ${heart(150, 108, 30, 'fill="#F7DCE2"')}<path d="M150 138l-3 6h6z" fill="#F7DCE2"/><ellipse cx="137" cy="96" rx="5" ry="8" fill="#fff" opacity=".5" transform="rotate(-30 137 96)"/>
+      ${heart(108, 74, 46, `fill="${c}"`)}<path d="M108 120l-4 6h8z" fill="${c}"/><ellipse cx="86" cy="58" rx="7" ry="13" fill="#fff" opacity=".35" transform="rotate(-35 86 58)"/>
+      ${heart(102, 190, 7, `fill="${c}"`)}`,
+    candles: c => `<circle cx="100" cy="112" r="78" fill="#F3C8A0" opacity=".1"/>
+      <ellipse cx="100" cy="172" rx="82" ry="12" fill="#4C2A3D"/>
+      ${[[64,98,28],[100,74,32],[137,110,26]].map(([x,t,w]) => `<circle cx="${x}" cy="${t - 12}" r="18" fill="#F3C8A0" opacity=".22"/>
+        <rect x="${x - w / 2}" y="${t}" width="${w}" height="${170 - t}" rx="5" fill="${c}"/>
+        <rect x="${x + w * .18}" y="${t}" width="${w * .32}" height="${170 - t}" rx="4" fill="#000" opacity=".12"/>
+        <ellipse cx="${x}" cy="${t}" rx="${w / 2}" ry="4" fill="#fff" opacity=".28"/>
+        <path d="M${x} ${t - 26}c6 8 9 13 9 17a9 9 0 0 1-18 0c0-4 3-9 9-17z" fill="#F6CF95"/>
+        <path d="M${x} ${t - 17}c3 4 4.5 6.5 4.5 8.5a4.5 4.5 0 0 1-9 0c0-2 1.5-4.5 4.5-8.5z" fill="#FFF6E6"/>`).join('')}
+      ${heart(100, 128, 9, 'fill="#fff" opacity=".45"')}
+      ${[[34,176,25],[166,175,-30],[128,182,60],[70,183,-50]].map(([x,y,r]) => `<ellipse cx="${x}" cy="${y}" rx="7" ry="3.6" fill="#C8576F" transform="rotate(${r} ${x} ${y})"/>`).join('')}`,
+    photos: c => { const TINTS = ['#C8576F','#F3C8A0','#7A3550','#E9899F'], q = (t, y0) => [8 + 184 * t, y0 + 100 * t * (1 - t)];
+      return [26, 104].map((y0, k) => `<path d="M8 ${y0}Q100 ${y0 + 50} 192 ${y0}" fill="none" stroke="#8C6A78" stroke-width="1.6"/>
+        ${[.2, .4, .6, .8].map((t, i) => { const [x, y] = q(t, y0); return `<g transform="rotate(${(i + k) % 2 ? 6 : -6} ${x} ${y})"><rect x="${x - 15}" y="${y + 4}" width="30" height="38" rx="2" fill="#F7EDEF"/><rect x="${x - 12}" y="${y + 7}" width="24" height="24" fill="${TINTS[(i + k * 2) % 4]}"/>${heart(x, y + 19, 6, 'fill="#fff" opacity=".7"')}<rect x="${x - 2.5}" y="${y - 5}" width="5" height="13" rx="1.2" fill="#C99A6B"/></g>`; }).join('')}
+        ${[.1, .3, .5, .7, .9].map(t => { const [x, y] = q(t, y0); return `<circle cx="${x}" cy="${y + 5}" r="11" fill="${c}" opacity=".25"/><rect x="${x - 2}" y="${y - 1}" width="4" height="4" fill="#5A3A48"/><ellipse cx="${x}" cy="${y + 7}" rx="3.6" ry="5" fill="${c}"/>`; }).join('')}`).join(''); }
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'valentine', PRODUCTS, (p, o) => ART[p.art]((o && o.c) || '#E9899F', p.opts ? p.opts.indexOf(o) : 0));
+  const d = DC.daysLeft('valentine');
+  document.getElementById('when').innerHTML = DC.WORLDS.valentine.icon + `عيد الحب${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'heart', colors:['#E9899F','#F3C8A0','#F7C6D0','#C8576F'], count:28, dir:-1});
+})();
+</script>
+</body>
+</html>

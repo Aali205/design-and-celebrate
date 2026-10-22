@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد الأم · Design & Celebrate</title>
+<meta name="description" content="هدايا عيد الأم: ورد بيعيش، شموع معطّرة، كاسات وعلب هدايا مغلّفة مع كرت بكلامك، توصيل لكل سوريا والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Mother's Day: a tender gift for «ست الحبايب». Blush and sage, a kraft-wrapped bouquet that blooms flower by flower. */
+.w-hero{background:radial-gradient(70% 90% at 12% 25%,#F8E2DE 0,transparent 60%),radial-gradient(60% 80% at 92% 85%,#E4ECDF 0,transparent 65%),var(--bg)}
+/* each flower opens ring by ring from its own centre (local origin 0 0), one flower after another (--d) */
+.fl > *{transform-box:view-box;transform-origin:0 0;animation:bloom 1s cubic-bezier(.2,.8,.3,1.12) var(--d,0s) both}
+.fl > :nth-child(2){animation-delay:calc(var(--d,0s) + .14s)}
+.fl > :nth-child(3){animation-delay:calc(var(--d,0s) + .28s)}
+.fl > :nth-child(4){animation-delay:calc(var(--d,0s) + .4s)}
+@keyframes bloom{from{opacity:0;transform:scale(0) rotate(-50deg)}to{opacity:1;transform:none}}
+/* leaves, buds and the card sway around their own base, starting and ending at rest */
+.lv{transform-box:view-box;transform-origin:0 0;animation:sway var(--t,6s) ease-in-out infinite}
+@keyframes sway{0%,100%{transform:rotate(0)}30%{transform:rotate(4deg)}70%{transform:rotate(-4deg)}}
+/* once everything is open, the whole bouquet breathes very gently */
+.bq{transform-box:view-box;transform-origin:230px 380px;animation:breathe 4.5s ease-in-out 2.4s infinite alternate}
+@keyframes breathe{to{transform:scale(1.018)}}
+.bb{animation:fade .8s ease 1.9s both}
+@keyframes fade{from{opacity:0}}
+.cardin{animation:drop .8s cubic-bezier(.2,.8,.3,1.2) 2s both}
+@keyframes drop{from{opacity:0;transform:translateY(-16px)}}
+.tagcard{transform-box:view-box;transform-origin:236px 374px;animation:sway 5s ease-in-out 2.8s infinite}
+.twk{animation:twk 2.4s ease-in-out infinite alternate;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+@keyframes twk{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+/* reduced motion: brand.css shortens every animation; drop the delays too so the open bouquet shows at once */
+@media (prefers-reduced-motion:reduce){.w-art *{animation-delay:0s!important}}
+</style>
+</head>
+<body data-world="mother">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-mother" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">لست الحبايب<span>هدية بتضل عندها</span></h1>
+      <p class="lede">ورد بيعيش وما بيدبل، شموع معطّرة، كاسات وعلب هدايا. منغلّفها ومنوصلك ياها قبل ٢١ آذار، بتدفع عند الاستلام، ومنحطلها كرت مكتوب عليه كلامك إنت.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">اختار هديتها</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٥٪ على هدايا الأم <b>MAMA15</b><button type="button" data-copy-code="MAMA15">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470">
+        <defs>
+          <path id="pt" d="M0 0C-13-7-15-29 0-37C15-29 13-7 0 0z"/>
+          <g id="r1" fill="currentColor" stroke="#5A2333" stroke-opacity=".13" stroke-width="1.5"><use href="#pt"/><use href="#pt" transform="rotate(45)"/><use href="#pt" transform="rotate(90)"/><use href="#pt" transform="rotate(135)"/><use href="#pt" transform="rotate(180)"/><use href="#pt" transform="rotate(225)"/><use href="#pt" transform="rotate(270)"/><use href="#pt" transform="rotate(315)"/></g>
+          <g id="r2" fill="currentColor" stroke="#5A2333" stroke-opacity=".13" stroke-width="1.5"><use href="#pt" transform="rotate(30) scale(.7)"/><use href="#pt" transform="rotate(90) scale(.7)"/><use href="#pt" transform="rotate(150) scale(.7)"/><use href="#pt" transform="rotate(210) scale(.7)"/><use href="#pt" transform="rotate(270) scale(.7)"/><use href="#pt" transform="rotate(330) scale(.7)"/></g>
+          <g id="r3" fill="currentColor" stroke="#5A2333" stroke-opacity=".13" stroke-width="1.5"><use href="#pt" transform="rotate(10) scale(.42)"/><use href="#pt" transform="rotate(82) scale(.42)"/><use href="#pt" transform="rotate(154) scale(.42)"/><use href="#pt" transform="rotate(226) scale(.42)"/><use href="#pt" transform="rotate(298) scale(.42)"/></g>
+          <g id="lf"><path d="M0 0C-10-14-10-38 0-52C10-38 10-14 0 0z" fill="currentColor"/><path d="M0-5V-45" stroke="#fff" stroke-opacity=".35" stroke-width="1.2"/></g>
+          <g id="eu"><path d="M0 0Q5-40-2-80" fill="none" stroke="#7E967A" stroke-width="2"/><g fill="currentColor"><circle cx="-8" cy="-18" r="8"/><circle cx="10" cy="-32" r="8.5"/><circle cx="-7" cy="-48" r="7.5"/><circle cx="8" cy="-62" r="6.5"/><circle cx="-2" cy="-80" r="5"/></g></g>
+          <g id="bud"><path d="M0 0V-36" stroke="#7E967A" stroke-width="2"/><path d="M0-32c-8-5-9-16 0-25 9 9 8 20 0 25z" fill="currentColor"/><path d="M0-30c-6 1-9-3-9-9 4 0 8 3 9 9zm0 0c6 1 9-3 9-9-4 0-8 3-9 9z" fill="#7E967A"/></g>
+          <path id="ht" d="M0 6C-9 0-10-6-5-8-2.5-9 0-7 0-5 0-7 2.5-9 5-8 10-6 9 0 0 6z"/>
+        </defs>
+        <!-- a soft blush disc and a dotted ring behind the bouquet -->
+        <circle cx="230" cy="214" r="176" fill="#F4DFDD" opacity=".7"/>
+        <circle cx="230" cy="214" r="198" fill="none" stroke="#E2BFC0" stroke-width="1.6" stroke-dasharray="1 9" stroke-linecap="round"/>
+        <ellipse cx="231" cy="462" rx="72" ry="7" fill="#5A2333" opacity=".07"/>
+        <g class="bq">
+          <!-- kraft paper, back sheet -->
+          <path d="M118 214L138 136 186 176 222 110 262 168 318 128 346 214 252 372H208z" fill="#E8CFAC"/>
+          <path d="M186 176L214 330M262 168L246 330" stroke="#D7B68C" stroke-width="1.5" opacity=".7"/>
+          <!-- greenery: eucalyptus, leaves and two rosebuds, each swaying from its base -->
+          <g transform="translate(176 236) rotate(-96) scale(1.15)"><use class="lv" href="#eu" color="#B3C4AC" style="--t:7s"/></g>
+          <g transform="translate(286 236) rotate(96) scale(1.15)"><use class="lv" href="#eu" color="#A9BDA2" style="--t:6.4s"/></g>
+          <g transform="translate(160 214) rotate(-78) scale(1.35)"><use class="lv" href="#lf" color="#8FA98A" style="--t:5.6s"/></g>
+          <g transform="translate(166 178) rotate(-46) scale(1.15)"><use class="lv" href="#lf" color="#728F6E" style="--t:6.2s"/></g>
+          <g transform="translate(300 214) rotate(76) scale(1.35)"><use class="lv" href="#lf" color="#728F6E" style="--t:6s"/></g>
+          <g transform="translate(294 176) rotate(44) scale(1.15)"><use class="lv" href="#lf" color="#A9BDA2" style="--t:5.2s"/></g>
+          <g transform="translate(212 132) rotate(-30) scale(1.4)"><use class="lv" href="#bud" color="#C97D8D" style="--t:5.8s"/></g>
+          <g transform="translate(252 126) rotate(24) scale(1.3)"><use class="lv" href="#bud" color="#E3A3B0" style="--t:6.6s"/></g>
+          <g transform="translate(232 128) rotate(-4) scale(1.2)"><use class="lv" href="#lf" color="#8FA98A" style="--t:7.2s"/></g>
+          <!-- six flowers, drawn back to front; --d sets the bloom order (centre first) -->
+          <g class="fl" transform="translate(232 120) scale(.75)" style="--d:1.55s"><use href="#r1" color="#F8EDE4"/><use href="#r2" color="#EFD9CB"/><use href="#r3" color="#E3C2AF"/><circle r="5" fill="#C9957E"/></g>
+          <g class="fl" transform="translate(186 150) scale(.9)" style="--d:1.05s"><use href="#r1" color="#EBB2BC"/><use href="#r2" color="#DD97A5"/><use href="#r3" color="#C97D8D"/><circle r="5" fill="#A35F70"/></g>
+          <g class="fl" transform="translate(278 148) scale(.95)" style="--d:1.3s"><use href="#r1" color="#F4D6D2"/><use href="#r2" color="#EBBDBB"/><use href="#r3" color="#DCA3A3"/><circle r="5" fill="#B97C7E"/></g>
+          <g class="fl" transform="translate(172 214) scale(1.05)" style="--d:.55s"><use href="#r1" color="#F0BDBE"/><use href="#r2" color="#E6A3A9"/><use href="#r3" color="#D48990"/><circle r="5" fill="#B06A73"/></g>
+          <g class="fl" transform="translate(290 212) scale(1.1)" style="--d:.8s"><use href="#r1" color="#F6E6DA"/><use href="#r2" color="#EED3C3"/><use href="#r3" color="#E2BBA7"/><circle r="5" fill="#C49079"/></g>
+          <g class="fl" transform="translate(230 194) scale(1.35)" style="--d:.3s"><use href="#r1" color="#DD9AA8"/><use href="#r2" color="#CB7F91"/><use href="#r3" color="#B5687C"/><circle r="5" fill="#8F4A5E"/></g>
+          <!-- baby's breath -->
+          <g class="bb" fill="#FFFDFB" stroke="#E6D3CF">
+            <circle cx="140" cy="178" r="4"/><circle cx="148" cy="169" r="3.5"/><circle cx="131" cy="187" r="3"/><circle cx="146" cy="187" r="3"/><circle cx="135" cy="167" r="3"/>
+            <circle cx="324" cy="176" r="4"/><circle cx="316" cy="167" r="3.5"/><circle cx="333" cy="185" r="3"/><circle cx="318" cy="185" r="3"/><circle cx="329" cy="165" r="3"/>
+            <circle cx="206" cy="104" r="3.5"/><circle cx="198" cy="97" r="3"/><circle cx="213" cy="95" r="3"/>
+            <circle cx="258" cy="100" r="3.5"/><circle cx="266" cy="92" r="3"/><circle cx="251" cy="91" r="3"/>
+          </g>
+          <!-- kraft paper, front flaps and the flare under the tie -->
+          <path d="M110 222C160 258 214 262 268 248L252 372H210z" fill="#DBB083"/>
+          <path d="M352 218C312 258 262 266 196 258L208 372H252z" fill="#CC9C6D"/>
+          <path d="M352 218C312 258 262 266 196 258M197 262L209 368" fill="none" stroke="#E6C195" stroke-width="2"/>
+          <path d="M210 370H252L272 452Q231 466 190 452z" fill="#CC9C6D"/>
+          <path d="M231 370H252L272 452Q252 460 238 462z" fill="#BE8C5E"/>
+          <!-- dusty-rose ribbon and bow -->
+          <rect x="206" y="360" width="50" height="15" rx="5" fill="#A9526C"/>
+          <path d="M226 372L206 420 218 414 223 426 236 376z" fill="#A9526C"/>
+          <path d="M236 372L258 418 246 413 242 425 227 376z" fill="#9C4A62"/>
+          <path d="M231 368C204 332 172 342 182 362 189 378 214 376 231 368zM231 368C258 332 290 342 280 362 273 378 248 376 231 368z" fill="#B9647D"/>
+          <path d="M231 368C212 344 192 348 196 360 200 368 216 370 231 368zM231 368C250 344 270 348 266 360 262 368 246 370 231 368z" fill="#93435A" opacity=".35"/>
+          <ellipse cx="231" cy="368" rx="9" ry="8" fill="#93435A"/>
+          <!-- the little card hanging from the ribbon -->
+          <g class="cardin"><g class="tagcard">
+            <path d="M236 374C246 384 258 394 268 410" fill="none" stroke="#8A6A70" stroke-width="1.4"/>
+            <rect x="206" y="402" width="124" height="46" rx="10" fill="#FFF9F8" stroke="#E3B7BF" stroke-width="1.5"/>
+            <circle cx="268" cy="410" r="2.5" fill="#E3B7BF"/>
+            <text x="268" y="437" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="22" fill="#A9526C">لأحلى ماما</text>
+          </g></g>
+        </g>
+        <!-- small twinkling hearts -->
+        <g fill="#D9A0AC"><g transform="translate(86 116)"><use class="twk" href="#ht"/></g><g transform="translate(396 300) scale(.8)"><use class="twk" href="#ht" style="--dl:-1.6s"/></g></g>
+        <g fill="#A9BDA2"><g transform="translate(382 92)"><use class="twk" href="#ht" style="--dl:-1s"/></g><g transform="translate(66 312) scale(.8)"><use class="twk" href="#ht" style="--dl:-2s"/></g></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">هدايا عيد الأم</h2><p>اختار اللون أو الحجم تحت كل هدية وضيفها لسلتك. اكتبلنا بالملاحظات شو بدك ينكتب عالكرت، ومنكتبلك ياه. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and colours are the owner's to edit) ----------
+  const PINK = {name:'وردي', c:'#D98A9C'}, WINE = {name:'خمري', c:'#9E4A5E'}, CREAM = {name:'كريمي', c:'#EAD7C3'}, LILAC = {name:'ليلكي', c:'#B8A1C9'}, SAGE = {name:'أخضر مريمية', c:'#9DB396'};
+  const PRODUCTS = [
+    {id:'bouquet', art:'bouquet', name:'بوكيه ورد بيعيش',            desc:'ورد ناعم ما بيدبل، ملفوف بورق كرافت وشريطة. بيضل عندها سنين.', price:18, opts:[PINK, WINE, CREAM, LILAC], tag:'الأكثر طلباً'},
+    {id:'dome',    art:'dome',    name:'وردة بالقبّة الزجاجية مع ضو', desc:'وردة محفوظة تحت قبّة زجاج مع ضو LED دافي، بتشتغل ببطاريات.',  price:14, opts:[{name:'خمري', c:'#A8475E'}, {name:'وردي', c:'#DE97A6'}, LILAC]},
+    {id:'mug',     art:'mug',     name:'كوب «ست الحبايب»',           desc:'كوب سيراميك مكتوب عليه «ست الحبايب» بخط حلو، بعلبته.',       price:6,  opts:[{name:'وردي', c:'#E2A3AF'}, SAGE, CREAM]},
+    {id:'candle',  art:'candle',  name:'شمعة معطّرة بعلبة هدية',      desc:'شمعة صويا بعلبة مع شريطة، بتعبّي البيت ريحة حلوة.',           price:9,  optLabel:'الريحة', opts:[{name:'ورد جوري', c:'#E3A6B0'}, {name:'فانيليا', c:'#E8D2A8'}, {name:'لافندر', c:'#B7A6CF'}]},
+    {id:'giftbox', art:'giftbox', name:'علبة هدية للأم',             desc:'فيها شمعة، كوب، وردة وكرت بكلامك. منختارها ومنغلّفها عنك.',    price:15, optLabel:'الحجم', opts:[{name:'صغيرة', price:15, s:.78}, {name:'وسط', price:22, s:.9}, {name:'كبيرة', price:30, s:1}], tag:'هدية جاهزة'},
+    {id:'frame',   art:'frame',   name:'إطار صور مضوّي',             desc:'إطار لصورة ١٠×١٥ مع ضو حواليه، بيشتغل ببطاريات أو USB.',      price:11, opts:[{name:'وردي', c:'#D99AA8'}, {name:'أبيض', c:'#EFE6DC'}, {name:'ذهبي', c:'#CFAE72'}]}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour) ----------
+  const PT = 'M0 0C-13-7-15-29 0-37C15-29 13-7 0 0z';
+  // a rose seen from above: three rings of petals with a soft shadow between them
+  const rose = (x, y, r, c) => `<g transform="translate(${x} ${y}) scale(${(r / 37).toFixed(3)})" stroke="#5A2333" stroke-opacity=".14" stroke-width="1.5">` +
+    [[8,1,0],[6,.7,30],[5,.42,12]].map(([n,s,o],k) => (k ? `<circle r="${(28*s).toFixed(1)}" fill="#5A2333" opacity=".1" stroke="none"/>` : '') +
+      Array.from({length:n}, (_,i) => `<path d="${PT}" fill="${c}" transform="rotate(${o + i * 360 / n}) scale(${s})"/>`).join('')).join('') +
+    `<circle r="5" fill="#5A2333" opacity=".22" stroke="none"/></g>`;
+  const leaf = (x, y, a, s, f) => `<path d="M0 0C-10-14-10-38 0-52C10-38 10-14 0 0z" fill="${f}" transform="translate(${x} ${y}) rotate(${a}) scale(${s})"/>`;
+  const heart = (x, y, s, f) => `<path d="M0 6C-9 0-10-6-5-8-2.5-9 0-7 0-5 0-7 2.5-9 5-8 10-6 9 0 0 6z" fill="${f}" transform="translate(${x} ${y}) scale(${s})"/>`;
+  const bow = (x, y, c) => `<path d="M${x} ${y}c-12-16-28-12-24-2 3 7 14 6 24 2zm0 0c12-16 28-12 24-2-3 7-14 6-24 2z" fill="${c}" stroke="#FFF9F8" stroke-opacity=".6" stroke-width="1.2"/><circle cx="${x}" cy="${y}" r="4.5" fill="${c}"/><circle cx="${x}" cy="${y}" r="4.5" fill="#000" opacity=".15"/>`;
+  const led = (x, y) => `<circle cx="${x}" cy="${y}" r="5" fill="#F6D98A" opacity=".4"/><circle cx="${x}" cy="${y}" r="2" fill="#FFF1C8"/>`;
+  const ART = {
+    bouquet: c => `<ellipse cx="100" cy="190" rx="30" ry="5" fill="#000" opacity=".08"/>
+      <path d="M50 96L66 52 92 78 104 42 124 76 146 54 152 98 108 162H92z" fill="#E6CBA6"/>
+      ${leaf(70,104,-62,1,'#8FA98A')}${leaf(132,104,62,1,'#728F6E')}${leaf(88,84,-28,.9,'#A9BDA2')}${leaf(114,82,26,.9,'#8FA98A')}
+      ${rose(100,60,20,'#F4E6DA')}${rose(74,90,24,c)}${rose(128,88,24,c)}${rose(100,100,22,c)}
+      <path d="M44 104Q90 128 138 116L110 172H92z" fill="#D9AE80"/><path d="M158 102Q120 132 66 122L90 172h20z" fill="#CB9A6B"/>
+      <path d="M91 160L84 190Q100 195 116 190L109 160z" fill="#CB9A6B"/>
+      <rect x="88" y="156" width="24" height="9" rx="3" fill="${c}"/><path d="M98 163l-10 22 6-3 3 6 5-24zM102 163l10 22-6-3-3 6-5-24z" fill="${c}"/>${bow(100,160,c)}`,
+    dome: c => `<ellipse cx="100" cy="184" rx="58" ry="6" fill="#000" opacity=".08"/>
+      <circle cx="100" cy="88" r="40" fill="${c}" opacity=".16"/>
+      <path d="M100 156V100" stroke="#6F8B69" stroke-width="3"/>${leaf(100,142,-58,.5,'#728F6E')}${leaf(100,130,54,.45,'#8FA98A')}
+      ${rose(100,88,24,c)}
+      ${[[70,128],[84,112],[118,114],[132,128],[80,146],[120,146],[100,124]].map(([x,y]) => led(x, y)).join('')}
+      <path d="M56 158V80a44 44 0 0 1 88 0v78z" fill="#E8F1F1" fill-opacity=".35" stroke="#B9CBCA" stroke-width="2"/>
+      <path d="M68 142V84a32 32 0 0 1 16-27" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity=".75"/>
+      <rect x="44" y="154" width="112" height="9" rx="3" fill="#CFA27A"/><path d="M48 163h104v8q0 8-8 8H56q-8 0-8-8z" fill="#B98A62"/>`,
+    mug: c => `<ellipse cx="96" cy="180" rx="52" ry="6" fill="#000" opacity=".08"/>
+      <path d="M80 54q-6-10 0-18M100 52q-6-10 0-18M120 54q-6-10 0-18" fill="none" stroke="#C9AEB2" stroke-width="2.5" stroke-linecap="round" opacity=".7"/>
+      <path d="M142 94h6a20 20 0 0 1 0 40h-6" fill="none" stroke="${c}" stroke-width="10"/>
+      <path d="M48 70h96v80q0 24-24 24H72q-24 0-24-24z" fill="${c}"/>
+      <ellipse cx="96" cy="70" rx="48" ry="8" fill="${c}"/><ellipse cx="96" cy="70" rx="48" ry="8" fill="#fff" opacity=".35"/><ellipse cx="96" cy="71" rx="42" ry="5.5" fill="#8A5A44"/>
+      <path d="M56 82v58" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".3"/>
+      <rect x="62" y="92" width="68" height="58" rx="12" fill="#FFF9F8"/>
+      <text x="96" y="116" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="17" fill="#7A3348">ست</text>
+      <text x="96" y="139" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="17" fill="#7A3348">الحبايب</text>
+      ${heart(96,162,.6,'#FFF9F8')}`,
+    candle: c => `<ellipse cx="100" cy="184" rx="66" ry="6" fill="#000" opacity=".08"/>
+      <g transform="rotate(-12 160 118)"><rect x="128" y="100" width="56" height="18" rx="3" fill="#E7D3C8"/><rect x="150" y="100" width="12" height="18" fill="${c}"/></g>
+      <circle cx="100" cy="50" r="26" fill="#F6D98A" opacity=".25"/>
+      <path d="M100 66v-8" stroke="#5A4A44" stroke-width="2"/>
+      <path d="M100 58c-6-6-5-14 0-22 5 8 6 16 0 22z" fill="#F2BE5E"/><path d="M100 57c-3-3-2.5-7 0-11 2.5 4 3 8 0 11z" fill="#FCE9B6"/>
+      <rect x="66" y="66" width="68" height="84" rx="12" fill="${c}"/><rect x="66" y="66" width="68" height="12" rx="6" fill="#fff" opacity=".35"/>
+      <path d="M74 84v34" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity=".35"/>
+      <rect x="80" y="86" width="40" height="26" rx="6" fill="#FFF9F8"/>${heart(100,99,.8,c)}
+      <path d="M38 122h124v50q0 6-6 6H44q-6 0-6-6z" fill="#F3E6DE"/><path d="M38 122h124v6H38z" fill="#000" opacity=".06"/>
+      <rect x="38" y="140" width="124" height="11" fill="${c}"/>${bow(62,145,c)}`,
+    giftbox: (c, o) => { const s = (o && o.s) || 1; return `<ellipse cx="100" cy="182" rx="${62 * s}" ry="6" fill="#000" opacity=".08"/>
+      <g transform="translate(100 176) scale(${s}) translate(-100 -176)">
+        <rect x="46" y="96" width="108" height="80" rx="6" fill="#EDC3C8"/>
+        <g opacity=".55">${[[64,118],[134,152],[66,160],[136,114]].map(([x,y]) => heart(x, y, .6, '#fff')).join('')}</g>
+        <rect x="92" y="96" width="16" height="80" fill="${c}"/>
+        <rect x="40" y="80" width="120" height="22" rx="5" fill="#E3ABB5"/><rect x="92" y="80" width="16" height="22" fill="${c}"/><rect x="40" y="96" width="120" height="6" fill="#000" opacity=".06"/>
+        <path d="M100 80c-10-22-38-26-34-8 3 12 22 10 34 8zm0 0c10-22 38-26 34-8-3 12-22 10-34 8z" fill="${c}"/>
+        <path d="M100 80c-8-14-24-16-22-6" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="2"/>
+        <circle cx="100" cy="80" r="7" fill="${c}"/><circle cx="100" cy="80" r="7" fill="#000" opacity=".15"/>
+        <g transform="rotate(12 150 102)"><path d="M150 102v12" stroke="#8A6A70" stroke-width="1.2"/><rect x="134" y="114" width="32" height="24" rx="4" fill="#FFF9F8"/>${heart(150,127,.7,c)}</g>
+      </g>`; },
+    frame: c => `<ellipse cx="100" cy="184" rx="50" ry="6" fill="#000" opacity=".08"/>
+      <path d="M118 160l18 22" stroke="#B98A62" stroke-width="5" stroke-linecap="round"/>
+      <rect x="44" y="30" width="112" height="140" rx="10" fill="${c}" stroke="#5A2333" stroke-opacity=".12" stroke-width="1.5"/>
+      <rect x="58" y="44" width="84" height="112" rx="4" fill="#FFF9F8"/><rect x="64" y="50" width="72" height="88" rx="2" fill="#F4DFDD"/>
+      <path d="M64 120q20-14 36-4t36-6v28H64z" fill="#C7D3BF"/>
+      <circle cx="92" cy="88" r="10" fill="#B9707F"/><path d="M76 126q0-24 16-24t16 24z" fill="#B9707F"/>
+      <circle cx="112" cy="100" r="7.5" fill="#D99AA6"/><path d="M101 126q0-18 11-18t11 18z" fill="#D99AA6"/>
+      ${heart(104,68,.7,'#E3A3B0')}${heart(100,148,.55,c)}
+      ${Array.from({length:7}, (_,i) => led(54 + i * 15.3, 37) + led(54 + i * 15.3, 163) + led(51, 52 + i * 16) + led(149, 52 + i * 16)).join('')}`
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'mother', PRODUCTS, (p, o) => ART[p.art]((o && o.c) || '#A9526C', o));
+  const d = DC.daysLeft('mother');
+  document.getElementById('when').innerHTML = DC.WORLDS.mother.icon + `عيد الأم${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'petal', colors:['#E7B3BC','#F2CFCB','#D39AA7','#B5C6AE'], count:34, dir:1});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>رمضان · Design & Celebrate</title>
+<meta name="description" content="فوانيس رمضان النحاسية والزجاج الملوّن، قناديل وزينة للبيت والحارة، مع توصيل لكل سوريا والدفع عند الاستلام.">
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Layout: a Ramadan night in an old Damascus lane. Lanterns hang over the hero, ablaq (striped stone) bands divide sections, the shop sits under the light. */
+:root{
+  color-scheme: dark;              /* one committed look: the page is the night */
+  --night:#0F2335;                 /* Damascus night, teal-indigo */
+  --night-2:#16314A;               /* raised surface */
+  --night-3:#1E3F5C;               /* lines, borders */
+  --brass:#D9A84E;                 /* lantern metal, primary accent */
+  --brass-deep:#A87526;
+  --plaster:#F2E8D5;               /* text, like lime plaster */
+  --plaster-dim:#BFB49F;
+  --rose:#C9445F; --emerald:#2E9A73; --sky:#4C8CC4; --amber:#F0B43C;   /* lantern glass */
+  --display:"Aref Ruqaa","Amiri","Traditional Arabic",serif;
+  --body:"IBM Plex Sans Arabic","Segoe UI","Tahoma",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--night);color:var(--plaster);font-family:var(--body);font-size:17px;line-height:1.75}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--night)}
+.site{overflow-x:clip;position:relative;z-index:1}
+/* the night scene (one fanous on a table) is the page background; sections sit over it as tinted night glass */
+#nightBg{position:fixed;inset:0;width:100%;height:100%;z-index:0;filter:saturate(.72) contrast(1.06);pointer-events:none}
+.wrap{max-width:1180px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+a{color:var(--brass)}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.25;text-wrap:balance;margin:0}
+h2{font-size:clamp(2rem,4.4vw,3rem);color:var(--brass)}
+h3{font-size:1.45rem}
+p{margin:0}
+button{font-family:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:6px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding-block:0 56px;background:linear-gradient(rgba(15,35,53,.55),transparent 300px)}
+.garland{position:relative;z-index:2;height:300px;margin-bottom:-40px;pointer-events:none;
+  clip-path:inset(0 -100vw -100vh -100vw)}   /* hide only the extra string above the roof; lanterns can hang below the box freely */
+.garland svg.rope{position:absolute;inset:0;width:100%;height:120px}
+/* each lantern is lowered and raised on its string (bob), and swings (sway); the string is longer than needed and starts above the clip, so it always reaches the roof */
+.hang{position:absolute;top:calc(-1 * var(--amp,40px));animation:bob var(--bd,5s) cubic-bezier(.45,0,.55,1) infinite alternate;animation-delay:var(--bdelay,0s)}
+.hang .swing{transform-origin:50% 0;animation:sway var(--d,6s) ease-in-out infinite alternate;animation-delay:var(--delay,0s)}
+@keyframes bob{from{transform:translateY(0)}to{transform:translateY(var(--amp,40px))}}
+.hang .str{width:2px;background:linear-gradient(var(--brass-deep),var(--brass));margin-inline:auto}
+@keyframes sway{from{transform:rotate(-2.6deg)}to{transform:rotate(2.6deg)}}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
+.hero h1,.hero .lede{text-shadow:0 2px 18px rgba(5,8,12,.9)}
+.hero h1{font-size:clamp(2.6rem,6.6vw,4.9rem);color:var(--plaster);line-height:1.15}
+.hero h1 span{display:block;color:var(--brass)}
+.lede{font-size:1.15rem;color:var(--plaster-dim);max-width:34em;margin-top:18px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 26px;font-weight:600;font-size:1.02rem;text-decoration:none;cursor:pointer;border:1.5px solid var(--brass)}
+.btn.solid{background:var(--brass);color:#1d1406}
+.btn.ghost{background:transparent;color:var(--brass)}
+.btn.solid:hover{background:var(--amber);border-color:var(--amber)}
+.btn.ghost:hover{background:rgba(217,168,78,.12)}
+.countdown{display:flex;gap:10px;align-items:stretch;margin-top:34px;flex-wrap:wrap}
+.countdown .cell{background:var(--night-2);border:1px solid var(--night-3);border-radius:14px;padding:10px 16px;text-align:center;min-width:84px}
+.countdown .cell b{display:block;font-size:2rem;line-height:1.1;color:var(--amber);font-variant-numeric:tabular-nums}
+.countdown .cell span{font-size:.85rem;color:var(--plaster-dim)}
+.countdown .label{align-self:center;font-size:.92rem;color:var(--plaster-dim);max-width:13em;line-height:1.5}
+.hero-lamp{position:relative;min-height:440px}   /* empty on purpose: the background fanous stands here */
+.hero-lamp .arch{position:absolute;inset:6% 12% 0;border-radius:999px 999px 0 0;overflow:hidden;
+  background:repeating-linear-gradient(0deg,#1a2a38 0 26px,#2a3f52 26px 52px);opacity:.55;
+  -webkit-mask:linear-gradient(#000 60%,transparent);mask:linear-gradient(#000 60%,transparent)}
+#heroLamp{position:relative;width:100%;display:flex;justify-content:center}
+.hero-lamp svg{position:relative;width:min(100%,380px);height:auto;filter:drop-shadow(0 30px 60px rgba(240,180,60,.25))}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.hero-lamp{order:-1;min-height:360px}.hero-lamp svg{width:min(70%,280px)}.garland{height:220px;margin-bottom:-30px}}
+/* the big fanous: its light dims low and rises again, and it floats gently */
+#heroLamp svg{animation:breathe 3.6s ease-in-out infinite alternate,float 7s ease-in-out infinite alternate}
+#heroLamp .glowc{animation:glowp 3.6s ease-in-out infinite alternate}
+#heroLamp .flame{animation:flick 1.6s ease-in-out infinite alternate,flamep 3.6s ease-in-out infinite alternate}
+@keyframes breathe{from{filter:brightness(.6) saturate(.85) drop-shadow(0 10px 16px rgba(240,180,60,.06))}to{filter:brightness(1.15) saturate(1.1) drop-shadow(0 30px 80px rgba(240,180,60,.6))}}
+@keyframes glowp{from{opacity:.2}to{opacity:1}}
+@keyframes flamep{from{opacity:.45}to{opacity:1}}
+@keyframes float{from{transform:translateY(-8px)}to{transform:translateY(8px)}}
+.hero-lamp .arch{animation:archp 3.6s ease-in-out infinite alternate}
+@keyframes archp{from{opacity:.35}to{opacity:.65}}
+
+/* ---------- moon scroll story: the moon wanes to nothing, then the hilal appears and Ramadan begins ---------- */
+.moonscroll{position:relative;height:340vh;background:linear-gradient(rgba(8,19,31,0),#08131F 14%,#08131F 86%,rgba(15,35,53,.9))}
+.moonstage{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.sky{position:absolute;inset:0;width:100%;height:100%}
+.sky circle{animation:twinkle var(--t,3s) ease-in-out infinite alternate;animation-delay:var(--td,0s)}
+@keyframes twinkle{from{opacity:.15}to{opacity:.95}}
+.moon{position:absolute;left:50%;top:44%;width:min(64vw,340px);aspect-ratio:1;max-width:100%;transform:translate(-50%,-50%) rotate(var(--rot,0deg)) scale(var(--ms,1))}
+.moon svg{width:100%;height:100%;overflow:visible}
+.mtext{position:absolute;left:0;right:0;bottom:9%;text-align:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mline{position:absolute;left:0;right:0;bottom:0;display:grid;gap:6px;justify-items:center}
+.mline b{font-family:var(--display);font-size:clamp(1.8rem,5vw,2.8rem);color:var(--plaster);font-weight:700}
+.mline span{color:var(--plaster-dim);font-size:1.05rem}
+.kareem b{font-size:clamp(3.4rem,13vw,8rem);line-height:1.1;color:var(--brass);text-shadow:0 0 40px rgba(240,180,60,.45),0 0 90px rgba(240,180,60,.25)}
+.kareem span{color:var(--plaster);font-size:1.15rem}
+.descend{position:absolute;top:0;left:0;right:0;height:62%;pointer-events:none}
+.descend .dl{position:absolute;top:0;transform:translateY(calc(-100% + var(--down,0) * 100%))}
+.descend .dl .str{width:2px;margin-inline:auto;background:linear-gradient(var(--brass-deep),var(--brass))}
+.descend .dl svg{display:block;width:100%;transform-origin:50% 0;animation:sway var(--d,5s) ease-in-out infinite alternate}
+.scrollhint{position:absolute;left:50%;bottom:2.5%;transform:translateX(-50%);font-size:.85rem;color:var(--plaster-dim);display:flex;flex-direction:column;align-items:center;gap:4px}
+.scrollhint i{width:2px;height:28px;background:linear-gradient(var(--brass),transparent);animation:hint 1.6s ease-in-out infinite}
+@keyframes hint{from{transform:scaleY(.3);transform-origin:top}to{transform:scaleY(1);transform-origin:top}}
+.moonscroll.static{height:auto}
+.moonscroll.static .moonstage{position:relative;height:640px}
+
+/* ablaq: Damascene black-and-white striped stone, used as a divider */
+.ablaq{height:18px;background:repeating-linear-gradient(90deg,var(--plaster) 0 34px,#22313d 34px 68px);opacity:.85}
+
+/* ---------- promises strip ---------- */
+.promises{background:rgba(22,49,74,.84)}
+.promises .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding-block:28px}
+.promise{display:flex;gap:14px;align-items:flex-start}
+.promise svg{flex:none;width:38px;height:38px}
+.promise b{display:block;font-size:1.02rem}
+.promise span{font-size:.92rem;color:var(--plaster-dim);line-height:1.55}
+@media (max-width:900px){.promises .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.promises .wrap{grid-template-columns:1fr}}
+
+/* ---------- sections ---------- */
+section.block{padding-block:72px;background:rgba(15,35,53,.86)}
+.head{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;margin-bottom:28px}
+.head p{color:var(--plaster-dim);max-width:36em}
+
+/* ---------- catalog ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px}
+.chip{background:transparent;color:var(--plaster);border:1px solid var(--night-3);border-radius:999px;padding:7px 16px;font-size:.95rem;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--plaster);color:var(--night);border-color:var(--plaster)}
+.chip:hover{border-color:var(--brass)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.card{background:var(--night-2);border:1px solid var(--night-3);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.card .pic{position:relative;aspect-ratio:1/1;max-width:100%;display:grid;place-items:center;
+  background:radial-gradient(60% 55% at 50% 48%,var(--glow,rgba(240,180,60,.28)),transparent 70%),#112A40}
+.card .pic svg{width:72%;height:auto;transform-origin:50% 0;animation:cardbob var(--cd,4.6s) ease-in-out infinite alternate;animation-delay:var(--cdl,0s)}
+@keyframes cardbob{0%{transform:translateY(-10px) rotate(-2deg)}50%{transform:translateY(2px) rotate(1.5deg)}100%{transform:translateY(9px) rotate(-1deg)}}
+.tag{position:absolute;top:12px;inset-inline-start:12px;background:var(--rose);color:#fff;font-size:.8rem;font-weight:600;border-radius:999px;padding:3px 12px}
+.tag.green{background:var(--emerald)}
+.card .info{padding:16px 18px 18px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card h3{font-size:1.4rem;color:var(--plaster)}
+.spec{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.88rem;color:var(--plaster-dim)}
+.swatches{display:flex;gap:8px;align-items:center;font-size:.88rem;color:var(--plaster-dim)}
+.sw{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;padding:0;box-shadow:inset 0 0 0 2px rgba(0,0,0,.25)}
+.sw[aria-pressed="true"]{border-color:var(--plaster)}
+.buy{display:flex;align-items:center;justify-content:space-between;margin-top:auto;padding-top:6px;gap:10px}
+.price{font-size:1.45rem;font-weight:600;color:var(--amber)}
+.price small{font-size:.8rem;color:var(--plaster-dim);font-weight:400}
+.add{background:transparent;border:1.5px solid var(--brass);color:var(--brass);border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer;font-size:.95rem}
+.add:hover{background:var(--brass);color:#1d1406}
+.add.done{background:var(--emerald);border-color:var(--emerald);color:#fff}
+.note{font-size:.9rem;color:var(--plaster-dim);margin-top:22px}
+
+/* ---------- steps ---------- */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s;list-style:none;padding:0;margin:0}
+.steps li{position:relative;padding:22px 20px;border-top:3px solid var(--brass);background:linear-gradient(180deg,rgba(217,168,78,.08),transparent)}
+.steps li::before{counter-increment:s;content:counter(s,arabic-indic);font-family:var(--display);font-size:2.6rem;color:var(--brass);line-height:1;display:block;margin-bottom:8px}
+.steps b{display:block;font-size:1.1rem;margin-bottom:4px}
+.steps span{color:var(--plaster-dim);font-size:.95rem}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.steps{grid-template-columns:1fr}}
+
+/* ---------- delivery ---------- */
+section.block.delivery{background:rgba(22,49,74,.88)}
+.deliv-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:40px;align-items:start}
+.cities{width:100%;border-collapse:collapse;font-size:.98rem}
+.cities th,.cities td{text-align:start;padding:11px 8px;border-bottom:1px solid var(--night-3)}
+.cities th{color:var(--plaster-dim);font-weight:500;font-size:.88rem}
+.cities td.num{color:var(--amber)}
+.wholesale{border:1px solid var(--brass-deep);border-radius:20px;padding:26px;background:
+  radial-gradient(400px 200px at 0% 0%,rgba(217,168,78,.14),transparent),var(--night)}
+.wholesale h3{color:var(--brass);font-size:1.8rem;margin-bottom:8px}
+.wholesale ul{margin:14px 0 20px;padding-inline-start:20px;color:var(--plaster-dim)}
+@media (max-width:860px){.deliv-grid{grid-template-columns:1fr}}
+
+/* ---------- faq ---------- */
+.faq{display:grid;gap:10px;max-width:820px}
+.faq details{background:var(--night-2);border:1px solid var(--night-3);border-radius:14px;padding:4px 20px}
+.faq summary{cursor:pointer;padding:14px 0;font-weight:600;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--brass);font-size:1.4rem;line-height:1}
+.faq details[open] summary::after{content:"−"}
+.faq details p{padding-bottom:16px;color:var(--plaster-dim)}
+
+/* flame flicker */
+.flame{animation:flick 1.6s ease-in-out infinite alternate;transform-box:fill-box;transform-origin:50% 100%}
+@keyframes flick{0%{transform:scale(1,1);opacity:.95}40%{transform:scale(.92,1.08);opacity:1}100%{transform:scale(1.05,.94);opacity:.85}}
+@media (prefers-reduced-motion:reduce){
+  .hang,.hang .swing,.flame,#heroLamp svg,#heroLamp .glowc,#heroLamp .flame,.hero-lamp .arch,.card .pic svg,.sky circle,.descend .dl svg,.scrollhint i{animation:none}
+  .card .pic svg{transition:none}
+}
+</style>
+
+</head>
+<body data-world="ramadan">
+<canvas id="nightBg" aria-hidden="true"></canvas>
+<div class="site">
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الصفحة"><a href="index.html#worlds">المناسبات</a><a href="#shop">الفوانيس</a><a href="#delivery">التوصيل</a><a href="#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main id="top">
+<section class="hero" style="view-transition-name:w-ramadan" aria-labelledby="heroTitle">
+  <div class="garland" id="garland" aria-hidden="true"></div>
+  <div class="wrap hero-grid">
+    <div>
+      <h1 id="heroTitle">نوّر بيتك<span>قبل أول ليلة من رمضان</span></h1>
+      <p class="lede">فوانيس نحاس وزجاج ملوّن، قناديل معلّقة، مصابيح طاولة وزينة للشبابيك. الشحنة محدودة وتصل سوريا قبل رمضان، احجز قطعتك من هلّق وبتوصلك لباب البيت.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#shop">تصفّح الفوانيس</a>
+        <button class="btn ghost" type="button" data-cart>شوف السلة</button>
+      </div>
+      <div class="countdown" aria-live="off">
+        <div class="cell"><b class="num" id="cdDays">٠</b><span>يوم</span></div>
+        <div class="cell"><b class="num" id="cdHours">٠</b><span>ساعة</span></div>
+        <p class="label">باقي على رمضان ١٤٤٨ حسب الحساب الفلكي، والحجز المسبق مفتوح.</p>
+      </div>
+      <div class="code-chip">خصم ١٥٪ على زينة رمضان <b>RAMADAN15</b><button type="button" data-copy-code="RAMADAN15">انسخ وطبّق</button></div>
+    </div>
+    <div class="hero-lamp" aria-hidden="true">
+
+    </div>
+  </div>
+</section>
+
+<section class="moonscroll" id="moon" aria-label="هلال رمضان">
+  <div class="moonstage">
+    <svg class="sky" id="sky" aria-hidden="true" preserveAspectRatio="none"></svg>
+    <div class="descend" id="descend" aria-hidden="true"></div>
+    <div class="moon" id="moonBox" aria-hidden="true">
+      <svg viewBox="-120 -120 240 240">
+        <defs>
+          <radialGradient id="moonLit" cx="45%" cy="40%" r="70%"><stop offset="0" stop-color="#FFF6DC"/><stop offset=".7" stop-color="#F6DFA2"/><stop offset="1" stop-color="#E9C26A"/></radialGradient>
+          <filter id="moonGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <circle r="100" fill="#14273A"/>                     <!-- earthshine: the dark part stays faintly visible -->
+        <circle r="100" fill="none" stroke="#2A4560" stroke-width="1"/>
+        <path id="moonLitPath" fill="url(#moonLit)" filter="url(#moonGlow)"/>
+      </svg>
+    </div>
+    <div class="mtext">
+      <div class="mline" id="m1"><b>آخر ليالي شعبان</b><span>القمر عم يصغر ليلة بعد ليلة</span></div>
+      <div class="mline" id="m2"><b>ليلة الترقّب</b><span>العيون على السما، ناطرين الهلال</span></div>
+      <div class="mline kareem" id="m3"><b>رمضان كريم</b><span>هلّ الهلال، وكل عام وأنتم بخير</span></div>
+    </div>
+    <div class="scrollhint" id="shint"><span>انزل لتشوف الهلال</span><i></i></div>
+  </div>
+</section>
+
+<div class="ablaq" aria-hidden="true"></div>
+
+<section class="promises" aria-label="ميزات الطلب">
+  <div class="wrap">
+    <div class="promise">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="5" y="11" width="30" height="20" rx="3" fill="none" stroke="#D9A84E" stroke-width="2"/><circle cx="20" cy="21" r="5" fill="none" stroke="#F0B43C" stroke-width="2"/></svg>
+      <div><b>الدفع عند الاستلام</b><span>تدفع لما توصلك القطعة وتشوفها بعينك.</span></div>
+    </div>
+    <div class="promise">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M4 26V14h20v12M24 18h7l5 5v3H24" fill="none" stroke="#D9A84E" stroke-width="2"/><circle cx="11" cy="28" r="3" fill="#F0B43C"/><circle cx="30" cy="28" r="3" fill="#F0B43C"/></svg>
+      <div><b>توصيل لكل المحافظات</b><span>دمشق وريفها خلال يوم أو يومين.</span></div>
+    </div>
+    <div class="promise">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 4 34 11v18L20 36 6 29V11z" fill="none" stroke="#D9A84E" stroke-width="2"/><path d="M6 11l14 7 14-7M20 18v18" fill="none" stroke="#F0B43C" stroke-width="2"/></svg>
+      <div><b>تغليف ضد الكسر</b><span>كل فانوس زجاج بعلبة كرتون مبطّنة.</span></div>
+    </div>
+    <div class="promise">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 5a11 11 0 1 0 8 19 9 9 0 1 1-8-19z" fill="#F0B43C"/><path d="m29 9 1.5 3 3.3.5-2.4 2.3.6 3.3-3-1.6-3 1.6.6-3.3-2.4-2.3 3.3-.5z" fill="#D9A84E"/></svg>
+      <div><b>حجز مسبق بعربون</b><span>نثبّت قطعتك من الشحنة قبل ما تخلص.</span></div>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head">
+      <div>
+        <h2 id="shopTitle">فوانيس الموسم</h2>
+        <p>اختار لون الزجاج من الدوائر تحت كل فانوس، وضيفه لطلبك.</p>
+      </div>
+      <div class="filters" role="group" aria-label="فلترة حسب النوع" id="filters"></div>
+    </div>
+    <div class="grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+
+<div class="ablaq" aria-hidden="true"></div>
+
+<section class="block" id="how" aria-labelledby="howTitle">
+  <div class="wrap">
+    <div class="head"><h2 id="howTitle">كيف تطلب</h2></div>
+    <ol class="steps">
+      <li><b>اختار فانوسك</b><span>ضيف القطع اللي بتعجبك لطلبك مع لون الزجاج.</span></li>
+      <li><b>ابعت الطلب على واتساب</b><span>بتنكتب رسالة الطلب لحالها، بس بتضيف اسمك ومدينتك.</span></li>
+      <li><b>نأكد معك</b><span>منرد عليك بالسعر النهائي بالليرة وموعد الوصول.</span></li>
+      <li><b>بيوصلك لباب البيت</b><span>بتفحص القطعة وبتدفع عند الاستلام.</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="block delivery" id="delivery" aria-labelledby="delTitle">
+  <div class="wrap deliv-grid">
+    <div>
+      <h2 id="delTitle">التوصيل</h2>
+      <p style="color:var(--plaster-dim);margin:8px 0 18px">المدة من بعد تأكيد الطلب. خلال آخر أسبوع قبل رمضان الطلبات كتيرة، فاطلب بكير.</p>
+      <div style="overflow-x:auto">
+      <table class="cities">
+        <thead><tr><th scope="col">المحافظة</th><th scope="col">المدة</th></tr></thead>
+        <tbody>
+          <tr><td>دمشق وريف دمشق</td><td class="num">١–٢ يوم</td></tr>
+          <tr><td>حمص وحماة</td><td class="num">٢–٣ أيام</td></tr>
+          <tr><td>حلب وإدلب</td><td class="num">٢–٤ أيام</td></tr>
+          <tr><td>اللاذقية وطرطوس</td><td class="num">٢–٤ أيام</td></tr>
+          <tr><td>درعا والسويداء والقنيطرة</td><td class="num">٢–٣ أيام</td></tr>
+          <tr><td>دير الزور والرقة والحسكة</td><td class="num">٣–٥ أيام</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <aside class="wholesale" aria-labelledby="wsTitle">
+      <h3 id="wsTitle">للمحلات والجوامع والجمعيات</h3>
+      <p>إذا بدك تزيّن حارة، جامع، أو محل، أو تبيع بالمفرّق، عنا أسعار جملة.</p>
+      <ul>
+        <li>سعر خاص من ١٠ قطع وطالع</li>
+        <li>سلاسل فوانيس للحارات والشرفات بالمتر</li>
+        <li>تغليف هدايا بالجملة للشركات</li>
+      </ul>
+      <button class="btn solid" type="button" id="wsOrder">اسأل عن سعر الجملة</button>
+    </aside>
+  </div>
+</section>
+
+<section class="block" id="faq" aria-labelledby="faqTitle">
+  <div class="wrap">
+    <div class="head"><h2 id="faqTitle">أسئلة متكررة</h2></div>
+    <div class="faq">
+      <details open><summary>كيف بيشتغل الضو، بطاريات ولا كهربا؟</summary><p>أغلب الفوانيس فيها ضو LED ببطاريات، فبتشتغل وقت انقطاع الكهربا. الفوانيس الكبيرة فيها كمان شريط USB. مكتوب نوع الضو تحت كل قطعة.</p></details>
+      <details><summary>إذا وصل الفانوس مكسور؟</summary><p>افحصه قدام المندوب. إذا في كسر أو خدش، ما بتدفع ومنبدّله إلك بأول فرصة.</p></details>
+      <details><summary>ليش السعر بالدولار؟</summary><p>البضاعة مستوردة، فمنكتب السعر بالدولار للتقريب. بتدفع بالليرة السورية حسب سعر الصرف يوم تأكيد الطلب، ومنقلك المبلغ بالضبط قبل ما نبعت.</p></details>
+      <details><summary>قديش العربون للحجز المسبق؟</summary><p>٢٠٪ من سعر القطعة، وبينخصم من المبلغ عند الاستلام. إذا ما وصلت الشحنة قبل رمضان بيرجعلك العربون كامل.</p></details>
+      <details><summary>فيني شوف الفانوس قبل ما اطلب؟</summary><p>أكيد. اطلب صور وفيديو للقطعة على واتساب، ومنبعتلك ياها وهي مضوّاية.</p></details>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js"></script>
+<script>
+(() => {
+  // ====== settings the shop owner edits ======
+  const RAMADAN = new Date('2027-02-08T00:00:00+03:00');  // expected start of Ramadan 1448 (astronomical estimate)
+
+  const ar = n => Number(n).toLocaleString('ar-SY');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // glass colours customers can pick
+  const GLASS = {
+    amber:  {name:'عسلي',  c:'#F0B43C', glow:'rgba(240,180,60,.34)'},
+    rose:   {name:'أحمر',  c:'#C9445F', glow:'rgba(201,68,95,.32)'},
+    emerald:{name:'أخضر',  c:'#2E9A73', glow:'rgba(46,154,115,.32)'},
+    sky:    {name:'أزرق',  c:'#4C8CC4', glow:'rgba(76,140,196,.32)'},
+    mixed:  {name:'ملوّن', c:'mixed',   glow:'rgba(240,180,60,.3)'}
+  };
+
+  // ---------- lantern drawings (original SVG, one function per silhouette) ----------
+  let uid = 0;
+  function paneFill(glass, i){
+    if (glass !== 'mixed') return GLASS[glass].c;
+    return ['#C9445F','#F0B43C','#2E9A73','#4C8CC4'][i % 4];
+  }
+  function lantern(shape, glass, opts = {}){
+    const id = 'l' + (uid++), metal = opts.metal || '#D9A84E', dark = '#A87526';
+    const g = i => paneFill(glass, i);
+    const flame = `<g class="flame"><ellipse cx="100" cy="150" rx="9" ry="16" fill="#FFE6A8"/><ellipse cx="100" cy="154" rx="5" ry="9" fill="#fff"/></g>`;
+    const glowDef = `<defs><radialGradient id="${id}g"><stop offset="0" stop-color="#FFE6A8" stop-opacity=".95"/><stop offset=".5" stop-color="${glass==='mixed'?'#F0B43C':GLASS[glass].c}" stop-opacity=".35"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>`;
+    const glow = `<circle class="glowc" cx="100" cy="148" r="70" fill="url(#${id}g)"/>`;
+    // 8-point star lattice for a pane centred at (cx,cy)
+    const star = (cx, cy, s) => `<path d="M${cx} ${cy-s}L${cx+s*.38} ${cy-s*.38}L${cx+s} ${cy}L${cx+s*.38} ${cy+s*.38}L${cx} ${cy+s}L${cx-s*.38} ${cy+s*.38}L${cx-s} ${cy}L${cx-s*.38} ${cy-s*.38}Z" fill="none" stroke="${metal}" stroke-width="2.2"/>`;
+    let body = '';
+    if (shape === 'classic' || shape === 'crescent' || shape === 'big'){
+      // hexagonal fanous: ring, finial, dome, three visible panes, tapered foot
+      const top = shape === 'crescent'
+        ? `<path d="M100 6a16 16 0 1 0 12 26 12 12 0 1 1-12-26z" fill="${metal}"/><rect x="98" y="30" width="4" height="12" fill="${metal}"/>`
+        : `<circle cx="100" cy="14" r="8" fill="none" stroke="${metal}" stroke-width="3.5"/><path d="M100 22 90 44h20z" fill="${metal}"/>`;
+      body = `${top}
+        <path d="M58 72Q100 30 142 72Z" fill="${metal}"/><path d="M70 66Q100 40 130 66" fill="none" stroke="${dark}" stroke-width="2"/>
+        <rect x="54" y="72" width="92" height="9" rx="2" fill="${dark}"/>
+        ${glow}
+        <path d="M58 81h20v94H62z" fill="${g(1)}" opacity=".8"/><path d="M122 81h20l-4 94h-16z" fill="${g(2)}" opacity=".8"/>
+        <path d="M78 81h44v94H78z" fill="${g(0)}" opacity=".88"/>
+        ${flame}
+        <path d="M84 175V112Q100 88 116 112v63" fill="none" stroke="${metal}" stroke-width="3"/>
+        ${star(100,132,14)}
+        <path d="M58 81v94M78 81v94M122 81v94M142 81v94" stroke="${metal}" stroke-width="3.5"/>
+        <path d="M56 175h88l-20 28H76z" fill="${metal}"/><path d="M66 186h68" stroke="${dark}" stroke-width="2"/>
+        <rect x="80" y="203" width="40" height="8" rx="2" fill="${dark}"/><path d="M74 211h52l-6 10H80z" fill="${metal}"/>`;
+    } else if (shape === 'qandil'){
+      // mosque hanging lamp: three chains, bowl, tall neck
+      body = `<circle cx="100" cy="8" r="6" fill="none" stroke="${metal}" stroke-width="3"/>
+        <path d="M100 14 62 92M100 14 138 92M100 14v62" stroke="${metal}" stroke-width="2" stroke-dasharray="5 3"/>
+        <path d="M70 92h60l-8 26H78z" fill="${g(0)}" opacity=".85"/><path d="M70 92h60" stroke="${metal}" stroke-width="5"/>
+        ${glow}
+        <path d="M78 118C40 128 40 196 100 206 160 196 160 128 122 118Z" fill="${g(1)}" opacity=".85"/>
+        <path d="M60 150c26 10 54 10 80 0M58 170c28 10 56 10 84 0" fill="none" stroke="${metal}" stroke-width="3"/>
+        <g transform="translate(0,6)">${flame}</g>
+        <path d="M84 206h32l-6 14H90z" fill="${metal}"/><circle cx="100" cy="226" r="5" fill="${metal}"/>`;
+    } else if (shape === 'table'){
+      // cylinder lamp with pierced brass and a dome cap
+      body = `<path d="M70 70Q100 34 130 70Z" fill="${metal}"/><circle cx="100" cy="40" r="5" fill="${metal}"/>
+        <rect x="64" y="70" width="72" height="8" rx="2" fill="${dark}"/>
+        ${glow}
+        <rect x="68" y="78" width="64" height="112" fill="${g(0)}" opacity=".75"/>
+        ${flame}
+        <g fill="${metal}">${[0,1,2,3,4,5].map(r=>[0,1,2,3].map(c=>`<circle cx="${76+c*16}" cy="${88+r*18}" r="${(r+c)%2?2.4:3.8}"/>`).join('')).join('')}</g>
+        <path d="M68 78v112M132 78v112" stroke="${metal}" stroke-width="4"/>
+        <rect x="60" y="190" width="80" height="12" rx="3" fill="${metal}"/><rect x="70" y="202" width="60" height="8" fill="${dark}"/>`;
+    } else if (shape === 'string'){
+      // garland of five small lanterns
+      const mini = (x, y, i) => `<g transform="translate(${x} ${y}) scale(.36)"><path d="M58 72Q100 30 142 72Z" fill="${metal}"/><rect x="54" y="72" width="92" height="9" fill="${dark}"/><path d="M60 81h80v94H60z" fill="${g(i)}" opacity=".9"/><circle cx="100" cy="128" r="16" fill="#FFE6A8"/><path d="M60 81v94M100 81v94M140 81v94" stroke="${metal}" stroke-width="5"/><path d="M56 175h88l-20 28H76z" fill="${metal}"/></g>`;
+      body = `<path d="M10 40Q100 110 190 40" fill="none" stroke="${metal}" stroke-width="2.5"/>
+        ${[[0,30],[36,58],[64,66],[92,58],[128,30]].map(([x,y],i)=>`<path d="M${x+36} ${y+14}v14" stroke="${metal}" stroke-width="2"/>`+mini(x,y+10,i)).join('')}
+        <text x="100" y="230" text-anchor="middle" font-size="20" fill="${metal}" font-family="IBM Plex Sans Arabic, sans-serif">٣ متر · ١٠ فوانيس</text>`;
+    } else if (shape === 'kid'){
+      // children's lantern: rounded plastic body with a handle
+      body = `<path d="M70 40Q100 0 130 40" fill="none" stroke="${metal}" stroke-width="6" stroke-linecap="round"/>
+        <rect x="64" y="40" width="72" height="22" rx="10" fill="${g(1)}"/>
+        ${glow}
+        <rect x="56" y="62" width="88" height="118" rx="30" fill="${g(0)}" opacity=".85"/>
+        ${flame}
+        <path d="M100 74c-26 18-26 46 0 62 26-16 26-44 0-62z" fill="none" stroke="#fff" stroke-width="4" opacity=".8"/>
+        <circle cx="76" cy="160" r="5" fill="#fff"/><circle cx="124" cy="160" r="5" fill="#fff"/>
+        <rect x="66" y="180" width="68" height="20" rx="8" fill="${g(2)}"/>
+        <path d="M84 214q16 10 32 0" fill="none" stroke="${metal}" stroke-width="4" stroke-linecap="round"/>`;
+    } else if (shape === 'set'){
+      // gift set of three sizes
+      const s = (x, sc, i) => `<g transform="translate(${x} ${222-222*sc}) scale(${sc})">${lanternBody(i)}</g>`;
+      const lanternBody = i => `<path d="M58 72Q100 30 142 72Z" fill="${metal}"/><rect x="54" y="72" width="92" height="9" fill="${dark}"/><path d="M60 81h80v94H60z" fill="${g(i)}" opacity=".88"/><circle cx="100" cy="132" r="15" fill="#FFE6A8"/><path d="M84 175V112Q100 88 116 112v63" fill="none" stroke="${metal}" stroke-width="4"/><path d="M60 81v94M140 81v94" stroke="${metal}" stroke-width="5"/><path d="M56 175h88l-20 28H76z" fill="${metal}"/><rect x="80" y="203" width="40" height="10" fill="${dark}"/>`;
+      body = s(-24,.62,1) + s(78,.62,2) + s(18,.82,0);
+    } else if (shape === 'window'){
+      // crescent and star for the window, with a suction hook
+      body = `${glow}
+        <path d="M118 40a78 78 0 1 0 0 150 62 62 0 1 1 0-150z" fill="${g(0)}" opacity=".9"/>
+        <path d="M118 40a78 78 0 1 0 0 150 62 62 0 1 1 0-150z" fill="none" stroke="${metal}" stroke-width="4"/>
+        <path d="m150 92 6 13 14 2-10 10 2 14-12-7-12 7 2-14-10-10 14-2z" fill="${metal}"/>
+        <circle cx="96" cy="20" r="10" fill="none" stroke="${metal}" stroke-width="3"/><path d="M98 30v12" stroke="${metal}" stroke-width="2"/>`;
+    }
+    return `${glowDef}${body}`;
+  }
+  const svg = (inner, label) => `<svg viewBox="0 0 200 240" role="img" aria-label="${label}">${inner}</svg>`;
+
+  // ---------- products (names, sizes and prices are the owner's to edit) ----------
+  const PRODUCTS = [
+    {id:'hara',  name:'فانوس الحارة النحاسي', shape:'classic', cat:'brass', size:'٤٥ سم', light:'LED ببطارية', price:28, glass:['amber','rose','emerald','sky'], tag:'الأكثر طلباً'},
+    {id:'umawi', name:'قنديل الجامع',          shape:'qandil',  cat:'hanging', size:'٦٠ سم مع السلاسل', light:'LED أو شمعة', price:45, glass:['emerald','amber','sky']},
+    {id:'hilal', name:'فانوس الهلال',          shape:'crescent',cat:'brass', size:'٣٠ سم', light:'LED ببطارية', price:18, glass:['rose','amber','emerald','sky']},
+    {id:'tawila',name:'مصباح الطاولة المخرّم',  shape:'table',   cat:'table', size:'٢٥ سم', light:'شمعة أو LED', price:15, glass:['amber','rose','sky']},
+    {id:'kabir', name:'فانوس الزجاج المعشّق',   shape:'big',     cat:'glass', size:'٧٠ سم', light:'LED بشحن USB', price:65, glass:['mixed','amber'], tag:'كمية قليلة'},
+    {id:'silsila',name:'سلسلة فوانيس للشرفة',   shape:'string',  cat:'hanging', size:'٣ متر', light:'LED ببطاريات', price:12, glass:['mixed','amber']},
+    {id:'atfal', name:'فانوس الأطفال',         shape:'kid',     cat:'kids', size:'٢٢ سم', light:'LED مع أناشيد', price:8, glass:['rose','sky','emerald','amber'], tag:'هدية للصغار', tagc:'green'},
+    {id:'hadiya',name:'طقم هدية ٣ فوانيس',      shape:'set',     cat:'glass', size:'٢٠، ٣٠، ٤٠ سم', light:'LED ببطارية', price:35, glass:['mixed','amber','rose']},
+    {id:'shubbak',name:'هلال ونجمة للشبّاك',    shape:'window',  cat:'hanging', size:'٣٥ سم', light:'LED ببطارية', price:10, glass:['amber','sky']}
+  ];
+  const CATS = [['all','الكل'],['brass','نحاسي'],['glass','زجاج معشّق'],['hanging','زينة معلّقة'],['table','للطاولة'],['kids','للأطفال']];
+
+  const findP = id => PRODUCTS.find(p => p.id === id);
+  // ---------- hero ----------
+  const garland = document.getElementById('garland');
+  const hangs = [
+    {x:6,  len:70, shape:'classic', g:'rose',    s:.5},
+    {x:19, len:120,shape:'crescent',g:'amber',   s:.44},
+    {x:37, len:40, shape:'classic', g:'sky',     s:.46},   // blue, middle left
+    {x:63, len:55, shape:'crescent',g:'sky',     s:.46},   // blue, middle right
+    {x:81, len:40, shape:'table',   g:'amber',   s:.44},
+    {x:94, len:110,shape:'crescent',g:'rose',    s:.46}
+  ];
+  garland.innerHTML = `<svg class="rope" viewBox="0 0 1000 120" preserveAspectRatio="none"><path d="M0 4Q250 40 500 10T1000 6" fill="none" stroke="#A87526" stroke-width="1.5"/></svg>` +
+    hangs.map((h,i) => {
+      const k = innerWidth < 600 ? .55 : 1;                 // shorter strings on phones
+      const w = innerWidth < 600 ? .66 : 1;                 // and smaller lanterns, so all six fit
+      const amp = Math.round((28 + (i * 17) % 34) * k);      // how far this lantern is lowered, px
+      const len = Math.round(h.len * k) + amp;               // string covers the travel, top part hides above the clip
+      return `<div class="hang" style="inset-inline-start:${h.x}%;--amp:${amp}px;--bd:${(3.8 + (i*1.3)%2.6).toFixed(2)}s;--bdelay:-${(i*1.7).toFixed(1)}s;width:${Math.round(200*h.s*w)}px;margin-inline-start:-${Math.round(100*h.s*w)}px">
+      <div class="swing" style="--d:${4+i%3}s;--delay:-${i*.9}s"><div class="str" style="height:${len}px"></div>${svg(lantern(h.shape,h.g),'')}</div></div>`; }).join('');
+  garland.querySelectorAll('.hang svg').forEach(s => s.style.width = '100%');
+
+  // ---------- moon scroll story ----------
+  const moonSec = document.getElementById('moon'), litPath = document.getElementById('moonLitPath'), moonBox = document.getElementById('moonBox');
+  const m1 = document.getElementById('m1'), m2 = document.getElementById('m2'), m3 = document.getElementById('m3'), shint = document.getElementById('shint');
+  const sky = document.getElementById('sky'), descend = document.getElementById('descend');
+  // stars
+  sky.setAttribute('viewBox','0 0 1000 1000');
+  sky.innerHTML = Array.from({length:90}, (_, i) => {
+    const x = (i * 379.7) % 1000, y = (i * 613.3 + (i % 7) * 41) % 820, r = .8 + (i % 5) * .45;
+    return `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r}" fill="#F2E8D5" style="--t:${(2 + i % 4).toFixed(1)}s;--td:-${(i * .37 % 3).toFixed(2)}s"/>`;
+  }).join('');
+  // lanterns that come down from the roof when Ramadan arrives
+  const DL = [{x:12,len:60,shape:'classic',g:'rose'},{x:30,len:120,shape:'crescent',g:'amber'},{x:50,len:30,shape:'qandil',g:'emerald'},{x:70,len:110,shape:'crescent',g:'sky'},{x:88,len:55,shape:'classic',g:'amber'}];
+  descend.innerHTML = DL.map((l,i) => `<div class="dl" style="left:${l.x}%;width:clamp(44px,9vw,86px);margin-left:calc(clamp(44px,9vw,86px) / -2)">
+    <div class="str" style="height:${l.len}px"></div><svg viewBox="0 0 200 240" style="--d:${4+i%3}s">${lantern(l.shape,l.g)}</svg></div>`).join('');
+  const dls = [...descend.querySelectorAll('.dl')];
+
+  // Moon phase as an SVG path. phi: 0 = new, π/2 = first quarter, π = full, 3π/2 = last quarter.
+  // Lit limb = half circle on the lit side; terminator = half ellipse with x-radius R·|cos φ|.
+  function moonPath(phi, R){
+    phi = ((phi % (2*Math.PI)) + 2*Math.PI) % (2*Math.PI);
+    const rx = Math.abs(Math.cos(phi)) * R;
+    const waxing = phi < Math.PI;                       // waxing: lit on the right
+    const crescent = Math.cos(phi) > 0;                 // less than half lit
+    if (waxing) return `M0 ${-R}A${R} ${R} 0 0 1 0 ${R}A${rx} ${R} 0 0 ${crescent?0:1} 0 ${-R}Z`;
+    return `M0 ${-R}A${R} ${R} 0 0 0 0 ${R}A${rx} ${R} 0 0 ${crescent?1:0} 0 ${-R}Z`;
+  }
+  const sm = (a, b, x) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const HILAL = 0.62;                                   // final crescent phase (radians), a clear young hilal
+  function drawMoon(p){
+    // 0 → .55: full moon wanes to nothing (end of Sha'ban); .55 → .78: the new hilal is born and grows a little
+    const phi = p < .55 ? Math.PI + (p / .55) * Math.PI : ((Math.min(p, .78) - .55) / .23) * HILAL;
+    litPath.setAttribute('d', moonPath(phi, 100));
+    const born = sm(.7, .85, p);
+    moonBox.style.setProperty('--rot', (-28 * born) + 'deg');             // tilt the hilal like the classic Ramadan crescent
+    moonBox.style.setProperty('--ms', (1 + .12 * born).toFixed(3));
+    litPath.style.opacity = p > .5 && p < .6 ? .35 + Math.abs(p - .55) * 13 : 1;  // the dark night between the moons
+    m1.style.opacity = 1 - sm(.18, .28, p);
+    m2.style.opacity = sm(.3, .38, p) * (1 - sm(.6, .68, p));
+    m3.style.opacity = sm(.74, .84, p);
+    m3.style.transform = `scale(${(.9 + .1 * sm(.74, .9, p)).toFixed(3)})`;
+    shint.style.opacity = 1 - sm(.04, .12, p);
+    dls.forEach((d, i) => d.style.setProperty('--down', sm(.76 + i * .03, .92 + i * .015, p).toFixed(3)));
+  }
+  if (reduce){
+    moonSec.classList.add('static'); drawMoon(1);
+  } else {
+    let queued = false;
+    const onScroll = () => {
+      if (queued) return; queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        const r = moonSec.getBoundingClientRect();
+        const p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight)));   // 0 when the stage pins, 1 when it releases
+        drawMoon(p);
+      });
+    };
+    addEventListener('scroll', onScroll, {passive:true}); addEventListener('resize', onScroll); onScroll();
+  }
+
+  // countdown to Ramadan
+  function tick(){
+    const ms = Math.max(0, RAMADAN - new Date());
+    document.getElementById('cdDays').textContent = ar(Math.floor(ms / 864e5));
+    document.getElementById('cdHours').textContent = ar(Math.floor(ms / 36e5) % 24);
+  }
+  tick(); setInterval(tick, 60000);
+
+  // ---------- catalog ----------
+  const grid = document.getElementById('grid'), filters = document.getElementById('filters');
+  let current = 'all';
+  filters.innerHTML = CATS.map(([k,n]) => `<button class="chip" type="button" data-cat="${k}" aria-pressed="${k==='all'}">${n}</button>`).join('');
+  filters.addEventListener('click', e => {
+    const b = e.target.closest('.chip'); if (!b) return;
+    current = b.dataset.cat;
+    filters.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c === b)));
+    grid.querySelectorAll('.card').forEach(c => c.hidden = !(current === 'all' || c.dataset.cat === current));
+  });
+
+  grid.innerHTML = PRODUCTS.map(p => `
+    <article class="card" data-id="${p.id}" data-cat="${p.cat}" data-glass="${p.glass[0]}">
+      <div class="pic" style="--glow:${GLASS[p.glass[0]].glow};--cd:${(3.8 + (PRODUCTS.indexOf(p)*0.7)%2.4).toFixed(2)}s;--cdl:-${(PRODUCTS.indexOf(p)*1.1).toFixed(1)}s">
+        ${p.tag ? `<span class="tag ${p.tagc||''}">${p.tag}</span>` : ''}
+        ${svg(lantern(p.shape, p.glass[0]), p.name)}
+      </div>
+      <div class="info">
+        <h3>${p.name}</h3>
+        <div class="spec"><span>الحجم: ${p.size}</span><span>الضو: ${p.light}</span></div>
+        <div class="swatches" role="group" aria-label="لون الزجاج"><span>الزجاج:</span>
+          ${p.glass.map((g,i) => `<button class="sw" type="button" data-g="${g}" aria-pressed="${i===0}" aria-label="${GLASS[g].name}" title="${GLASS[g].name}"
+            style="background:${g==='mixed'?'conic-gradient(#C9445F 0 25%,#F0B43C 0 50%,#2E9A73 0 75%,#4C8CC4 0)':GLASS[g].c}"></button>`).join('')}
+        </div>
+        <div class="buy"><span class="price num">${ar(p.price)} $ <small>تقريباً</small></span><button class="add" type="button">أضف للسلة</button></div>
+      </div>
+    </article>`).join('');
+
+  grid.addEventListener('click', e => {
+    const card = e.target.closest('.card'); if (!card) return;
+    const p = findP(card.dataset.id);
+    const sw = e.target.closest('.sw');
+    if (sw){                                        // recolour the lantern
+      card.dataset.glass = sw.dataset.g;
+      card.querySelectorAll('.sw').forEach(s => s.setAttribute('aria-pressed', String(s === sw)));
+      const pic = card.querySelector('.pic');
+      pic.style.setProperty('--glow', GLASS[sw.dataset.g].glow);
+      pic.querySelector('svg').outerHTML = svg(lantern(p.shape, sw.dataset.g), p.name);
+      return;
+    }
+    const add = e.target.closest('.add');
+    if (add){
+      DC.add({w:'ramadan', id:p.id, name:p.name, opt:'زجاج ' + GLASS[card.dataset.glass].name, price:p.price}, add);
+      add.textContent = 'انضاف ✓'; add.classList.add('done');
+      setTimeout(() => { add.textContent = 'أضف للسلة'; add.classList.remove('done'); }, 1400);
+    }
+  });
+
+  // ---------- order: the shared cart (assets/shop.js) ----------
+  document.getElementById('wsOrder').onclick = () => DC.open('بدي اسأل عن سعر الجملة لـ ١٠ قطع أو أكتر');
+})();
+</script>
+<script>
+/* ---------- background: one fanous on a table at night (flicker loops every 12 s) ---------- */
+(() => {
+  const T = 12;                                        // loop length, seconds
+  const TAU = Math.PI * 2;
+  const cv = document.getElementById('nightBg'); let ctx = cv.getContext('2d');
+  const rcv = document.createElement('canvas'), rctx = rcv.getContext('2d');   // side canvas for the table reflection
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let W, H, u, cx, by, tableY, side, mobile, grain = [];
+
+  function size(){
+    const dpr = Math.min(devicePixelRatio || 1, 1.5);   // a background doesn't need full retina; keeps it light
+    W = cv.width = rcv.width = Math.round(innerWidth * dpr); H = cv.height = rcv.height = Math.round(innerHeight * dpr);
+    mobile = innerWidth < 760;
+    // design unit (1 = 1px at 720p). Desktop: the fanous stands in the hero's empty left column (RTL layout).
+    // Phone: smaller and centred, in the gap under the hanging lanterns.
+    u = mobile ? Math.min(W / 430, H / 900) * .85 : (H / 720) * .9;
+    cx = W * (mobile ? .5 : .27); by = H * (mobile ? .66 : .88); tableY = by - 150 * u;
+    side = Math.min(270 * u, W * .38);                  // distance of the dates and the tea from the lantern
+    // a few frames of film grain, reused
+    grain = [0,1,2,3].map(() => {
+      const g = document.createElement('canvas'); g.width = 256; g.height = 256;
+      const gx = g.getContext('2d'), im = gx.createImageData(256, 256);
+      for (let i = 0; i < im.data.length; i += 4){ const v = Math.random() * 255; im.data[i] = im.data[i+1] = im.data[i+2] = v; im.data[i+3] = 255; }
+      gx.putImageData(im, 0, 0); return g;
+    });
+  }
+
+  // flicker: whole-number frequencies over T -> seamless loop
+  const s = (k, t, p) => Math.sin(TAU * k * t / T + p);
+  function flicker(t){
+    let f = .86 + .055*s(23,t,1) + .04*s(37,t,2.2) + .025*s(61,t,.4) + .018*s(97,t,3.1);
+    f -= .09 * Math.pow(Math.max(0, s(5,t,.8)), 10);   // an occasional dip, like a draught
+    f += .08 * s(2,t,0);                                // slow breathing: the light sinks low and rises again every 6 s
+    return f;
+  }
+  const sway = t => (.6*s(7,t,0) + .4*s(13,t,1.3)) * 3;   // flame drift, in design px
+
+  function star(x, y, r, rot){                           // 8-point star path
+    ctx.beginPath();
+    for (let i = 0; i < 16; i++){
+      const a = rot + i * Math.PI / 8, rr = i % 2 ? r * .45 : r;
+      ctx.lineTo(x + Math.cos(a) * rr, y + Math.sin(a) * rr);
+    }
+    ctx.closePath();
+  }
+  const amber = (a) => `rgba(255,178,104,${a})`;
+
+  function draw(t){
+    if (!W || !H) return;                               // hidden tab or zero-size window: nothing to draw
+    const L = flicker(t), fx = sway(t);
+    const headY = by - 175*u;                            // flame height
+    ctx.setTransform(1,0,0,1,0,0); ctx.globalCompositeOperation = 'source-over'; ctx.filter = 'none';
+
+    // ---- wall
+    ctx.fillStyle = '#0a0c0f'; ctx.fillRect(0, 0, W, tableY);
+    let g = ctx.createRadialGradient(cx, headY, 0, cx, headY, W * .62);
+    g.addColorStop(0, amber(.20 * L)); g.addColorStop(.35, amber(.07 * L)); g.addColorStop(1, amber(0));
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, tableY);
+
+    // ---- stars thrown on the wall by the pierced dome (they shift opposite the flame)
+    ctx.save(); ctx.beginPath(); ctx.rect(0, 0, W, tableY); ctx.clip();
+    ctx.filter = `blur(${2.2*u}px)`;
+    for (let ring = 0; ring < 3; ring++){
+      const n = 9 + ring * 4;
+      for (let i = 0; i < n; i++){
+        const a = Math.PI + (i + .5 + ring * .3 + .18 * Math.sin(i * 2.7 + ring)) / n * Math.PI;   // upper half, a little irregular
+        const R = (150 + ring * 105 + 18 * Math.sin(i * 1.9 + ring * 3)) * u;
+        const x = cx + Math.cos(a) * R * 1.35 - fx * u * (1 + ring) * 1.6;
+        const y = headY - 40*u + Math.sin(a) * R * .9;
+        if (y > tableY - 6*u) continue;
+        const alpha = .30 * L * (1 - ring * .27);
+        ctx.fillStyle = amber(alpha);
+        star(x, y, (7 + ring * 4) * u, a);
+        ctx.fill();
+      }
+    }
+    ctx.restore(); ctx.filter = 'none';
+
+    // ---- table top (dark walnut, slightly glossy)
+    g = ctx.createLinearGradient(0, tableY, 0, H);
+    g.addColorStop(0, '#16100c'); g.addColorStop(1, '#0b0807');
+    ctx.fillStyle = g; ctx.fillRect(0, tableY, W, H - tableY);
+    ctx.strokeStyle = 'rgba(255,220,180,.028)'; ctx.lineWidth = 1.2 * u;   // grain
+    for (let i = 0; i < 46; i++){
+      const y0 = tableY + Math.pow(i / 46, 1.6) * (H - tableY);
+      ctx.beginPath(); ctx.moveTo(0, y0);
+      ctx.bezierCurveTo(W*.3, y0 + Math.sin(i*1.7)*6*u, W*.7, y0 - Math.cos(i*2.3)*6*u, W, y0 + Math.sin(i)*4*u);
+      ctx.stroke();
+    }
+    ctx.fillStyle = amber(.10 * L); ctx.fillRect(0, tableY, W, 1.5*u);      // back edge catches light
+    // light pool on the table
+    ctx.save(); ctx.translate(cx, by + 10*u); ctx.scale(1, .26);
+    g = ctx.createRadialGradient(0, 0, 0, 0, 0, W * .42);
+    g.addColorStop(0, amber(.34 * L)); g.addColorStop(.4, amber(.11 * L)); g.addColorStop(1, amber(0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, W * .42, 0, TAU); ctx.fill();
+    ctx.restore();
+    // flattened stars on the table from the lower panes
+    ctx.save(); ctx.filter = `blur(${2.5*u}px)`;
+    for (let i = 0; i < 12; i++){
+      const a = (i / 12) * TAU + .2, R = 230 * u;
+      const x = cx + Math.cos(a) * R * 1.25 - fx*u*2, y = by + 14*u + Math.sin(a) * R * .2;
+      if (Math.abs(x - cx) < 70*u && y < by + 10*u) continue;          // hidden behind the lantern
+      ctx.save(); ctx.translate(x, y); ctx.scale(1, .3);
+      ctx.fillStyle = amber(.16 * L); star(0, 0, 10*u, a); ctx.fill(); ctx.restore();
+    }
+    ctx.restore(); ctx.filter = 'none';
+
+    // ---- props: a plate of dates (left) and a tea glass (right), lit from the lantern side
+    plate(cx - side, by + 40*u, L, 1);
+    tea(cx + side, by + 30*u, L, t);
+
+    // ---- contact shadow + soft reflection of the lantern
+    ctx.save(); ctx.translate(cx, by + 2*u); ctx.scale(1, .18);
+    g = ctx.createRadialGradient(0, 0, 0, 0, 0, 90*u); g.addColorStop(0, 'rgba(0,0,0,.75)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(0, 0, 90*u, 0, TAU); ctx.fill(); ctx.restore();
+    // reflection: draw the lantern upside down on a side canvas, fade it out with a gradient mask, then lay it on the table
+    const main = ctx; ctx = rctx; ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0, 0, W, H);
+    ctx.save(); ctx.translate(0, 2 * by); ctx.scale(1, -1); lantern(L, fx, t); ctx.restore();
+    ctx.globalCompositeOperation = 'destination-in';
+    g = ctx.createLinearGradient(0, by, 0, by + 150*u); g.addColorStop(0, 'rgba(0,0,0,.16)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    ctx.fillStyle = g; ctx.fillRect(0, by, W, H - by); ctx.clearRect(0, 0, W, by);
+    ctx.globalCompositeOperation = 'source-over'; ctx = main;
+    ctx.save(); ctx.filter = `blur(${2*u}px)`; ctx.drawImage(rcv, 0, 0); ctx.restore();
+
+    // ---- the fanous
+    lantern(L, fx, t);
+
+    // ---- dust drifting in the light (periodic paths)
+    ctx.globalCompositeOperation = 'lighter';
+    for (let i = 0; i < 34; i++){
+      const ph = (i * .6180339) % 1;
+      const k = 1 + (i % 3);
+      const y = by - 40*u - ((ph + t / T * k) % 1) * 460 * u;
+      const x = cx + (i % 2 ? 1 : -1) * (40 + (i * 37) % 260) * u + Math.sin(TAU * (t / T * (2 + i % 4)) + i) * 18 * u;
+      const d = Math.hypot(x - cx, y - headY) / (380*u);
+      const a = Math.max(0, .5 - d) * .5 * L * (.5 + .5 * Math.sin(TAU * t / T * 3 + i));
+      ctx.fillStyle = amber(a); ctx.beginPath(); ctx.arc(x, y, (1 + i % 2) * u, 0, TAU); ctx.fill();
+    }
+    ctx.globalCompositeOperation = 'source-over';
+
+    // ---- vignette + grain
+    g = ctx.createRadialGradient(cx, by - 150*u, H*.25, cx, by - 150*u, Math.max(W, H)*.8);
+    g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(1, 'rgba(0,0,0,.82)');
+    ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+    ctx.globalAlpha = .055; ctx.globalCompositeOperation = 'overlay';
+    const gr = grain[((Math.floor(t * 24) % grain.length) + grain.length) % grain.length];   // safe index even if t < 0
+    for (let y = 0; y < H; y += 256*u) for (let x = 0; x < W; x += 256*u) ctx.drawImage(gr, x, y, 256*u, 256*u);
+    ctx.globalAlpha = 1; ctx.globalCompositeOperation = 'source-over';
+  }
+
+  // brass with a muted, almost bronze tone; lit from inside so the frame reads dark against the glass
+  function metal(x0, x1){
+    const g = ctx.createLinearGradient(x0, 0, x1, 0);
+    g.addColorStop(0, '#1c150e'); g.addColorStop(.42, '#5e4a31'); g.addColorStop(.5, '#7a6141'); g.addColorStop(.6, '#4a3925'); g.addColorStop(1, '#17110b');
+    return g;
+  }
+  function lantern(L, fx, t){
+    const U = u, X = cx, B = by;
+    const top = B - 300*U, collar = B - 236*U, glassTop = B - 222*U, glassBot = B - 84*U;
+    const flameX = X + fx * U, flameY = B - 158*U;
+
+    // outer glow
+    ctx.save(); ctx.globalCompositeOperation = 'lighter';
+    let g = ctx.createRadialGradient(flameX, flameY, 0, flameX, flameY, 170*U);
+    g.addColorStop(0, amber(.30 * L)); g.addColorStop(1, amber(0));
+    ctx.fillStyle = g; ctx.beginPath(); ctx.arc(flameX, flameY, 170*U, 0, TAU); ctx.fill(); ctx.restore();
+
+    // ring + finial
+    ctx.strokeStyle = '#4a3925'; ctx.lineWidth = 5*U;
+    ctx.beginPath(); ctx.arc(X, top - 14*U, 11*U, 0, TAU); ctx.stroke();
+    ctx.fillStyle = metal(X - 10*U, X + 10*U);
+    ctx.beginPath(); ctx.moveTo(X, top - 3*U); ctx.lineTo(X - 9*U, top + 20*U); ctx.lineTo(X + 9*U, top + 20*U); ctx.fill();
+    // dome with pierced holes glowing
+    ctx.fillStyle = metal(X - 64*U, X + 64*U);
+    ctx.beginPath(); ctx.moveTo(X - 62*U, collar); ctx.quadraticCurveTo(X - 52*U, top + 30*U, X, top + 18*U); ctx.quadraticCurveTo(X + 52*U, top + 30*U, X + 62*U, collar); ctx.fill();
+    for (let r = 0; r < 3; r++) for (let i = -3 + (r%2?0.5:0); i <= 3; i++){
+      const yy = collar - (10 + r * 14) * U, xx = X + i * (16 - r * 3.5) * U;
+      if (Math.abs(xx - X) > (56 - r * 13) * U) continue;
+      ctx.fillStyle = `rgba(255,200,130,${(.55 + .25*Math.sin(i*2 + r)) * L})`;
+      ctx.beginPath(); ctx.arc(xx, yy, (2.4 - r*.4) * U, 0, TAU); ctx.fill();
+    }
+    // collar
+    ctx.fillStyle = metal(X - 70*U, X + 70*U); ctx.fillRect(X - 70*U, collar, 140*U, 14*U);
+
+    // glass body: three visible panes of frosted amber glass, glowing from the flame
+    const panes = [[X - 62*U, X - 32*U, .55], [X - 32*U, X + 32*U, 1], [X + 32*U, X + 62*U, .55]];
+    for (const [a, b, k] of panes){
+      g = ctx.createRadialGradient(flameX, flameY, 4*U, flameX, flameY, 120*U);
+      g.addColorStop(0, `rgba(255,214,150,${.95 * L})`);
+      g.addColorStop(.35, `rgba(214,150,82,${.85 * L * k})`);
+      g.addColorStop(1, `rgba(92,58,30,${.9 * k})`);
+      ctx.fillStyle = g; ctx.fillRect(a, glassTop, b - a, glassBot - glassTop);
+    }
+    // the flame itself, softened by the frosted glass
+    ctx.save(); ctx.filter = `blur(${3*U}px)`;
+    const fh = (26 + 3 * Math.sin(TAU * t / T * 19)) * U * (0.9 + .15 * L);
+    g = ctx.createRadialGradient(flameX, flameY, 0, flameX, flameY, fh);
+    g.addColorStop(0, 'rgba(255,248,225,1)'); g.addColorStop(.5, `rgba(255,205,130,${.9*L})`); g.addColorStop(1, 'rgba(255,170,90,0)');
+    ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(flameX, flameY - fh*.2, fh * .45, fh, fx * .02, 0, TAU); ctx.fill();
+    ctx.restore();
+
+    // lattice in silhouette: pointed arch + 8-point star on the middle pane
+    ctx.strokeStyle = 'rgba(28,20,12,.92)'; ctx.lineWidth = 3.4*U; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(X - 22*U, glassBot); ctx.lineTo(X - 22*U, glassTop + 60*U);
+    ctx.quadraticCurveTo(X - 20*U, glassTop + 22*U, X, glassTop + 12*U); ctx.quadraticCurveTo(X + 20*U, glassTop + 22*U, X + 22*U, glassTop + 60*U);
+    ctx.lineTo(X + 22*U, glassBot); ctx.stroke();
+    star(X, glassTop + 52*U, 14*U, Math.PI / 8); ctx.lineWidth = 2.6*U; ctx.stroke();
+    // side panes: simple diagonal lattice
+    ctx.lineWidth = 2.2*U; ctx.strokeStyle = 'rgba(28,20,12,.85)';
+    for (const [a, b] of [[X - 62*U, X - 32*U], [X + 32*U, X + 62*U]]){
+      for (let y = glassTop + 18*U; y < glassBot; y += 26*U){
+        ctx.beginPath(); ctx.moveTo(a, y); ctx.lineTo((a+b)/2, y - 12*U); ctx.lineTo(b, y); ctx.stroke();
+      }
+    }
+    // frame bars
+    ctx.fillStyle = '#21180f';
+    for (const x of [X - 64*U, X - 34*U, X + 30*U, X + 60*U]) ctx.fillRect(x, glassTop, 4*U, glassBot - glassTop);
+    // rim light on the bars (from the flame)
+    ctx.fillStyle = `rgba(255,190,120,${.35*L})`;
+    ctx.fillRect(X - 31*U, glassTop, 1.2*U, glassBot - glassTop); ctx.fillRect(X + 30*U, glassTop, 1.2*U, glassBot - glassTop);
+
+    // lower taper + base
+    ctx.fillStyle = metal(X - 66*U, X + 66*U);
+    ctx.beginPath(); ctx.moveTo(X - 66*U, glassBot); ctx.lineTo(X + 66*U, glassBot); ctx.lineTo(X + 42*U, B - 44*U); ctx.lineTo(X - 42*U, B - 44*U); ctx.fill();
+    ctx.fillStyle = `rgba(255,190,120,${.22*L})`; ctx.fillRect(X - 64*U, glassBot, 128*U, 1.5*U);
+    ctx.fillStyle = '#1d150d'; ctx.fillRect(X - 34*U, B - 44*U, 68*U, 14*U);
+    ctx.fillStyle = metal(X - 46*U, X + 46*U);
+    ctx.beginPath(); ctx.moveTo(X - 36*U, B - 30*U); ctx.lineTo(X + 36*U, B - 30*U); ctx.lineTo(X + 46*U, B); ctx.lineTo(X - 46*U, B); ctx.fill();
+  }
+
+  function plate(x, y, L, side){
+    // shallow dark ceramic plate with four dates; rim light on the side facing the lantern
+    ctx.save(); ctx.translate(x, y);
+    ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.beginPath(); ctx.ellipse(6*u, 8*u, 98*u, 22*u, 0, 0, TAU); ctx.fill();
+    ctx.fillStyle = '#1a1714'; ctx.beginPath(); ctx.ellipse(0, 0, 96*u, 24*u, 0, 0, TAU); ctx.fill();
+    ctx.fillStyle = '#100e0c'; ctx.beginPath(); ctx.ellipse(0, -2*u, 70*u, 15*u, 0, 0, TAU); ctx.fill();
+    ctx.strokeStyle = amber(.35 * L); ctx.lineWidth = 1.6*u;
+    ctx.beginPath(); ctx.ellipse(0, 0, 96*u, 24*u, 0, -.9, .9); ctx.stroke();
+    const dates = [[-30,-8,-.3],[0,-12,.2],[26,-6,-.1],[-6,-2,.5]];
+    for (const [dx, dy, r] of dates){
+      ctx.save(); ctx.translate(dx*u, dy*u); ctx.rotate(r);
+      const g = ctx.createLinearGradient(-20*u, 0, 20*u, 0);
+      g.addColorStop(0, '#120b08'); g.addColorStop(.7, '#2c180f'); g.addColorStop(1, `rgba(150,90,50,${.9*L})`);
+      ctx.fillStyle = g; ctx.beginPath(); ctx.ellipse(0, 0, 20*u, 9*u, 0, 0, TAU); ctx.fill();
+      ctx.fillStyle = amber(.28 * L); ctx.beginPath(); ctx.ellipse(10*u, -3*u, 6*u, 1.6*u, .2, 0, TAU); ctx.fill();
+      ctx.restore();
+    }
+    ctx.restore();
+  }
+
+  function tea(x, y, L, t){
+    // istikana on a small saucer; tea glows where the lantern shines through it; faint steam
+    ctx.save(); ctx.translate(x, y);
+    ctx.fillStyle = 'rgba(0,0,0,.55)'; ctx.beginPath(); ctx.ellipse(-4*u, 6*u, 52*u, 12*u, 0, 0, TAU); ctx.fill();
+    ctx.fillStyle = '#191613'; ctx.beginPath(); ctx.ellipse(0, 0, 50*u, 12*u, 0, 0, TAU); ctx.fill();
+    ctx.strokeStyle = amber(.3 * L); ctx.lineWidth = 1.4*u; ctx.beginPath(); ctx.ellipse(0, 0, 50*u, 12*u, 0, Math.PI*.75, Math.PI*1.25); ctx.stroke();
+    // glass (waisted shape)
+    const gl = new Path2D(); gl.moveTo(-22*u, -78*u); gl.quadraticCurveTo(-12*u, -40*u, -18*u, -4*u); gl.lineTo(18*u, -4*u); gl.quadraticCurveTo(12*u, -40*u, 22*u, -78*u); gl.closePath();
+    const g = ctx.createLinearGradient(-22*u, 0, 22*u, 0);
+    g.addColorStop(0, `rgba(170,90,40,${.85*L})`); g.addColorStop(.45, 'rgba(70,30,16,.95)'); g.addColorStop(1, 'rgba(30,14,9,.95)');
+    ctx.save(); ctx.clip(gl); ctx.fillStyle = g; ctx.fillRect(-24*u, -64*u, 48*u, 62*u);     // tea, a little below the rim
+    ctx.fillStyle = 'rgba(255,255,255,.04)'; ctx.fillRect(-24*u, -80*u, 48*u, 16*u); ctx.restore();
+    ctx.strokeStyle = 'rgba(220,200,170,.18)'; ctx.lineWidth = 1.2*u; ctx.stroke(gl);
+    ctx.strokeStyle = amber(.55 * L); ctx.lineWidth = 1.6*u;                                   // highlight on the lantern side
+    ctx.beginPath(); ctx.moveTo(-20*u, -74*u); ctx.quadraticCurveTo(-11*u, -40*u, -16*u, -8*u); ctx.stroke();
+    ctx.strokeStyle = 'rgba(220,200,170,.25)'; ctx.beginPath(); ctx.ellipse(0, -78*u, 22*u, 4*u, 0, 0, TAU); ctx.stroke();
+    // steam
+    ctx.strokeStyle = 'rgba(210,200,190,.05)'; ctx.lineWidth = 9*u; ctx.lineCap = 'round'; ctx.filter = `blur(${4*u}px)`;
+    for (let k = 0; k < 2; k++){
+      ctx.beginPath();
+      for (let i = 0; i <= 30; i++){
+        const yy = -86*u - i * 4.2*u;
+        const xx = (k ? 6 : -6)*u + Math.sin(i * .28 - TAU * t / T * (3 + k) + k * 2) * (4 + i * .5) * u;
+        i ? ctx.lineTo(xx, yy) : ctx.moveTo(xx, yy);
+      }
+      ctx.stroke();
+    }
+    ctx.restore();
+  }
+
+  let clock = 1.3, last = performance.now(), drawn = 0;
+  size(); addEventListener('resize', () => { size(); draw(clock); });
+  if (reduce){ draw(clock); return; }                 // reduced motion: one still frame
+  (function frame(now){
+    clock = (clock + Math.min(.1, Math.max(0, (now - last) / 1000))) % T; last = now;   // never step backwards
+    if (now - drawn > 32){ drawn = now; draw(clock); }   // ~30 fps is plenty for a candle; saves battery
+    requestAnimationFrame(frame);
+  })(last);
+})();
+</script>
+
+</body>
+</html>

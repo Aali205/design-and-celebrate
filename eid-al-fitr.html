@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد الفطر · Design & Celebrate</title>
+<meta name="description" content="زينة عيد الفطر: بالونات، حروف عيد مبارك، أكياس عيدية وعلب ضيافة، مع توصيل لكل سوريا.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+/* Eid al-Fitr: a bright morning after Ramadan. Pistachio and gold, a bunch of balloons tied together, confetti falling. */
+.w-hero{background:radial-gradient(70% 90% at 15% 30%,#F6EBCF 0,transparent 60%),radial-gradient(60% 80% at 90% 80%,#D8EAD9 0,transparent 65%),var(--bg)}
+/* each balloon floats on its own rhythm and swings around the knot where all the strings meet */
+.bunch{transform-box:view-box;transform-origin:230px 410px;animation:swing 6s ease-in-out infinite alternate}
+.bl{transform-box:view-box;animation:float var(--d,5s) ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes swing{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+@keyframes float{from{transform:translateY(-6px)}to{transform:translateY(8px)}}
+.twk{animation:twk 2.4s ease-in-out infinite alternate;animation-delay:var(--dl,0s);transform-box:fill-box;transform-origin:center}
+@keyframes twk{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.tagcard{transform-box:view-box;transform-origin:230px 410px;animation:swing 4.5s ease-in-out infinite alternate-reverse}
+</style>
+</head>
+<body data-world="fitr">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-fitr" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">عيدكن مبارك<span>والبيت لابس فرحته</span></h1>
+      <p class="lede">بالونات، حروف «عيد مبارك» للحيط، أكياس عيدية للصغار وعلب ضيافة للمعمول. كل شي بيوصلك قبل الوقفة، وبتدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">تسوّق زينة العيد</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٠٪ على زينة العيد <b>EID10</b><button type="button" data-copy-code="EID10">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470">
+        <defs>
+          <radialGradient id="shine" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".35" stop-color="#fff" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- a big soft gold crescent behind the bunch -->
+        <path d="M330 40a120 120 0 1 0 70 210A96 96 0 1 1 330 40z" fill="#E7C77E" opacity=".45"/>
+        <g class="bunch">
+          <!-- strings, all tied at one knot (230,410) -->
+          <g fill="none" stroke="#7A8B7F" stroke-width="1.6" opacity=".8">
+            <path d="M150 210Q190 320 230 410"/><path d="M232 170Q225 300 230 410"/><path d="M315 205Q270 320 230 410"/><path d="M190 275Q215 350 230 410"/><path d="M280 280Q245 350 230 410"/>
+          </g>
+          <g class="bl" style="--d:5.2s"><ellipse cx="150" cy="150" rx="56" ry="66" fill="#2B7359"/><ellipse cx="150" cy="150" rx="56" ry="66" fill="url(#shine)"/><path d="M144 214h12l-6 9z" fill="#2B7359"/></g>
+          <g class="bl" style="--d:4.4s;--dl:-1.2s"><ellipse cx="232" cy="104" rx="60" ry="70" fill="#D8AE57"/><ellipse cx="232" cy="104" rx="60" ry="70" fill="url(#shine)"/><path d="M226 172h12l-6 9z" fill="#D8AE57"/></g>
+          <g class="bl" style="--d:5.8s;--dl:-2.4s"><ellipse cx="315" cy="148" rx="54" ry="64" fill="#E9A9A0"/><ellipse cx="315" cy="148" rx="54" ry="64" fill="url(#shine)"/><path d="M309 210h12l-6 9z" fill="#E9A9A0"/></g>
+          <g class="bl" style="--d:4.8s;--dl:-.6s"><ellipse cx="190" cy="232" rx="42" ry="50" fill="#8CC7A8"/><ellipse cx="190" cy="232" rx="42" ry="50" fill="url(#shine)"/><path d="M185 280h10l-5 8z" fill="#8CC7A8"/></g>
+          <g class="bl" style="--d:5.4s;--dl:-3s"><ellipse cx="280" cy="236" rx="44" ry="52" fill="#F3DFA9"/><ellipse cx="280" cy="236" rx="44" ry="52" fill="url(#shine)"/><path d="M275 286h10l-5 8z" fill="#E5C77F"/></g>
+          <!-- a gold crescent printed on the middle balloon -->
+          <path d="M240 78a26 26 0 1 0 16 44 21 21 0 1 1-16-44z" fill="#fff" opacity=".55"/>
+        </g>
+        <g class="tagcard">
+          <path d="M230 410v14" stroke="#7A8B7F" stroke-width="1.6"/>
+          <rect x="172" y="424" width="116" height="40" rx="10" fill="#FAFCF6" stroke="#D8AE57" stroke-width="2"/>
+          <text x="230" y="451" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="21" fill="#2B7359">عيد مبارك</text>
+        </g>
+        <g fill="#D8AE57">
+          <path class="twk" d="M70 120l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/>
+          <path class="twk" style="--dl:-1s" d="M400 300l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+          <path class="twk" style="--dl:-1.8s" d="M90 330l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">زينة العيد</h2><p>اختار اللون من الدوائر تحت كل قطعة وضيفها لسلتك. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js"></script>
+<script src="assets/scene.js"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and colours are the owner's to edit) ----------
+  const GOLD = {name:'ذهبي', c:'#D8AE57'}, GREEN = {name:'زمردي', c:'#2B7359'}, PINK = {name:'وردي', c:'#E3A1A0'}, MINT = {name:'نعناعي', c:'#8CC7A8'};
+  const PRODUCTS = [
+    {id:'banner',  art:'banner',  name:'حبل «عيد مبارك» للحيط', desc:'رايات قماش مع هلال ونجمة، طوله ٢ متر.', price:6, opts:[GOLD, GREEN, PINK], tag:'الأكثر طلباً'},
+    {id:'balloons',art:'balloons',name:'طقم بالونات العيد',      desc:'٣٠ بالون مع شريط وأرقام للعيد.',          price:7, opts:[GREEN, GOLD, PINK, MINT]},
+    {id:'maamoul', art:'maamoul', name:'علبة ضيافة مذهّبة',      desc:'علبة بغطا للمعمول والسكاكر، قطر ٣٠ سم.',  price:14, opts:[GOLD, GREEN]},
+    {id:'eidiya',  art:'eidiya',  name:'أكياس عيدية للصغار',      desc:'١٠ ظروف مطبوعة بهلال ذهبي.',              price:4, opts:[GREEN, PINK, GOLD], tag:'هدية للصغار'},
+    {id:'stars',   art:'stars',   name:'سلسلة نجوم مضوّية',       desc:'ضو LED ببطاريات للشبّاك أو الرف، ٣ متر.', price:8, opts:[GOLD, MINT]},
+    {id:'crescent',art:'crescent',name:'مجسّم هلال للطاولة',      desc:'هلال معدن مع ضو دافي، ارتفاع ٣٥ سم.',      price:16, opts:[GOLD, GREEN]}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour) ----------
+  const star = (x, y, s, f) => `<path d="M${x} ${y-s}l${s*.3} ${s*.7} ${s*.7} ${s*.3}-${s*.7} ${s*.3}-${s*.3} ${s*.7}-${s*.3}-${s*.7}-${s*.7}-${s*.3} ${s*.7}-${s*.3}z" fill="${f}"/>`;
+  const moon = (x, y, r, f) => `<path d="M${x} ${y-r}a${r} ${r} 0 1 0 ${r*.62} ${r*1.78}A${r*.8} ${r*.8} 0 1 1 ${x} ${y-r}z" fill="${f}"/>`;
+  const ART = {
+    banner: c => `<path d="M14 52Q100 96 186 52" fill="none" stroke="#7A6A55" stroke-width="2"/>
+      ${[0,1,2,3,4,5,6].map(i => { const x = 22 + i * 26, y = 56 + Math.sin(i / 6 * Math.PI) * 20; return `<path d="M${x-11} ${y}h22l-11 26z" fill="${i % 2 ? '#FAF3E2' : c}"/>${i % 2 ? moon(x, y + 9, 5, c) : star(x, y + 8, 5, '#FAF3E2')}`; }).join('')}
+      <text x="100" y="150" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="34" fill="${c}">عيد مبارك</text>
+      <path d="M50 166h100" stroke="${c}" stroke-width="2" stroke-linecap="round" opacity=".5"/>`,
+    balloons: c => `<g fill="none" stroke="#8A8F86" stroke-width="1.4"><path d="M70 120Q90 160 100 186"/><path d="M104 96Q100 150 100 186"/><path d="M134 122Q110 160 100 186"/></g>
+      <ellipse cx="70" cy="84" rx="30" ry="36" fill="${c}"/><ellipse cx="134" cy="88" rx="28" ry="34" fill="#F3DFA9"/><ellipse cx="104" cy="58" rx="32" ry="38" fill="${c}" opacity=".78"/>
+      <ellipse cx="60" cy="72" rx="8" ry="12" fill="#fff" opacity=".35"/><ellipse cx="94" cy="44" rx="8" ry="12" fill="#fff" opacity=".35"/>
+      ${[[30,40,'#D8AE57'],[168,46,'#E3A1A0'],[34,150,'#2B7359'],[164,150,'#D8AE57']].map(([x,y,f],i) => `<rect x="${x}" y="${y}" width="9" height="5" rx="1" fill="${f}" transform="rotate(${i*35} ${x} ${y})"/>`).join('')}`,
+    maamoul: c => `<ellipse cx="100" cy="150" rx="78" ry="22" fill="#000" opacity=".08"/>
+      <path d="M26 112v26c0 14 33 24 74 24s74-10 74-24v-26" fill="${c}"/><ellipse cx="100" cy="112" rx="74" ry="22" fill="#FBF5E6"/>
+      ${[[66,108],[100,100],[134,108],[84,120],[118,120]].map(([x,y]) => `<ellipse cx="${x}" cy="${y}" rx="15" ry="9" fill="#E8C48A"/><path d="M${x-9} ${y-2}q9-6 18 0M${x-8} ${y+2}q8-5 16 0" stroke="#C99A5B" stroke-width="1.4" fill="none"/>`).join('')}
+      <g transform="rotate(-14 150 52)"><ellipse cx="128" cy="62" rx="60" ry="17" fill="${c}"/><ellipse cx="128" cy="57" rx="60" ry="17" fill="${c}"/><ellipse cx="128" cy="57" rx="60" ry="17" fill="#fff" opacity=".18"/><circle cx="128" cy="44" r="7" fill="#FBF5E6"/></g>
+      <path d="M26 128c0 14 33 24 74 24s74-10 74-24" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="2"/>`,
+    eidiya: c => [[-14,52,'#FAF3E2'],[0,100,c],[14,148,'#FAF3E2']].map(([r,x,f]) =>
+      `<g transform="rotate(${r} 100 150)"><rect x="${x-34}" y="60" width="68" height="96" rx="6" fill="${f}" stroke="${c}" stroke-width="1.5"/><path d="M${x-34} 66l34 26 34-26" fill="none" stroke="${f === c ? '#FAF3E2' : c}" stroke-width="1.5" opacity=".7"/>${moon(x, 118, 12, f === c ? '#FAF3E2' : c)}</g>`).join(''),
+    stars: c => `<path d="M10 50Q60 90 100 70T190 60" fill="none" stroke="#7A6A55" stroke-width="1.6"/>
+      ${[[24,62],[52,78],[82,78],[112,66],[142,60],[172,60]].map(([x,y],i) => `<path d="M${x} ${y}v${12 + (i%3)*14}" stroke="#7A6A55" stroke-width="1.2"/><circle cx="${x}" cy="${y + 22 + (i%3)*14}" r="16" fill="${c}" opacity=".22"/>${star(x, y + 22 + (i%3)*14, 11, c)}`).join('')}`,
+    crescent: c => `<circle cx="100" cy="88" r="62" fill="${c}" opacity=".14"/>${moon(96, 88, 56, c)}
+      <circle cx="122" cy="64" r="3" fill="${c}"/>${star(130, 104, 12, '#FAF3E2')}
+      <path d="M100 146v18" stroke="${c}" stroke-width="5"/><path d="M64 178h72l-10-14H74z" fill="${c}"/><ellipse cx="100" cy="182" rx="42" ry="5" fill="#000" opacity=".1"/>`
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'fitr', PRODUCTS, (p, o) => ART[p.art](o ? o.c : '#D8AE57'));
+  const d = DC.daysLeft('fitr');
+  document.getElementById('when').innerHTML = DC.WORLDS.fitr.icon + `عيد الفطر${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'confetti', colors:['#2B7359','#D8AE57','#E9A9A0','#8CC7A8'], count:46, dir:1});
+})();
+</script>
+</body>
+</html>
