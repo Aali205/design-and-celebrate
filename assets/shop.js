@@ -18,6 +18,7 @@
     'MAMA15':    {pct:15, w:['mother'], label:'خصم عيد الأم'},
     'LOVE10':    {pct:10, w:['valentine'], label:'خصم عيد الحب'},
     'NIGHT20':   {pct:20, w:['night'], label:'خصم Night Vibe Box'},
+    'HALLOWEEN15': {pct:15, w:['halloween'], label:'خصم هالوين'},
     'CAFE-DEMO': {pct:10, venue:'كافيه تجريبي', label:'خصم الشركاء'}   // one line per venue, e.g. 'ROOTS': {pct:10, venue:'كافيه روتس', label:'خصم الشركاء'}
   };
 
@@ -28,6 +29,7 @@
     adha:'<g fill="currentColor"><circle cx="21" cy="21" r="7"/><circle cx="29" cy="20" r="7"/><circle cx="35" cy="26" r="6"/><circle cx="27" cy="29" r="7.5"/><circle cx="18" cy="28" r="6"/><rect x="18" y="32" width="3.4" height="9" rx="1.7"/><rect x="31" y="32" width="3.4" height="9" rx="1.7"/></g><ellipse cx="11" cy="22" rx="5.5" ry="7" fill="currentColor" opacity=".65"/><circle cx="9.6" cy="21" r="1.2" fill="#fff"/>',
     mother:'<path d="M24 7c-5 3-8.5 8-8.5 14 0 5.6 3.8 9.5 8.5 9.5s8.5-3.9 8.5-9.5C32.5 15 29 10 24 7z" fill="currentColor"/><path d="M15.5 14.5c3 1.5 5.5 4 6 8M32.5 14.5c-3 1.5-5.5 4-6 8" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/><path d="M24 30.5V44" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M24 39c-2-5-6-7-10-6.5 1 4.5 5 7 10 6.5zM24 36c2-4 5.5-5.5 9-5-1 3.8-4.5 5.8-9 5z" fill="currentColor" opacity=".6"/>',
     valentine:'<path d="M24 41.5S6.5 31 6.5 18.5A9.5 9.5 0 0 1 24 13a9.5 9.5 0 0 1 17.5 5.5C41.5 31 24 41.5 24 41.5z" fill="currentColor"/><path d="M13 17.5a5 5 0 0 1 5-4.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>',
+    halloween:'<g fill="currentColor"><ellipse cx="16.5" cy="29" rx="9" ry="11.5"/><ellipse cx="31.5" cy="29" rx="9" ry="11.5"/><ellipse cx="24" cy="29" rx="10" ry="12.5"/></g><path d="M23.5 17c-.2-4 1.6-7.4 5-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m16.5 26.5 3.2-4 3.2 4zm8.6 0 3.2-4 3.2 4zM15.5 32q8.5 7 17 0l-3.2.6-1.8 2-2.3-2-2.4 2-2.3-2-1.8 2z" fill="#fff" fill-opacity=".85"/>',
     night:'<rect x="9" y="23" width="30" height="18" rx="2.5" fill="currentColor"/><rect x="7" y="16.5" width="34" height="8" rx="2.5" fill="currentColor" opacity=".7"/><path d="M24 16.5V41" stroke="#fff" stroke-opacity=".6" stroke-width="2.4"/><path d="M24 16c-4-6-10-5-9-1.5S21 16.5 24 16c3 .5 10 2 9-1.5s-5-4.5-9 1.5z" fill="currentColor"/><path d="m37 4 1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1zM10 6l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>'
   };
   const WORLDS = {
@@ -36,6 +38,7 @@
     fitr:     {name:'عيد الفطر',    href:'eid-al-fitr.html',    c:'#2B7359', tagline:'بالونات، ضيافة وأكياس عيدية',     dates:['2027-03-10','2028-02-27']},
     mother:   {name:'عيد الأم',     href:'mothers-day.html',    c:'#A9526C', tagline:'ورد بيعيش، شموع وهدايا لست الحبايب', dates:['03-21']},
     adha:     {name:'عيد الأضحى',   href:'eid-al-adha.html',    c:'#A0532F', tagline:'زينة الأضحى، خواريف وعيديات',      dates:['2027-05-16','2028-05-05']},
+    halloween:{name:'هالوين',       href:'halloween.html',      c:'#E07B39', tagline:'يقاطين مضوّية، خفافيش وزينة السهرة المخيفة', dates:['10-31']},
     night:    {name:'Night Vibe Box', href:'night-vibe-box.html', c:'#7B66C9', tagline:'بوكس لسهرة الأفلام والبنات وعيد الميلاد', dates:[]}
   };
   for (const k in WORLDS) WORLDS[k].icon = `<svg viewBox="0 0 48 48" aria-hidden="true">${I[k]}</svg>`;

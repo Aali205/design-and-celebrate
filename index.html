@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/brand.css?v=2">
+<link rel="stylesheet" href="assets/brand.css?v=3">
 <style>
 /* Home: the store is the centre, every celebration is a world orbiting it ("Same store, different world").
    Below the hero, each world is a tile whose animated background shows what's inside. */
@@ -124,6 +124,17 @@
 @keyframes beat{0%,40%,100%{scale:1}12%{scale:1.1}26%{scale:1.04}32%{scale:1.12}}
 .hr{bottom:-20px;width:var(--s,16px);animation:hup var(--t,7s) ease-in infinite;animation-delay:var(--d,0s);opacity:0}
 @keyframes hup{10%{opacity:.85}to{transform:translateY(-300px) rotate(14deg);opacity:0}}
+/* Halloween (full moon, bats crossing, a glowing pumpkin, a friendly ghost) */
+.sc-halloween{background:radial-gradient(circle at 70% 30%,#3A2C55,#17121F 70%)}
+.sc-halloween .hmoon{width:78px;height:78px;left:calc(50% - 20px);top:10%;border-radius:50%;background:radial-gradient(circle at 40% 38%,#FFF6DA,#E9D49C);box-shadow:0 0 40px 8px rgb(246 231 184/.35)}
+.hbat{left:0;width:100%;animation:fly var(--t,8s) linear infinite;animation-delay:var(--d,0s)}
+.hbat svg{animation:flapw .3s ease-in-out infinite alternate}
+@keyframes flapw{to{transform:scaleY(.45)}}
+.hpump{width:96px;left:calc(50% - 48px);bottom:6%}
+.hpump .fire{animation:hflick 2.4s steps(1,end) infinite}
+@keyframes hflick{0%,100%{opacity:1}14%{opacity:.65}18%{opacity:.95}52%{opacity:.78}56%{opacity:1}}
+.hghost{width:48px;left:14%;top:30%;animation:hboo 3.6s ease-in-out infinite alternate}
+@keyframes hboo{from{transform:translateY(-6px) rotate(-5deg)}to{transform:translateY(8px) rotate(4deg)}}
 /* Night Vibe Box (night sky, a gift box that pops open with sparkles) */
 .sc-night{background:linear-gradient(180deg,#121433,#2C2468)}
 .sc-night .moon{width:44px;height:44px;left:14%;top:14%;border-radius:50%;box-shadow:11px -5px 0 0 #E9E2FF;filter:drop-shadow(0 0 10px rgb(233 226 255/.5))}
@@ -235,7 +246,7 @@
 <footer data-footer></footer>
 </div>
 
-<script src="assets/shop.js?v=2"></script>
+<script src="assets/shop.js?v=3"></script>
 <script>
 (() => {
   const {WORLDS, daysLeft, ar} = DC;
@@ -243,7 +254,7 @@
   const rnd = (i, k) => { const x = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return x - Math.floor(x); };   // repeatable "random": tiles look the same each visit
 
   // ---------- the orbit ----------
-  document.getElementById('ring').innerHTML = keys.map((k, i) => `<div class="planet" style="--a:${i * 60}deg;--c:${WORLDS[k].c}">
+  document.getElementById('ring').innerHTML = keys.map((k, i) => `<div class="planet" style="--a:${(i * 360 / keys.length).toFixed(2)}deg;--c:${WORLDS[k].c}">
     <a href="${WORLDS[k].href}" aria-label="${WORLDS[k].name}"><span>${WORLDS[k].icon}<i>${WORLDS[k].name}</i></span></a></div>`).join('');
 
   // ---------- each scene: small, CSS-animated pieces that show what's inside the world ----------
@@ -261,6 +272,11 @@
       + Array.from({length:10}, (_, i) => `<span class="pt" style="left:${20 + rnd(i,10)*90}%;--t:${7 + rnd(i,11)*4}s;--d:-${(rnd(i,12)*9).toFixed(1)}s;background:${['#DE9AAA','#F3C8A0','#B9D0B3'][i%3]}"></span>`).join(''),
     valentine: () => heart('big', '', '#E9899F')
       + Array.from({length:9}, (_, i) => heart('hr', `left:${8 + rnd(i,13)*84}%;--s:${12 + rnd(i,14)*12}px;--t:${5 + rnd(i,15)*4}s;--d:-${(rnd(i,16)*8).toFixed(1)}s;--x:${(rnd(i,17)*40-20).toFixed(0)}px`, ['#E9899F','#F3C8A0','#C8576F'][i%3])).join(''),
+    halloween: () => `<span class="hmoon"></span>`
+      + [0,1,2].map(i => `<div class="hbat" style="--t:${7 + i*2.5}s;--d:-${i*3}s;top:${16 + i*12}%"><svg width="${30 - i*6}" viewBox="0 0 34 14"><path d="M14 6Q8-2 0 3Q4 5 3 10Q8 6 12 10Q13 7 14 8zM20 6Q26-2 34 3Q30 5 31 10Q26 6 22 10Q21 7 20 8z" fill="#120E18"/><ellipse cx="17" cy="7" rx="3.4" ry="4.6" fill="#120E18"/></svg></div>`).join('')
+      + `<svg class="hghost" viewBox="0 0 60 70"><path d="M6 36C6 14 16 2 30 2s24 12 24 34v30l-6-5-6 6-6-6-6 6-6-6-6 6-6-6-6 5z" fill="#F4EFF7"/><ellipse cx="22" cy="30" rx="3" ry="4.5" fill="#2A2233"/><ellipse cx="38" cy="30" rx="3" ry="4.5" fill="#2A2233"/><ellipse cx="30" cy="42" rx="4" ry="3" fill="#2A2233"/></svg>`
+      + `<svg class="hpump" viewBox="0 0 120 110"><circle cx="60" cy="64" r="58" fill="#FFB45A" opacity=".18"/><path d="M58 18c-1-8 3-14 9-17" stroke="#6C7C47" stroke-width="6" fill="none" stroke-linecap="round"/><ellipse cx="38" cy="66" rx="30" ry="38" fill="#E5762F"/><ellipse cx="82" cy="66" rx="30" ry="38" fill="#E5762F"/><ellipse cx="60" cy="64" rx="33" ry="42" fill="#F08A3D"/>
+        <g class="fire" fill="#FFD67E"><path d="M40 58l10-13 10 13zM62 58l10-13 10 13z"/><path d="M38 76q22 18 44 0l-6 2-4 6-5-5-5 6-5-6-5 5-4-6z"/></g></svg>`,
     night: () => `<span class="moon"></span>` + Array.from({length:18}, (_, i) => `<span class="st" style="left:${rnd(i,18)*100}%;top:${rnd(i,19)*60}%;animation-delay:-${(rnd(i,20)*2.6).toFixed(2)}s"></span>`).join('')
       + `<svg class="box" viewBox="0 0 130 120"><path class="beam" d="M30 66 0 0h130L100 66z" fill="url(#beamG)"/>
         <defs><linearGradient id="beamG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F5B98D" stop-opacity=".7"/><stop offset="1" stop-color="#B9A5F5" stop-opacity="0"/></linearGradient></defs>

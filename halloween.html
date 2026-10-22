@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>هالوين · Design & Celebrate</title>
+<meta name="description" content="زينة هالوين: يقاطين مضوّية، خفافيش للحيط، شبكات عنكبوت وقبعات ساحرات، مع توصيل لكل سوريا والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=3">
+<style>
+/* Halloween: a cute-spooky night, not a scary one. A big moon, a carved pumpkin whose light flickers,
+   a friendly ghost floating, a spider going up and down its thread, bats crossing the moon. */
+.w-hero{background:radial-gradient(60% 70% at 22% 30%,#3A2A52 0,transparent 65%),radial-gradient(55% 60% at 80% 95%,#4A2A1A 0,transparent 70%),var(--bg)}
+.moonglow{transform-box:fill-box;transform-origin:center;animation:moon 6s ease-in-out infinite alternate}
+@keyframes moon{from{opacity:.55;transform:scale(.96)}to{opacity:.9;transform:scale(1.04)}}
+/* the pumpkin's inner light: two quick dips then steady, like a real candle */
+.flicker{animation:flick 2.6s steps(1,end) infinite}
+@keyframes flick{0%,100%{opacity:1}12%{opacity:.7}16%{opacity:.95}44%{opacity:.8}48%{opacity:1}71%{opacity:.86}}
+.pglow{transform-box:fill-box;transform-origin:center;animation:pglow 2.6s ease-in-out infinite alternate}
+@keyframes pglow{from{opacity:.45;transform:scale(.92)}to{opacity:.85;transform:scale(1.06)}}
+.ghost{transform-box:view-box;transform-origin:360px 170px;animation:ghost 4.2s ease-in-out infinite alternate}
+@keyframes ghost{from{transform:translate(0,-8px) rotate(-4deg)}to{transform:translate(-6px,10px) rotate(3deg)}}
+.spider{animation:spider 5s cubic-bezier(.45,0,.55,1) infinite alternate}
+@keyframes spider{from{transform:translateY(-34px)}to{transform:translateY(22px)}}
+.thread{transform-box:fill-box;transform-origin:50% 0;animation:thread 5s cubic-bezier(.45,0,.55,1) infinite alternate}
+@keyframes thread{from{transform:scaleY(.55)}to{transform:scaleY(1.12)}}
+.batfly{animation:batfly 9s linear infinite;animation-delay:var(--dl,0s)}
+@keyframes batfly{from{transform:translate(-80px,40px)}to{transform:translate(540px,-60px)}}
+.wing{transform-box:fill-box;animation:flap .28s ease-in-out infinite alternate}
+.wing.l{transform-origin:100% 50%}.wing.r{transform-origin:0% 50%}
+@keyframes flap{from{transform:scaleY(1)}to{transform:scaleY(-.35)}}
+.twk{transform-box:fill-box;transform-origin:center;animation:twk 2.2s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes twk{from{opacity:.2;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body data-world="halloween">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-halloween" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">ليلة هالوين<span>مخيفة… بس بتضحّك</span></h1>
+      <p class="lede">يقاطين مضوّية، خفافيش للحيط، شبكات عنكبوت، وقبعات ساحرات للصغار. زيّن البيت أو الحفلة، ومنوصلك كل شي قبل ٣١ تشرين الأول والدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">تسوّق زينة هالوين</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٥٪ على زينة هالوين <b>HALLOWEEN15</b><button type="button" data-copy-code="HALLOWEEN15">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470" width="460" height="470">
+        <defs>
+          <radialGradient id="hMoon" cx="42%" cy="38%" r="70%"><stop offset="0" stop-color="#FFF6DA"/><stop offset=".75" stop-color="#F1DFAE"/><stop offset="1" stop-color="#DCC48A"/></radialGradient>
+          <radialGradient id="hHalo"><stop offset="0" stop-color="#F6E7B8" stop-opacity=".5"/><stop offset="1" stop-color="#F6E7B8" stop-opacity="0"/></radialGradient>
+          <radialGradient id="hPump" cx="40%" cy="35%" r="75%"><stop offset="0" stop-color="#F8A35A"/><stop offset=".7" stop-color="#E5762F"/><stop offset="1" stop-color="#B9531D"/></radialGradient>
+          <radialGradient id="hFire"><stop offset="0" stop-color="#FFF3C4"/><stop offset=".55" stop-color="#FFC25A"/><stop offset="1" stop-color="#F08A3D"/></radialGradient>
+          <linearGradient id="hHill"><stop offset="0" stop-color="#2A2036" stop-opacity="0"/><stop offset=".25" stop-color="#2A2036"/><stop offset=".75" stop-color="#2A2036"/><stop offset="1" stop-color="#2A2036" stop-opacity="0"/></linearGradient>
+          <linearGradient id="hHill2"><stop offset="0" stop-color="#1D1626" stop-opacity="0"/><stop offset=".2" stop-color="#1D1626"/><stop offset=".8" stop-color="#1D1626"/><stop offset="1" stop-color="#1D1626" stop-opacity="0"/></linearGradient>
+          <radialGradient id="hGlow"><stop offset="0" stop-color="#FFB45A" stop-opacity=".6"/><stop offset="1" stop-color="#FFB45A" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- moon -->
+        <circle class="moonglow" cx="250" cy="150" r="150" fill="url(#hHalo)"/>
+        <circle cx="250" cy="150" r="98" fill="url(#hMoon)"/>
+        <g fill="#D9C38C" opacity=".55"><circle cx="220" cy="128" r="14"/><circle cx="276" cy="176" r="9"/><circle cx="262" cy="112" r="6"/></g>
+        <!-- bats crossing the moon -->
+        <g class="batfly" style="--dl:-2s"><g transform="translate(0 150) scale(1.1)" fill="#33284A">
+          <path class="wing l" d="M0 0Q-10-14-24-6Q-18-2-20 6Q-12 0-6 6Q-4 2 0 4z"/><path class="wing r" d="M6 0Q16-14 30-6Q24-2 26 6Q18 0 12 6Q10 2 6 4z"/><ellipse cx="3" cy="2" rx="5" ry="7"/></g></g>
+        <g class="batfly" style="--dl:-6.5s"><g transform="translate(0 110) scale(.75)" fill="#33284A">
+          <path class="wing l" d="M0 0Q-10-14-24-6Q-18-2-20 6Q-12 0-6 6Q-4 2 0 4z"/><path class="wing r" d="M6 0Q16-14 30-6Q24-2 26 6Q18 0 12 6Q10 2 6 4z"/><ellipse cx="3" cy="2" rx="5" ry="7"/></g></g>
+        <!-- hill -->
+        <path d="M0 410Q120 340 240 372T460 350V470H0z" fill="url(#hHill)"/>
+        <path d="M0 440Q150 400 300 420T460 410V470H0z" fill="url(#hHill2)"/>
+        <!-- spider on its thread, from the top -->
+        <g transform="translate(96 0)">
+          <path class="thread" d="M0 0V120" stroke="#CFC6D8" stroke-width="1.4" opacity=".6"/>
+          <g class="spider"><g transform="translate(0 132)">
+            <g stroke="#5B4A72" stroke-width="2.6" fill="none" stroke-linecap="round"><path d="M-6-2q-12-10-18 0M-6 3q-14-2-18 10M6-2q12-10 18 0M6 3q14-2 18 10M-5 7q-8 6-10 16M5 7q8 6 10 16"/></g>
+            <ellipse cx="0" cy="2" rx="10" ry="12" fill="#5B4A72"/><circle cx="-3.5" cy="-1" r="2.6" fill="#fff"/><circle cx="3.5" cy="-1" r="2.6" fill="#fff"/><circle cx="-3" cy="-.6" r="1.2" fill="#2A2233"/><circle cx="4" cy="-.6" r="1.2" fill="#2A2233"/>
+          </g></g>
+        </g>
+        <!-- friendly ghost -->
+        <g class="ghost">
+          <path d="M330 220c0-46 18-78 44-78s44 32 44 78v38l-11-9-11 11-11-11-11 11-11-11-11 11-11-11-11 9z" fill="#F4EFF7" opacity=".95"/>
+          <ellipse cx="360" cy="190" rx="5" ry="7" fill="#2A2233"/><ellipse cx="386" cy="190" rx="5" ry="7" fill="#2A2233"/>
+          <ellipse cx="373" cy="210" rx="6" ry="4" fill="#2A2233" opacity=".85"/>
+          <ellipse cx="350" cy="203" rx="5" ry="3" fill="#F2B5C4" opacity=".7"/><ellipse cx="396" cy="203" rx="5" ry="3" fill="#F2B5C4" opacity=".7"/>
+        </g>
+        <!-- the big carved pumpkin with a flickering light, plus a small one -->
+        <circle class="pglow" cx="190" cy="350" r="120" fill="url(#hGlow)"/>
+        <g>
+          <path d="M186 262c-2-14 4-26 16-32" stroke="#6C7C47" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <ellipse cx="140" cy="350" rx="60" ry="72" fill="url(#hPump)"/><ellipse cx="240" cy="350" rx="60" ry="72" fill="url(#hPump)"/>
+          <ellipse cx="190" cy="348" rx="64" ry="78" fill="url(#hPump)"/>
+          <path d="M150 290q-14 60 0 120M230 290q14 60 0 120M190 272v156" stroke="#B9531D" stroke-width="3" fill="none" opacity=".55"/>
+          <g class="flicker" fill="url(#hFire)">
+            <path d="M146 326l22-28 22 28z"/><path d="M190 326l22-28 22 28z"/>
+            <path d="M180 352l10-14 10 14z"/>
+            <path d="M136 372q54 46 108 0l-14 4-10 14-12-12-12 14-12-14-12 12-10-14z"/>
+          </g>
+        </g>
+        <g transform="translate(300 380) scale(.52)">
+          <path d="M60 2c-1-10 3-18 11-22" stroke="#6C7C47" stroke-width="9" fill="none" stroke-linecap="round"/>
+          <ellipse cx="25" cy="60" rx="48" ry="56" fill="url(#hPump)"/><ellipse cx="95" cy="60" rx="48" ry="56" fill="url(#hPump)"/><ellipse cx="60" cy="58" rx="52" ry="62" fill="url(#hPump)"/>
+          <path d="M28 54q8-8 16 0M76 54q8-8 16 0M36 82q24 18 48 0" stroke="#7A3812" stroke-width="5" fill="none" stroke-linecap="round"/>
+        </g>
+        <g fill="#A6D38A">
+          <path class="twk" d="M70 70l3 8 8 3-8 3-3 8-3-8-8-3 8-3z"/>
+          <path class="twk" style="--dl:-.8s" d="M420 80l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/>
+          <path class="twk" style="--dl:-1.5s" d="M40 300l2.5 6 6 2.5-6 2.5-2.5 6-2.5-6-6-2.5 6-2.5z"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">زينة هالوين</h2><p>اختار اللون أو الحجم وضيف القطعة لسلتك. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js?v=3"></script>
+<script src="assets/scene.js?v=3"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and colours are the owner's to edit) ----------
+  const ORANGE = {name:'برتقالي', c:'#F0893D'}, PURPLE = {name:'بنفسجي', c:'#8E6BD1'}, BLACK = {name:'أسود', c:'#2A2233'}, GREEN = {name:'أخضر', c:'#8FC772'}, BONE = {name:'عاجي', c:'#EDE4D3'};
+  const PRODUCTS = [
+    {id:'pumpkin',  art:'pumpkin', name:'يقطينة مضوّية LED',        desc:'وجه محفور وضو برتقالي بيرجف متل الشمعة، ببطاريات.', price:6, optLabel:'الحجم',
+      opts:[{name:'١٥ سم', price:6, s:.72}, {name:'٢٥ سم', price:9, s:.86}, {name:'٣٥ سم', price:14, s:1}], tag:'الأكثر طلباً'},
+    {id:'banner',   art:'banner',  name:'حبل «Happy Halloween»',     desc:'رايات كرتون مقوّى مع خفافيش ويقاطين، طوله ٢ متر.', price:5, opts:[ORANGE, PURPLE, GREEN]},
+    {id:'bats',     art:'bats',    name:'خفافيش للحيط ٢٤ قطعة',       desc:'ستيكرات ثلاثية الأبعاد بتطير على الحيط، بتنشال بلا ما تخرّب الدهان.', price:4, opts:[BLACK, PURPLE, ORANGE]},
+    {id:'web',      art:'web',     name:'شبكة عنكبوت مع عناكب',      desc:'شبكة قطن بتتمطّ للباب أو الشباك، مع ٦ عناكب صغار.', price:3, opts:[BONE, BLACK]},
+    {id:'hat',      art:'hat',     name:'قبعة ساحرة مع عصا',         desc:'للصغار والكبار، قماش مخمل مع حزام لمّاع.', price:7, opts:[PURPLE, BLACK, GREEN], tag:'للحفلات'},
+    {id:'bucket',   art:'bucket',  name:'سطل حلويات يقطينة',          desc:'لـ «Trick or treat»، بلاستيك قوي مع إيد، بيضوّي من جوّا.', price:4, opts:[ORANGE, PURPLE]}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour) ----------
+  const pumpkinArt = (s = 1, face = true) => `<g transform="translate(100 112) scale(${s}) translate(-100 -112)">
+      <ellipse cx="100" cy="176" rx="64" ry="8" fill="#000" opacity=".18"/>
+      <path d="M98 52c-2-12 4-22 14-26" stroke="#6C7C47" stroke-width="8" fill="none" stroke-linecap="round"/>
+      <ellipse cx="66" cy="112" rx="44" ry="56" fill="#E5762F"/><ellipse cx="134" cy="112" rx="44" ry="56" fill="#E5762F"/>
+      <ellipse cx="100" cy="110" rx="48" ry="62" fill="#F08A3D"/>
+      <path d="M72 62q-10 50 0 98M128 62q10 50 0 98" stroke="#C25F25" stroke-width="2.5" fill="none" opacity=".6"/>
+      ${face ? `<g fill="#FFD27A"><path d="M66 100l16-20 16 20zM102 100l16-20 16 20z"/><path d="M93 116l7-10 7 10z"/><path d="M62 128q38 32 76 0l-10 3-7 10-9-9-9 10-9-10-9 9-7-10z"/></g>` : ''}</g>`;
+  const batShape = (x, y, s, f) => `<g transform="translate(${x} ${y}) scale(${s})" fill="${f}"><path d="M0 0Q-10-14-24-6Q-18-2-20 6Q-12 0-6 6Q-4 2 0 4zM6 0Q16-14 30-6Q24-2 26 6Q18 0 12 6Q10 2 6 4z"/><ellipse cx="3" cy="2" rx="5" ry="7"/></g>`;
+  const ART = {
+    pumpkin: o => `<circle cx="100" cy="110" r="80" fill="#FFB45A" opacity=".16"/>${pumpkinArt(o && o.s ? o.s : 1)}`,
+    banner: c => `<path d="M12 46Q100 92 188 46" fill="none" stroke="#8C8197" stroke-width="2"/>
+      ${[0,1,2,3,4,5,6].map(i => { const x = 22 + i * 26, y = 52 + Math.sin(i / 6 * Math.PI) * 20; const f = i % 2 ? '#2A2233' : c;
+        return `<path d="M${x-12} ${y}h24l-12 28z" fill="${f}"/>${i % 2 ? batShape(x - 4, y + 9, .32, c) : `<circle cx="${x}" cy="${y + 10}" r="5" fill="#2A2233" opacity=".85"/>`}`; }).join('')}
+      <text x="100" y="146" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="21" letter-spacing="1" fill="${c}">HAPPY</text>
+      <text x="100" y="172" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-size="25" fill="#F3ECE2">Halloween</text>`,
+    bats: c => `<circle cx="100" cy="100" r="76" fill="#E9D49C" opacity=".9"/><circle cx="100" cy="100" r="88" fill="#E9D49C" opacity=".12"/>` + [[52,58,1.4],[120,44,1],[150,92,1.6],[72,112,1.1],[118,138,.8],[40,152,.9],[160,154,1.2]].map(([x,y,s]) => batShape(x, y, s, c)).join(''),
+    web: c => `<circle cx="100" cy="92" r="92" fill="#E9D49C" opacity="${c === '#2A2233' ? .85 : .08}"/><g stroke="${c}" stroke-width="1.6" fill="none" opacity=".9">${[0,1,2,3,4,5,6,7].map(i => { const a = i * Math.PI / 4; return `<path d="M100 92L${(100 + Math.cos(a) * 90).toFixed(1)} ${(92 + Math.sin(a) * 90).toFixed(1)}"/>`; }).join('')}
+      ${[22,42,62,82].map(r => `<path d="${[0,1,2,3,4,5,6,7,8].map(i => { const a = i * Math.PI / 4; return `${i ? 'L' : 'M'}${(100 + Math.cos(a) * r).toFixed(1)} ${(92 + Math.sin(a) * r).toFixed(1)}`; }).join('')}"/>`).join('')}</g>
+      <path d="M142 92v52" stroke="${c}" stroke-width="1.2"/><g transform="translate(142 154)"><g stroke="#2A2233" stroke-width="2.4" stroke-linecap="round" fill="none"><path d="M-5-2q-10-8-15 0M-5 3q-12-2-15 9M5-2q10-8 15 0M5 3q12-2 15 9"/></g><ellipse cx="0" cy="2" rx="8" ry="10" fill="#2A2233"/><circle cx="-3" cy="-1" r="2" fill="#fff"/><circle cx="3" cy="-1" r="2" fill="#fff"/></g>`,
+    hat: c => `<ellipse cx="100" cy="170" rx="80" ry="12" fill="#000" opacity=".2"/><ellipse cx="100" cy="158" rx="82" ry="16" fill="${c}"/>
+      <path d="M58 156C70 120 78 70 94 40c6-12 22-18 32-8-14 2-18 16-16 34 3 30 18 60 30 90z" fill="${c}"/><path d="M58 156C70 120 78 70 94 40" stroke="#fff" stroke-opacity=".18" stroke-width="3" fill="none"/>
+      <path d="M62 140q38 12 78 0l4 16q-43 12-86 0z" fill="#F0893D"/><rect x="92" y="138" width="16" height="16" rx="2" fill="none" stroke="#FFD27A" stroke-width="3"/>
+      <path d="M150 54l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" fill="#FFD27A"/><path d="M160 108l20 40" stroke="#6B4A2E" stroke-width="4" stroke-linecap="round"/><path d="M158 104l3 6 6 2-6 2-3 6-3-6-6-2 6-2z" fill="#FFD27A"/>`,
+    bucket: c => `<path d="M48 70Q100 10 152 70" stroke="#2A2233" stroke-width="5" fill="none"/>
+      <g fill="#F7D36B"><rect x="66" y="56" width="14" height="10" rx="3" transform="rotate(-20 73 61)"/><circle cx="104" cy="56" r="7" fill="#E9899F"/><rect x="118" y="54" width="16" height="9" rx="3" fill="#A6D38A" transform="rotate(18 126 58)"/></g>
+      <path d="M44 74h112l-10 86q-2 12-14 12H68q-12 0-14-12z" fill="${c}"/><ellipse cx="100" cy="74" rx="56" ry="10" fill="#000" opacity=".25"/>
+      <g fill="#2A2233"><path d="M70 108l12-16 12 16zM106 108l12-16 12 16z"/><path d="M68 128q32 26 64 0l-8 2-6 8-8-7-8 8-8-8-8 7-6-8z"/></g>`
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'halloween', PRODUCTS, (p, o) => p.art === 'pumpkin' ? ART.pumpkin(o) : ART[p.art](o ? o.c : '#F0893D'));
+  const d = DC.daysLeft('halloween');
+  document.getElementById('when').innerHTML = DC.WORLDS.halloween.icon + `هالوين${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'bat', colors:['#3E3254','#4A3B63','#5A4A78'], count:22, dir:-1});
+})();
+</script>
+</body>
+</html>
