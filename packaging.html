@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تغليف الهدايا · Design & Celebrate</title>
+<meta name="description" content="اختار تغليف هديتك: علبة شفافة قوية بكمّ المناسبة، أو كيس كرتون بلون الشعار. لفّها ثلاثي الأبعاد وشوفها من كل الجهات.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=9">
+<style>
+/* Packaging in 3D: the clear box (with the occasion's sleeve) and the carton bag, built from CSS 3D faces.
+   Drag to turn it, pick the sleeve and size, open the lid, add gift wrapping to the cart.
+   ?video=box|bag&angle=..&sleeve=..&size=..&lid=1 renders one still frame for the rotating videos. */
+.pk-hero{padding-block:36px 56px}
+.pk-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:36px;align-items:start}
+@media (max-width:900px){.pk-grid{grid-template-columns:1fr;gap:20px}}
+.pk-hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.2}
+.pk-hero .lede{color:var(--dim);font-size:1.06rem;margin-top:10px;max-width:34em}
+
+/* the stage */
+.stage{position:relative;aspect-ratio:1/1;max-width:100%;border-radius:28px;overflow:hidden;background:#3E2A4A;touch-action:none;cursor:grab;user-select:none;-webkit-user-select:none}
+.stage:active{cursor:grabbing}
+.stage .floor{position:absolute;left:12%;right:12%;bottom:12%;height:9%;border-radius:50%;background:#000;opacity:.28;filter:blur(14px)}
+.stage .light{position:absolute;inset:0;background:radial-gradient(50% 45% at 50% 42%,rgb(255 227 163/.20),transparent 70%)}
+.view{position:absolute;inset:0;perspective:1500px;perspective-origin:50% 38%}
+.rig{position:absolute;left:50%;top:54%;width:0;height:0;transform-style:preserve-3d}
+.obj{position:absolute;left:0;top:0;transform-style:preserve-3d}
+.obj[hidden]{display:none!important}
+.f{position:absolute;left:0;top:0;box-sizing:border-box;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.hint{position:absolute;bottom:14px;left:0;right:0;text-align:center;color:#E8C9D9;font-size:.86rem;pointer-events:none;opacity:.9}
+.spin-btns{position:absolute;top:12px;inset-inline-start:12px;display:flex;gap:8px}
+.spin-btns button{width:44px;height:44px;border-radius:50%;border:1px solid rgb(255 255 255/.35);background:rgb(0 0 0/.25);color:#fff;font-size:1.2rem;cursor:pointer}
+
+/* clear plastic faces: faint fill, bright edges, a glare */
+.pet{background:linear-gradient(135deg,rgb(255 255 255/.30),rgb(255 255 255/.06) 42%,rgb(255 255 255/.12));border:1.6px solid rgb(255 255 255/.85);backface-visibility:visible;-webkit-backface-visibility:visible}
+.kraft{background:#C9A27A;backface-visibility:visible;-webkit-backface-visibility:visible}
+.shred{background:repeating-linear-gradient(35deg,#E8A577 0 3px,#D9956A 3px 6px,#F0BC92 6px 9px);backface-visibility:visible;-webkit-backface-visibility:visible}
+.lid{transform-style:preserve-3d;transition:transform .7s cubic-bezier(.3,1.3,.5,1)}
+.sleeve{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px;color:#F2E8D5;font-family:var(--display);font-weight:700;border-block:2px solid var(--sl-line,#D9A84E);overflow:hidden;white-space:nowrap}
+.sleeve .m{flex:none;width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font:600 11px var(--latin);background:var(--sl-line,#D9A84E);color:var(--sl-bg,#14324A)}
+.item{backface-visibility:visible;-webkit-backface-visibility:visible;display:grid;place-items:end center}
+.item svg{width:100%;height:auto}
+
+/* bag faces */
+.bagface{background:#7A4E86}
+.bagin{background:#4E2F59;backface-visibility:visible;-webkit-backface-visibility:visible}
+.bagside{background:linear-gradient(90deg,#C98258,#D9956A 50%,#C98258)}
+.bagface svg,.bagside svg{position:absolute;inset:0;width:100%;height:100%}
+.handle{backface-visibility:visible;-webkit-backface-visibility:visible}
+.handle svg{width:100%;height:100%;display:block}
+
+/* controls */
+.panel{display:grid;gap:18px}
+.seg{display:flex;background:var(--tint);border-radius:999px;padding:4px;gap:4px}
+.seg button{flex:1;border:0;border-radius:999px;padding:10px 12px;font-weight:600;cursor:pointer;background:transparent;color:var(--ink)}
+.seg button[aria-pressed=true]{background:var(--surface);box-shadow:0 2px 10px -4px rgb(0 0 0/.3);color:var(--accent)}
+.lbl2{font-size:.9rem;color:var(--dim);margin-bottom:8px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip2{display:flex;align-items:center;gap:8px;border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 14px 7px 8px;cursor:pointer;font-size:.92rem;color:var(--ink)}
+.chip2 i{width:22px;height:22px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 2px rgb(255 255 255/.5)}
+.chip2[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.sizes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.size{border:1.5px solid var(--line);background:var(--surface);border-radius:16px;padding:10px;cursor:pointer;display:grid;gap:2px;text-align:center;color:var(--ink)}
+.size b{font:600 1.3rem var(--latin)}
+.size span{font-size:.78rem;color:var(--dim);direction:ltr}
+.size[aria-pressed=true]{border-color:var(--accent);box-shadow:0 0 0 2px var(--accent) inset}
+.buyrow{display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.buyrow .price{font-size:1.7rem}
+.incl{font-size:.9rem;color:var(--dim);line-height:1.7}
+.steps5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;list-style:none;padding:0;margin:0;counter-reset:s}
+.steps5 li{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:14px;font-size:.92rem;display:grid;gap:6px}
+.steps5 li::before{counter-increment:s;content:counter(s,arabic-indic);width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--accent);color:var(--on-accent);font:700 1rem var(--display)}
+@media (max-width:760px){.steps5{grid-template-columns:1fr 1fr}}
+
+/* video mode: only the stage, square, no UI */
+body.video .top,body.video .worlds-bar,body.video .pk-copy,body.video .panel,body.video #how5,body.video footer,body.video .hint,body.video .spin-btns{display:none!important}
+body.video .pk-hero{padding:0}
+body.video .pk-hero .wrap{max-width:none;padding:0}
+body.video .pk-grid{display:block}
+body.video .stage{width:100vw;height:100vh;aspect-ratio:auto;border-radius:0}
+</style>
+</head>
+<body>
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="packaging.html" aria-current="page">التغليف</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="pk-hero" aria-labelledby="heroTitle">
+  <div class="wrap">
+    <div class="pk-copy" style="margin-bottom:22px">
+      <span class="eyebrow">تغليف الهدايا</span>
+      <h1 id="heroTitle" style="margin-top:12px">علبة شفافة وحدة، وعالم لكل مناسبة</h1>
+      <p class="lede">لفّ العلبة أو الكيس بإصبعك وشوفها من كل الجهات. اختار كمّ المناسبة والقياس، وضيف التغليف لهديتك.</p>
+    </div>
+    <div class="pk-grid">
+      <div>
+        <div class="stage" id="stage" role="img" aria-label="تغليف ثلاثي الأبعاد بيلف: العلبة الشفافة أو الكيس">
+          <div class="light"></div><div class="floor"></div>
+          <div class="view"><div class="rig" id="rig">
+            <div class="obj" id="box"></div>
+            <div class="obj" id="bag" hidden></div>
+          </div></div>
+          <div class="spin-btns"><button type="button" id="spinL" aria-label="لف لليمين">↻</button><button type="button" id="spinR" aria-label="لف لليسار">↺</button></div>
+          <p class="hint">اسحب بإصبعك لتلف التغليف</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="seg" role="group" aria-label="نوع التغليف">
+          <button type="button" id="tBox" aria-pressed="true">العلبة الشفافة</button>
+          <button type="button" id="tBag" aria-pressed="false">الكيس بس</button>
+        </div>
+        <div id="sleeveRow"><span class="lbl2">كمّ المناسبة</span><div class="chips" id="sleeves"></div></div>
+        <div><span class="lbl2">القياس</span><div class="sizes" id="sizes"></div></div>
+        <button type="button" class="btn ghost" id="lidBtn">افتح الغطا</button>
+        <p class="incl" id="incl"></p>
+        <div class="buyrow"><span class="price num" id="price"></span><button type="button" class="add" id="addWrap">أضف التغليف للسلة</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="how5" aria-labelledby="howTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="howTitle">كيف بتوصل هديتك</h2><p>نفس الترتيب بكل طلب، لأن لحظة الفتح بتستاهل.</p></div></div>
+    <ol class="steps5">
+      <li>الكيس البنفسجي مع بطاقة بلون المناسبة</li>
+      <li>العلبة الشفافة بكمّ المناسبة</li>
+      <li>ختم دهبي بيسكّر الكمّ</li>
+      <li>ورق حرير مطبوع، وتحته الهدية</li>
+      <li>كرت شكر بكلامك، وكود SHUKRAN10 لطلبك الجاي</li>
+    </ol>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js?v=9"></script>
+<script>
+(() => {
+  // ====== the choices (prices are the owner's to edit) ======
+  const SLEEVES = [   // world key (for the cart), name, sleeve colours, text on the front
+    {w:'ramadan',   name:'رمضان',        bg:'#14324A', side:'#0E2536', line:'#D9A84E', text:'رمضان كريم', ink:'#F2E8D5'},
+    {w:'fitr',      name:'العيد',        bg:'#2B7359', side:'#1F5A45', line:'#D8AE57', text:'عيدكن مبارك', ink:'#FAF3E2'},
+    {w:'christmas', name:'الكريسماس',    bg:'#173D33', side:'#0F2621', line:'#E3B55B', text:'ميلاد مجيد', ink:'#F6EFE2'},
+    {w:'liberation',name:'عيد التحرير',  bg:'flag',    side:'flag',    line:'#C8102E', text:'عيد التحرير', ink:'#0B6E3A'},
+    {w:'mother',    name:'عيد الأم',     bg:'#A9526C', side:'#8E4259', line:'#F3DCDB', text:'لأحلى ماما', ink:'#FFF9F8'},
+    {w:'night',     name:'Night Vibe',   bg:'#2B2463', side:'#1E1A4A', line:'#F5B98D', text:'Night Vibe Box', ink:'#F5B98D'}
+  ];
+  const SIZES = { // cm, and the price of the full gift wrap / the bag alone
+    S:{box:[20,15,10], bag:[20,10,25], wrap:2, bagOnly:1},
+    M:{box:[30,22,12], bag:[32,14,32], wrap:3, bagOnly:1.5},
+    L:{box:[38,28,15], bag:[42,18,38], wrap:4, bagOnly:2}
+  };
+  const PX = 9;   // px per cm on the stage
+
+  const q = new URLSearchParams(location.search);
+  const VIDEO = q.has('video');
+  if (VIDEO) document.body.classList.add('video');
+  const st = {type: q.get('video') === 'bag' ? 'bag' : 'box', sleeve: Math.max(0, SLEEVES.findIndex(s => s.w === q.get('sleeve'))), size: SIZES[q.get('size')] ? q.get('size') : 'M', lid: q.get('lid') === '1'};
+  const $ = id => document.getElementById(id);
+  const face = (cls, w, h, tf, inner = '', style = '') =>
+    `<div class="f ${cls}" style="width:${w}px;height:${h}px;margin:${-h/2}px 0 0 ${-w/2}px;transform:${tf};${style}">${inner}</div>`;
+  const foil = `<defs><linearGradient id="fo" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F6E3B4"/><stop offset=".45" stop-color="#C99A4C"/><stop offset=".7" stop-color="#F3D99A"/><stop offset="1" stop-color="#B8883E"/></linearGradient></defs>`;
+  const flagBg = 'linear-gradient(#0B6E3A 0 33.3%,#FFFFFF 33.3% 66.6%,#141414 66.6%)';
+
+  // ---------- the clear box: base (4 walls + floor), kraft tray, the gift inside, the sleeve, the lid ----------
+  function buildBox(){
+    const [cw, cd, ch] = SIZES[st.size].box, W = cw * PX, D = cd * PX, H = ch * PX, s = SLEEVES[st.sleeve];
+    const bandH = Math.round(H * .42), bandY = H * .14;   // sleeve height and its offset below the middle
+    const sbg = s.bg === 'flag' ? flagBg : s.bg, sside = s.side === 'flag' ? flagBg : s.side;
+    const sleeveFront = s.w === 'liberation'
+      ? `<span class="m" style="background:#fff;color:#0B6E3A">D&amp;S</span><span style="color:#C8102E;font-size:${Math.round(bandH*.36)}px;letter-spacing:6px">★ ★ ★</span><span style="color:${s.ink};font-size:${Math.round(bandH*.24)}px">${s.text}</span>`
+      : `<span class="m">D&amp;S</span><span style="font-size:${Math.round(bandH*.34)}px;${s.w === 'night' ? 'font-family:var(--latin);font-style:italic' : ''}">${s.text}</span>`;
+    const sleeveBack = `<span style="font:italic 600 ${Math.round(bandH*.24)}px var(--latin);color:${s.w === 'liberation' ? '#0B6E3A' : s.line};margin-inline:auto">Same store, different world</span>`;
+    const style = `--sl-bg:${s.bg === 'flag' ? '#0B6E3A' : s.bg};--sl-line:${s.line};background:${sbg};color:${s.ink}`;
+    const lantern = `<svg viewBox="0 0 100 140" aria-hidden="true"><path d="M50 4l-7 10h14z" fill="#C99A4C"/><path d="M26 36Q50 10 74 36Z" fill="#C99A4C"/><rect x="24" y="36" width="52" height="6" fill="#9C7234"/><rect x="28" y="42" width="44" height="66" fill="#F0B43C" opacity=".9"/><path d="M28 42v66M43 42v66M57 42v66M72 42v66" stroke="#C99A4C" stroke-width="3"/><ellipse cx="50" cy="76" rx="6" ry="10" fill="#FFF3CF"/><path d="M24 108h52l-9 14H33z" fill="#C99A4C"/></svg>`;
+    const gift = `<svg viewBox="0 0 100 80" aria-hidden="true"><rect x="10" y="26" width="80" height="54" rx="4" fill="#E9899F"/><rect x="44" y="26" width="12" height="54" fill="#F6E3B4"/><path d="M50 26c-10-16-30-14-25-3 3 7 18 6 25 3 7 3 22 4 25-3 5-11-15-13-25 3z" fill="#F6E3B4"/></svg>`;
+    const gH = Math.min(H * .95, 150), gW = gH * .72;
+    $('box').innerHTML =
+      // floor, kraft tray and shredded paper
+      face('kraft', W - 4, D - 4, `rotateX(90deg) translateZ(${-H/2 + 2}px)`) +
+      face('shred', W - 14, D - 14, `rotateX(90deg) translateZ(${-H/2 + 9}px)`) +
+      // the gift: two crossed planes, so it reads from every side
+      face('item', gW, gH, `translate3d(${-W*.16}px, ${H/2 - gH/2 - 10}px, 0)`, lantern) +
+      face('item', gW, gH, `translate3d(${-W*.16}px, ${H/2 - gH/2 - 10}px, 0) rotateY(90deg)`, lantern) +
+      face('item', W * .3, W * .24, `translate3d(${W*.2}px, ${H/2 - W*.12 - 10}px, ${D*.08}px) rotateY(-20deg)`, gift) +
+      // the four clear walls and the floor
+      face('pet', W, H, `translateZ(${D/2}px)`) + face('pet', W, H, `rotateY(180deg) translateZ(${D/2}px)`) +
+      face('pet', D, H, `rotateY(90deg) translateZ(${W/2}px)`) + face('pet', D, H, `rotateY(-90deg) translateZ(${W/2}px)`) +
+      face('pet', W, D, `rotateX(-90deg) translateZ(${H/2}px)`) +
+      // the sleeve, wrapped around all four sides, a hair outside the plastic
+      face('sleeve', W + 2, bandH, `translate3d(0, ${bandY}px, ${D/2 + 1.5}px)`, sleeveFront, style) +
+      face('sleeve', W + 2, bandH, `translate3d(0, ${bandY}px, 0) rotateY(180deg) translateZ(${D/2 + 1.5}px)`, sleeveBack, style) +
+      face('sleeve', D + 2, bandH, `translate3d(0, ${bandY}px, 0) rotateY(90deg) translateZ(${W/2 + 1.5}px)`, '', `${style};background:${sside}`) +
+      face('sleeve', D + 2, bandH, `translate3d(0, ${bandY}px, 0) rotateY(-90deg) translateZ(${W/2 + 1.5}px)`, '', `${style};background:${sside}`) +
+      // the lid: a top and a 16px rim, slightly bigger than the box
+      `<div class="lid" id="lid" style="transform:${st.lid ? `translate3d(0, ${-H*.9}px, ${-D*.25}px) rotateX(24deg)` : 'none'}">` +
+        face('pet', W + 6, D + 6, `translate3d(0, ${-H/2 - 1}px, 0) rotateX(90deg)`) +
+        face('pet', W + 6, 16, `translate3d(0, ${-H/2 + 7}px, ${D/2 + 3}px)`) +
+        face('pet', W + 6, 16, `translate3d(0, ${-H/2 + 7}px, 0) rotateY(180deg) translateZ(${D/2 + 3}px)`) +
+        face('pet', D + 6, 16, `translate3d(0, ${-H/2 + 7}px, 0) rotateY(90deg) translateZ(${W/2 + 3}px)`) +
+        face('pet', D + 6, 16, `translate3d(0, ${-H/2 + 7}px, 0) rotateY(-90deg) translateZ(${W/2 + 3}px)`) +
+      `</div>`;
+  }
+
+  // ---------- the bag: plum front and back, apricot sides, an open top, rope handles ----------
+  function buildBag(){
+    const [cw, cd, ch] = SIZES[st.size].bag, W = cw * PX * .82, D = cd * PX * .82, H = ch * PX * .82;
+    const logo = Math.min(W, H) * .42;
+    const front = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true">${foil}
+      <rect width="${W}" height="${H*.07}" fill="#6A4275"/>
+      <circle cx="${W*.3}" cy="${H*.045}" r="5" fill="#4E2F59"/><circle cx="${W*.7}" cy="${H*.045}" r="5" fill="#4E2F59"/>
+      <rect x="${W/2 - logo/2}" y="${H*.3}" width="${logo}" height="${logo}" rx="${logo*.28}" fill="none" stroke="url(#fo)" stroke-width="4"/>
+      <text x="${W/2}" y="${H*.3 + logo*.64}" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="${logo*.42}" fill="url(#fo)" letter-spacing="-2">D<tspan font-style="italic" font-weight="400">&amp;</tspan>S</text>
+      <text x="${W/2}" y="${H*.3 + logo + H*.09}" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-weight="600" font-size="${W*.065}" fill="url(#fo)">Design &amp; Celebrate</text>
+      <text x="${W/2}" y="${H*.3 + logo + H*.15}" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-style="italic" font-size="${W*.045}" fill="#E8C9D9">Same store, different world</text></svg>`;
+    const q2 = W * .26;
+    const back = `<svg viewBox="0 0 ${W} ${H}" aria-hidden="true">
+      <rect width="${W}" height="${H*.07}" fill="#6A4275"/>
+      <circle cx="${W*.3}" cy="${H*.045}" r="5" fill="#4E2F59"/><circle cx="${W*.7}" cy="${H*.045}" r="5" fill="#4E2F59"/>
+      <text x="${W/2}" y="${H*.27}" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="${W*.075}" fill="#F6E3B4">نفس المتجر…</text>
+      <text x="${W/2}" y="${H*.37}" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="${W*.065}" fill="#F6E3B4">بس كل مناسبة إلها عالمها</text>
+      <rect x="${W/2 - q2/2}" y="${H*.46}" width="${q2}" height="${q2}" rx="8" fill="#F5EFE7"/>
+      <g fill="#2C2433"><rect x="${W/2 - q2*.38}" y="${H*.46 + q2*.12}" width="${q2*.24}" height="${q2*.24}"/><rect x="${W/2 + q2*.14}" y="${H*.46 + q2*.12}" width="${q2*.24}" height="${q2*.24}"/><rect x="${W/2 - q2*.38}" y="${H*.46 + q2*.64}" width="${q2*.24}" height="${q2*.24}"/><rect x="${W/2 + q2*.04}" y="${H*.46 + q2*.5}" width="${q2*.12}" height="${q2*.12}"/><rect x="${W/2 + q2*.22}" y="${H*.46 + q2*.68}" width="${q2*.16}" height="${q2*.16}"/></g>
+      <text x="${W/2}" y="${H*.46 + q2 + H*.08}" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="${W*.05}" fill="#F6E3B4">@design.celebrate</text></svg>`;
+    const side = `<svg viewBox="0 0 ${D} ${H}" aria-hidden="true"><path d="M0 ${H*.07} L${D/2} ${H*.55} L${D} ${H*.07} M${D/2} ${H*.55} V${H}" fill="none" stroke="#A8673F" stroke-width="2"/><rect width="${D}" height="${H*.07}" fill="#B5714A"/></svg>`;
+    const hW = W * .46, hH = H * .36;
+    const rope = `<svg viewBox="0 0 100 80" preserveAspectRatio="none" aria-hidden="true"><path d="M8 80 Q10 4 50 4 Q90 4 92 80" fill="none" stroke="#D08A5E" stroke-width="6" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>`;
+    $('bag').innerHTML =
+      // inside walls (darker), so looking into the open top shows the inside of the bag
+      face('bagin', W, H, `rotateY(180deg) translateZ(${-D/2 + 1}px)`) + face('bagin', W, H, `translateZ(${-D/2 + 1}px)`) +
+      face('bagin', D, H, `rotateY(-90deg) translateZ(${-W/2 + 1}px)`) + face('bagin', D, H, `rotateY(90deg) translateZ(${-W/2 + 1}px)`) +
+      face('bagin', W, D, `rotateX(-90deg) translateZ(${H/2 - 1}px)`) +
+      // outside
+      face('bagface', W, H, `translateZ(${D/2}px)`, front) + face('bagface', W, H, `rotateY(180deg) translateZ(${D/2}px)`, back) +
+      face('bagside', D, H, `rotateY(90deg) translateZ(${W/2}px)`, side) + face('bagside', D, H, `rotateY(-90deg) translateZ(${W/2}px)`, side) +
+      face('bagface', W, D, `rotateX(-90deg) translateZ(${H/2}px)`, '', 'background:#6A4275') +
+      // two rope handles above the front and back edges
+      face('handle', hW, hH, `translate3d(0, ${-H/2 - hH/2 + 6}px, ${D/2 - 4}px)`, rope) +
+      face('handle', hW, hH, `translate3d(0, ${-H/2 - hH/2 + 6}px, ${-D/2 + 4}px)`, rope);
+  }
+
+  // ---------- rotation: auto-turn, drag to turn, buttons ----------
+  const rig = $('rig'), stage = $('stage');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let ry = VIDEO ? +(q.get('angle') || 0) : -28, rx = VIDEO ? +(q.get('tilt') || -16) : -16, idleUntil = 0, drag = null, last = performance.now();
+  let k = 1;   // fit the model to the stage: designed for a ~620px stage, scaled down on phones
+  const fit = () => { k = VIDEO ? +(q.get('scale') || 1.7) : Math.min(1.25, stage.clientWidth / 620); };
+  fit(); addEventListener('resize', fit);
+  const apply = () => { rig.style.transform = `scale(${k.toFixed(3)}) rotateX(${rx}deg) rotateY(${ry}deg)`; };
+  function loop(t){
+    const dt = Math.min(64, t - last); last = t;
+    if (!drag && !reduce && t > idleUntil) ry -= dt * .018;   // slow turn, about 20 s per round
+    apply(); requestAnimationFrame(loop);
+  }
+  if (VIDEO) apply(); else requestAnimationFrame(loop);
+  stage.addEventListener('pointerdown', e => { drag = {x: e.clientX, y: e.clientY, ry, rx}; stage.setPointerCapture(e.pointerId); });
+  stage.addEventListener('pointermove', e => {
+    if (!drag) return;
+    ry = drag.ry + (e.clientX - drag.x) * .45;
+    rx = Math.max(-45, Math.min(12, drag.rx - (e.clientY - drag.y) * .3));
+  });
+  const endDrag = () => { if (drag) { drag = null; idleUntil = performance.now() + 2500; } };
+  stage.addEventListener('pointerup', endDrag); stage.addEventListener('pointercancel', endDrag);
+  $('spinL').onclick = () => { ry += 45; idleUntil = performance.now() + 2500; };
+  $('spinR').onclick = () => { ry -= 45; idleUntil = performance.now() + 2500; };
+
+  // ---------- controls ----------
+  $('sleeves').innerHTML = SLEEVES.map((s, i) => `<button type="button" class="chip2" data-s="${i}" aria-pressed="${i === st.sleeve}"><i style="background:${s.bg === 'flag' ? flagBg : `linear-gradient(135deg, ${s.bg} 60%, ${s.line} 60%)`}"></i>${s.name}</button>`).join('');
+  function renderSizes(){
+    $('sizes').innerHTML = Object.entries(SIZES).map(([k, v]) => { const d = st.type === 'box' ? v.box : v.bag;
+      return `<button type="button" class="size" data-z="${k}" aria-pressed="${k === st.size}"><b>${k}</b><span>${d.join(' × ')} cm</span></button>`; }).join('');
+  }
+  function render(){
+    $('box').hidden = st.type !== 'box'; $('bag').hidden = st.type !== 'bag';
+    st.type === 'box' ? buildBox() : buildBag();
+    $('tBox').setAttribute('aria-pressed', String(st.type === 'box')); $('tBag').setAttribute('aria-pressed', String(st.type === 'bag'));
+    $('sleeveRow').hidden = st.type !== 'box'; $('lidBtn').hidden = st.type !== 'box';
+    $('lidBtn').textContent = st.lid ? 'سكّر الغطا' : 'افتح الغطا';
+    document.querySelectorAll('#sleeves .chip2').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.s === st.sleeve)));
+    renderSizes();
+    const z = SIZES[st.size], s = SLEEVES[st.sleeve];
+    $('price').innerHTML = `${DC.money(st.type === 'box' ? z.wrap : z.bagOnly)} <small>للهدية</small>`;
+    $('incl').textContent = st.type === 'box'
+      ? `علبة PET شفافة ${st.size} مع غطا، كمّ «${s.name}»، قاعدة كرافت وحشوة، ورق حرير، ختم دهبي، كرت شكر، وكيس ${st.size}.`
+      : `كيس كرتون ${st.size} بلون الشعار، حبال قطن، وكرت شكر.`;
+  }
+  $('tBox').onclick = () => { st.type = 'box'; render(); };
+  $('tBag').onclick = () => { st.type = 'bag'; st.lid = false; render(); };
+  $('sleeves').addEventListener('click', e => { const b = e.target.closest('[data-s]'); if (b) { st.sleeve = +b.dataset.s; render(); } });
+  $('sizes').addEventListener('click', e => { const b = e.target.closest('[data-z]'); if (b) { st.size = b.dataset.z; render(); } });
+  $('lidBtn').onclick = () => { st.lid = !st.lid; const H = SIZES[st.size].box[2] * PX, D = SIZES[st.size].box[1] * PX;
+    $('lid').style.transform = st.lid ? `translate3d(0, ${-H*.9}px, ${-D*.25}px) rotateX(24deg)` : 'none'; $('lidBtn').textContent = st.lid ? 'سكّر الغطا' : 'افتح الغطا'; };
+  $('addWrap').addEventListener('click', e => {
+    const z = SIZES[st.size], s = SLEEVES[st.sleeve], btn = e.currentTarget;
+    if (st.type === 'box') DC.add({w: s.w, id: 'wrap-' + st.size, name: 'تغليف هدية: علبة شفافة + كيس', opt: `${st.size} · كمّ ${s.name}`, price: z.wrap}, btn);
+    else DC.add({w: 'night', id: 'bag-' + st.size, name: 'كيس هدية', opt: st.size, price: z.bagOnly}, btn);
+    btn.textContent = 'انضاف ✓'; btn.classList.add('done');
+    setTimeout(() => { btn.textContent = 'أضف التغليف للسلة'; btn.classList.remove('done'); }, 1400);
+  });
+  render();
+})();
+</script>
+</body>
+</html>

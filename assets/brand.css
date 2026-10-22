@@ -192,6 +192,7 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 .qty{display:flex;align-items:center;gap:6px}
 .qty button{width:28px;height:28px;border-radius:50%;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--ink)}
 .empty{color:var(--dim);text-align:center;padding:28px 0}
+.wrap-up{display:block;text-align:center;font-size:.9rem;font-weight:600;color:var(--accent);text-decoration:none;border:1.5px dashed color-mix(in srgb,var(--accent) 50%,transparent);border-radius:12px;padding:9px 12px}
 .codebox{display:flex;gap:8px}
 .codebox input{flex:1;min-width:0;direction:ltr;text-transform:uppercase;letter-spacing:.05em;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 12px}
 .codebox button{border:1.5px solid var(--accent);background:transparent;color:var(--accent);border-radius:10px;padding:0 16px;font-weight:600;cursor:pointer}

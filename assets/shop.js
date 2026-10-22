@@ -121,6 +121,7 @@
     <header><h3 id="dcTitle">سلتك</h3><button class="x" type="button" data-close aria-label="إغلاق">×</button></header>
     <div class="dc-body">
       <div id="dcLines"></div>
+      <a class="wrap-up" href="packaging.html">أضف تغليف هدية: علبة شفافة بكمّ المناسبة وكيس، من ٢ $</a>
       <div id="dcMoney">
         <div class="codebox"><input id="dcCode" placeholder="كود الخصم" aria-label="كود الخصم" autocomplete="off"><button type="button" id="dcApply">طبّق</button></div>
         <p class="code-msg" id="dcCodeMsg" aria-live="polite"></p>

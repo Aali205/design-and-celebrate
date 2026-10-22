@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/brand.css?v=7">
+<link rel="stylesheet" href="assets/brand.css?v=9">
 <style>
 /* Home: the store is the centre, every celebration is a world orbiting it ("Same store, different world").
    Below the hero, each world is a tile whose animated background shows what's inside. */
@@ -187,6 +187,14 @@
 .band .code-chip button{background:#F3C8A0;color:#3E2A4A}
 @media (max-width:760px){.band{grid-template-columns:1fr}}
 
+/* ---------- packaging link ---------- */
+.pk-link{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px 20px}
+.pk-link:active{transform:scale(.98)}
+.pk-ico{width:56px;height:56px;border-radius:16px;flex:none;display:grid;place-items:center;background:#3E2A4A;color:#F6E3B4}
+.pk-ico svg{width:34px;height:34px}
+.pk-link b{display:block;font-family:var(--display);font-size:1.2rem}
+.pk-link small{display:block;color:var(--dim);font-size:.9rem;line-height:1.6}
+.pk-link .go{margin-inline-start:auto;color:var(--accent);font-size:1.4rem}
 /* ---------- steps ---------- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;list-style:none;padding:0;margin:0;counter-reset:s}
 .steps li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 20px}
@@ -211,7 +219,7 @@
 <div class="site">
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
-  <nav class="nav" aria-label="روابط الموقع"><a href="#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="#how">طريقة الطلب</a><a href="#faq">أسئلة</a></nav>
+  <nav class="nav" aria-label="روابط الموقع"><a href="#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="#how">طريقة الطلب</a><a href="packaging.html">التغليف</a><a href="#faq">أسئلة</a></nav>
   <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
 </div></header>
 
@@ -240,6 +248,14 @@
     <div class="head"><div><h2 id="worldsTitle">اختار عالمك</h2><p>كل مناسبة إلها صفحتها وألوانها وزينتها. الأقرب بالتاريخ بيطلع أول، والسلة وحدة لكل العوالم.</p></div></div>
     <div class="tiles" id="tiles"></div>
   </div>
+</section>
+
+<section class="wrap" aria-label="تغليف الهدايا" style="margin-bottom:22px">
+  <a class="pk-link reveal" href="packaging.html">
+    <span class="pk-ico" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 18h32v24H8z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M6 12h36v7H6z" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="M8 30h32" stroke="currentColor" stroke-width="5" opacity=".35"/><path d="M24 12c-4-7-12-6-10-1s8 2 10 1c2 1 8 4 10-1s-6-6-10 1z" fill="currentColor"/></svg></span>
+    <span><b>اختار تغليف هديتك</b><small>علبة شفافة بكمّ المناسبة أو كيس بلون الشعار. لفّها ثلاثي الأبعاد وشوفها من كل الجهات.</small></span>
+    <span class="go" aria-hidden="true">←</span>
+  </a>
 </section>
 
 <section class="wrap" aria-label="كود الخصم">
@@ -278,7 +294,7 @@
 <footer data-footer></footer>
 </div>
 
-<script src="assets/shop.js?v=8"></script>
+<script src="assets/shop.js?v=9"></script>
 <script>
 (() => {
   const {WORLDS, daysLeft, ar} = DC;
