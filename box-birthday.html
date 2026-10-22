@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>بوكس عيد ميلاد · Night Vibe Box · Design & Celebrate</title>
+<meta name="description" content="بوكس عيد ميلاد: بالونات، لافتة، شموع، قبعات وكونفيتي، بتلات أحجام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=7">
+</head>
+<!-- one box of the Night Vibe Box family: the page is filled by assets/boxes.js (DCBoxes.page), its colours come from [data-box=birthday] in brand.css -->
+<body data-world="night" data-box="birthday">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html" aria-current="page">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="bx-hero" id="bxHero" aria-labelledby="heroTitle"></section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="sizes" aria-labelledby="sizesTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="sizesTitle">اختار الحجم</h2><p>تلات أحجام، وكل حجم مكتوب شو جوّاه بالضبط. اطلب قبل الساعة ٤ العصر وبيوصلك بنفس اليوم بدمشق.</p></div></div>
+    <div class="sz-grid" id="sizeGrid"></div>
+  </div>
+</section>
+
+<section class="block" id="addons" aria-labelledby="addonsTitle" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><div><h2 id="addonsTitle">زيدها شوي</h2><p>شغلات صغيرة بتنحط جوّا نفس البوكس.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="othersTitle" style="padding-top:0">
+  <div class="wrap">
+    <div class="head"><h2 id="othersTitle">بوكسات تانية</h2></div>
+    <div class="others" id="others"></div>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js?v=7"></script>
+<script src="assets/boxes.js?v=7"></script>
+<script>DCBoxes.page('birthday');</script>
+</body>
+</html>
