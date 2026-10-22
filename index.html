@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/brand.css">
+<link rel="stylesheet" href="assets/brand.css?v=2">
 <style>
 /* Home: the store is the centre, every celebration is a world orbiting it ("Same store, different world").
    Below the hero, each world is a tile whose animated background shows what's inside. */
@@ -43,17 +43,22 @@
   box-shadow:0 12px 26px -10px var(--c),inset 0 -6px 12px rgb(0 0 0/.12);transform:rotate(calc(-1 * var(--a)));transition:scale .3s cubic-bezier(.3,1.5,.5,1)}
 .planet a > span{display:grid;place-items:center;animation:spin 90s linear infinite reverse}
 .planet svg{width:36px;height:36px}
-.planet a:hover,.planet a:focus-visible{scale:1.15}
+.planet a:focus-visible{scale:1.15}
 .planet i{position:absolute;top:100%;margin-top:6px;font:500 .78rem/1.2 var(--body);color:var(--ink);white-space:nowrap;font-style:normal;opacity:0;transition:opacity .2s}
-.planet a:hover i,.planet a:focus-visible i{opacity:1}
-.orbit:hover .ring,.orbit:hover .planet a > span,.orbit:hover .words{animation-play-state:paused}
+.planet a:focus-visible i{opacity:1}
+@media (hover:hover){
+  .planet a:hover{scale:1.15}
+  .planet a:hover i{opacity:1}
+  .orbit:hover .ring,.orbit:hover .planet a > span,.orbit:hover .words{animation-play-state:paused}
+}
 .core{position:absolute;inset:31%;border-radius:50%;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;box-shadow:0 30px 60px -24px var(--accent);
   font:600 clamp(2rem,6vw,2.7rem)/1 var(--latin);letter-spacing:-.04em;direction:ltr;white-space:nowrap}
 .core i{font-weight:400;opacity:.85}
-.words{position:absolute;inset:21%;direction:ltr;animation:spin 40s linear infinite reverse}
-.words text{font:600 9.5px var(--latin);letter-spacing:.12em;fill:var(--accent);text-transform:uppercase}
+.words{position:absolute;left:21%;top:21%;width:58%;height:58%;overflow:visible;direction:ltr;animation:spin 40s linear infinite reverse}
+.words text{font-family:var(--latin);font-weight:600;font-size:9.5px;letter-spacing:2.75px;fill:var(--accent)}   /* sized so two phrases fill the circle */
 @keyframes spin{to{rotate:360deg}}
+@media (max-width:760px){.home-hero{padding-block:20px 8px}}
 @media (max-width:900px){.hh-grid{grid-template-columns:1fr}.orbit{--S:min(360px,82vw);order:-1}.planet a{left:-28px;top:-28px;width:56px;height:56px}.planet svg{width:30px;height:30px}}
 
 /* ---------- world tiles ---------- */
@@ -62,21 +67,22 @@
 @media (max-width:620px){.tiles{grid-template-columns:1fr}}
 .tile{position:relative;display:flex;flex-direction:column;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
   transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
-.tile:hover,.tile:focus-visible{transform:translateY(-6px);box-shadow:0 26px 44px -26px var(--c)}
+.tile:focus-visible{transform:translateY(-6px);box-shadow:0 26px 44px -26px var(--c)}
+@media (hover:hover){.tile:hover{transform:translateY(-6px);box-shadow:0 26px 44px -26px var(--c)}.tile:hover .badge{transform:scale(1.1) rotate(-6deg)}.tile:hover .go b{transform:translateX(-5px)}}
+.tile:active{transform:scale(.985)}   /* instant feedback on a tap */
 .scene{position:relative;aspect-ratio:16/11;overflow:hidden;contain:paint}
 .scene > *{position:absolute}
+.scene.off *,.scene.off{animation-play-state:paused!important}   /* off screen: phones only animate what you can see */
 .badge{position:absolute;top:14px;inset-inline-start:14px;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;z-index:2;
-  background:rgb(255 255 255/.78);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:var(--c);box-shadow:0 8px 20px -10px rgb(0 0 0/.4);transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
+  background:rgb(255 255 255/.9);color:var(--c);box-shadow:0 8px 20px -10px rgb(0 0 0/.4);transition:transform .35s cubic-bezier(.3,1.5,.5,1)}
 .badge svg{width:32px;height:32px}
-.tile:hover .badge{transform:scale(1.1) rotate(-6deg)}
-.when{position:absolute;top:18px;inset-inline-end:14px;z-index:2;font-size:.8rem;font-weight:600;color:#fff;background:rgb(0 0 0/.32);backdrop-filter:blur(6px);border-radius:999px;padding:3px 11px}
+.when{position:absolute;top:18px;inset-inline-end:14px;z-index:2;font-size:.8rem;font-weight:600;color:#fff;background:rgb(0 0 0/.4);border-radius:999px;padding:3px 11px}
 .t-info{padding:16px 18px 18px;display:grid;gap:4px}
 .t-info h3{font-size:1.45rem}
 .t-info h3.latin{font-family:var(--latin);font-weight:600;text-align:right}
 .t-info p{color:var(--dim);font-size:.94rem}
 .go{margin-top:6px;font-weight:600;font-size:.92rem;color:var(--c);display:inline-flex;gap:6px;align-items:center}
 .go b{transition:transform .3s}
-.tile:hover .go b{transform:translateX(-5px)}
 
 /* scene: Ramadan night (crescent, twinkling stars, swinging lanterns) */
 .sc-ramadan{background:linear-gradient(180deg,#0D1F31,#1E3F5C)}
@@ -180,7 +186,7 @@
     <div class="orbit" id="orbit">
       <div class="ring" id="ring"></div>
       <svg class="words" viewBox="0 0 200 200" aria-hidden="true"><defs><path id="circ" d="M100 100m-82 0a82 82 0 1 1 164 0a82 82 0 1 1-164 0"/></defs>
-        <text textLength="508" lengthAdjust="spacing"><textPath href="#circ">same store · different world · same store · different world · </textPath></text></svg>
+        <text><textPath href="#circ">SAME STORE · DIFFERENT WORLD · SAME STORE · DIFFERENT WORLD ·</textPath></text></svg>
       <div class="core" aria-hidden="true">D<i>&amp;</i>S</div>
     </div>
   </div>
@@ -229,7 +235,7 @@
 <footer data-footer></footer>
 </div>
 
-<script src="assets/shop.js"></script>
+<script src="assets/shop.js?v=2"></script>
 <script>
 (() => {
   const {WORLDS, daysLeft, ar} = DC;
@@ -274,6 +280,16 @@
       <span class="when">${d == null ? 'كل يوم' : d === 0 ? 'اليوم!' : `باقي ${ar(d)} يوم`}</span>
       <div class="t-info"><h3 class="${k === 'night' ? 'latin' : ''}">${w.name}</h3><p>${w.tagline}</p><span class="go">ادخل العالم <b aria-hidden="true">←</b></span></div>
     </a>`; }).join('');
+
+  // iPhone keeps the page in its back/forward cache; restart the orbit when the page comes back so it never stays frozen
+  addEventListener('pageshow', e => {
+    if (!e.persisted) return;
+    document.querySelectorAll('.ring, .words, .planet a > span').forEach(el => { el.style.animation = 'none'; void el.offsetWidth; el.style.animation = ''; });
+  });
+
+  // pause each tile's scene while it is off screen (saves battery and keeps scrolling smooth on phones)
+  const io = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle('off', !e.isIntersecting)), {rootMargin:'80px'});
+  document.querySelectorAll('.scene').forEach(s => io.observe(s));
 
   // ---------- "next occasion" chip ----------
   const [nk, nd] = order[0], nw = WORLDS[nk];

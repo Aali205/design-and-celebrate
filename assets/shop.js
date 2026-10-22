@@ -149,7 +149,7 @@
 
   function render(){
     const t = totals();
-    document.querySelectorAll('[data-count]').forEach(e => e.textContent = ar(t.n));
+    document.querySelectorAll('[data-count]').forEach(e => { e.textContent = t.n ? ar(t.n) : ''; e.hidden = !t.n; });
     $('dcLines').innerHTML = cart.length ? cart.map((l,i) => `
       <div class="line" style="--c:${WORLDS[l.w].c}"><span class="ico">${WORLDS[l.w].icon}</span>
         <div><b>${l.name}</b><small>${WORLDS[l.w].name}${l.opt ? ' · ' + l.opt : ''} · ${money(l.price)}</small></div>
@@ -239,7 +239,7 @@
       <div><h4>واتساب للطلب</h4><p><span class="phone">${PHONE}</span> <button class="mini" type="button" data-copy-phone>انسخ الرقم</button></p>
         <p style="margin-top:6px">من ١٠ الصبح لـ ١٠ بالليل.</p><h4 style="margin-top:18px">تابعنا</h4><p class="latin">@${IG}</p></div>
       <div><h4>المناسبات</h4><ul>${Object.values(WORLDS).map(w => `<li><a href="${w.href}">${w.name}</a></li>`).join('')}</ul></div>
-    </div><p class="legal">© Design & Celebrate ${ar(new Date().getFullYear())} · الأسعار بالدولار للتقريب، وبتندفع بالليرة السورية حسب سعر الصرف يوم الطلب.</p></div>`;
+    </div><p class="legal">© Design & Celebrate ${new Date().getFullYear().toLocaleString('ar-SY', {useGrouping:false})} · الأسعار بالدولار للتقريب، وبتندفع بالليرة السورية حسب سعر الصرف يوم الطلب.</p></div>`;
   });
   document.addEventListener('click', e => {
     if (e.target.closest('[data-cart]')) open();

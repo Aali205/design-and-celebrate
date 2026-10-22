@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/brand.css">
+<link rel="stylesheet" href="assets/brand.css?v=2">
 <style>
 /* Layout: a Ramadan night in an old Damascus lane. Lanterns hang over the hero, ablaq (striped stone) bands divide sections, the shop sits under the light. */
 :root{
@@ -63,8 +63,8 @@ button{font-family:inherit}
 .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:13px 26px;font-weight:600;font-size:1.02rem;text-decoration:none;cursor:pointer;border:1.5px solid var(--brass)}
 .btn.solid{background:var(--brass);color:#1d1406}
 .btn.ghost{background:transparent;color:var(--brass)}
-.btn.solid:hover{background:var(--amber);border-color:var(--amber)}
-.btn.ghost:hover{background:rgba(217,168,78,.12)}
+@media (hover:hover){.btn.solid:hover{background:var(--amber);border-color:var(--amber)}}
+@media (hover:hover){.btn.ghost:hover{background:rgba(217,168,78,.12)}}
 .countdown{display:flex;gap:10px;align-items:stretch;margin-top:34px;flex-wrap:wrap}
 .countdown .cell{background:var(--night-2);border:1px solid var(--night-3);border-radius:14px;padding:10px 16px;text-align:center;min-width:84px}
 .countdown .cell b{display:block;font-size:2rem;line-height:1.1;color:var(--amber);font-variant-numeric:tabular-nums}
@@ -134,7 +134,7 @@ section.block{padding-block:72px;background:rgba(15,35,53,.86)}
 .filters{display:flex;flex-wrap:wrap;gap:8px}
 .chip{background:transparent;color:var(--plaster);border:1px solid var(--night-3);border-radius:999px;padding:7px 16px;font-size:.95rem;cursor:pointer}
 .chip[aria-pressed="true"]{background:var(--plaster);color:var(--night);border-color:var(--plaster)}
-.chip:hover{border-color:var(--brass)}
+@media (hover:hover){.chip:hover{border-color:var(--brass)}}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
 .card{background:var(--night-2);border:1px solid var(--night-3);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
 .card .pic{position:relative;aspect-ratio:1/1;max-width:100%;display:grid;place-items:center;
@@ -153,7 +153,7 @@ section.block{padding-block:72px;background:rgba(15,35,53,.86)}
 .price{font-size:1.45rem;font-weight:600;color:var(--amber)}
 .price small{font-size:.8rem;color:var(--plaster-dim);font-weight:400}
 .add{background:transparent;border:1.5px solid var(--brass);color:var(--brass);border-radius:999px;padding:8px 16px;font-weight:600;cursor:pointer;font-size:.95rem}
-.add:hover{background:var(--brass);color:#1d1406}
+@media (hover:hover){.add:hover{background:var(--brass);color:#1d1406}}
 .add.done{background:var(--emerald);border-color:var(--emerald);color:#fff}
 .note{font-size:.9rem;color:var(--plaster-dim);margin-top:22px}
 
@@ -357,7 +357,7 @@ section.block.delivery{background:rgba(22,49,74,.88)}
 <footer data-footer></footer>
 </div>
 
-<script src="assets/shop.js"></script>
+<script src="assets/shop.js?v=2"></script>
 <script>
 (() => {
   // ====== settings the shop owner edits ======
@@ -626,7 +626,7 @@ section.block.delivery{background:rgba(22,49,74,.88)}
   let W, H, u, cx, by, tableY, side, mobile, grain = [];
 
   function size(){
-    const dpr = Math.min(devicePixelRatio || 1, 1.5);   // a background doesn't need full retina; keeps it light
+    const dpr = Math.min(devicePixelRatio || 1, innerWidth < 760 ? 1 : 1.5);   // a background doesn't need full retina; phones get 1x to stay smooth
     W = cv.width = rcv.width = Math.round(innerWidth * dpr); H = cv.height = rcv.height = Math.round(innerHeight * dpr);
     mobile = innerWidth < 760;
     // design unit (1 = 1px at 720p). Desktop: the fanous stands in the hero's empty left column (RTL layout).
