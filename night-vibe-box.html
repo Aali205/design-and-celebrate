@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Night Vibe Box · Design & Celebrate</title>
-<meta name="description" content="Night Vibe Box: بوكسات جاهزة لسهرة الأفلام وسهرة البنات وعيد الميلاد، بتلات أحجام، مع توصيل بنفس اليوم بدمشق والدفع عند الاستلام.">
+<meta name="description" content="Night Vibe Box: بوكسات جاهزة لسهرة الأفلام وسهرة البنات وعيد الميلاد والمولود الجديد والخطوبة وكتب الكتاب، بتلات أحجام، مع توصيل بنفس اليوم بدمشق والدفع عند الاستلام.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/brand.css?v=5">
+<link rel="stylesheet" href="assets/brand.css?v=6">
 <style>
 /* Night Vibe Box: an ordinary night made special. Deep indigo sky, a gift box that opens and throws out the night's little things. */
 .w-hero{background:radial-gradient(60% 70% at 18% 30%,color-mix(in srgb,var(--accent) 16%,transparent),transparent 62%),radial-gradient(50% 60% at 85% 88%,color-mix(in srgb,var(--accent-2) 13%,transparent),transparent 66%),var(--bg)}
@@ -55,8 +55,20 @@
   .p5{transform:translate(118px,-80px) rotate(18deg)}
 }
 
-/* the three box cards */
-.bx-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+/* the box cards: 1 column on phones, 2 a row on tablets, 3 a row on wide screens.
+   A short last row is centred (cards keep the same width), so 5 boxes read 3 + 2 on purpose. */
+.bx-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:24px}
+@media (min-width:700px){
+  .bx-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .bx-card{grid-column:span 2}
+  .bx-card:nth-child(2n+1):last-child{grid-column:2/span 2}
+}
+@media (min-width:1040px){
+  .bx-grid{grid-template-columns:repeat(6,minmax(0,1fr))}
+  .bx-card:nth-child(n):last-child{grid-column:span 2}
+  .bx-card:nth-child(3n+1):nth-last-child(2){grid-column:2/span 2}
+  .bx-card:nth-child(3n+1):last-child{grid-column:3/span 2}
+}
 .bx-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .bx-art{position:relative;aspect-ratio:4/3;display:grid;place-items:center;background:radial-gradient(62% 62% at 50% 62%,color-mix(in srgb,var(--bx) 34%,transparent),transparent 72%),var(--tint)}
 .bx-art svg{width:94%;height:auto;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
@@ -100,8 +112,8 @@
   <div class="wrap w-hero-grid">
     <div>
       <span class="eyebrow" id="when"></span>
-      <h1 id="heroTitle">لكل سهرة<span>إلها بوكس</span></h1>
-      <p class="lede">اختار جوّ سهرتك: أفلام، بنات، أو عيد ميلاد. نحنا منجهّز البوكس ومنغلّفه ومنوصلك ياه بنفس اليوم بدمشق، وبتدفع عند الاستلام.</p>
+      <h1 id="heroTitle">لكل لحظة<span>إلها بوكس</span></h1>
+      <p class="lede">سهرة أفلام أو بنات، عيد ميلاد، مولود جديد، أو خطوبة: اختار البوكس على قدّ فرحتك. نحنا منجهّز البوكس ومنغلّفه ومنوصلك ياه بنفس اليوم بدمشق، وبتدفع عند الاستلام.</p>
       <div class="ctas"><a class="btn solid" href="#boxes">اختار بوكسك</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
       <div class="code-chip">خصم ٢٠٪ على أول بوكس <b>NIGHT20</b><button type="button" data-copy-code="NIGHT20">انسخ وطبّق</button></div>
     </div>
@@ -176,7 +188,7 @@
 
 <section class="block" id="boxes" aria-labelledby="boxesTitle">
   <div class="wrap">
-    <div class="head"><div><h2 id="boxesTitle">اختار جوّ السهرة</h2><p>تلات بوكسات جاهزة، وكل واحد بتلات أحجام. كبس على الحجم وبتشوف شو جوّا البوكس وقديش سعره.</p></div></div>
+    <div class="head"><div><h2 id="boxesTitle">اختار بوكسك</h2><p>خمس بوكسات جاهزة: سهرة، عيد ميلاد، مولود جديد، أو خطوبة، وكل واحد بتلات أحجام. كبس على الحجم وبتشوف شو جوّا البوكس وقديش سعره.</p></div></div>
     <div class="bx-grid" id="boxGrid"></div>
   </div>
 </section>
@@ -185,8 +197,8 @@
   <div class="wrap">
     <div class="head"><div><h2 id="howTitle">بتلات خطوات</h2></div></div>
     <ol class="steps">
-      <li><span class="n num">١</span><div><h3>اختار البوكس</h3><p>أفلام، بنات، أو عيد ميلاد. كل بوكس إلو جوّه.</p></div></li>
-      <li><span class="n num">٢</span><div><h3>اختار الحجم</h3><p>صغير، للشلة، أو VIP. وبتشوف شو جوّا كل حجم قبل ما تطلب.</p></div></li>
+      <li><span class="n num">١</span><div><h3>اختار البوكس</h3><p>سهرة، عيد ميلاد، مولود جديد، أو خطوبة. كل بوكس إلو جوّه.</p></div></li>
+      <li><span class="n num">٢</span><div><h3>اختار الحجم</h3><p>الصغير، الوسط، أو VIP. وبتشوف شو جوّا كل حجم قبل ما تطلب.</p></div></li>
       <li><span class="n num">٣</span><div><h3>منوصله بنفس اليوم بدمشق</h3><p>اطلب قبل الساعة ٤ العصر وبيوصلك اليوم، وبتدفع عند الاستلام. باقي المحافظات خلال يومين لأربعة.</p></div></li>
     </ol>
   </div>
@@ -194,7 +206,7 @@
 
 <section class="block" id="addons" aria-labelledby="addonsTitle">
   <div class="wrap">
-    <div class="head"><div><h2 id="addonsTitle">زيدها شوي</h2><p>شغلات صغيرة بتفرق: ضو، بالون رقم، أو كرت بخط اليد. بتنحط جوّا البوكس نفسه.</p></div></div>
+    <div class="head"><div><h2 id="addonsTitle">زيدها شوي</h2><p>شغلات صغيرة بتفرق: ضو، بالون رقم، بالون كشف الجنس، علب ملبّس للضيوف، أو كرت بخط اليد. بتجي مع البوكس نفسه.</p></div></div>
     <div class="p-grid" id="grid"></div>
     <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
   </div>
@@ -204,15 +216,15 @@
 <footer data-footer></footer>
 </div>
 
-<script src="assets/shop.js?v=5"></script>
-<script src="assets/scene.js?v=5"></script>
+<script src="assets/shop.js?v=6"></script>
+<script src="assets/scene.js?v=6"></script>
 <script>
 (() => {
   // ---------- small drawing helpers ----------
   const star5 = (x, y, R, f) => { let d = ''; for (let k = 0; k < 10; k++){ const r = k % 2 ? R * .45 : R, a = Math.PI / 5 * k - Math.PI / 2; d += (k ? 'L' : 'M') + (x + r * Math.cos(a)).toFixed(1) + ' ' + (y + r * Math.sin(a)).toFixed(1); } return `<path d="${d}z" fill="${f}"/>`; };
   const star4 = (x, y, s, f, cls = '') => `<path ${cls} d="M${x} ${y-s}Q${x} ${y} ${x+s} ${y}Q${x} ${y} ${x} ${y+s}Q${x} ${y} ${x-s} ${y}Q${x} ${y} ${x} ${y-s}z" fill="${f}"/>`;
 
-  // ---------- the three boxes (names, contents and prices are the owner's to edit) ----------
+  // ---------- the boxes (names, contents and prices are the owner's to edit) ----------
   // items starting with "+" are the extras a bigger size adds; they get a small tag
   const HB = '«<span class="latin">Happy Birthday</span>»';
   const BOXES = [
@@ -230,7 +242,17 @@
      desc:'كل شي بدك ياه لتقلب الصالون لحفلة، إلا الكيك.', sizes:[
       {name:'صغير', who:'لحفلة صغيرة بالبيت', price:12, items:['١٠ بالونات + بالون رقم',`لافتة ${HB}`,'١٢ شمعة للكيك','٤ قبعات حفلة','كيس كونفيتي','توبر للكيك']},
       {name:'للحفلة', who:'لـ ١٠ أشخاص تقريباً', price:22, items:['٢٥ بالون + بالونين رقم',`لافتة ${HB} كبيرة`,'٢٤ شمعة + شمعة نافورة','١٠ قبعات حفلة','٢ كيس كونفيتي','توبر للكيك']},
-      {name:'VIP', who:'حفلة كاملة', price:38, items:['٤٠ بالون مع قوس بالونات','٢ بالون رقم فويل كبار',`لافتة ${HB} وستارة لامعة للحيط`,'٢٤ شمعة + شمعة نافورة','١٥ قبعة وزمامير','كونفيتي','+توبر مكتوب بالاسم']}]}
+      {name:'VIP', who:'حفلة كاملة', price:38, items:['٤٠ بالون مع قوس بالونات','٢ بالون رقم فويل كبار',`لافتة ${HB} وستارة لامعة للحيط`,'٢٤ شمعة + شمعة نافورة','١٥ قبعة وزمامير','كونفيتي','+توبر مكتوب بالاسم']}]},
+    {id:'baby', latin:'Baby Box', name:'مولود جديد', bx:'#9CC8EE', bxt:'#F5C2CF', tag:'جديد',
+     desc:'لاستقبال البيبي بالبيت أو بالمستشفى، أو لحفلة كشف الجنس. بالأزرق أو بالزهري، وكاسات المغلي علينا.', sizes:[
+      {name:'ترحيب', who:'لاستقبال البيبي بالبيت', price:15, items:['٨ بالونات «أهلا بالمولود» أزرق أو زهري','لافتة صغيرة للحيط','كرت تهنئة','٤ شموع LED','سلسلة ضو صغيرة (٢ متر)']},
+      {name:'لغرفة المستشفى', who:'لتزيين غرفة الماما بالمستشفى', price:25, items:['١٥ بالون أزرق أو زهري','لافتة «أهلا بالمولود» كبيرة','لوحة للباب باسم البيبي','حروف LED أو سلسلة ضو (٣ متر)','٢٠ كاسة للمغلي مع غطا ومعلقة','كرت تهنئة']},
+      {name:'VIP', who:'استقبال كامل، أو حفلة كشف الجنس', price:40, items:['١٥ بالون أزرق أو زهري','لافتة «أهلا بالمولود» كبيرة','لوحة للباب باسم البيبي','حروف LED أو سلسلة ضو (٣ متر)','٢٠ كاسة للمغلي مع غطا ومعلقة','كرت تهنئة','+بالون كشف الجنس: بالون أسود كبير معبّى كونفيتي أزرق أو زهري','+توبر للكيك','+إكسسوارات للتصوير']}]},
+    {id:'engage', latin:'Engagement Box', name:'خطوبة وكتب كتاب', bx:'#E6C27A', bxt:'#EAD2A0', tag:'جديد',
+     desc:'للخطوبة أو كتب الكتاب: ضو هادي وورد، علبة حلوة للمحابس، والملبّس للضيوف.', sizes:[
+      {name:'للعيلة', who:'لجمعة العيلة بالبيت', price:18, items:['لافتة «خطوبة مبروكة»','٦ شموع LED','علبة أو صينية صغيرة للمحابس','كيس ورق ورد']},
+      {name:'للحفلة', who:'لحفلة لـ ٣٠ ضيف تقريباً', price:32, items:['لافتة «خطوبة مبروكة» كبيرة','١٢ شمعة LED','علبة أو صينية صغيرة للمحابس','٢ كيس ورق ورد','٢٠ بالون ذهبي وعاجي','٣ زينة لنص الطاولة','٣٠ علبة ملبّس صغيرة للضيوف']},
+      {name:'VIP', who:'حفلة كاملة مع زاوية للتصوير', price:55, items:['لافتة «خطوبة مبروكة» كبيرة','١٢ شمعة LED','٢ كيس ورق ورد','٢٠ بالون ذهبي وعاجي','٣ زينة لنص الطاولة','٣٠ علبة ملبّس صغيرة للضيوف','+خلفية للتصوير عليها أساميكن أو عبارة Mr&nbsp;&amp;&nbsp;Mrs','+حروف LED','+صينية مزيّنة للمحابس والملبّس']}]}
   ];
 
   // ---------- box drawings (viewBox 0 0 320 240): lid propped open behind, things peeking out, the front face on top ----------
@@ -275,7 +297,43 @@
         [0,1,2,3,4,5,6].map(i => { const t = (i + .5) / 7, x = 84 + 152 * t, y = 130 + 52 * t * (1 - t); return `<path d="M${(x-8).toFixed(1)} ${y.toFixed(1)}h16l-8 16z" fill="${['#F5B98D','#B9A5F5','#F5D58D','#FFFFFF'][i % 4]}"/>`; }).join('') +
         [[96,170],[226,166],[110,204],[214,206]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="2.5" fill="#F5D58D"/>`).join('') + badge('HAPPY BIRTHDAY', '#F5D58D', 138, 11),
       [[64,58,'#F5D58D',20],[252,30,'#B9A5F5',-30],[50,150,'#F5B98D',45],[270,150,'#F5D58D',-15]].map(([x,y,f,r]) => `<rect x="${x}" y="${y}" width="9" height="5" rx="1" fill="${f}" transform="rotate(${r} ${x} ${y})"/>`).join('') +
-        `<g class="vip"><path d="M58 114q12 6 24 8M266 106q-14 10-28 16" fill="none" stroke="#C9C4E0" stroke-width="1.2"/><ellipse cx="54" cy="92" rx="18" ry="22" fill="#F5D58D"/><path d="M51 113h6l-3 5z" fill="#F5D58D"/><ellipse cx="268" cy="84" rx="18" ry="22" fill="#F2A7B8"/><path d="M265 105h6l-3 5z" fill="#F2A7B8"/>${star5(160, 30, 10, '#F5D58D')}</g>`)
+        `<g class="vip"><path d="M58 114q12 6 24 8M266 106q-14 10-28 16" fill="none" stroke="#C9C4E0" stroke-width="1.2"/><ellipse cx="54" cy="92" rx="18" ry="22" fill="#F5D58D"/><path d="M51 113h6l-3 5z" fill="#F5D58D"/><ellipse cx="268" cy="84" rx="18" ry="22" fill="#F2A7B8"/><path d="M265 105h6l-3 5z" fill="#F2A7B8"/>${star5(160, 30, 10, '#F5D58D')}</g>`),
+    // baby: a bottle, two pastel balloons, a rattle and a dummy; VIP adds the gender-reveal balloon and an "oh baby" topper
+    baby: shell({body:'#9CC8EE', inner:'#3D6A92', lid:'#86B5E0', lidDeco:'<rect x="150" y="88" width="16" height="26" fill="#F5B3C4"/>'},
+      `<g class="peek" style="--dl:-.4s"><path d="M150 76q4 24 8 46M180 66q-8 30-14 56" fill="none" stroke="#C9C4E0" stroke-width="1.2"/>
+         <ellipse cx="150" cy="50" rx="18" ry="22" fill="#A9D2F5"/><ellipse cx="144" cy="41" rx="4" ry="8" fill="#fff" opacity=".45"/><path d="M147 71h6l-3 5z" fill="#A9D2F5"/>
+         <ellipse cx="180" cy="40" rx="18" ry="22" fill="#F5B3C4"/><ellipse cx="174" cy="31" rx="4" ry="8" fill="#fff" opacity=".45"/><path d="M177 61h6l-3 5z" fill="#F5B3C4"/></g>
+       <g class="peek" style="--dl:-1.2s"><g transform="rotate(-10 112 96)"><path d="M106 53q6-15 12 0z" fill="#F7D9B5"/><rect x="102" y="52" width="20" height="10" rx="2" fill="#F5B3C4"/><rect x="99" y="61" width="26" height="66" rx="8" fill="#FBF6EE"/><rect x="99" y="98" width="26" height="29" fill="#DCEBFA"/><path d="M103 72h7M103 81h7M103 90h7" stroke="#7FAEDB" stroke-width="1.6" stroke-linecap="round"/><path d="M112 106c-3-4-8-1-5 3l5 5 5-5c3-4-2-7-5-3z" fill="#F5B3C4"/></g></g>
+       <g class="peek" style="--dl:-2s"><g transform="rotate(14 214 96)"><rect x="210" y="82" width="8" height="44" rx="4" fill="#F5D58D"/><circle cx="214" cy="68" r="17" fill="#F5B3C4"/><path d="M197 68h34" stroke="#fff" stroke-opacity=".6" stroke-width="3"/><circle cx="207" cy="60" r="2.4" fill="#fff"/><circle cx="222" cy="76" r="2.4" fill="#fff"/><circle cx="208" cy="76" r="2" fill="#fff" opacity=".7"/><circle cx="221" cy="60" r="2" fill="#fff" opacity=".7"/></g></g>
+       <circle cx="236" cy="102" r="7" fill="none" stroke="#F5D58D" stroke-width="3"/><ellipse cx="236" cy="113" rx="13" ry="7" fill="#A9D2F5"/><circle cx="236" cy="113" r="3" fill="#fff" opacity=".7"/>`,
+      `<rect x="152" y="120" width="16" height="92" fill="#F5B3C4"/>` +
+        [[94,146],[204,142]].map(([x,y]) => `<g fill="#fff" opacity=".55"><circle cx="${x}" cy="${y}" r="6"/><circle cx="${x+9}" cy="${y-4}" r="8"/><circle cx="${x+18}" cy="${y}" r="6"/><rect x="${x}" y="${y}" width="18" height="6"/></g>`).join('') +
+        [[100,206],[222,204],[132,136],[190,166],[120,170]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="2.6" fill="#fff" opacity=".5"/>`).join('') + badge('OH BABY', '#F5C2CF', 100),
+      [[64,40,'#A9D2F5',20],[262,36,'#F5B3C4',-30],[26,192,'#F5D58D',45],[274,148,'#A9D2F5',-15]].map(([x,y,f,r]) => `<rect x="${x}" y="${y}" width="9" height="5" rx="1" fill="${f}" transform="rotate(${r} ${x} ${y})"/>`).join('') +
+        `<g class="vip"><path d="M50 141q-8 14 2 26t-2 26" fill="none" stroke="#C9C4E0" stroke-width="1.2"/>
+           <ellipse cx="50" cy="104" rx="26" ry="31" fill="#231F36" stroke="#E9E4F7" stroke-width="2"/><ellipse cx="40" cy="90" rx="5" ry="11" fill="#fff" opacity=".3"/><path d="M45 135h10l-5 6z" fill="#231F36" stroke="#E9E4F7" stroke-width="1.2" stroke-linejoin="round"/>
+           <text x="52" y="117" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="34" fill="#F5C2CF">?</text>
+           <circle cx="36" cy="114" r="2.2" fill="#A9D2F5"/><circle cx="66" cy="94" r="2.2" fill="#F5B3C4"/><circle cx="62" cy="122" r="2.2" fill="#A9D2F5"/><circle cx="34" cy="100" r="1.8" fill="#F5B3C4"/>
+           <path d="M262 212v-30M290 212v-30" stroke="#F5D58D" stroke-width="2"/><text x="276" y="184" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="20" fill="#F5D58D">baby</text>
+           <path d="M276 164c-3-4-8-1-5 3l5 5 5-5c3-4-2-7-5-3z" fill="#F5B3C4"/></g>`),
+
+    // engagement: roses, an open ring box with two rings, a dish of sugared almonds (ملبّس) and a «مبروك» tag; VIP adds a Mr & Mrs sign and balloons
+    engage: shell({body:'#EFE4D2', inner:'#7A5E44', lid:'#E2D2B6', lidDeco:'<rect x="150" y="88" width="16" height="26" fill="#D4AF6A"/>'},
+      `<g class="peek" style="--dl:-.6s"><path d="M106 70q4 30 10 54M130 86q-4 20-6 38" fill="none" stroke="#7FA88A" stroke-width="2.4"/><path d="M110 100q-14-4-16 6 12 4 16-6zM125 106q12-6 16 2-10 6-16-2z" fill="#8FB79A"/>
+         <circle cx="104" cy="60" r="13" fill="#D99AA5"/><path d="M104 60m-3 0a3 3 0 1 1 6 0a7 7 0 1 1-12 0a10 10 0 1 1 18 1" fill="none" stroke="#B26F7C" stroke-width="1.6"/>
+         <circle cx="130" cy="76" r="11" fill="#E8B4BC"/><path d="M130 76m-2 0a2.5 2.5 0 1 1 5 0a6 6 0 1 1-10 0a8.5 8.5 0 1 1 15 1" fill="none" stroke="#C4848F" stroke-width="1.4"/></g>
+       <g class="peek" style="--dl:-1.6s"><rect x="146" y="58" width="40" height="28" rx="5" fill="#B86E7D"/><rect x="150" y="62" width="32" height="21" rx="3" fill="#F6EAEC"/><rect x="146" y="86" width="40" height="40" rx="5" fill="#C9808E"/><rect x="146" y="86" width="40" height="5" fill="#000" opacity=".12"/>
+         <ellipse cx="166" cy="92" rx="16" ry="5" fill="#F6EAEC"/><circle cx="160" cy="83" r="8" fill="none" stroke="#E6C27A" stroke-width="3.4"/><circle cx="172" cy="84" r="7" fill="none" stroke="#F3DDA6" stroke-width="3"/><path d="M156 74l4-5 4 5-4 4z" fill="#fff"/>${star4(196, 54, 6, '#F5D58D')}</g>
+       <g class="peek" style="--dl:-2.4s">${[[206,96,'#FFFDF7'],[218,94,'#F7D9DE'],[230,96,'#FFFDF7'],[212,88,'#FFFDF7'],[225,87,'#EAD9F0'],[219,81,'#FFFDF7']].map(([x,y,f]) => `<ellipse cx="${x}" cy="${y}" rx="7" ry="4.6" fill="${f}" stroke="#CDBBA0" stroke-width=".8"/>`).join('')}
+         <path d="M196 100h44q-4 16-22 16t-22-16z" fill="#D4AF6A"/><ellipse cx="218" cy="100" rx="22" ry="3.5" fill="#B8924E"/></g>`,
+      `<rect x="152" y="120" width="16" height="92" fill="#D4AF6A"/>` +
+        [[98,192,30],[226,190,-20],[108,132,60],[214,134,-40]].map(([x,y,r]) => `<ellipse cx="${x}" cy="${y}" rx="5" ry="3" fill="#D99AA5" opacity=".75" transform="rotate(${r} ${x} ${y})"/>`).join('') +
+        lights(['#E6B655','#D98C9A','#C9A06A']) + badge('YES!', '#F3DDA6', 74, 15),
+      [[60,48,'#E8B4BC',30],[256,30,'#D99AA5',-20],[40,146,'#E8B4BC',50],[276,200,'#D99AA5',-35]].map(([x,y,f,r]) => `<ellipse cx="${x}" cy="${y}" rx="5" ry="3" fill="${f}" transform="rotate(${r} ${x} ${y})"/>`).join('') +
+        `<path d="M236 124q10 0 16 10" fill="none" stroke="#D4AF6A" stroke-width="1.4"/><g transform="rotate(10 278 148)"><rect x="250" y="134" width="58" height="28" rx="6" fill="#F6EAEC"/><circle cx="256" cy="148" r="2.4" fill="#C9808E"/><text x="282" y="154" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="15" fill="#8A4F5C">مبروك</text></g>
+         <g class="vip"><path d="M58 112q12 6 24 8M266 106q-14 10-28 16" fill="none" stroke="#C9C4E0" stroke-width="1.2"/><ellipse cx="54" cy="90" rx="18" ry="22" fill="#E6C27A"/><ellipse cx="48" cy="81" rx="4" ry="8" fill="#fff" opacity=".4"/><path d="M51 111h6l-3 5z" fill="#E6C27A"/><ellipse cx="268" cy="84" rx="18" ry="22" fill="#F3EBDD"/><path d="M265 105h6l-3 5z" fill="#F3EBDD"/>
+           <ellipse cx="62" cy="214" rx="44" ry="5" fill="#05050F" opacity=".3"/><path d="M30 196v18M94 196v18" stroke="#B8924E" stroke-width="3"/><rect x="16" y="160" width="92" height="40" rx="8" fill="#C9808E"/><rect x="20" y="164" width="84" height="32" rx="6" fill="none" stroke="#F3DDA6" stroke-width="1.6" stroke-dasharray="0 5" stroke-linecap="round"/>
+           <text x="62" y="186" text-anchor="middle" font-family="Fraunces, serif" font-style="italic" font-weight="600" font-size="17" fill="#FFF8EC">Mr &amp; Mrs</text></g>`)
   };
 
   // ---------- render the box cards ----------
@@ -325,7 +383,9 @@
     {id:'ledcandles', art:'candles',    name:'شموع LED',             desc:'٦ شموع بلا نار ولا دخان، ضوها بيرجف متل الشمع الحقيقي.', price:4, opts:[{name:'كريمي', c:'#F3EBDD'}, {name:'ليلكي', c:'#C9B8F8'}, PEACH]},
     {id:'handcard',   art:'card',       name:'كرت إهداء مكتوب بخط اليد', desc:'اكتبلنا شو بدك بالملاحظات، ومنكتبه بخط إيدنا ومنحطه جوّا البوكس.', price:1, opts:[LILAC, PEACH, {name:'نعناعي', c:'#8ED8C0'}]},
     {id:'popcorn',    art:'popcorn',    name:'فشار إضافي',           desc:'كيس فشار كبير جاهز، بيكفي ٤ أشخاص.', price:2, optLabel:'الطعمة', opts:[{name:'مالح'}, {name:'كراميل'}, {name:'جبنة'}]},
-    {id:'blanket',    art:'blanket',    name:'بطانية صغيرة',         desc:'بطانية فرو ناعمة ١٢٠×١٥٠ سم، ملفوفة بشريطة.', price:12, opts:[LILAC, {name:'رمادي', c:'#9C99B5'}, PEACH]}
+    {id:'blanket',    art:'blanket',    name:'بطانية صغيرة',         desc:'بطانية فرو ناعمة ١٢٠×١٥٠ سم، ملفوفة بشريطة.', price:12, opts:[LILAC, {name:'رمادي', c:'#9C99B5'}, PEACH]},
+    {id:'reveal',     art:'reveal',     name:'بالون كشف الجنس',      desc:'بالون أسود كبير معبّى كونفيتي أزرق أو زهري. قولولنا اللون بالسر، وبتعرفوا لما تفقعوه.', price:4, opts:[{name:'أزرق', c:'#9CC8EE'}, {name:'زهري', c:'#F5B3C4'}]},
+    {id:'mlabbas',    art:'almonds',    name:'علب ملبّس للضيوف ١٢ قطعة', desc:'١٢ علبة صغيرة فيها ملبّس، كل وحدة مربوطة بشريطة. ضيافة حلوة للخطوبة أو للمولود.', price:6, opts:[{name:'ذهبي', c:'#E3BC63'}, {name:'أبيض', c:'#FBF6EE'}]}
   ];
   const FLAVOUR = {'مالح':'#FFF4D6', 'كراميل':'#E2A85C', 'جبنة':'#F6C94C'};
   const taper = x0 => (70 + (x0 - 58) * 60 / 84).toFixed(1);   // popcorn bucket stripes follow the bucket's slope
@@ -356,9 +416,26 @@
       <rect x="26" y="88" width="128" height="72" rx="36" fill="${c}"/><rect x="26" y="124" width="128" height="36" rx="18" fill="#000" opacity=".12"/>
       <circle cx="148" cy="124" r="36" fill="${c}"/><circle cx="148" cy="124" r="36" fill="#fff" opacity=".12"/>
       <path d="M148 124m-4 0a4 4 0 1 1 8 0a10 10 0 1 1-18 0a16 16 0 1 1 30 0a22 22 0 1 1-42 0a28 28 0 1 1 52 2" fill="none" stroke="#000" stroke-opacity=".18" stroke-width="2"/>
-      <rect x="72" y="86" width="14" height="76" rx="3" fill="#F5B98D"/>`
+      <rect x="72" y="86" width="14" height="76" rx="3" fill="#F5B98D"/>`,
+    // a big black balloon (light outline so it reads on the dark card), the chosen colour in the "?" and the confetti around it
+    reveal: c => [[26,40,20],[166,30,-30],[18,120,45],[172,112,-15],[40,168,30],[156,160,60],[62,16,-40],[138,188,10]]
+        .map(([x,y,r],i) => `<rect x="${x}" y="${y}" width="10" height="6" rx="1.5" fill="${i % 3 ? c : '#fff'}" transform="rotate(${r} ${x} ${y})"/>`).join('') +
+      `<path d="M100 158q-12 14 0 26t-2 14" fill="none" stroke="${c}" stroke-width="2"/>
+      <ellipse cx="100" cy="86" rx="56" ry="64" fill="#231F36" stroke="#E9E4F7" stroke-width="2.5"/>
+      <ellipse cx="78" cy="58" rx="10" ry="20" fill="#fff" opacity=".28" transform="rotate(20 78 58)"/>
+      <path d="M93 149h14l-7 9z" fill="#231F36" stroke="#E9E4F7" stroke-width="1.6" stroke-linejoin="round"/>
+      <text x="102" y="112" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="72" fill="${c}">?</text>
+      ${[[70,110],[132,70],[128,120],[76,92],[118,40]].map(([x,y]) => `<circle cx="${x}" cy="${y}" r="3" fill="${c}" opacity=".85"/>`).join('')}`,
+    // two small favour boxes with a ribbon and bow, sugared almonds in front
+    almonds: c => { const box = (x, y, w, h) => { const m = x + w / 2;
+        return `<rect x="${x}" y="${y + 12}" width="${w}" height="${h - 12}" rx="3" fill="${c}"/><rect x="${x}" y="${y + 12}" width="${w}" height="${h - 12}" rx="3" fill="#000" opacity=".08"/>
+          <rect x="${x - 4}" y="${y}" width="${w + 8}" height="14" rx="3" fill="${c}"/><rect x="${m - 4}" y="${y}" width="8" height="${h}" fill="#D98C9A"/>
+          <path d="M${m} ${y}c-6-12-22-12-18-2 3 6 12 4 18 2zM${m} ${y}c6-12 22-12 18-2-3 6-12 4-18 2z" fill="#D98C9A"/><circle cx="${m}" cy="${y}" r="3.5" fill="#B86E7D"/>`; };
+      return `<ellipse cx="100" cy="174" rx="80" ry="6" fill="#000" opacity=".22"/>` + box(36, 96, 54, 62) + box(110, 76, 58, 82) +
+        [[46,166],[64,170],[82,165],[100,171],[118,166],[136,171],[154,166]].map(([x,y],i) =>
+          `<ellipse cx="${x}" cy="${y}" rx="9" ry="6" fill="${['#FFFDF7','#F7D9DE','#FFFDF7','#EAD9F0'][i % 4]}" stroke="#CDBBA0" stroke-width="1"/><ellipse cx="${x - 3}" cy="${y - 2}" rx="3" ry="1.6" fill="#fff" opacity=".8"/>`).join(''); }
   };
-  const DEF = {stars:'#F5D58D', numballoon:'#E3BC63', candles:'#F3EBDD', card:'#B9A5F5', blanket:'#B9A5F5'};
+  const DEF = {stars:'#F5D58D', numballoon:'#E3BC63', candles:'#F3EBDD', card:'#B9A5F5', blanket:'#B9A5F5', reveal:'#9CC8EE', almonds:'#E3BC63'};
   DC.renderGrid(document.getElementById('grid'), 'night', PRODUCTS, (p, o) => ART[p.art]((o && o.c) || DEF[p.art], o));
 
   document.getElementById('when').innerHTML = DC.WORLDS.night.icon + 'كل يوم، مو بس بالمناسبات';

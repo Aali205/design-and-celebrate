@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد الأب · Design & Celebrate</title>
+<meta name="description" content="هدايا عيد الأب: ساعات يد، محافظ جلد مع نقش الاسم، كوب «أحلى بابا»، ربطات عنق وعلب هدايا مغلّفة مع كرت بكلامك، توصيل لكل سوريا قبل ٢١ حزيران والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=6">
+<style>
+/* Father's Day (21 June): calm and grown-up. A still life on a wooden table: a slate gift box with a
+   leather ribbon whose lid lifts a little, a watch ticking, a cup of coffee steaming, a tie and a card. */
+.w-hero{background:radial-gradient(60% 70% at 14% 24%,#EADFCF 0,transparent 62%),radial-gradient(55% 65% at 90% 88%,#DCE4E3 0,transparent 66%),var(--bg)}
+/* the lid rises and tilts from its left corner, a warm light peeks out, then it settles back */
+.lid{transform-box:view-box;transform-origin:118px 252px;animation:lid 7s ease-in-out infinite}
+@keyframes lid{0%,46%,92%,100%{transform:translateY(0) rotate(0deg)}60%,80%{transform:translateY(-15px) rotate(-5deg)}70%{transform:translateY(-18px) rotate(-5.5deg)}}
+.peek{animation:peek 7s ease-in-out infinite}
+@keyframes peek{0%,48%,90%,100%{opacity:0}62%,78%{opacity:1}}
+/* the second hand ticks once a second, round the dial in a minute */
+.sec{transform-box:view-box;transform-origin:0 0;animation:tick 60s steps(60,end) infinite}
+@keyframes tick{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+/* steam: each wisp rises and fades, one after the other */
+.stm{animation:steam 3.6s ease-out infinite}
+@keyframes steam{0%{opacity:0;transform:translateY(10px)}30%{opacity:.85}100%{opacity:0;transform:translateY(-28px)}}
+.cardin{animation:drop .8s cubic-bezier(.2,.8,.3,1.2) .5s both}
+@keyframes drop{from{opacity:0;transform:translateY(-14px)}}
+.twk{transform-box:fill-box;transform-origin:center;animation:twk 2.6s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes twk{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+/* reduced motion: brand.css shortens every animation; drop the delays too so the still life shows at once */
+@media (prefers-reduced-motion:reduce){.w-art *{animation-delay:0s!important}}
+</style>
+</head>
+<body data-world="father">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-father" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">لأحلى بابا<span>هدية على قد تعبه</span></h1>
+      <p class="lede">ساعات يد، محافظ جلد، كوب لقهوته الصبحية وعلب هدايا جاهزة. منغلّفها مع كرت مكتوب عليه كلامك إنت، ومنوصلك ياها قبل ٢١ حزيران، والدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">اختار هديته</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٥٪ على هدايا عيد الأب <b>BABA15</b><button type="button" data-copy-code="BABA15">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470" width="460" height="470">
+        <defs>
+          <radialGradient id="fSteel" cx="35%" cy="30%" r="75%"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#ADA698"/></radialGradient>
+          <linearGradient id="fPeek" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#FFE0A8" stop-opacity=".95"/><stop offset="1" stop-color="#FFE0A8" stop-opacity="0"/></linearGradient>
+          <linearGradient id="fWood" x1="0" x2="1"><stop offset="0" stop-color="#D9BC95" stop-opacity="0"/><stop offset=".1" stop-color="#D9BC95"/><stop offset=".9" stop-color="#D9BC95"/><stop offset="1" stop-color="#D9BC95" stop-opacity="0"/></linearGradient>
+          <linearGradient id="fEdge" x1="0" x2="1"><stop offset="0" stop-color="#B98F62" stop-opacity="0"/><stop offset=".1" stop-color="#B98F62"/><stop offset=".9" stop-color="#B98F62"/><stop offset="1" stop-color="#B98F62" stop-opacity="0"/></linearGradient>
+          <path id="tk" d="M0-31V-26" stroke="#5E6A6E" stroke-width="1.6" stroke-linecap="round"/>
+          <path id="tq" d="M0-31V-23" stroke="#3C5A63" stroke-width="2.6" stroke-linecap="round"/>
+          <path id="spk" d="M0-8C1-2 2-1 8 0 2 1 1 2 0 8-1 2-2 1-8 0-2-1-1-2 0-8z"/>
+          <clipPath id="fTieClip"><path d="M-9 0h18l-4 16h-10zM-6 16h12l12 100-12 14-12-14z"/></clipPath>
+        </defs>
+        <!-- a soft warm disc and a dotted ring behind the still life -->
+        <circle cx="230" cy="226" r="178" fill="#EADFCF" opacity=".75"/>
+        <circle cx="230" cy="226" r="198" fill="none" stroke="#D3C0A6" stroke-width="1.6" stroke-dasharray="1 9" stroke-linecap="round"/>
+        <!-- the wooden table, fading out at both ends -->
+        <path d="M0 362Q230 350 460 362V470H0z" fill="url(#fWood)"/>
+        <path d="M0 456H460V470H0z" fill="url(#fEdge)"/>
+        <path d="M40 384Q140 378 230 386T420 382M24 414Q120 408 210 418T440 410M60 440Q170 434 260 442T410 438" fill="none" stroke="#C7A37A" stroke-width="1.4" opacity=".55"/>
+        <!-- shadows on the table -->
+        <g fill="#5A4630" opacity=".13"><ellipse cx="210" cy="400" rx="96" ry="9"/><ellipse cx="372" cy="402" rx="40" ry="6"/><ellipse cx="72" cy="446" rx="60" ry="8"/></g>
+
+        <!-- the gift box: slate paper, leather-brown ribbon with stitching -->
+        <rect x="128" y="248" width="160" height="150" rx="5" fill="#3C5A63"/>
+        <path d="M134 262V392" stroke="#fff" stroke-opacity=".12" stroke-width="4" stroke-linecap="round"/>
+        <rect x="128" y="250" width="160" height="7" fill="#000" opacity=".16"/>
+        <rect x="128" y="312" width="160" height="18" fill="#B07A45"/>
+        <rect x="198" y="248" width="20" height="150" fill="#B07A45"/>
+        <path d="M201 258V395M215 258V395M131 315.5H198M218 315.5H285M131 326.5H198M218 326.5H285" stroke="#EBD2AF" stroke-width="1.1" stroke-dasharray="3 3" opacity=".8"/>
+        <!-- the warm light inside, seen only while the lid is up -->
+        <path class="peek" d="M134 252L106 176H310L282 252z" fill="url(#fPeek)" opacity="0"/>
+        <!-- the lid with its bow -->
+        <g class="lid">
+          <rect x="118" y="218" width="180" height="34" rx="5" fill="#4A6B74"/>
+          <rect x="118" y="244" width="180" height="8" rx="3" fill="#000" opacity=".12"/>
+          <rect x="198" y="218" width="20" height="34" fill="#B07A45"/>
+          <path d="M201 222V249M215 222V249" stroke="#EBD2AF" stroke-width="1.1" stroke-dasharray="3 3" opacity=".8"/>
+          <path d="M202 222l-14 30 8-3 4 8 8-33zM214 222l14 30-8-3-4 8-8-33z" fill="#96643A"/>
+          <path d="M208 220c-10-24-44-30-40-10 3 12 26 12 40 10zM208 220c10-24 44-30 40-10-3 12-26 12-40 10z" fill="#B07A45"/>
+          <path d="M208 220c-8-14-26-18-26-8M208 220c8-14 26-18 26-8" fill="none" stroke="#8E5F36" stroke-width="2" opacity=".6"/>
+          <ellipse cx="208" cy="220" rx="8" ry="7" fill="#8E5F36"/>
+        </g>
+        <!-- the little card leaning on the box -->
+        <g class="cardin"><g transform="rotate(-5 210 400)">
+          <rect x="150" y="376" width="120" height="48" rx="7" fill="#FFFDF9" stroke="#CDB08C" stroke-width="1.5"/>
+          <text x="210" y="408" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="21" fill="#8A5A2E">لأحلى بابا</text>
+        </g></g>
+
+        <!-- coffee: a slate cup on its saucer, steam rising -->
+        <g fill="none" stroke="#B9AC99" stroke-width="4" stroke-linecap="round">
+          <path class="stm" d="M58 366c-8-10 8-18 0-28s8-18 0-28"/>
+          <path class="stm" style="animation-delay:-1.2s" d="M74 362c-8-10 8-18 0-28s8-18 0-28"/>
+          <path class="stm" style="animation-delay:-2.4s" d="M90 366c-8-10 8-18 0-28s8-18 0-28"/>
+        </g>
+        <ellipse cx="72" cy="438" rx="56" ry="11" fill="#F7F2EA" stroke="#CFC2AF" stroke-width="1.5"/>
+        <ellipse cx="72" cy="436" rx="30" ry="5" fill="#E6DCCD"/>
+        <path d="M38 392q-22 0-22 16t22 16" fill="none" stroke="#4F6E77" stroke-width="7"/>
+        <path d="M34 378h76l-5 44q-2 14-16 14H55q-14 0-16-14z" fill="#4F6E77"/>
+        <path d="M44 388l3 30" stroke="#fff" stroke-opacity=".25" stroke-width="4" stroke-linecap="round"/>
+        <path d="M37 402h70" stroke="#B07A45" stroke-width="5"/>
+        <ellipse cx="72" cy="378" rx="38" ry="7" fill="#5C7C85"/>
+        <ellipse cx="72" cy="378.5" rx="33" ry="5" fill="#6B4428"/>
+        <ellipse cx="68" cy="378" rx="14" ry="2" fill="#A0703F" opacity=".7"/>
+
+        <!-- the wristwatch: leather strap, steel case, a second hand that ticks -->
+        <path d="M354 288L357 250Q372 243 387 250L390 288z" fill="#8E5F36"/>
+        <path d="M354 348L357 394Q372 401 387 394L390 348z" fill="#8E5F36"/>
+        <path d="M360 284L362 254M384 284L382 254M360 352L362 390M384 352L382 390" stroke="#EBD2AF" stroke-width="1" stroke-dasharray="2.6 2.6" opacity=".75"/>
+        <g fill="#5A3B20"><circle cx="372" cy="370" r="2.2"/><circle cx="372" cy="380" r="2.2"/></g>
+        <rect x="412" y="312" width="8" height="12" rx="2" fill="#B9B2A6"/>
+        <circle cx="372" cy="318" r="42" fill="url(#fSteel)" stroke="#8F887C" stroke-width="1.2"/>
+        <circle cx="372" cy="318" r="35" fill="#FFFDF8" stroke="#D8CFC0" stroke-width="1.5"/>
+        <g transform="translate(372 318)">
+          <use href="#tq"/><use href="#tk" transform="rotate(30)"/><use href="#tk" transform="rotate(60)"/><use href="#tq" transform="rotate(90)"/><use href="#tk" transform="rotate(120)"/><use href="#tk" transform="rotate(150)"/>
+          <use href="#tq" transform="rotate(180)"/><use href="#tk" transform="rotate(210)"/><use href="#tk" transform="rotate(240)"/><use href="#tq" transform="rotate(270)"/><use href="#tk" transform="rotate(300)"/><use href="#tk" transform="rotate(330)"/>
+          <text y="-11" text-anchor="middle" font-family="Fraunces, serif" font-size="7" fill="#8F887C">D&amp;S</text>
+          <path d="M-2.6 4L0-19 2.6 4z" fill="#28251F" transform="rotate(305)"/>
+          <path d="M-1.9 4L0-27 1.9 4z" fill="#28251F" transform="rotate(60)"/>
+          <g class="sec"><path d="M0 8V-30" stroke="#B07A45" stroke-width="1.6" stroke-linecap="round"/></g>
+          <circle r="3.2" fill="#B07A45"/><circle r="1.2" fill="#FFFDF8"/>
+        </g>
+
+        <!-- a burgundy tie with tan stripes, lying on the table -->
+        <g transform="translate(292 438) rotate(-80)">
+          <g transform="translate(3 3)" fill="#5A4630" opacity=".13"><path d="M-9 0h18l-4 16h-10zM-6 16h12l12 100-12 14-12-14z"/></g>
+          <path d="M-9 0h18l-4 16h-10zM-6 16h12l12 100-12 14-12-14z" fill="#7B3B40"/>
+          <g clip-path="url(#fTieClip)" stroke="#D9B98F" stroke-width="3" opacity=".7"><path d="M-20 34L20 14M-20 52L20 32M-20 70L20 50M-20 88L20 68M-20 106L20 86M-20 124L20 104M-20 142L20 122"/></g>
+          <path d="M-9 0h18l-4 16h-10z" fill="#000" opacity=".15"/>
+        </g>
+
+        <!-- soft twinkles -->
+        <g fill="#C9A06E"><g transform="translate(96 150)"><use class="twk" href="#spk"/></g><g transform="translate(404 168) scale(.8)"><use class="twk" href="#spk" style="--dl:-1.4s"/></g></g>
+        <g fill="#8FA9B0"><g transform="translate(330 108) scale(.9)"><use class="twk" href="#spk" style="--dl:-.7s"/></g><g transform="translate(44 268) scale(.7)"><use class="twk" href="#spk" style="--dl:-2s"/></g></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">هدايا عيد الأب</h2><p>اختار اللون أو الحجم تحت كل هدية وضيفها لسلتك. اكتبلنا بالملاحظات الاسم أو الحرف للنقش، وشو بدك ينكتب عالكرت. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js?v=6"></script>
+<script src="assets/scene.js?v=6"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and colours are the owner's to edit) ----------
+  const BROWN = {name:'بني', c:'#8E5F36'}, BLACK = {name:'أسود', c:'#2B2826'}, NAVY = {name:'كحلي', c:'#2E3F5C'};
+  const PRODUCTS = [
+    {id:'watch',    art:'watch',    name:'ساعة يد كلاسيك',              desc:'وجه بسيط وأنيق وسير جلد، بتليق عالشغل وعالسهرة. بتوصل بعلبتها.', price:18, optLabel:'لون السير', opts:[BROWN, BLACK, NAVY], tag:'الأكثر طلباً'},
+    {id:'wallet',   art:'wallet',   name:'محفظة جلد مع نقش الاسم',       desc:'جلد ناعم بجيوب للكروت والمصاري، ومنحفرلك اسمه عليها.', price:12, opts:[BROWN, BLACK]},
+    {id:'mug',      art:'mug',      name:'كوب «أحلى بابا»',              desc:'كوب سيراميك لقهوة الصبح، مكتوب عليه «أحلى بابا»، بعلبته.', price:6, opts:[{name:'أبيض', c:'#F4EFE6'}, BLACK]},
+    {id:'tie',      art:'tie',      name:'طقم ربطة عنق ومنديل جيب',      desc:'ربطة مع منديل جيب من نفس القماش، بعلبة أنيقة جاهزة للهدية.', price:9, opts:[NAVY, {name:'خمري', c:'#7B2E3A'}, {name:'رمادي', c:'#82878E'}]},
+    {id:'giftbox',  art:'giftbox',  name:'علبة هدية للبابا',             desc:'كوب، ميدالية جلد، شوكولا وكرت بكلامك. كل ما كبرت العلبة بتزيد الهدايا، ومنغلّفها عنك.', price:15, optLabel:'الحجم',
+      opts:[{name:'صغيرة', price:15, s:.78}, {name:'وسط', price:22, s:.9}, {name:'كبيرة', price:30, s:1}], tag:'هدية جاهزة'},
+    {id:'keychain', art:'keychain', name:'ميدالية مفاتيح جلد مع الحرف الأول', desc:'جلد مخيّط مع حلقة معدن، ومنطبعلك أول حرف من اسمه.', price:4, opts:[BROWN, BLACK]}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour) ----------
+  const f = n => (+n).toFixed(1);
+  const dark = c => { const h = c.replace('#', ''); return (parseInt(h.slice(0, 2), 16) * 299 + parseInt(h.slice(2, 4), 16) * 587 + parseInt(h.slice(4, 6), 16) * 114) / 1000 < 140; };
+  const STITCH = '#F2E3CC', GOLD = '#E8C994', SLATE = '#3C5A63', TAN = '#B07A45';
+  const shadow = (cx, cy, rx) => `<ellipse cx="${cx}" cy="${cy}" rx="${f(rx)}" ry="6" fill="#000" opacity=".1"/>`;
+  const bow = (x, y, c) => `<path d="M${x} ${y}c-10-22-38-26-34-8 3 12 22 10 34 8zm0 0c10-22 38-26 34-8-3 12-22 10-34 8z" fill="${c}"/>
+      <path d="M${x} ${y}c-8-14-24-16-22-6M${x} ${y}c8-14 24-16 22-6" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/>
+      <circle cx="${x}" cy="${y}" r="7" fill="${c}"/><circle cx="${x}" cy="${y}" r="7" fill="#000" opacity=".18"/>`;
+  const ART = {
+    watch: c => {
+      const ticks = Array.from({length:12}, (_, i) => { const a = i * Math.PI / 6, r2 = i % 3 ? 27 : 23;
+        return `<path d="M${f(100 + Math.sin(a) * 32)} ${f(100 - Math.cos(a) * 32)}L${f(100 + Math.sin(a) * r2)} ${f(100 - Math.cos(a) * r2)}" stroke="${i % 3 ? '#5E6A6E' : SLATE}" stroke-width="${i % 3 ? 1.6 : 2.6}" stroke-linecap="round"/>`; }).join('');
+      return `${shadow(100, 188, 46)}
+      <path d="M80 66L83 16Q100 8 117 16L120 66z" fill="${c}"/><path d="M80 134L83 182Q100 190 117 182L120 134z" fill="${c}"/>
+      <path d="M87 62L89 20M113 62L111 20M87 138L89 178M113 138L111 178" stroke="${STITCH}" stroke-width="1.1" stroke-dasharray="3 3" opacity=".7"/>
+      <rect x="81" y="146" width="38" height="8" rx="2" fill="${c}"/><rect x="81" y="146" width="38" height="8" rx="2" fill="#000" opacity=".2"/>
+      <g fill="#000" opacity=".4"><circle cx="100" cy="164" r="2.4"/><circle cx="100" cy="174" r="2.4"/></g>
+      <rect x="142" y="93" width="9" height="14" rx="2.5" fill="#B9B2A6"/>
+      <circle cx="100" cy="100" r="44" fill="#C9C3B8" stroke="#8F887C" stroke-width="1.2"/><circle cx="100" cy="100" r="40" fill="#E4DFD6"/>
+      <circle cx="100" cy="100" r="35" fill="#FFFDF8" stroke="#D8CFC0" stroke-width="1.5"/>
+      <path d="M70 84a34 34 0 0 1 22-18" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/>
+      ${ticks}
+      <text x="100" y="88" text-anchor="middle" font-family="Fraunces, serif" font-size="7" fill="#8F887C">D&amp;S</text>
+      <path d="M97.4 104L100 80L102.6 104z" fill="#28251F" transform="rotate(305 100 100)"/>
+      <path d="M98.1 104L100 72L101.9 104z" fill="#28251F" transform="rotate(60 100 100)"/>
+      <path d="M100 108V70" stroke="${TAN}" stroke-width="1.5" stroke-linecap="round" transform="rotate(200 100 100)"/>
+      <circle cx="100" cy="100" r="3.4" fill="${TAN}"/><circle cx="100" cy="100" r="1.2" fill="#FFFDF8"/>`; },
+    wallet: c => `${shadow(100, 170, 76)}
+      <g transform="rotate(-6 100 110)">
+        <rect x="58" y="44" width="74" height="46" rx="4" fill="${SLATE}" transform="rotate(-9 95 67)"/><rect x="62" y="52" width="66" height="7" fill="#fff" opacity=".25" transform="rotate(-9 95 67)"/>
+        <rect x="30" y="62" width="140" height="96" rx="11" fill="${c}"/>
+        <path d="M30 76Q30 62 41 62H159Q170 62 170 76z" fill="#fff" opacity=".1"/>
+        <rect x="38" y="70" width="124" height="80" rx="7" fill="none" stroke="${STITCH}" stroke-width="1.3" stroke-dasharray="4 3" opacity=".7"/>
+        <text x="100" y="120" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="24" fill="#000" opacity=".3">أبو سامي</text>
+        <text x="100" y="118.5" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="24" fill="${GOLD}">أبو سامي</text>
+        <path d="M76 132h48" stroke="${GOLD}" stroke-width="1.5" stroke-linecap="round" opacity=".8"/>
+      </g>`,
+    mug: c => { const light = !dark(c), tx = light ? SLATE : GOLD, edge = light ? ' stroke="#C9BBA8" stroke-width="1.5"' : '';
+      return `${shadow(96, 182, 54)}
+      <path d="M78 54q-6-10 0-18M96 52q-6-10 0-18M114 54q-6-10 0-18" fill="none" stroke="#C9BBA8" stroke-width="3" stroke-linecap="round"/>
+      ${light ? `<path d="M142 94h6a20 20 0 0 1 0 40h-6" fill="none" stroke="#C9BBA8" stroke-width="13"/>` : ''}
+      <path d="M142 94h6a20 20 0 0 1 0 40h-6" fill="none" stroke="${c}" stroke-width="10"/>
+      <path d="M48 70h96v80q0 24-24 24H72q-24 0-24-24z" fill="${c}"${edge}/>
+      <ellipse cx="96" cy="70" rx="48" ry="8" fill="${c}"${edge}/><ellipse cx="96" cy="71" rx="42" ry="5.5" fill="#6B4428"/>
+      <path d="M56 84v58" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="${light ? .9 : .2}"/>
+      <text x="96" y="114" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="22" fill="${tx}">أحلى</text>
+      <text x="96" y="144" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="27" fill="${tx}">بابا</text>
+      <path d="M96 158c-5-6-15-7-22 0 6-1 11 1 15 3 3 1 6 0 7-3 1 3 4 4 7 3 4-2 9-4 15-3-7-7-17-6-22 0z" fill="${TAN}"/>`; },
+    tie: c => `${shadow(100, 180, 82)}
+      <rect x="22" y="54" width="156" height="122" rx="8" fill="#E7DCCB"/><rect x="30" y="62" width="140" height="106" rx="5" fill="#D6C5AC"/>
+      <path d="M30 62h140v8H30z" fill="#000" opacity=".07"/>
+      <g transform="translate(76 68)">
+        <path d="M-10 0h20l-4 18h-12zM-6 18h12l13 72-13 16-13-16z" fill="${c}"/>
+        <path d="M-16 34L16 18M-16 52L16 36M-16 70L16 54M-16 88L16 72M-16 106L16 90" stroke="#fff" stroke-width="2.6" opacity=".28" clip-path="url(#fdTieClip)"/>
+        <clipPath id="fdTieClip"><path d="M-10 0h20l-4 18h-12zM-6 18h12l13 72-13 16-13-16z"/></clipPath>
+        <path d="M-10 0h20l-4 18h-12z" fill="#000" opacity=".18"/>
+      </g>
+      <g transform="rotate(8 134 114)">
+        <rect x="108" y="88" width="52" height="52" rx="3" fill="${c}"/>
+        <path d="M108 88L160 140" stroke="#000" stroke-opacity=".2" stroke-width="1.5"/>
+        <rect x="113" y="93" width="42" height="42" rx="2" fill="none" stroke="#fff" stroke-opacity=".45" stroke-width="1.3" stroke-dasharray="3 3"/>
+        <g fill="#fff" opacity=".4">${[[122, 104], [146, 106], [124, 126], [144, 128], [134, 116]].map(([x, y]) => `<circle cx="${x}" cy="${y}" r="2.2"/>`).join('')}</g>
+      </g>`,
+    giftbox: (c, o) => { const s = (o && o.s) || 1; return `${shadow(100, 184, 66 * s)}
+      <g transform="translate(100 178) scale(${s}) translate(-100 -178)">
+        <rect x="44" y="98" width="112" height="80" rx="6" fill="${SLATE}"/>
+        <path d="M52 108v62" stroke="#fff" stroke-opacity=".12" stroke-width="4" stroke-linecap="round"/>
+        <rect x="92" y="98" width="16" height="80" fill="${TAN}"/>
+        <path d="M95 104v70M105 104v70" stroke="${STITCH}" stroke-width="1" stroke-dasharray="3 3" opacity=".75"/>
+        <rect x="38" y="82" width="124" height="22" rx="5" fill="#4A6B74"/><rect x="92" y="82" width="16" height="22" fill="${TAN}"/><rect x="38" y="98" width="124" height="6" fill="#000" opacity=".1"/>
+        ${bow(100, 82, TAN)}
+        <g transform="rotate(10 140 104)"><path d="M140 104v12" stroke="#7A6450" stroke-width="1.2"/><rect x="120" y="116" width="40" height="24" rx="4" fill="#FFFDF9" stroke="#CDB08C" stroke-width="1.2"/>
+          <text x="140" y="133" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="13" fill="#8A5A2E">بابا</text></g>
+      </g>`; },
+    keychain: c => `${shadow(100, 188, 40)}
+      <circle cx="100" cy="38" r="20" fill="none" stroke="#A9A295" stroke-width="5.5"/>
+      <path d="M84 30a18 18 0 0 1 14-10" fill="none" stroke="#EDEAE3" stroke-width="2" stroke-linecap="round"/>
+      <rect x="95" y="56" width="10" height="20" rx="5" fill="none" stroke="#A9A295" stroke-width="3.5"/>
+      <rect x="88" y="74" width="24" height="12" rx="3" fill="#C2BBAE"/>
+      <path d="M70 84h60q8 0 8 8v60q0 20-38 30-38-10-38-30V92q0-8 8-8z" fill="${c}"/>
+      <path d="M72 92h56v58q0 15-28 23-28-8-28-23z" fill="none" stroke="${STITCH}" stroke-width="1.2" stroke-dasharray="3.5 3" opacity=".7"/>
+      <circle cx="100" cy="96" r="4" fill="#000" opacity=".3"/>
+      <text x="100" y="152" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="50" fill="#000" opacity=".3">ع</text>
+      <text x="100" y="150" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="50" fill="${GOLD}">ع</text>`
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'father', PRODUCTS, (p, o) => ART[p.art]((o && o.c) || BROWN.c, o));
+  const d = DC.daysLeft('father');
+  document.getElementById('when').innerHTML = DC.WORLDS.father.icon + `عيد الأب${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'spark', colors:['#B07A45','#D9B98F','#8FA9B0'], count:26, dir:-1});
+})();
+</script>
+</body>
+</html>

@@ -27,6 +27,8 @@
 [data-world=halloween]{--bg:#16131D;--surface:#211C2A;--tint:#2C2436;--ink:#F3ECE2;--dim:#B6AABD;--line:#372E42;--accent:#F0893D;--accent-2:#A6D38A;--on-accent:#24130A;color-scheme:dark}
 [data-world=christmas]{--bg:#0F2621;--surface:#15332C;--tint:#1C4137;--ink:#F6EFE2;--dim:#B8C7BD;--line:#244E43;--accent:#E3B55B;--accent-2:#D9584B;--on-accent:#1E1608;color-scheme:dark}
 [data-world=liberation]{--bg:#F3F6F1;--surface:#FFFFFF;--tint:#E1ECE3;--ink:#1A2520;--dim:#55635A;--line:#D4E0D6;--accent:#0B6E3A;--accent-2:#C8102E;--on-accent:#fff}
+[data-world=graduation]{--bg:#F4F2EC;--surface:#FFFDF8;--tint:#E5E8EF;--ink:#1C2333;--dim:#596173;--line:#DCDFE7;--accent:#24345E;--accent-2:#C99A3E;--on-accent:#fff}
+[data-world=father]{--bg:#F2EEE8;--surface:#FFFDF9;--tint:#E7E2D9;--ink:#28251F;--dim:#665F56;--line:#DED6CA;--accent:#3C5A63;--accent-2:#B07A45;--on-accent:#fff}
 [data-world=night]    {--bg:#13142A;--surface:#1C1D3A;--tint:#272954;--ink:#EEEAF8;--dim:#ABA8C8;--line:#2E3058;--accent:#B9A5F5;--accent-2:#F5B98D;--on-accent:#191233;color-scheme:dark}
 
 *{box-sizing:border-box}

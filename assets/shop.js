@@ -21,6 +21,8 @@
     'HALLOWEEN15': {pct:15, w:['halloween'], label:'خصم هالوين'},
     'XMAS15':    {pct:15, w:['christmas'], label:'خصم الكريسماس ورأس السنة'},
     'TAHRIR10':  {pct:10, w:['liberation'], label:'خصم عيد التحرير'},
+    'GRAD15':    {pct:15, w:['graduation'], label:'خصم التخرّج'},
+    'BABA15':    {pct:15, w:['father'], label:'خصم عيد الأب'},
     'CAFE-DEMO': {pct:10, venue:'كافيه تجريبي', label:'خصم الشركاء'}   // one line per venue, e.g. 'ROOTS': {pct:10, venue:'كافيه روتس', label:'خصم الشركاء'}
   };
 
@@ -34,6 +36,8 @@
     halloween:'<g fill="currentColor"><ellipse cx="16.5" cy="29" rx="9" ry="11.5"/><ellipse cx="31.5" cy="29" rx="9" ry="11.5"/><ellipse cx="24" cy="29" rx="10" ry="12.5"/></g><path d="M23.5 17c-.2-4 1.6-7.4 5-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m16.5 26.5 3.2-4 3.2 4zm8.6 0 3.2-4 3.2 4zM15.5 32q8.5 7 17 0l-3.2.6-1.8 2-2.3-2-2.4 2-2.3-2-1.8 2z" fill="#fff" fill-opacity=".85"/>',
     christmas:'<path d="M24 9 13 22h5L10 32h6L8 41h32l-8-9h6l-8-10h5z" fill="currentColor"/><rect x="21.5" y="41" width="5" height="5" rx="1" fill="currentColor"/><path d="m24 2 1.5 3.2 3.5.5-2.5 2.4.6 3.5-3.1-1.7-3.1 1.7.6-3.5-2.5-2.4 3.5-.5z" fill="currentColor"/><g fill="#fff" fill-opacity=".85"><circle cx="20" cy="24" r="1.6"/><circle cx="28" cy="30" r="1.6"/><circle cx="19" cy="36" r="1.6"/><circle cx="30" cy="38" r="1.6"/></g>',
     liberation:'<rect x="7" y="5" width="2.6" height="39" rx="1.3" fill="currentColor"/><path d="M10 8c8-3 13 3 21 0s9-1 9-1v26s-3-2-9 1-13-3-21 0z" fill="currentColor"/><path d="M10 17c8-3 13 3 21 0s9-1 9-1v8s-3-2-9 1-13-3-21 0z" fill="#fff" fill-opacity=".9"/><g fill="currentColor"><circle cx="17" cy="21" r="1.7"/><circle cx="25" cy="21.6" r="1.7"/><circle cx="33" cy="20.6" r="1.7"/></g>',
+    graduation:'<path d="M24 9 3 18l21 9 21-9z" fill="currentColor"/><path d="M12 23v9c0 3 5.4 6 12 6s12-3 12-6v-9l-12 5z" fill="currentColor" opacity=".75"/><path d="M24 18l14 4.5V33" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M36.2 33h3.6l1 6h-5.6z" fill="currentColor"/><circle cx="24" cy="18" r="1.6" fill="#fff" fill-opacity=".85"/>',
+    father:'<path d="M17 5h14l-3.5 7h-7z" fill="currentColor"/><path d="M20.5 12h7l5 21L24 43l-8.5-10z" fill="currentColor"/><path d="m19 21 10-4M18 28l12-5M18.5 35l11-4.5" stroke="#fff" stroke-opacity=".55" stroke-width="1.8"/>',
     night:'<rect x="9" y="23" width="30" height="18" rx="2.5" fill="currentColor"/><rect x="7" y="16.5" width="34" height="8" rx="2.5" fill="currentColor" opacity=".7"/><path d="M24 16.5V41" stroke="#fff" stroke-opacity=".6" stroke-width="2.4"/><path d="M24 16c-4-6-10-5-9-1.5S21 16.5 24 16c3 .5 10 2 9-1.5s-5-4.5-9 1.5z" fill="currentColor"/><path d="m37 4 1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1zM10 6l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>'
   };
   const WORLDS = {
@@ -45,7 +49,9 @@
     halloween:{name:'هالوين',       href:'halloween.html',      c:'#E07B39', tagline:'يقاطين مضوّية، خفافيش وزينة السهرة المخيفة', dates:['10-31']},
     christmas:{name:'الكريسماس ورأس السنة', href:'christmas.html', c:'#B8433A', tagline:'شجرة، أضواء وزينة لعيد الميلاد وسهرة رأس السنة', dates:['12-25','12-31']},
     liberation:{name:'عيد التحرير', href:'liberation-day.html', c:'#0B6E3A', tagline:'أعلام، بالونات وزينة لفرحة كل السوريين', dates:['12-08']},
-    night:    {name:'Night Vibe Box', href:'night-vibe-box.html', c:'#7B66C9', tagline:'بوكس لسهرة الأفلام والبنات وعيد الميلاد', dates:[]}
+    father:   {name:'عيد الأب', href:'fathers-day.html', c:'#4F6273', tagline:'ساعات، محافظ وهدايا بتليق بالبابا', dates:['06-21']},
+    graduation:{name:'التخرّج', href:'graduation.html', c:'#2E4A86', tagline:'بالونات، قبعات ولافتات لفرحة النجاح والتخرّج', dates:['06-15'], season:'موسم حزيران وتموز'},
+    night:    {name:'Night Vibe Box', href:'night-vibe-box.html', c:'#7B66C9', tagline:'بوكسات للسهرة، عيد الميلاد، المولود الجديد والخطوبة', dates:[]}
   };
   for (const k in WORLDS) WORLDS[k].icon = `<svg viewBox="0 0 48 48" aria-hidden="true">${I[k]}</svg>`;
 

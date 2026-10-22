@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/brand.css?v=5">
+<link rel="stylesheet" href="assets/brand.css?v=6">
 <style>
 /* Home: the store is the centre, every celebration is a world orbiting it ("Same store, different world").
    Below the hero, each world is a tile whose animated background shows what's inside. */
@@ -59,7 +59,7 @@
 .words text{font-family:var(--latin);font-weight:600;font-size:9.5px;letter-spacing:2.75px;fill:var(--accent)}   /* sized so two phrases fill the circle */
 @keyframes spin{to{rotate:360deg}}
 @media (max-width:760px){.home-hero{padding-block:20px 8px}}
-@media (max-width:900px){.hh-grid{grid-template-columns:1fr}.orbit{--S:min(360px,82vw);order:-1}.planet a{left:-28px;top:-28px;width:56px;height:56px}.planet svg{width:30px;height:30px}}
+@media (max-width:900px){.hh-grid{grid-template-columns:1fr}.orbit{--S:min(360px,84vw);order:-1}.planet a{left:-26px;top:-26px;width:52px;height:52px}.planet svg{width:28px;height:28px}}
 
 /* ---------- world tiles ---------- */
 .tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
@@ -151,6 +151,22 @@
   background:repeating-conic-gradient(var(--fc) 0 5deg,transparent 5deg 30deg);   /* 12 rays, shown only as a ring = a burst */
   -webkit-mask:radial-gradient(circle,transparent 28%,#000 30% 47%,transparent 50%);mask:radial-gradient(circle,transparent 28%,#000 30% 47%,transparent 50%)}
 @keyframes boom{0%{opacity:0;transform:scale(.2)}12%{opacity:1}55%{opacity:0;transform:scale(1.5)}100%{opacity:0;transform:scale(1.5)}}
+/* Father's Day (a steaming coffee, a watch ticking, a tie swinging) */
+.sc-father{background:linear-gradient(160deg,#3C5A63,#7C8F8E 60%,#C9A57E)}
+.fmug{width:70px;right:14%;bottom:10%}
+.fmug .stm{animation:steam 2.8s ease-in infinite;animation-delay:var(--d,0s);opacity:0}
+@keyframes steam{0%{opacity:0;transform:translateY(6px)}30%{opacity:.7}100%{opacity:0;transform:translateY(-16px)}}
+.fwatch{width:84px;left:calc(50% - 30px);top:20%}
+.fwatch .hand{transform-box:view-box;transform-origin:42px 46px;animation:tick 12s steps(60) infinite}
+@keyframes tick{to{transform:rotate(360deg)}}
+.ftie{width:40px;left:12%;top:-4px;transform-origin:50% 0;animation:sw 3.4s ease-in-out infinite alternate}
+/* Graduation (caps tossed in the air, gold confetti, a diploma) */
+.sc-graduation{background:linear-gradient(180deg,#5677B4,#B5C6E3)}
+.gcap{width:58px;bottom:6%;animation:toss var(--t,3s) infinite;animation-delay:var(--d,0s)}
+@keyframes toss{0%{transform:translateY(0) rotate(0);animation-timing-function:cubic-bezier(.2,.7,.4,1)}
+  48%{transform:translateY(-118px) rotate(200deg);animation-timing-function:cubic-bezier(.6,0,.8,.3)}
+  100%{transform:translateY(0) rotate(360deg)}}
+.gdip{width:92px;left:calc(50% - 46px);bottom:4%}
 /* Night Vibe Box (night sky, a gift box that pops open with sparkles) */
 .sc-night{background:linear-gradient(180deg,#121433,#2C2468)}
 .sc-night .moon{width:44px;height:44px;left:14%;top:14%;border-radius:50%;box-shadow:11px -5px 0 0 #E9E2FF;filter:drop-shadow(0 0 10px rgb(233 226 255/.5))}
@@ -262,7 +278,7 @@
 <footer data-footer></footer>
 </div>
 
-<script src="assets/shop.js?v=5"></script>
+<script src="assets/shop.js?v=6"></script>
 <script>
 (() => {
   const {WORLDS, daysLeft, ar} = DC;
@@ -305,6 +321,16 @@
         const flag = `<rect width="${W}" height="20" fill="#0B6E3A"/><rect y="20" width="${W}" height="20" fill="#fff"/><rect y="40" width="${W}" height="20" fill="#141414"/>${star(27)}${star(45)}${star(63)}`;
         return `<svg class="lflag" viewBox="-6 -8 104 80"><rect x="-4" y="-6" width="3" height="84" rx="1.5" fill="#D8D2C4"/>
           ${Array.from({length:n}, (_, i) => `<g class="sl" style="animation-delay:-${(i*.16).toFixed(2)}s"><svg x="${(i*w).toFixed(2)}" y="0" width="${(w+.4).toFixed(2)}" height="${H}" viewBox="${(i*w).toFixed(2)} 0 ${(w+.4).toFixed(2)} ${H}">${flag}</svg></g>`).join('')}</svg>`; })(),
+    father: () => `<svg class="fmug" viewBox="0 0 70 70"><path class="stm" d="M24 20q-5-7 0-14" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/><path class="stm" style="--d:-1.3s" d="M38 20q5-7 0-14" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M10 26h40v24q0 14-14 14h-12q-14 0-14-14z" fill="#F4ECE0"/><path d="M50 32h5a8 8 0 0 1 0 16h-5" fill="none" stroke="#F4ECE0" stroke-width="5"/><path d="M10 34h40" stroke="#B07A45" stroke-width="4"/></svg>`
+      + `<svg class="fwatch" viewBox="0 0 84 92"><rect x="30" y="0" width="24" height="20" rx="4" fill="#6B4A2E"/><rect x="30" y="72" width="24" height="20" rx="4" fill="#6B4A2E"/>
+        <circle cx="42" cy="46" r="28" fill="#D9B98F"/><circle cx="42" cy="46" r="23" fill="#FFFDF7"/>
+        ${[0,1,2,3,4,5,6,7,8,9,10,11].map(i => { const a = i * Math.PI / 6; return `<circle cx="${(42 + Math.sin(a) * 19).toFixed(1)}" cy="${(46 - Math.cos(a) * 19).toFixed(1)}" r="${i % 3 ? 1 : 1.8}" fill="#3C5A63"/>`; }).join('')}
+        <path d="M42 46V33M42 46l8 5" stroke="#28251F" stroke-width="2.4" stroke-linecap="round"/><path class="hand" d="M42 48V27" stroke="#B23A3A" stroke-width="1.2"/><circle cx="42" cy="46" r="2" fill="#28251F"/></svg>`
+      + `<svg class="ftie" viewBox="0 0 40 110"><path d="M12 0h16l-3 12h-10z" fill="#24345E"/><path d="M15 12h10l9 70-14 18-14-18z" fill="#24345E"/><path d="m10 34 18-8M8 50l22-9M9 66l21-9M12 82l15-7" stroke="#C9A57E" stroke-width="2.2"/></svg>`,
+    graduation: () => Array.from({length:14}, (_, i) => `<span class="cf" style="left:${rnd(i,31)*100}%;background:${['#C99A3E','#E7D3A2','#FFFFFF'][i%3]};--t:${4 + rnd(i,32)*3}s;--d:-${(rnd(i,33)*6).toFixed(1)}s"></span>`).join('')
+      + [[14,3.1,0],[66,2.7,-.9],[40,3.4,-1.8]].map(([x,t,d]) => `<svg class="gcap" style="left:${x}%;--t:${t}s;--d:${d}s" viewBox="0 0 60 44"><path d="M30 4 2 16l28 12 28-12z" fill="#151C30"/><path d="M14 22v9c0 4 7 7 16 7s16-3 16-7v-9l-16 7z" fill="#24345E"/><path d="M30 16l18 6v12" fill="none" stroke="#C99A3E" stroke-width="2"/><path d="M45.5 34h5l1.4 7h-7.8z" fill="#C99A3E"/></svg>`).join('')
+      + `<svg class="gdip" viewBox="0 0 100 40"><rect x="6" y="10" width="88" height="20" rx="10" fill="#F4EBD5"/><ellipse cx="94" cy="20" rx="5" ry="10" fill="#E2D3B0"/><rect x="44" y="9" width="10" height="22" fill="#B23A3A"/><path d="M49 31l-6 9M49 31l6 9" stroke="#B23A3A" stroke-width="3"/></svg>`,
     night: () => `<span class="moon"></span>` + Array.from({length:18}, (_, i) => `<span class="st" style="left:${rnd(i,18)*100}%;top:${rnd(i,19)*60}%;animation-delay:-${(rnd(i,20)*2.6).toFixed(2)}s"></span>`).join('')
       + `<svg class="box" viewBox="0 0 130 120"><path class="beam" d="M30 66 0 0h130L100 66z" fill="url(#beamG)"/>
         <defs><linearGradient id="beamG" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#F5B98D" stop-opacity=".7"/><stop offset="1" stop-color="#B9A5F5" stop-opacity="0"/></linearGradient></defs>
@@ -321,7 +347,7 @@
     <a class="tile reveal" href="${w.href}" style="--c:${w.c};view-transition-name:w-${k}">
       <div class="scene sc-${k}" aria-hidden="true">${SCENES[k]()}</div>
       <span class="badge" aria-hidden="true">${w.icon}</span>
-      <span class="when">${d == null ? 'كل يوم' : d === 0 ? 'اليوم!' : `باقي ${ar(d)} يوم`}</span>
+      <span class="when">${w.season || (d == null ? 'كل يوم' : d === 0 ? 'اليوم!' : `باقي ${ar(d)} يوم`)}</span>
       <div class="t-info"><h3 class="${k === 'night' ? 'latin' : ''}">${w.name}</h3><p>${w.tagline}</p><span class="go">ادخل العالم <b aria-hidden="true">←</b></span></div>
     </a>`; }).join('');
 
@@ -339,7 +365,7 @@
   const [nk, nd] = order[0], nw = WORLDS[nk];
   const next = document.getElementById('next');
   next.href = nw.href; next.style.setProperty('--c', nw.c);
-  next.innerHTML = `<span class="dot">${nw.icon}</span>أقرب مناسبة: <b>${nw.name}</b>${nd == null ? '' : nd ? ` · باقي ${ar(nd)} يوم` : ' · اليوم!'}`;
+  next.innerHTML = `<span class="dot">${nw.icon}</span>أقرب مناسبة: <b>${nw.name}</b>${nw.season ? ` · ${nw.season}` : nd == null ? '' : nd ? ` · باقي ${ar(nd)} يوم` : ' · اليوم!'}`;
 })();
 </script>
 </body>

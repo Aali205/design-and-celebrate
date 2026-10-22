@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>التخرّج · Design & Celebrate</title>
+<meta name="description" content="زينة التخرّج والنجاح: قبعات تخرّج، أوشحة مطبوعة، بالونات ولافتات وإطار صور، للجامعة والبكالوريا، مع توصيل لكل سوريا والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=6">
+<style>
+/* Graduation (June–July: university and baccalaureate results): a calm navy-and-gold morning.
+   A soft university portico behind, three mortarboards tossed in the air that spin and fall back,
+   a rolled diploma with a red bow, a hanging «دفعة 2027» banner and gold sparkles. */
+.w-hero{background:radial-gradient(55% 60% at 30% 22%,#E6EAF3 0,transparent 70%),radial-gradient(45% 50% at 85% 92%,#F3E8D0 0,transparent 70%),var(--bg)}
+/* The toss: 0% and 100% are the top of the throw (so the still frame, for reduced motion, shows
+   the caps in the air). From the top the cap falls (ease-in) and spins out of the frame, jumps back
+   while hidden below (the group is clipped to the picture), then rises (ease-out) to the top again.
+   Each cap has its own keyframes, because the drop depends on how high it flies. */
+.cap{transform-box:fill-box;transform-origin:center;animation:6.4s infinite}
+@keyframes tA{
+  0%{transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.55,0,1,.45)}
+  44%{transform:translate(-26px,370px) rotate(150deg)}
+  56%{transform:translate(28px,370px) rotate(-160deg);animation-timing-function:cubic-bezier(0,.55,.45,1)}
+  100%{transform:translate(0,0) rotate(0deg)}}
+@keyframes tB{
+  0%{transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.55,0,1,.45)}
+  44%{transform:translate(30px,470px) rotate(-170deg)}
+  56%{transform:translate(-34px,470px) rotate(160deg);animation-timing-function:cubic-bezier(0,.55,.45,1)}
+  100%{transform:translate(0,0) rotate(0deg)}}
+@keyframes tC{
+  0%{transform:translate(0,0) rotate(0deg);animation-timing-function:cubic-bezier(.55,0,1,.45)}
+  44%{transform:translate(18px,410px) rotate(130deg)}
+  56%{transform:translate(-20px,410px) rotate(-140deg);animation-timing-function:cubic-bezier(0,.55,.45,1)}
+  100%{transform:translate(0,0) rotate(0deg)}}
+/* the banner swings gently from its nail */
+.ban{transform-box:view-box;transform-origin:230px 10px;animation:sway 4.2s ease-in-out infinite alternate}
+@keyframes sway{from{transform:rotate(-2.2deg)}to{transform:rotate(2.2deg)}}
+.twk{transform-box:fill-box;transform-origin:center;animation:twk 2.2s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes twk{from{opacity:.25;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body data-world="graduation">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-graduation" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">مبروك التخرّج<span>تعبك صار فرحة</span></h1>
+      <p class="lede">قبعات وأوشحة، بالونات ولافتات للخرّيج وللحفلة وللصور، للجامعة وللبكالوريا. خلّي فرحة النجاح تبيّن بكل صورة. منوصلك لكل سوريا والدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">تسوّق زينة التخرّج</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٥٪ على زينة التخرّج <b>GRAD15</b><button type="button" data-copy-code="GRAD15">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470" width="460" height="470">
+        <defs>
+          <radialGradient id="gHalo"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+          <linearGradient id="gScroll" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFDF5"/><stop offset=".55" stop-color="#F4EAD1"/><stop offset="1" stop-color="#DCCBA0"/></linearGradient>
+          <!-- the caps fall out of the bottom of the picture; this keeps them from showing over the text below -->
+          <clipPath id="gClip"><rect x="-40" y="-40" width="540" height="510"/></clipPath>
+          <!-- a mortarboard, centred on (0,0), about 96 wide -->
+          <g id="gCap">
+            <path d="M-26 4V22Q0 34 26 22V4Q0 14-26 4z" fill="#1A2747"/>
+            <path d="M-48-6L0 14L48-6V-1L0 19L-48-1z" fill="#141E38"/>
+            <path d="M0-26L48-6L0 14L-48-6z" fill="#24345E"/>
+            <path d="M0-26L48-6L0 14z" fill="#FFFFFF" opacity=".08"/>
+            <path d="M0-26L48-6L0 14L-48-6z" fill="none" stroke="#3B4F86" stroke-width="1"/>
+            <path d="M0-6Q24-2 42-5V15" fill="none" stroke="#C99A3E" stroke-width="1.7" stroke-linecap="round"/>
+            <circle cx="0" cy="-6" r="3.4" fill="#C99A3E"/>
+            <path d="M38.5 16h7l3 17h-13z" fill="#C99A3E"/><path d="M39.5 21v11M42 21v11M44.5 21v11" stroke="#A47B2C" stroke-width=".8"/>
+            <circle cx="42" cy="15.5" r="3.2" fill="#E2BE6A"/>
+          </g>
+          <!-- a four-point sparkle -->
+          <path id="gSpk" d="M0-10L2.4-2.4L10 0L2.4 2.4L0 10L-2.4 2.4L-10 0L-2.4-2.4z"/>
+        </defs>
+        <circle cx="230" cy="230" r="215" fill="url(#gHalo)"/>
+
+        <!-- the university portico, soft and pale -->
+        <g>
+          <rect x="104" y="310" width="252" height="112" fill="#EDEFF4"/>
+          <path d="M216 422V376a14 14 0 0 1 28 0V422z" fill="#D9DEE8"/>
+          <path d="M88 293L230 234L372 293z" fill="#E2E6EE"/>
+          <path d="M112 287L230 245L348 287z" fill="none" stroke="#CCD3E0" stroke-width="1.6"/>
+          <circle cx="230" cy="271" r="9" fill="#E9D7AA"/><circle cx="230" cy="271" r="4" fill="#F7EED6"/>
+          <rect x="94" y="292" width="272" height="18" fill="#DCE1EA"/><path d="M94 301H366" stroke="#CCD3E0" stroke-width="1.2"/>
+          <g fill="#E3E7EF">
+            <rect x="111" y="318" width="18" height="98"/><rect x="155" y="318" width="18" height="98"/><rect x="199" y="318" width="18" height="98"/>
+            <rect x="243" y="318" width="18" height="98"/><rect x="287" y="318" width="18" height="98"/><rect x="331" y="318" width="18" height="98"/>
+          </g>
+          <g fill="#D4DAE5">
+            <rect x="107" y="310" width="26" height="8" rx="2"/><rect x="151" y="310" width="26" height="8" rx="2"/><rect x="195" y="310" width="26" height="8" rx="2"/>
+            <rect x="239" y="310" width="26" height="8" rx="2"/><rect x="283" y="310" width="26" height="8" rx="2"/><rect x="327" y="310" width="26" height="8" rx="2"/>
+            <rect x="108" y="415" width="24" height="6" rx="1.5"/><rect x="152" y="415" width="24" height="6" rx="1.5"/><rect x="196" y="415" width="24" height="6" rx="1.5"/>
+            <rect x="240" y="415" width="24" height="6" rx="1.5"/><rect x="284" y="415" width="24" height="6" rx="1.5"/><rect x="328" y="415" width="24" height="6" rx="1.5"/>
+          </g>
+          <path d="M117 322V412M123 322V412M161 322V412M167 322V412M205 322V412M211 322V412M249 322V412M255 322V412M293 322V412M299 322V412M337 322V412M343 322V412" stroke="#D3D9E4" stroke-width="1.2"/>
+          <rect x="96" y="421" width="268" height="10" fill="#DCE1EA"/>
+          <rect x="80" y="431" width="300" height="12" fill="#E3E7EF"/>
+          <rect x="64" y="443" width="332" height="12" fill="#DCE1EA"/>
+          <rect x="48" y="455" width="364" height="15" fill="#E3E7EF"/>
+        </g>
+
+        <!-- sparkles -->
+        <g transform="translate(66 112)"><use class="twk" href="#gSpk" fill="#C99A3E"/></g>
+        <g transform="translate(408 98) scale(.8)"><use class="twk" style="--dl:-.7s" href="#gSpk" fill="#8FA3C9"/></g>
+        <g transform="translate(432 262) scale(.9)"><use class="twk" style="--dl:-1.4s" href="#gSpk" fill="#C99A3E"/></g>
+        <g transform="translate(34 266) scale(.7)"><use class="twk" style="--dl:-1s" href="#gSpk" fill="#8FA3C9"/></g>
+        <g transform="translate(176 150) scale(.55)"><use class="twk" style="--dl:-1.8s" href="#gSpk" fill="#C99A3E"/></g>
+        <g transform="translate(300 214) scale(.6)"><use class="twk" style="--dl:-.4s" href="#gSpk" fill="#C99A3E"/></g>
+
+        <!-- three caps tossed in the air, each on its own rhythm -->
+        <g clip-path="url(#gClip)">
+          <g transform="translate(108 182)"><g class="cap" style="animation-name:tA;animation-duration:6.4s;animation-delay:-1.2s"><use href="#gCap"/></g></g>
+          <g transform="translate(350 148) scale(.82)"><g class="cap" style="animation-name:tB;animation-duration:7.4s;animation-delay:-4.6s"><use href="#gCap"/></g></g>
+          <g transform="translate(236 226) scale(.7)"><g class="cap" style="animation-name:tC;animation-duration:5.6s;animation-delay:-2.9s"><use href="#gCap"/></g></g>
+        </g>
+
+        <!-- the rolled diploma with a red bow, lying on the steps -->
+        <ellipse cx="118" cy="446" rx="80" ry="7" fill="#000" opacity=".1"/>
+        <g transform="translate(116 420) rotate(-12)">
+          <rect x="-74" y="-15" width="148" height="30" rx="4" fill="url(#gScroll)" stroke="#B49B66" stroke-width="1.4"/>
+          <ellipse cx="-74" cy="0" rx="6" ry="15" fill="#E8DCBC" stroke="#B49B66" stroke-width="1.4"/>
+          <ellipse cx="74" cy="0" rx="6" ry="15" fill="#F6EEDA" stroke="#B49B66" stroke-width="1.4"/>
+          <path d="M74-7a4 6 0 1 1-1 9a2.4 3.6 0 1 1 .6-5" fill="none" stroke="#B49B66" stroke-width="1.2"/>
+          <rect x="-8" y="-15.6" width="13" height="31.2" fill="#B3263A"/>
+          <path d="M-1.5-16C-24-36-28-10-1.5-16zM-1.5-16C21-36 25-10-1.5-16z" fill="#C7303F"/>
+          <path d="M-3-14L-14 13L-8 10L-5 16zM0-14L11 13L5 10L2 16z" fill="#A11F31"/>
+          <circle cx="-1.5" cy="-16" r="4.4" fill="#9E1F31"/>
+        </g>
+
+        <!-- the hanging banner -->
+        <g class="ban">
+          <path d="M230 10L160 46M230 10L300 46" stroke="#8C93A3" stroke-width="1.4" fill="none"/>
+          <circle cx="230" cy="10" r="4.5" fill="#C99A3E"/>
+          <path d="M146 44H314L302 70L314 96H146L158 70z" fill="#24345E"/>
+          <path d="M162 50H298M162 90H298" stroke="#C99A3E" stroke-width="1.2" opacity=".85"/>
+          <text x="230" y="80" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="26" fill="#E7C677">دفعة 2027</text>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">زينة التخرّج</h2><p>اختار اللون أو الكلمة وضيف القطعة لسلتك. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js?v=6"></script>
+<script src="assets/scene.js?v=6"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and options are the owner's to edit) ----------
+  const GOLD = {name:'ذهبي', c:'#D2A845'}, SILVER = {name:'فضي', c:'#B9C0CB'};
+  const PRODUCTS = [
+    {id:'cap',      art:'cap',      name:'قبعة تخرّج مع شرّابة',        desc:'قبعة ساتان مع شرّابة دهبية، قياس واحد بيركب عالكل. للصور وللرمية الكبيرة بآخر الحفلة.', price:6,
+      opts:[{name:'كحلي', c:'#24345E'}, {name:'أسود', c:'#1F1F24'}, {name:'خمري', c:'#7A2333'}], tag:'الأكثر طلباً'},
+    {id:'sash',     art:'sash',     name:'وشاح التخرّج مطبوع',          desc:'وشاح ساتان كحلي مطبوع بخط دهبي، بتختار «خرّيج» أو «خرّيجة». بيطلع كتير حلو بالصور.', price:5, optLabel:'الكلمة',
+      opts:[{name:'خرّيج'}, {name:'خرّيجة'}]},
+    {id:'balloons', art:'balloons', name:'طقم بالونات تخرّج ٣٠ قطعة',   desc:'٣٠ بالون لاتكس بلونين مع شريط ولزقات للحيط، بيكفّوا لزاوية الصور أو طاولة الحفلة.', price:6, optLabel:'الألوان',
+      opts:[{name:'كحلي وذهبي', c:'#24345E'}, {name:'أبيض وذهبي', c:'#FFFFFF'}]},
+    {id:'banner',   art:'banner',   name:'لافتة «مبروك التخرّج» للحيط', desc:'لافتة لمّاعة مع حبل رايات صغير تحتها، بتتعلّق عالحيط بدقيقة وبتعطي الحفلة جوّها.', price:5, opts:[GOLD, SILVER]},
+    {id:'frame',    art:'frame',    name:'إطار صور تخرّج للتصوير',      desc:'إطار كرتون مقوّى كبير ١٠٠×٧٠ سم، بتوقفوا وراه كلكن وبتطلع صورة التخرّج اللي بتنحط عالحيط.', price:9, tag:'للصور'},
+    {id:'numbers',  art:'numbers',  name:'بالونات أرقام «2027» فويل',    desc:'أرقام فويل كبار ٤٠ إنش لسنة التخرّج، بتنفخها بالقشة اللي معها وبتعلّقها فوق الطاولة.', price:6, opts:[GOLD, SILVER]}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; c = the chosen colour) ----------
+  const NAVY = '#24345E', GD = '#C99A3E', GL = '#E7C677', W = '#FFFFFF', EDGE = '#C3CAD6';
+  const f = n => n.toFixed(1);
+  // mix two #rrggbb colours: t = 0 → a, 1 → b
+  const mix = (a, b, t) => '#' + [1, 3, 5].map(i => { const x = parseInt(a.substr(i, 2), 16), y = parseInt(b.substr(i, 2), 16);
+    return Math.round(x + (y - x) * t).toString(16).padStart(2, '0'); }).join('');
+  const star = (cx, cy, r) => { let d = ''; for (let k = 0; k < 10; k++){ const a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? r * .4 : r; d += (k ? 'L' : 'M') + f(cx + Math.cos(a) * rr) + ' ' + f(cy + Math.sin(a) * rr); } return d + 'z'; };
+  // a small flat mortarboard centred on (x, y), s = scale
+  const miniCap = (x, y, s, col, btn) => `<g transform="translate(${x} ${y}) scale(${s})"><path d="M-13 2V10Q0 16 13 10V2Q0 7-13 2z" fill="${col}"/><path d="M0-12L24-2L0 8L-24-2z" fill="${col}"/><path d="M0-2Q12 0 20 0V10" fill="none" stroke="${btn}" stroke-width="1.6"/><circle cx="0" cy="-2" r="2" fill="${btn}"/><rect x="18" y="9" width="4" height="7" rx="1" fill="${btn}"/></g>`;
+  const balloon = (x, y, c, print) => `<path d="M${x} ${y + 29}q-6 30 ${f((100 - x) / 2)} 58T100 190" fill="none" stroke="#8B93A3" stroke-width="1.2"/>
+      <ellipse cx="${x}" cy="${y}" rx="23" ry="28" fill="${c}"${c === W ? ` stroke="${EDGE}" stroke-width="1.5"` : ''}/><path d="M${x - 4} ${y + 31}h8l-4-5z" fill="${c === W ? EDGE : c}"/>
+      ${print ? miniCap(x, y + 2, .62, c === W ? NAVY : GL, c === W ? GD : GL) : ''}
+      <ellipse cx="${x - 8}" cy="${y - 11}" rx="5" ry="8" fill="#fff" opacity="${c === W ? .9 : .3}" transform="rotate(-20 ${x - 8} ${y - 11})"/>`;
+  const ART = {
+    cap: o => { const c = (o && o.c) || NAVY, dk = mix(c, '#000000', .35), lt = mix(c, '#FFFFFF', .22);
+      return `<ellipse cx="100" cy="174" rx="66" ry="8" fill="#000" opacity=".1"/>
+        <path d="M54 104V142Q100 166 146 142V104Q100 124 54 104z" fill="${dk}"/>
+        <path d="M54 104Q100 124 146 104" fill="none" stroke="#000" stroke-opacity=".2" stroke-width="2"/>
+        <path d="M18 88L100 124L182 88V95L100 131L18 95z" fill="${mix(c, '#000000', .45)}"/>
+        <path d="M100 52L182 88L100 124L18 88z" fill="${c}"/>
+        <path d="M100 52L182 88L100 124z" fill="#fff" opacity=".08"/>
+        <path d="M100 52L182 88L100 124L18 88z" fill="none" stroke="${lt}" stroke-width="1.5"/>
+        <path d="M100 88Q136 94 164 94V136" fill="none" stroke="${GD}" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="100" cy="88" r="6" fill="${GD}"/><circle cx="98.5" cy="86.5" r="2" fill="${GL}"/>
+        <circle cx="164" cy="137" r="5" fill="${GL}"/><path d="M158 140h12l5 30h-22z" fill="${GD}"/>
+        <path d="M160 146v22M164 146v22M168 146v22" stroke="#A47B2C" stroke-width="1"/>`; },
+    sash: o => { const word = (o && o.name) || 'خرّيج';
+      const band = 'M18 77H182L171 100L182 123H18L29 100z';
+      return `<g transform="rotate(-32 100 100)">
+          <path d="${band}" fill="#000" opacity=".12" transform="translate(3 6)"/>
+          <path d="${band}" fill="${NAVY}"/>
+          <path d="M26 82H174M26 118H174" stroke="${GD}" stroke-width="1.8"/>
+          <path d="M98 77Q100 100 98 123" fill="none" stroke="#fff" stroke-opacity=".07" stroke-width="22"/>
+          <text x="100" y="110" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="29" fill="${GL}">${word}</text>
+          <path fill="${GD}" d="${star(44, 100, 6.5)}${star(156, 100, 6.5)}"/></g>
+        <g transform="translate(46 150)"><circle r="15" fill="${GD}"/><circle r="10" fill="${GL}"/><circle r="5" fill="${GD}"/>
+          <path d="M-6 13L-12 34L-4 30L0 36zM6 13L12 34L4 30L0 36z" fill="${NAVY}"/></g>`; },
+    balloons: o => { const c = (o && o.c) || NAVY;
+      const cols = [c, GD, c, GD, c];
+      return [[62, 62], [102, 46], [142, 66], [82, 104], [126, 106]].map(([x, y], i) => balloon(x, y, cols[i], i === 3)).join('')
+        + `<g><rect x="22" y="128" width="6" height="3" fill="${GD}" transform="rotate(30 25 129)"/><rect x="172" y="120" width="6" height="3" fill="${NAVY}" transform="rotate(-25 175 121)"/>
+          <circle cx="30" cy="30" r="2.6" fill="${GD}"/><circle cx="172" cy="30" r="2.6" fill="${NAVY}"/><circle cx="178" cy="160" r="2.6" fill="${GD}"/><circle cx="20" cy="170" r="2.6" fill="${NAVY}"/></g>`; },
+    banner: o => { const c = (o && o.c) || GOLD.c, dk = mix(c, '#000000', .3), lt = mix(c, '#FFFFFF', .45);
+      const sag = t => 132 + 4 * 14 * t * (1 - t);   // the little bunting rope sags 14 in the middle
+      return `<path d="M100 26L40 70M100 26L160 70" stroke="#8B93A3" stroke-width="1.4" fill="none"/><circle cx="100" cy="25" r="4" fill="${dk}"/>
+        <path d="M14 70H186L175 94L186 118H14L25 94z" fill="#000" opacity=".1" transform="translate(2 4)"/>
+        <path d="M14 70H186L175 94L186 118H14L25 94z" fill="${c}" stroke="${dk}" stroke-width="1.4"/>
+        <rect x="26" y="73" width="148" height="9" fill="${lt}" opacity=".7"/>
+        <text x="100" y="103" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="21" fill="${NAVY}">مبروك التخرّج</text>
+        <path d="M14 132Q100 160 186 132" fill="none" stroke="#8B93A3" stroke-width="1.3"/>`
+        + [0, 1, 2, 3, 4, 5, 6].map(i => { const t = (i + .5) / 7, x = 14 + 172 * t, y = sag(t), col = i % 2 ? NAVY : c;
+          return `<path d="M${f(x - 10)} ${f(y)}h20l-10 26z" fill="${col}"${col === c ? ` stroke="${dk}" stroke-width="1"` : ''}/>${col === NAVY ? `<path fill="${c}" d="${star(x, y + 9, 4.5)}"/>` : ''}`; }).join(''); },
+    frame: () => `<ellipse cx="100" cy="182" rx="74" ry="6" fill="#000" opacity=".1"/>
+        <rect x="22" y="34" width="156" height="142" rx="6" fill="${NAVY}"/>
+        <rect x="40" y="52" width="120" height="86" rx="4" fill="#E9EDF5"/>
+        <circle cx="134" cy="72" r="13" fill="#F5E8C6"/>
+        <g fill="#B8C3D8"><circle cx="80" cy="96" r="12"/><path d="M58 138Q60 112 80 112Q100 112 102 138z"/>
+          <circle cx="122" cy="102" r="11"/><path d="M102 138Q104 117 122 117Q140 117 142 138z"/></g>
+        ${miniCap(80, 82, .78, '#4A5B8A', GD)}
+        <rect x="40" y="52" width="120" height="86" rx="4" fill="none" stroke="${GD}" stroke-width="2"/>
+        <text x="100" y="161" text-anchor="middle" font-family="El Messiri, serif" font-weight="700" font-size="17" fill="${GL}">مبروك التخرّج</text>
+        <text x="100" y="47" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="11" letter-spacing="2" fill="${GD}">2027</text>
+        <path fill="${GD}" d="${star(32, 44, 5)}${star(168, 44, 5)}${star(32, 166, 4)}${star(168, 166, 4)}"/>
+        <g transform="rotate(-16 30 34)">${miniCap(30, 30, 1.05, GD, NAVY)}</g>`,
+    numbers: o => { const c = (o && o.c) || GOLD.c, dk = mix(c, '#000000', .32), lt = mix(c, '#FFFFFF', .5);
+      return `<g stroke="#8B93A3" stroke-width="1" fill="none" opacity=".8"><path d="M44 140Q60 168 100 190M80 140Q92 168 100 190M118 140Q110 168 100 190M154 140Q138 168 100 190"/></g>
+        <g font-family="Fraunces, serif" font-weight="600" font-size="74" text-anchor="middle" letter-spacing="-2">
+          <text x="103" y="139" fill="#000" opacity=".18">2027</text>
+          <text x="100" y="135" fill="${dk}" stroke="${dk}" stroke-width="7" stroke-linejoin="round">2027</text>
+          <text x="100" y="135" fill="${c}">2027</text>
+          <text x="100" y="135" fill="none" stroke="${lt}" stroke-opacity=".8" stroke-width="1.3">2027</text></g>
+        <g><rect x="24" y="44" width="6" height="3" fill="${NAVY}" transform="rotate(30 27 45)"/><rect x="170" y="40" width="6" height="3" fill="${GD}" transform="rotate(-25 173 41)"/>
+          <circle cx="62" cy="30" r="2.6" fill="${GD}"/><circle cx="136" cy="24" r="2.6" fill="${NAVY}"/><circle cx="182" cy="160" r="2.6" fill="${NAVY}"/><circle cx="18" cy="160" r="2.6" fill="${GD}"/></g>
+        ${miniCap(100, 36, .9, NAVY, GD)}`; }
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'graduation', PRODUCTS, (p, o) => ART[p.art](o));
+  document.getElementById('when').innerHTML = DC.WORLDS.graduation.icon + `التخرّج · ${DC.WORLDS.graduation.season}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'confetti', colors:['#24345E','#C99A3E','#E7D3A2','#8FA3C9'], count:44, dir:1});
+})();
+</script>
+</body>
+</html>
