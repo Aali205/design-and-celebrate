@@ -86,6 +86,7 @@
     return {sub, off, total: sub - off, n: cart.reduce((s,l) => s + l.q, 0)};
   }
   const money = v => ar(Math.round(v * 100) / 100) + ' $';
+  const esc = t => String(t).replace(/[&<>"]/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;'})[c]);   // lines can carry names the visitor typed
 
   // item = {w, id, name, opt (shown text, optional), price}; el = the button that was clicked (for the burst)
   function add(item, el){
@@ -169,9 +170,9 @@
     document.querySelectorAll('[data-count]').forEach(e => { e.textContent = t.n ? ar(t.n) : ''; e.hidden = !t.n; });
     $('dcLines').innerHTML = cart.length ? cart.map((l,i) => `
       <div class="line" style="--c:${WORLDS[l.w].c}"><span class="ico">${WORLDS[l.w].icon}</span>
-        <div><b>${l.name}</b><small>${WORLDS[l.w].name}${l.opt ? ' · ' + l.opt : ''} · ${money(l.price)}</small></div>
+        <div><b>${esc(l.name)}</b><small>${WORLDS[l.w].name}${l.opt ? ' · ' + esc(l.opt) : ''} · ${money(l.price)}</small></div>
         <div class="qty"><button type="button" data-i="${i}" data-d="-1" aria-label="أنقص">−</button><span class="num">${ar(l.q)}</span><button type="button" data-i="${i}" data-d="1" aria-label="زيد">+</button></div>
-      </div>`).join('') : '<p class="empty">سلتك فاضية. اختار شي من أي مناسبة، أو ابعتلنا سؤالك مباشرة.</p>';
+      </div>`).join('') : `<p class="empty">${window.DCQandil ? `<span class="q-empty">${DCQandil(here)}</span>` : ''}سلتك فاضية. اختار شي من أي مناسبة، أو ابعتلنا سؤالك مباشرة.</p>`;
     $('dcMoney').hidden = !cart.length;
     $('dcSub').textContent = money(t.sub);
     $('dcOff').textContent = '−' + money(t.off);

@@ -228,6 +228,54 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 .legal{margin-top:32px;padding-top:16px;border-top:1px solid color-mix(in srgb,currentColor 18%,transparent);font-size:.84rem;opacity:.65}
 @media (max-width:760px){.site-foot .cols{grid-template-columns:1fr}}
 
+/* ---------- قنديل, the D&S mascot (drawn by assets/qandil.js) ---------- */
+.qd{display:block;width:100%;height:auto;overflow:visible}
+.qd .q-bob{animation:qbob 2.6s ease-in-out infinite alternate}
+@keyframes qbob{from{transform:translateY(0)}to{transform:translateY(-4px)}}
+.qd .q-eyes{transform-box:fill-box;transform-origin:center;animation:qblink 4.2s infinite}
+@keyframes qblink{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.qd .q-arm.wave{transform-box:view-box;transform-origin:85px 78px;animation:qwave 1.1s ease-in-out infinite alternate}
+@keyframes qwave{from{transform:rotate(-8deg)}to{transform:rotate(16deg)}}
+.qd .q-flag{transform-box:fill-box;transform-origin:0 50%;animation:qflag 1.6s ease-in-out infinite alternate}
+@keyframes qflag{from{transform:skewY(-5deg)}to{transform:skewY(4deg)}}
+.qd .q-steam{animation:qsteam 1.8s ease-in-out infinite alternate}
+@keyframes qsteam{from{opacity:.2;transform:translateY(2px)}to{opacity:.85;transform:translateY(-2px)}}
+.off .qd *,.qd.off *{animation-play-state:paused!important}
+/* peeking from a hero corner; a tap opens his speech bubble */
+.q-peek{position:absolute;z-index:3;inset-inline-end:clamp(8px,3vw,40px);bottom:10px;width:100px;border:0;background:none;padding:0;cursor:pointer;color:inherit;font:inherit;-webkit-tap-highlight-color:transparent;transition:transform .2s}
+.q-peek:active{transform:scale(.92)}
+.q-say{position:absolute;bottom:calc(100% - 8px);inset-inline-end:46%;width:max-content;max-width:220px;background:var(--surface,#FFFBF5);color:var(--ink,#2C2433);border:1px solid var(--line,#E4D8CA);border-radius:16px 16px 16px 4px;padding:8px 12px;font-size:.88rem;line-height:1.5;text-align:start;
+  box-shadow:0 14px 30px -18px rgb(0 0 0/.5);opacity:0;translate:0 6px;transition:opacity .25s,translate .25s;pointer-events:none}
+.q-peek.talk .q-say{opacity:1;translate:0 0}
+[data-world=ramadan] .q-say{background:#16314A;color:#F2E8D5;border-color:#24476A}
+@media (max-width:860px){
+  .q-peek{width:66px;top:8px;bottom:auto}
+  .q-say{bottom:auto;top:calc(100% - 4px);inset-inline-end:30%;max-width:200px;border-radius:4px 16px 16px 16px}
+}
+.q-empty{display:block;width:92px;margin:0 auto 6px}
+
+/* ---------- طقم العيدية بالاسم (assets/eidiya.js, on the Eid pages) ---------- */
+.ei-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
+.ei-art{border-radius:28px;padding:14px;display:grid;place-items:center;background:radial-gradient(60% 60% at 50% 55%,color-mix(in srgb,var(--accent-2) 28%,transparent),transparent 72%),var(--tint)}
+.ei-art svg{width:100%;max-width:440px;height:auto}
+.ei-bq{transition:opacity .4s}
+.ei-bq.off{opacity:.14}
+.ei-copy h2{font-size:clamp(2rem,4.6vw,3rem);margin-top:12px}
+.ei-copy > p{color:var(--dim);margin-top:10px;max-width:32em}
+.ei-label{display:block;margin-top:20px;font-size:.9rem;color:var(--dim)}
+.ei-add{display:flex;gap:8px;margin-top:4px}
+.ei-add input{flex:1;min-width:0;font:inherit;font-size:1rem;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--ink)}
+.ei-plus{border:1.5px solid var(--accent);background:transparent;color:var(--accent);border-radius:12px;padding:0 18px;font:inherit;font-weight:600;cursor:pointer}
+.ei-chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+.ei-chip{display:inline-flex;align-items:center;gap:6px;border:0;background:var(--accent);color:var(--on-accent);border-radius:999px;padding-block:3px;padding-inline:12px 4px;font:inherit;font-size:.9rem;cursor:pointer}
+.ei-chip i{font-style:normal;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:rgb(255 255 255/.25);line-height:1}
+.ei-buy{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:16px}
+.ei-buy .price{font-size:1.7rem}
+.ei-buy .btn.done{background:var(--accent-2);border-color:var(--accent-2)}
+.ei-msg{color:#d0566f;font-size:.88rem;margin-top:6px}
+.ei-msg:empty{display:none}
+@media (max-width:860px){.ei-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
+
 /* ---------- shared reveal on scroll (pure CSS, only where supported) ---------- */
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference){
