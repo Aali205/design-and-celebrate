@@ -25,6 +25,8 @@
 [data-world=mother]   {--bg:#FAF0EE;--surface:#FFF9F8;--tint:#F4DFDD;--ink:#3A2930;--dim:#77606A;--line:#EED8D6;--accent:#A9526C;--accent-2:#728F6E;--on-accent:#fff}
 [data-world=valentine]{--bg:#25111C;--surface:#321827;--tint:#432134;--ink:#F7E8EB;--dim:#CDAEB8;--line:#4C2A3D;--accent:#E9899F;--accent-2:#F3C8A0;--on-accent:#2a0f1b;color-scheme:dark}
 [data-world=halloween]{--bg:#16131D;--surface:#211C2A;--tint:#2C2436;--ink:#F3ECE2;--dim:#B6AABD;--line:#372E42;--accent:#F0893D;--accent-2:#A6D38A;--on-accent:#24130A;color-scheme:dark}
+[data-world=christmas]{--bg:#0F2621;--surface:#15332C;--tint:#1C4137;--ink:#F6EFE2;--dim:#B8C7BD;--line:#244E43;--accent:#E3B55B;--accent-2:#D9584B;--on-accent:#1E1608;color-scheme:dark}
+[data-world=liberation]{--bg:#F3F6F1;--surface:#FFFFFF;--tint:#E1ECE3;--ink:#1A2520;--dim:#55635A;--line:#D4E0D6;--accent:#0B6E3A;--accent-2:#C8102E;--on-accent:#fff}
 [data-world=night]    {--bg:#13142A;--surface:#1C1D3A;--tint:#272954;--ink:#EEEAF8;--dim:#ABA8C8;--line:#2E3058;--accent:#B9A5F5;--accent-2:#F5B98D;--on-accent:#191233;color-scheme:dark}
 
 *{box-sizing:border-box}
@@ -114,6 +116,7 @@ html{-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 .w-hero .lede{font-size:1.12rem;color:var(--dim);max-width:32em;margin-top:16px}
 .w-art{position:relative;display:grid;place-items:center;min-height:400px}
 .w-art > svg{width:min(100%,460px);height:auto;overflow:visible}
+.w-art.off *{animation-play-state:paused!important}   /* hero art scrolled away: stop animating (battery, smooth scrolling) */
 @media (max-width:860px){.w-hero-grid{grid-template-columns:1fr}.w-art{order:-1;min-height:0}.w-art > svg{width:min(78%,340px)}}
 
 /* code chip: a discount code you can copy */
@@ -210,7 +213,7 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 
 /* ---------- footer ---------- */
 .site-foot{background:color-mix(in srgb,var(--ink) 94%,var(--bg));color:color-mix(in srgb,var(--bg) 88%,var(--ink));padding-block:52px 34px}
-[data-world=ramadan] .site-foot,[data-world=valentine] .site-foot,[data-world=night] .site-foot,[data-world=halloween] .site-foot{background:color-mix(in srgb,var(--bg) 70%,#000);color:var(--ink)}
+[data-world=ramadan] .site-foot,[data-world=valentine] .site-foot,[data-world=night] .site-foot,[data-world=halloween] .site-foot,[data-world=christmas] .site-foot{background:color-mix(in srgb,var(--bg) 70%,#000);color:var(--ink)}
 .site-foot .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:32px}
 .site-foot h4{margin:0 0 10px;font-size:.95rem;color:var(--accent-2)}
 .site-foot p,.site-foot li{font-size:.94rem;opacity:.8}

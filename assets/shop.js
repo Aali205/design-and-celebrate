@@ -19,6 +19,8 @@
     'LOVE10':    {pct:10, w:['valentine'], label:'خصم عيد الحب'},
     'NIGHT20':   {pct:20, w:['night'], label:'خصم Night Vibe Box'},
     'HALLOWEEN15': {pct:15, w:['halloween'], label:'خصم هالوين'},
+    'XMAS15':    {pct:15, w:['christmas'], label:'خصم الكريسماس ورأس السنة'},
+    'TAHRIR10':  {pct:10, w:['liberation'], label:'خصم عيد التحرير'},
     'CAFE-DEMO': {pct:10, venue:'كافيه تجريبي', label:'خصم الشركاء'}   // one line per venue, e.g. 'ROOTS': {pct:10, venue:'كافيه روتس', label:'خصم الشركاء'}
   };
 
@@ -30,6 +32,8 @@
     mother:'<path d="M24 7c-5 3-8.5 8-8.5 14 0 5.6 3.8 9.5 8.5 9.5s8.5-3.9 8.5-9.5C32.5 15 29 10 24 7z" fill="currentColor"/><path d="M15.5 14.5c3 1.5 5.5 4 6 8M32.5 14.5c-3 1.5-5.5 4-6 8" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1.6" stroke-linecap="round"/><path d="M24 30.5V44" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M24 39c-2-5-6-7-10-6.5 1 4.5 5 7 10 6.5zM24 36c2-4 5.5-5.5 9-5-1 3.8-4.5 5.8-9 5z" fill="currentColor" opacity=".6"/>',
     valentine:'<path d="M24 41.5S6.5 31 6.5 18.5A9.5 9.5 0 0 1 24 13a9.5 9.5 0 0 1 17.5 5.5C41.5 31 24 41.5 24 41.5z" fill="currentColor"/><path d="M13 17.5a5 5 0 0 1 5-4.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>',
     halloween:'<g fill="currentColor"><ellipse cx="16.5" cy="29" rx="9" ry="11.5"/><ellipse cx="31.5" cy="29" rx="9" ry="11.5"/><ellipse cx="24" cy="29" rx="10" ry="12.5"/></g><path d="M23.5 17c-.2-4 1.6-7.4 5-9" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"/><path d="m16.5 26.5 3.2-4 3.2 4zm8.6 0 3.2-4 3.2 4zM15.5 32q8.5 7 17 0l-3.2.6-1.8 2-2.3-2-2.4 2-2.3-2-1.8 2z" fill="#fff" fill-opacity=".85"/>',
+    christmas:'<path d="M24 9 13 22h5L10 32h6L8 41h32l-8-9h6l-8-10h5z" fill="currentColor"/><rect x="21.5" y="41" width="5" height="5" rx="1" fill="currentColor"/><path d="m24 2 1.5 3.2 3.5.5-2.5 2.4.6 3.5-3.1-1.7-3.1 1.7.6-3.5-2.5-2.4 3.5-.5z" fill="currentColor"/><g fill="#fff" fill-opacity=".85"><circle cx="20" cy="24" r="1.6"/><circle cx="28" cy="30" r="1.6"/><circle cx="19" cy="36" r="1.6"/><circle cx="30" cy="38" r="1.6"/></g>',
+    liberation:'<rect x="7" y="5" width="2.6" height="39" rx="1.3" fill="currentColor"/><path d="M10 8c8-3 13 3 21 0s9-1 9-1v26s-3-2-9 1-13-3-21 0z" fill="currentColor"/><path d="M10 17c8-3 13 3 21 0s9-1 9-1v8s-3-2-9 1-13-3-21 0z" fill="#fff" fill-opacity=".9"/><g fill="currentColor"><circle cx="17" cy="21" r="1.7"/><circle cx="25" cy="21.6" r="1.7"/><circle cx="33" cy="20.6" r="1.7"/></g>',
     night:'<rect x="9" y="23" width="30" height="18" rx="2.5" fill="currentColor"/><rect x="7" y="16.5" width="34" height="8" rx="2.5" fill="currentColor" opacity=".7"/><path d="M24 16.5V41" stroke="#fff" stroke-opacity=".6" stroke-width="2.4"/><path d="M24 16c-4-6-10-5-9-1.5S21 16.5 24 16c3 .5 10 2 9-1.5s-5-4.5-9 1.5z" fill="currentColor"/><path d="m37 4 1 2.8 2.8 1-2.8 1-1 2.8-1-2.8-2.8-1 2.8-1zM10 6l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7z" fill="currentColor"/>'
   };
   const WORLDS = {
@@ -39,6 +43,8 @@
     mother:   {name:'عيد الأم',     href:'mothers-day.html',    c:'#A9526C', tagline:'ورد بيعيش، شموع وهدايا لست الحبايب', dates:['03-21']},
     adha:     {name:'عيد الأضحى',   href:'eid-al-adha.html',    c:'#A0532F', tagline:'زينة الأضحى، خواريف وعيديات',      dates:['2027-05-16','2028-05-05']},
     halloween:{name:'هالوين',       href:'halloween.html',      c:'#E07B39', tagline:'يقاطين مضوّية، خفافيش وزينة السهرة المخيفة', dates:['10-31']},
+    christmas:{name:'الكريسماس ورأس السنة', href:'christmas.html', c:'#B8433A', tagline:'شجرة، أضواء وزينة لعيد الميلاد وسهرة رأس السنة', dates:['12-25','12-31']},
+    liberation:{name:'عيد التحرير', href:'liberation-day.html', c:'#0B6E3A', tagline:'أعلام، بالونات وزينة لفرحة كل السوريين', dates:['12-08']},
     night:    {name:'Night Vibe Box', href:'night-vibe-box.html', c:'#7B66C9', tagline:'بوكس لسهرة الأفلام والبنات وعيد الميلاد', dates:[]}
   };
   for (const k in WORLDS) WORLDS[k].icon = `<svg viewBox="0 0 48 48" aria-hidden="true">${I[k]}</svg>`;
@@ -249,6 +255,9 @@
     const cp = e.target.closest('[data-copy-phone]'); if (cp) copy(PHONE, cp);
     const cc = e.target.closest('[data-copy-code]'); if (cc) { copy(cc.dataset.copyCode, cc); code = cc.dataset.copyCode; save(); }
   });
+
+  // pause each page's hero art while it is off screen
+  document.querySelectorAll('.w-art').forEach(a => new IntersectionObserver(([e]) => a.classList.toggle('off', !e.isIntersecting)).observe(a));
 
   render();
   window.DC = {WORLDS, CODES, add, open, renderGrid, burst, daysLeft, ar, money, reduce};

@@ -1,5 +1,5 @@
 /* Design & Celebrate: a light particle layer for the celebration heroes.
-   DCScene(canvas, {type, colors, count, dir}) where type is 'confetti' | 'petal' | 'heart' | 'spark' | 'bat'.
+   DCScene(canvas, {type, colors, count, dir}) where type is 'confetti' | 'petal' | 'heart' | 'spark' | 'bat' | 'snow'.
    dir 1 = falls, -1 = rises. ~30 fps, DPR capped at 1.5, pauses when the hero is off screen or the tab is hidden.
    Reduced motion: one still frame. */
 window.DCScene = function(cv, {type = 'confetti', colors = ['#fff'], count = 40, dir = 1} = {}){
@@ -42,6 +42,7 @@ window.DCScene = function(cv, {type = 'confetti', colors = ['#fff'], count = 40,
       if (type === 'confetti'){ ctx.scale(1, Math.cos(t * .003 * p.sw + p.ph)); ctx.fillRect(-p.s / 2, -p.s * .3, p.s, p.s * .6); }
       else if (type === 'petal'){ ctx.scale(1, .55 + .45 * Math.cos(t * .002 * p.sw + p.ph)); ctx.beginPath(); ctx.ellipse(0, 0, p.s * .55, p.s, 0, 0, TAU); ctx.fill(); }
       else if (type === 'heart'){ ctx.rotate(-p.r * .85); heart(p.s); }
+      else if (type === 'snow'){ ctx.beginPath(); ctx.arc(0, 0, p.s * .32, 0, TAU); ctx.fill(); }
       else if (type === 'bat'){ ctx.rotate(-p.r); bat(p.s, Math.sin(t * .012 * p.sw + p.ph)); }
       else { ctx.globalAlpha = p.a * (.35 + .65 * Math.abs(Math.sin(t * .0015 * p.sw + p.ph)));   // spark: a twinkling 4-point star
         const s = p.s; ctx.beginPath(); ctx.moveTo(0, -s); ctx.quadraticCurveTo(0, 0, s, 0); ctx.quadraticCurveTo(0, 0, 0, s); ctx.quadraticCurveTo(0, 0, -s, 0); ctx.quadraticCurveTo(0, 0, 0, -s); ctx.fill(); }

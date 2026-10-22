@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>عيد التحرير · Design & Celebrate</title>
+<meta name="description" content="زينة عيد التحرير: أعلام سورية بكل القياسات، أعلام للسيارة، بالونات ورايات بألوان العلم، مع توصيل لكل سوريا والدفع عند الاستلام.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/brand.css?v=5">
+<style>
+/* Liberation Day (8 December): a bright, proud morning. A big Syrian flag waving on its pole over
+   a soft Damascus skyline (Qasioun, a dome, a minaret), with fireworks in the flag's colours. */
+.w-hero{background:radial-gradient(55% 60% at 30% 22%,#E2EEE4 0,transparent 70%),radial-gradient(45% 50% at 85% 92%,#F7E4E7 0,transparent 70%),var(--bg)}
+/* The wave: the flag is drawn once (#lf) and shown through 16 vertical slices (clipPaths).
+   Each slice bobs up and down a little later than the one before it, and further from the pole
+   it bobs more (w0 → w15), so a smooth wave runs from the pole to the tip. */
+.sl{transform-box:view-box;transform-origin:0 166px;animation:2s ease-in-out infinite alternate}
+@keyframes w0{from{transform:translateY(-.6px)}to{transform:translateY(.6px)}}
+@keyframes w1{from{transform:translateY(-1.2px)}to{transform:translateY(1.2px)}}
+@keyframes w2{from{transform:translateY(-1.8px)}to{transform:translateY(1.8px)}}
+@keyframes w3{from{transform:translateY(-2.4px)}to{transform:translateY(2.4px) scaleY(.995)}}
+@keyframes w4{from{transform:translateY(-3px)}to{transform:translateY(3px) scaleY(.993)}}
+@keyframes w5{from{transform:translateY(-3.6px)}to{transform:translateY(3.6px) scaleY(.992)}}
+@keyframes w6{from{transform:translateY(-4.2px)}to{transform:translateY(4.2px) scaleY(.991)}}
+@keyframes w7{from{transform:translateY(-4.8px)}to{transform:translateY(4.8px) scaleY(.99)}}
+@keyframes w8{from{transform:translateY(-5.4px)}to{transform:translateY(5.4px) scaleY(.989)}}
+@keyframes w9{from{transform:translateY(-6px)}to{transform:translateY(6px) scaleY(.988)}}
+@keyframes w10{from{transform:translateY(-6.6px)}to{transform:translateY(6.6px) scaleY(.987)}}
+@keyframes w11{from{transform:translateY(-7.2px)}to{transform:translateY(7.2px) scaleY(.986)}}
+@keyframes w12{from{transform:translateY(-7.8px)}to{transform:translateY(7.8px) scaleY(.985)}}
+@keyframes w13{from{transform:translateY(-8.4px)}to{transform:translateY(8.4px) scaleY(.984)}}
+@keyframes w14{from{transform:translateY(-9px)}to{transform:translateY(9px) scaleY(.982)}}
+@keyframes w15{from{transform:translateY(-9.6px)}to{transform:translateY(9.6px) scaleY(.98)}}
+/* a soft shadow on each slice, a quarter beat behind its movement, so the folds read as cloth */
+.sh{fill:#000;opacity:0;animation:shd 2s ease-in-out infinite alternate}
+@keyframes shd{from{opacity:0}to{opacity:.13}}
+/* fireworks pop one after another (the still state, for reduced motion, is a full burst) */
+.fw{transform-box:fill-box;transform-origin:center;animation:pop 5s ease-out infinite}
+@keyframes pop{0%{opacity:0;transform:scale(.2)}8%{opacity:1}38%{opacity:0;transform:scale(1.1)}100%{opacity:0;transform:scale(1.1)}}
+.twk{transform-box:fill-box;transform-origin:center;animation:twk 2.2s ease-in-out infinite alternate;animation-delay:var(--dl,0s)}
+@keyframes twk{from{opacity:.25;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+</style>
+</head>
+<body data-world="liberation">
+<div class="site">
+<header class="top"><div class="wrap">
+  <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
+  <nav class="nav" aria-label="روابط الموقع"><a href="index.html#worlds">المناسبات</a><a href="night-vibe-box.html">Night Vibe Box</a><a href="index.html#how">طريقة الطلب</a><a href="index.html#faq">أسئلة</a></nav>
+  <button class="cart-btn" type="button" data-cart aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l-1 12H7z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8" fill="none" stroke="currentColor" stroke-width="1.8"/></svg><span class="lbl">السلة</span><span class="count num" data-count>٠</span></button>
+</div></header>
+
+<main>
+<section class="w-hero" style="view-transition-name:w-liberation" aria-labelledby="heroTitle">
+  <canvas class="fx" aria-hidden="true"></canvas>
+  <div class="wrap w-hero-grid">
+    <div>
+      <span class="eyebrow" id="when"></span>
+      <h1 id="heroTitle">عيد التحرير<span>وفرحة البلد بتكبر</span></h1>
+      <p class="lede">أعلام بكل القياسات، أعلام للسيارة، بالونات ورايات بألوان العلم. زيّن البيت والمحل والسيارة، وانزل عالساحة مع كل السوريين. منوصلك كل شي قبل ٨ كانون الأول والدفع عند الاستلام.</p>
+      <div class="ctas"><a class="btn solid" href="#shop">تسوّق زينة العيد</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+      <div class="code-chip">خصم ١٠٪ على زينة عيد التحرير <b>TAHRIR10</b><button type="button" data-copy-code="TAHRIR10">انسخ وطبّق</button></div>
+    </div>
+    <div class="w-art" aria-hidden="true">
+      <svg viewBox="0 0 460 470" width="460" height="470">
+        <defs>
+          <linearGradient id="lPole" x1="0" x2="1"><stop offset="0" stop-color="#8E978F"/><stop offset=".45" stop-color="#EEF1EE"/><stop offset="1" stop-color="#76807A"/></linearGradient>
+          <radialGradient id="lGold" cx="38%" cy="35%" r="70%"><stop offset="0" stop-color="#FFF1BF"/><stop offset="1" stop-color="#C2922E"/></radialGradient>
+          <radialGradient id="lHalo"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".9"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+          <!-- the Syrian flag, 2:3: green, white with three red stars, black -->
+          <g id="lf"><rect x="124" y="78" width="264" height="59.17" fill="#0B6E3A"/><rect x="124" y="136.67" width="264" height="58.67" fill="#fff"/><rect x="124" y="194.83" width="264" height="59.17" fill="#161616"/><path fill="#C8102E" d="M190 142.53L195.27 158.75L212.32 158.75L198.53 168.77L203.79 184.98L190 174.96L176.21 184.98L181.47 168.77L167.68 158.75L184.73 158.75zM256 142.53L261.27 158.75L278.32 158.75L264.53 168.77L269.79 184.98L256 174.96L242.21 184.98L247.47 168.77L233.68 158.75L250.73 158.75zM322 142.53L327.27 158.75L344.32 158.75L330.53 168.77L335.79 184.98L322 174.96L308.21 184.98L313.47 168.77L299.68 158.75L316.73 158.75z"/></g>
+          <clipPath id="lc0"><rect x="124" y="76" width="16.9" height="180"/></clipPath><clipPath id="lc1"><rect x="140.1" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc2"><rect x="156.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc3"><rect x="173.1" y="76" width="17.3" height="180"/></clipPath>
+          <clipPath id="lc4"><rect x="189.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc5"><rect x="206.1" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc6"><rect x="222.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc7"><rect x="239.1" y="76" width="17.3" height="180"/></clipPath>
+          <clipPath id="lc8"><rect x="255.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc9"><rect x="272.1" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc10"><rect x="288.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc11"><rect x="305.1" y="76" width="17.3" height="180"/></clipPath>
+          <clipPath id="lc12"><rect x="321.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc13"><rect x="338.1" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc14"><rect x="354.6" y="76" width="17.3" height="180"/></clipPath><clipPath id="lc15"><rect x="371.1" y="76" width="16.9" height="180"/></clipPath>
+          <!-- one firework burst (colour comes from the <use>) -->
+          <g id="bst"><path fill="none" stroke-linecap="round" d="M9.6 0L30 0M8.31 4.8L25.98 15M4.8 8.31L15 25.98M0 9.6L0 30M-4.8 8.31L-15 25.98M-8.31 4.8L-25.98 15M-9.6 0L-30 0M-8.31-4.8L-25.98-15M-4.8-8.31L-15-25.98M0-9.6L0-30M4.8-8.31L15-25.98M8.31-4.8L25.98-15"/>
+            <circle cx="23.18" cy="6.21" r="2.2"/><circle cx="16.97" cy="16.97" r="2.2"/><circle cx="6.21" cy="23.18" r="2.2"/><circle cx="-6.21" cy="23.18" r="2.2"/><circle cx="-16.97" cy="16.97" r="2.2"/><circle cx="-23.18" cy="6.21" r="2.2"/><circle cx="-23.18" cy="-6.21" r="2.2"/><circle cx="-16.97" cy="-16.97" r="2.2"/><circle cx="-6.21" cy="-23.18" r="2.2"/><circle cx="6.21" cy="-23.18" r="2.2"/><circle cx="16.97" cy="-16.97" r="2.2"/><circle cx="23.18" cy="-6.21" r="2.2"/></g>
+        </defs>
+        <circle cx="250" cy="170" r="200" fill="url(#lHalo)"/>
+        <!-- fireworks: green, red, white, green, red -->
+        <g transform="translate(408 58)"><g class="fw"><use href="#bst" stroke="#0B6E3A" fill="#0B6E3A" stroke-width="3"/></g></g>
+        <g transform="translate(56 132) scale(.8)"><g class="fw" style="animation-delay:-4s"><use href="#bst" stroke="#C8102E" fill="#C8102E" stroke-width="3"/></g></g>
+        <g transform="translate(70 292) scale(.75)"><g class="fw" style="animation-delay:-3s"><use href="#bst" stroke="#A9BDB0" fill="#A9BDB0" stroke-width="6"/><use href="#bst" stroke="#fff" fill="#fff" stroke-width="3"/></g></g>
+        <g transform="translate(430 222) scale(.62)"><g class="fw" style="animation-delay:-2s"><use href="#bst" stroke="#0B6E3A" fill="#0B6E3A" stroke-width="3.4"/></g></g>
+        <g transform="translate(290 32) scale(.55)"><g class="fw" style="animation-delay:-1s"><use href="#bst" stroke="#C8102E" fill="#C8102E" stroke-width="3.6"/></g></g>
+        <!-- Damascus: Qasioun behind, then a dome, a minaret and houses -->
+        <path d="M0 352C50 330 96 318 150 326C210 334 250 300 312 306C370 312 410 330 460 322V470H0z" fill="#DCE7DF"/>
+        <g fill="#C6D6CB">
+          <rect x="0" y="392" width="40" height="78"/><rect x="36" y="404" width="30" height="66"/><rect x="150" y="398" width="40" height="72"/><rect x="186" y="410" width="36" height="60"/><rect x="400" y="396" width="32" height="74"/><rect x="428" y="408" width="32" height="62"/>
+          <path d="M202 414a20 17 0 0 1 40 0z"/><rect x="200" y="413" width="44" height="57"/>
+          <rect x="262" y="404" width="96" height="66"/><path d="M276 405a34 30 0 0 1 68 0z"/><rect x="309" y="366" width="2.4" height="10"/><circle cx="310.2" cy="364" r="3"/>
+          <rect x="366" y="340" width="16" height="130"/><rect x="361" y="335" width="26" height="6" rx="1.5"/><rect x="369" y="308" width="10" height="28"/><rect x="366" y="304" width="16" height="5" rx="1.5"/><path d="M368 304l6-22 6 22z"/>
+        </g>
+        <g fill="#F3F6F1" opacity=".9"><rect x="10" y="404" width="6" height="9" rx="3"/><rect x="24" y="404" width="6" height="9" rx="3"/><rect x="162" y="410" width="6" height="9" rx="3"/><rect x="176" y="410" width="6" height="9" rx="3"/><rect x="410" y="408" width="6" height="9" rx="3"/><rect x="290" y="428" width="8" height="14" rx="4"/><rect x="322" y="428" width="8" height="14" rx="4"/></g>
+        <path d="M0 442Q230 428 460 442V470H0z" fill="#B9CCBF"/>
+        <!-- the pole -->
+        <rect x="112" y="56" width="8" height="414" rx="4" fill="url(#lPole)"/>
+        <circle cx="116" cy="50" r="9" fill="url(#lGold)"/>
+        <!-- the flag, in 16 waving slices -->
+        <g class="sl" style="animation-name:w0;animation-delay:-4s"><g clip-path="url(#lc0)"><use href="#lf"/><rect class="sh" style="animation-delay:-5s" x="124" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w1;animation-delay:-3.8s"><g clip-path="url(#lc1)"><use href="#lf"/><rect class="sh" style="animation-delay:-4.8s" x="140.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w2;animation-delay:-3.6s"><g clip-path="url(#lc2)"><use href="#lf"/><rect class="sh" style="animation-delay:-4.6s" x="157" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w3;animation-delay:-3.4s"><g clip-path="url(#lc3)"><use href="#lf"/><rect class="sh" style="animation-delay:-4.4s" x="173.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w4;animation-delay:-3.2s"><g clip-path="url(#lc4)"><use href="#lf"/><rect class="sh" style="animation-delay:-4.2s" x="190" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w5;animation-delay:-3s"><g clip-path="url(#lc5)"><use href="#lf"/><rect class="sh" style="animation-delay:-4s" x="206.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w6;animation-delay:-2.8s"><g clip-path="url(#lc6)"><use href="#lf"/><rect class="sh" style="animation-delay:-3.8s" x="223" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w7;animation-delay:-2.6s"><g clip-path="url(#lc7)"><use href="#lf"/><rect class="sh" style="animation-delay:-3.6s" x="239.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w8;animation-delay:-2.4s"><g clip-path="url(#lc8)"><use href="#lf"/><rect class="sh" style="animation-delay:-3.4s" x="256" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w9;animation-delay:-2.2s"><g clip-path="url(#lc9)"><use href="#lf"/><rect class="sh" style="animation-delay:-3.2s" x="272.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w10;animation-delay:-2s"><g clip-path="url(#lc10)"><use href="#lf"/><rect class="sh" style="animation-delay:-3s" x="289" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w11;animation-delay:-1.8s"><g clip-path="url(#lc11)"><use href="#lf"/><rect class="sh" style="animation-delay:-2.8s" x="305.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w12;animation-delay:-1.6s"><g clip-path="url(#lc12)"><use href="#lf"/><rect class="sh" style="animation-delay:-2.6s" x="322" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w13;animation-delay:-1.4s"><g clip-path="url(#lc13)"><use href="#lf"/><rect class="sh" style="animation-delay:-2.4s" x="338.5" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w14;animation-delay:-1.2s"><g clip-path="url(#lc14)"><use href="#lf"/><rect class="sh" style="animation-delay:-2.2s" x="355" y="78" width="16.5" height="176"/></g></g>
+        <g class="sl" style="animation-name:w15;animation-delay:-1s"><g clip-path="url(#lc15)"><use href="#lf"/><rect class="sh" style="animation-delay:-2s" x="371.5" y="78" width="16.5" height="176"/></g></g>
+        <!-- the rings that hold the flag on the pole -->
+        <rect x="113" y="82" width="13" height="5" rx="2.5" fill="#6F786F"/><rect x="113" y="245" width="13" height="5" rx="2.5" fill="#6F786F"/>
+        <!-- little stars twinkling -->
+        <path class="twk" fill="#C8102E" d="M200 32l1.6 4.9h5.2l-4.2 3.1 1.6 4.9-4.2-3-4.2 3 1.6-4.9-4.2-3.1h5.2z"/>
+        <path class="twk" style="--dl:-.8s" fill="#0B6E3A" d="M30 214l1.4 4.3h4.5l-3.6 2.7 1.4 4.3-3.7-2.7-3.7 2.7 1.4-4.3-3.6-2.7h4.5z"/>
+        <path class="twk" style="--dl:-1.5s" fill="#C8102E" d="M446 128l1.4 4.3h4.5l-3.6 2.7 1.4 4.3-3.7-2.7-3.7 2.7 1.4-4.3-3.6-2.7h4.5z"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<nav class="worlds-bar" data-worlds aria-label="المناسبات"></nav>
+
+<section class="block" id="shop" aria-labelledby="shopTitle">
+  <div class="wrap">
+    <div class="head"><div><h2 id="shopTitle">زينة عيد التحرير</h2><p>اختار القياس أو النوع وضيف القطعة لسلتك. السلة وحدة لكل المناسبات.</p></div></div>
+    <div class="p-grid" id="grid"></div>
+    <p class="note">الأسعار بالدولار للتقريب، وبتنحسب بالليرة السورية حسب سعر الصرف يوم الطلب. أجرة التوصيل حسب المحافظة.</p>
+  </div>
+</section>
+</main>
+
+<footer data-footer></footer>
+</div>
+
+<script src="assets/shop.js?v=5"></script>
+<script src="assets/scene.js?v=5"></script>
+<script>
+(() => {
+  // ---------- products (names, prices and options are the owner's to edit) ----------
+  const PRODUCTS = [
+    {id:'flag',     art:'flag',     name:'العلم السوري',                 desc:'قماش متين ما بيبهت بالشمس، مخيّط عالأطراف ومع حلقات معدن للتعليق.', price:3, optLabel:'القياس',
+      opts:[{name:'٦٠×٩٠ سم', price:3, s:.76}, {name:'٩٠×١٥٠ سم', price:5, s:.88}, {name:'١٥٠×٢٢٥ سم', price:9, s:1}], tag:'الأكثر طلباً'},
+    {id:'car',      art:'car',      name:'طقم أعلام سيارة',              desc:'علمين بعصاية وملقط بيتركّبوا على شبابيك السيارة، وبيضلّوا ثابتين عالطريق.', price:4},
+    {id:'hand',     art:'hand',     name:'أعلام إيد للأطفال ١٢ قطعة',     desc:'أعلام صغار بعصاية خشب ناعمة، على قد إيد الصغار بالساحة والمدرسة.', price:3, tag:'للصغار'},
+    {id:'balloons', art:'balloons', name:'بالونات بألوان العلم ٣٠ قطعة',  desc:'بالونات قوية بالأخضر والأبيض والأسود والأحمر، مع شريط للتعليق.', price:5, optLabel:'النوع',
+      opts:[{name:'ألوان العلم'}, {name:'مع نجوم حمرا', st:true}]},
+    {id:'bunting',  art:'bunting',  name:'حبل رايات بألوان العلم ٥ متر',  desc:'رايات قماش أخضر وأبيض وأسود مع نجمة حمرا، للبلكون والمحل والشارع.', price:4},
+    {id:'scarf',    art:'scarf',    name:'شال وإسوارة بألوان العلم',      desc:'شال ناعم بنجماته التلاتة وإسوارة سيليكون، للساحة وللصور.', price:4}
+  ];
+
+  // ---------- product drawings (original SVG, viewBox 0 0 200 200; the flag is always 2:3 with three red stars) ----------
+  const G = '#0B6E3A', R = '#C8102E', K = '#161616', W = '#FFFFFF', EDGE = '#C9D4CC';
+  const f = n => n.toFixed(1);
+  const star = (cx, cy, r) => { let d = ''; for (let k = 0; k < 10; k++){ const a = -Math.PI / 2 + k * Math.PI / 5, rr = k % 2 ? r * .382 : r; d += (k ? 'L' : 'M') + f(cx + Math.cos(a) * rr) + ' ' + f(cy + Math.sin(a) * rr); } return d + 'z'; };
+  // a Syrian flag with a soft wave: (x, y) = top of the hoist, w = width, a = wave height (grows away from the pole)
+  const flag = (x, y, w, a = 0) => {
+    const b = w / 3 * 2 / 3, N = 14, off = t => a * Math.sin(t * Math.PI * 1.6) * t;
+    const edge = (k, rev) => { const pts = []; for (let i = 0; i <= N; i++){ const t = i / N; pts.push(`${f(x + t * w)} ${f(y + k * b + off(t))}`); } return rev ? pts.reverse() : pts; };
+    const shape = (k1, k2, fill, extra = '') => `<path d="M${edge(k1).join('L')}L${edge(k2, true).join('L')}z" fill="${fill}"${extra}/>`;
+    return shape(0, 3, W) + shape(0, 1, G) + shape(2, 3, K)
+      + `<path fill="${R}" d="${[.25, .5, .75].map(t => star(x + t * w, y + 1.5 * b + off(t), b * .4)).join('')}"/>`
+      + shape(0, 3, 'none', ' stroke="#000" stroke-opacity=".14" stroke-width="1"');
+  };
+  // the same flag with its hoist on the right (used on the car, where the wind blows backwards)
+  const flagR = (x, y, w, a) => `<g transform="translate(${2 * x} 0) scale(-1 1)">${flag(x, y, w, a)}</g>`;
+  const balloon = (x, y, c, st) => `<path d="M${x} ${y + 29}q-6 30 ${f((100 - x) / 2)} 58T100 190" fill="none" stroke="#8B968F" stroke-width="1.2"/>
+      <ellipse cx="${x}" cy="${y}" rx="23" ry="28" fill="${c}"${c === W ? ` stroke="${EDGE}" stroke-width="1.5"` : ''}/><path d="M${x - 4} ${y + 31}h8l-4-5z" fill="${c === W ? EDGE : c}"/>
+      ${st ? `<path fill="${R}" d="${star(x, y + 2, 11)}"/>` : ''}<ellipse cx="${x - 8}" cy="${y - 11}" rx="5" ry="8" fill="#fff" opacity="${c === W ? .9 : .3}" transform="rotate(-20 ${x - 8} ${y - 11})"/>`;
+  const ART = {
+    flag: o => { const s = o && o.s ? o.s : 1;
+      return `<ellipse cx="100" cy="186" rx="${f(60 * s)}" ry="6" fill="#000" opacity=".1"/><g transform="translate(100 186) scale(${s}) translate(-100 -186)">
+        <rect x="32" y="24" width="6" height="162" rx="3" fill="#8F9A92"/><circle cx="35" cy="21" r="6" fill="#D2A845"/>
+        ${flag(38, 30, 138, 7)}</g>`; },
+    car: () => `<ellipse cx="100" cy="176" rx="88" ry="7" fill="#000" opacity=".1"/>
+      <path d="M86 92L80 32M136 92L130 32" stroke="#6E6258" stroke-width="2.4" stroke-linecap="round"/>
+      ${flagR(80, 30, 42, 3)}${flagR(130, 30, 42, 3)}
+      <path d="M16 150Q14 124 34 118L58 112Q72 82 92 78L132 78Q146 80 160 108L178 114Q188 118 188 134V150Q188 158 180 158H22Q16 158 16 150z" fill="#5D7A8C"/>
+      <path d="M68 110Q78 88 94 86H108V110zM114 86H130Q140 88 150 110H114z" fill="#D3E5EE"/>
+      <rect x="82" y="86" width="9" height="7" rx="1.5" fill="#2C2C2C"/><rect x="132" y="86" width="9" height="7" rx="1.5" fill="#2C2C2C"/>
+      <path d="M111 110V156M96 124h8M128 124h8" stroke="#46606F" stroke-width="2.4" stroke-linecap="round"/><rect x="176" y="122" width="10" height="7" rx="3" fill="#FFE7A3"/>
+      <circle cx="54" cy="158" r="17" fill="#2B2B2B"/><circle cx="54" cy="158" r="7" fill="#C3CBCF"/><circle cx="152" cy="158" r="17" fill="#2B2B2B"/><circle cx="152" cy="158" r="7" fill="#C3CBCF"/>`,
+    hand: () => `<ellipse cx="88" cy="188" rx="40" ry="5" fill="#000" opacity=".1"/>
+      ${[-40, -22, -4, 14, 32].map(a => `<g transform="rotate(${a} 88 184)"><path d="M88 184V66" stroke="#B48A5A" stroke-width="3.2" stroke-linecap="round"/>${flag(89, 66, 44, 2.5)}</g>`).join('')}
+      <rect x="74" y="160" width="28" height="11" rx="4" fill="#EADCC2"/>
+      <circle cx="166" cy="166" r="21" fill="${R}"/><text x="166" y="173" text-anchor="middle" font-family="IBM Plex Sans Arabic, sans-serif" font-weight="600" font-size="19" fill="#fff">١٢</text>`,
+    balloons: o => { const st = !!(o && o.st);
+      const cols = st ? [W, G, W, K, W] : [G, W, R, K, G];
+      return [[62, 62], [102, 46], [142, 66], [82, 104], [126, 106]].map(([x, y], i) => balloon(x, y, cols[i], st && cols[i] === W)).join(''); },
+    bunting: () => [36, 108].map((y0, row) => {
+        const cy = y0 + 50, q = t => (1 - t) * (1 - t) * y0 + 2 * t * (1 - t) * cy + t * t * y0;   // the rope sags 25 in the middle
+        return `<path d="M6 ${y0}Q100 ${cy} 194 ${y0}" fill="none" stroke="#8B968F" stroke-width="1.6"/>` + [0, 1, 2, 3, 4, 5, 6].map(i => {
+          const t = (i + .5) / 7, x = 6 + 188 * t, y = q(t), c = [G, W, K][(i + row) % 3];
+          return `<path d="M${f(x - 11)} ${f(y)}h22l-11 30z" fill="${c}"${c === W ? ` stroke="${EDGE}" stroke-width="1.2"` : ''}/>${c === W ? `<path fill="${R}" d="${star(x, y + 10, 5.5)}"/>` : ''}`; }).join(''); }).join(''),
+    scarf: () => `<g transform="rotate(-10 100 78)">
+        <rect x="20" y="50" width="160" height="18" fill="${G}"/><rect x="20" y="68" width="160" height="18" fill="${W}"/><rect x="20" y="86" width="160" height="18" fill="${K}"/>
+        <path fill="${R}" d="${[60, 100, 140].map(x => star(x, 77.5, 7)).join('')}"/><rect x="20" y="50" width="160" height="54" fill="none" stroke="#000" stroke-opacity=".14"/>
+        ${[0, 1, 2].map(k => { const c = [G, EDGE, K][k]; let d = ''; for (let y = 52 + k * 18; y < 66 + k * 18; y += 4) d += `M20 ${y}h-10M180 ${y}h10`; return `<path d="${d}" stroke="${c}" stroke-width="2" stroke-linecap="round"/>`; }).join('')}</g>
+      <g transform="translate(100 150)"><circle r="28" fill="none" stroke="${EDGE}" stroke-width="13"/>
+        <circle r="28" fill="none" stroke="${G}" stroke-width="10" stroke-dasharray="58.64 117.29"/>
+        <circle r="28" fill="none" stroke="${W}" stroke-width="10" stroke-dasharray="58.64 117.29" stroke-dashoffset="-58.64"/>
+        <circle r="28" fill="none" stroke="${K}" stroke-width="10" stroke-dasharray="58.64 117.29" stroke-dashoffset="-117.29"/>
+        <path fill="${R}" d="${star(0, -28, 7)}"/></g>`
+  };
+
+  DC.renderGrid(document.getElementById('grid'), 'liberation', PRODUCTS, (p, o) => ART[p.art](o));
+  const d = DC.daysLeft('liberation');
+  document.getElementById('when').innerHTML = DC.WORLDS.liberation.icon + `عيد التحرير${d == null ? '' : d ? ` · باقي ${DC.ar(d)} يوم` : ' · اليوم!'}`;
+  DCScene(document.querySelector('.w-hero .fx'), {type:'confetti', colors:['#0B6E3A','#C8102E','#1A1A1A','#FFFFFF'], count:44, dir:1});
+})();
+</script>
+</body>
+</html>
