@@ -4,3 +4,7 @@
 CLAUDE.md
 # social-media video and stills, not used by the site
 media/
+
+# local tools and their exports (QR cards)
+tools/
+qr-cards/
