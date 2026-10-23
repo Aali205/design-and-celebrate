@@ -10,7 +10,7 @@
   const IG = 'design.celebrate';             // Instagram / Facebook handle
   // Google Apps Script web-app URL that receives the visit counts and feedback (tools/analytics.gs, also set in admin.html).
   // Empty = nothing is recorded and the feedback button stays hidden.
-  const TRACK_URL = '';
+  const TRACK_URL = 'https://script.google.com/macros/s/AKfycbydhzkOhWCfs67w4vJlJ_O5tJmOrPJa7bKARI5ub2GQMwIrv8sg2DWk740PWrd8ibdd/exec';
   // Discount codes. pct = percent off. w = only items from these worlds (leave it out for the whole cart).
   // venue = the café / clinic that handed out the QR code; the order message then says where the customer came from.
   // Codes are checked in the browser only, so confirm the discount when you answer on WhatsApp.
