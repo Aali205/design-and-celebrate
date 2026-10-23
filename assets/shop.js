@@ -8,6 +8,9 @@
   const WA_NUMBER = '963900000000';          // WhatsApp number, digits only with country code
   const PHONE = '+963 900 000 000';
   const IG = 'design.celebrate';             // Instagram / Facebook handle
+  // Google Apps Script web-app URL that receives the visit counts and feedback (tools/analytics.gs, also set in admin.html).
+  // Empty = nothing is recorded and the feedback button stays hidden.
+  const TRACK_URL = '';
   // Discount codes. pct = percent off. w = only items from these worlds (leave it out for the whole cart).
   // venue = the café / clinic that handed out the QR code; the order message then says where the customer came from.
   // Codes are checked in the browser only, so confirm the discount when you answer on WhatsApp.
@@ -94,6 +97,7 @@
     const line = cart.find(l => l.key === key);
     line ? line.q++ : cart.push({key, w:item.w, id:item.id, name:item.name, opt:item.opt || '', price:item.price, q:1});
     save();
+    document.dispatchEvent(new CustomEvent('dc:add', {detail:item}));   // for assets/track.js
     document.querySelectorAll('[data-cart]').forEach(b => { b.classList.remove('bump'); void b.offsetWidth; b.classList.add('bump'); });
     if (el) burst(el);
   }
@@ -194,7 +198,7 @@
   function applyCode(){
     const v = $('dcCode').value.trim().toUpperCase();
     if (!v) { code = ''; save(); return; }
-    if (CODES[v]) { code = v; save(); }
+    if (CODES[v]) { code = v; save(); document.dispatchEvent(new CustomEvent('dc:code', {detail:{code}})); }
     else { const m = $('dcCodeMsg'); m.className = 'code-msg bad'; m.textContent = 'هالكود مو صحيح، جرّب مرة تانية.'; }
   }
   $('dcApply').onclick = applyCode;
@@ -203,15 +207,22 @@
   $('dcForm').addEventListener('submit', e => e.preventDefault());
   $('dcSend').addEventListener('click', e => {
     if (!$('dcName').value.trim()) { e.preventDefault(); $('dcErr').textContent = 'اكتب اسمك لحتى نعرف مين صاحب الطلب.'; $('dcErr').hidden = false; $('dcName').focus(); }
-    else $('dcErr').hidden = true;
+    else { $('dcErr').hidden = true; ordered('whatsapp'); }
   });
+  // the order as numbers only (no name or address), for assets/track.js
+  function ordered(via){
+    if (!cart.length) return;
+    const t = totals();
+    document.dispatchEvent(new CustomEvent('dc:order', {detail:{via, total:t.total, code, city:$('dcCity').value,
+      lines:cart.map(l => ({w:l.w, id:l.id, name:l.name, opt:l.opt, q:l.q, price:l.price}))}}));
+  }
 
   function copy(text, btn, done = 'انتسخ ✓'){
     const ok = () => { const t = btn.textContent; btn.textContent = done; setTimeout(() => btn.textContent = t, 1600); };
     const fallback = () => { const ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); ok(); } catch(e) {} ta.remove(); };
     navigator.clipboard ? navigator.clipboard.writeText(text).then(ok, fallback) : fallback();
   }
-  $('dcCopy').onclick = e => copy(message(), e.currentTarget);
+  $('dcCopy').onclick = e => { copy(message(), e.currentTarget); ordered('copy'); };
 
   // ---------- product grid: products = [{id, name, desc, price, tag, opts:[{name, c?, price?}]}], art(p, opt) returns SVG inner (viewBox 0 0 200 200) ----------
   function renderGrid(el, world, products, art){
@@ -274,5 +285,6 @@
   document.querySelectorAll('.w-art').forEach(a => new IntersectionObserver(([e]) => a.classList.toggle('off', !e.isIntersecting)).observe(a));
 
   render();
-  window.DC = {WORLDS, CODES, add, open, renderGrid, burst, daysLeft, ar, money, reduce};
+  const wa = text => `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(text)}`;
+  window.DC = {WORLDS, CODES, add, open, renderGrid, burst, daysLeft, ar, money, reduce, wa, TRACK_URL};
 })();

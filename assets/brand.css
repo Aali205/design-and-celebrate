@@ -276,6 +276,32 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 .ei-msg:empty{display:none}
 @media (max-width:860px){.ei-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
 
+/* ---------- feedback: a small button in the corner + a dialog (assets/track.js) ---------- */
+.fb-btn{position:fixed;z-index:40;inset-inline-end:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:4px;
+  border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding-block:3px;padding-inline:4px 14px;font:600 .9rem var(--body);cursor:pointer;
+  box-shadow:0 10px 24px -12px rgb(0 0 0/.45);-webkit-tap-highlight-color:transparent;transition:transform .2s}
+.fb-btn:active{transform:scale(.94)}
+.fb-q{display:block;width:34px}
+.fb-dlg{border:0;padding:0;border-radius:24px;width:min(420px,calc(100% - 28px));max-height:calc(100dvh - 28px);background:var(--surface);color:var(--ink);box-shadow:0 30px 60px -20px rgb(0 0 0/.5)}
+.fb-dlg::backdrop{background:rgb(12 8 18/.5)}
+.fb-in,.fb-done{position:relative;display:grid;gap:12px;padding:22px 20px 20px}
+.fb-in[hidden],.fb-done[hidden]{display:none}
+.fb-in .x{position:absolute;top:8px;inset-inline-end:8px}
+.fb-in h3{font-size:1.5rem;padding-inline-end:34px}
+.fb-sub{color:var(--dim);font-size:.92rem;margin-top:-6px}
+.fb-stars{display:flex;justify-content:center;gap:4px}
+.fb-stars button{width:48px;height:48px;border:0;background:none;padding:0;font-size:2.1rem;line-height:1;color:var(--line);cursor:pointer;transition:transform .15s,color .15s}
+.fb-stars button.on{color:#F0B43C}
+.fb-stars button:active{transform:scale(.86)}
+.fb-in label{display:grid;gap:4px;font-size:.9rem;color:var(--dim)}
+.fb-in label small{font-size:.8rem}
+.fb-in textarea,.fb-in input{font:inherit;font-size:1rem;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 12px;color:var(--ink);width:100%;resize:vertical}
+.fb-done{text-align:center;justify-items:center}
+.fb-q-big{display:block;width:110px}
+.fb-done b{font-family:var(--display);font-size:1.45rem}
+.fb-done p{color:var(--dim)}
+@media print{.fb-btn{display:none}}
+
 /* ---------- content protection: nothing to select, drag or long-press save (iPhone); form fields stay normal. shop.js blocks copy and right-click ---------- */
 body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 input,textarea,select,[contenteditable]{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
