@@ -276,6 +276,11 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 .ei-msg:empty{display:none}
 @media (max-width:860px){.ei-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
 
+/* ---------- content protection: nothing to select, drag or long-press save (iPhone); form fields stay normal. shop.js blocks copy and right-click ---------- */
+body{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,textarea,select,[contenteditable]{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
+img,svg,canvas,video{-webkit-user-drag:none}
+
 /* ---------- shared reveal on scroll (pure CSS, only where supported) ---------- */
 @supports (animation-timeline:view()){
   @media (prefers-reduced-motion:no-preference){

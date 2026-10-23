@@ -265,6 +265,11 @@
     const cc = e.target.closest('[data-copy-code]'); if (cc) { copy(cc.dataset.copyCode, cc); code = cc.dataset.copyCode; save(); }
   });
 
+  // content protection: no copy, cut, right-click, dragging or select-all, except inside form fields (names, code, address).
+  // The "copy" buttons still work: they write to the clipboard themselves.
+  const field = t => t && t.closest && t.closest('input, textarea, select, [contenteditable]');
+  ['copy', 'cut', 'contextmenu', 'dragstart', 'selectstart'].forEach(ev => document.addEventListener(ev, e => { if (!field(e.target)) e.preventDefault(); }));
+
   // pause each page's hero art while it is off screen
   document.querySelectorAll('.w-art').forEach(a => new IntersectionObserver(([e]) => a.classList.toggle('off', !e.isIntersecting)).observe(a));
 
