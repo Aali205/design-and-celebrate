@@ -287,6 +287,16 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 .mx-budget span{font-weight:600}
 .mx-budget small{color:var(--dim);font-size:.8rem;line-height:1.4}
 .mx-budget[aria-pressed=true]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--bg))}
+.mx-own{grid-column:1/-1;border-style:dashed}
+.mx-own b{font-family:var(--display);font-size:1.25rem}
+.mx-own-row{display:grid;gap:6px;margin-top:12px}
+.mx-own-row label{font-weight:600}
+.mx-amount{display:flex;align-items:center;gap:8px;max-width:240px;border:1.5px solid var(--accent);border-radius:14px;background:var(--bg);padding-inline:14px}
+.mx-amount input{flex:1;min-width:0;border:0;background:transparent;color:var(--ink);font:600 1.3rem var(--body);padding-block:10px;outline:none}
+.mx-amount:focus-within{box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 35%,transparent)}
+.mx-amount span{color:var(--accent);font-size:1.3rem}
+.mx-hint{color:var(--dim);font-size:.85rem}
+.mx-hint.bad{color:#E26D6D;font-weight:600}
 .mx-chips{display:flex;flex-wrap:wrap;gap:8px}
 .mx-chip{border:1.5px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);padding:8px 16px;font:inherit;font-weight:500;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
 .mx-chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
