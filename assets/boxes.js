@@ -12,7 +12,7 @@
   const BOXES = [
     // the mystery box: no list of contents on purpose; the customer picks a budget, who it's for and their age, and we fill it
     {id:'mystery', latin:'Mystery Box', name:'المفاجأة', bx:'#6E56CF', bxt:'#F2C94C', tag:'جديد', mystery:true,
-     desc:'اختار ميزانيتك، وقلّنا لمين البوكس وقديش عمرو، والباقي علينا. ما رح تعرف شو جوّا لحتى تفتحو!', sizes:[
+     desc:'اختار ميزانيتك وقلّنا لمين البوكس، والباقي علينا. ما رح تعرف شو جوّا لحتى تفتحو!', sizes:[
       {name:'صغيرة', who:'٣ لـ ٤ هدايا صغيرة', price:15},
       {name:'وسط', who:'٥ لـ ٦ هدايا', price:25},
       {name:'كبيرة', who:'٧ هدايا وأكتر', price:40},
@@ -276,11 +276,11 @@
     });
   }
 
-  // the mystery box: three choices (budget, who it's for, age); the box on the stage shakes when it goes into the cart
-  const WHO = ['شب', 'صبية', 'ما بفرق'], AGES = ['من ٣ لـ ٧ سنين', 'من ٨ لـ ١٢', 'من ١٣ لـ ١٧', 'من ١٨ لـ ٣٠', 'فوق الـ ٣٠'];
+  // the mystery box: two choices (budget, who it's for); the box on the stage shakes when it goes into the cart
+  const WHO = ['شب', 'صبية', 'ما بفرق'];
   const OWN_MIN = 25;   // the lowest budget a customer may type for their own amount
   function mystery(b){
-    const el = document.getElementById('mxPick'), pick = {s:null, g:null, a:null}, OWN = b.sizes.length;
+    const el = document.getElementById('mxPick'), pick = {s:null, g:null}, OWN = b.sizes.length;
     const chips = (key, list) => list.map((t, i) => `<button class="mx-chip" type="button" data-${key}="${i}" aria-pressed="false">${t}</button>`).join('');
     el.innerHTML = `<div class="mx">
       <fieldset class="mx-step" data-step="s"><legend><span class="mx-n">١</span>قديش ميزانيتك؟</legend>
@@ -290,17 +290,16 @@
           <div class="mx-amount"><input id="mxAmount" inputmode="decimal" autocomplete="off" maxlength="6" placeholder="مثلاً ٣٥"><span class="latin">$</span></div>
           <small class="mx-hint">أقل ميزانية ${DC.money(OWN_MIN)}</small></div></fieldset>
       <fieldset class="mx-step" data-step="g"><legend><span class="mx-n">٢</span>لمين البوكس؟</legend><div class="mx-chips">${chips('g', WHO)}</div></fieldset>
-      <fieldset class="mx-step" data-step="a"><legend><span class="mx-n">٣</span>قديش عمرو؟</legend><div class="mx-chips">${chips('a', AGES)}</div></fieldset>
       <div class="mx-go"><p class="mx-sum" aria-live="polite"></p><button class="btn solid mx-add" type="button">أضف المفاجأة للسلة</button></div>
-      <p class="mx-promise">منختار الهدايا حسب العمر ولمين البوكس، قيمتها أكتر من يلي دفعتو، ومنلفّها بتغليف <span class="latin">D&amp;S</span>. وإذا في شي ما بيحبو أو عندو حساسية، اكتبلنا بالملاحظات بالسلة.</p></div>`;
+      <p class="mx-promise">منختار الهدايا حسب لمين البوكس، قيمتها أكتر من يلي دفعتو، ومنلفّها بتغليف <span class="latin">D&amp;S</span>. وإذا في شي ما بيحبو أو عندو حساسية، اكتبلنا بالملاحظات بالسلة.</p></div>`;
     const sum = el.querySelector('.mx-sum'), row = el.querySelector('.mx-own-row'), input = el.querySelector('#mxAmount'), hint = el.querySelector('.mx-hint');
     // the typed amount, Arabic digits and comma accepted; NaN while it's empty or not a number
     const amount = () => { const v = parseFloat(input.value.trim().replace(/[٠-٩]/g, d => '٠١٢٣٤٥٦٧٨٩'.indexOf(d)).replace(/[٫,]/g, '.')); return isFinite(v) ? Math.round(v) : NaN; };
     const budget = () => pick.s == null ? null : pick.s < OWN ? b.sizes[pick.s] : amount() >= OWN_MIN ? {name:'بميزانية خاصة', price:amount(), own:true} : null;
     const show = () => {
       const bud = budget();
-      const miss = [!bud && (pick.s === OWN ? `ميزانيتك (أقل شي ${DC.money(OWN_MIN)})` : 'الميزانية'), pick.g == null && 'لمين', pick.a == null && 'العمر'].filter(Boolean);
-      sum.textContent = miss.length ? 'باقي تختار: ' + miss.join('، ') : `مفاجأة ${bud.name} بـ ${DC.money(bud.price)} لـ ${WHO[pick.g] === 'ما بفرق' ? 'أي حدا' : WHO[pick.g]}، العمر ${AGES[pick.a]}. شو جوّا؟ ما رح نقلك!`;
+      const miss = [!bud && (pick.s === OWN ? `ميزانيتك (أقل شي ${DC.money(OWN_MIN)})` : 'الميزانية'), pick.g == null && 'لمين'].filter(Boolean);
+      sum.textContent = miss.length ? 'باقي تختار: ' + miss.join('، ') : `مفاجأة ${bud.name} بـ ${DC.money(bud.price)} لـ ${WHO[pick.g] === 'ما بفرق' ? 'أي حدا' : WHO[pick.g]}. شو جوّا؟ ما رح نقلك!`;
       const v = amount();
       hint.classList.toggle('bad', input.value.trim() !== '' && !(v >= OWN_MIN));
       hint.textContent = input.value.trim() !== '' && !(v >= OWN_MIN) ? `الميزانية لازم تكون ${DC.money(OWN_MIN)} أو أكتر` : `أقل ميزانية ${DC.money(OWN_MIN)}`;
@@ -308,9 +307,9 @@
     input.addEventListener('input', () => { if (amount() >= OWN_MIN) el.querySelector('[data-step="s"]').classList.remove('need'); show(); });
     show();
     el.addEventListener('click', e => {
-      const o = e.target.closest('[data-s],[data-g],[data-a]');
+      const o = e.target.closest('[data-s],[data-g]');
       if (o) {
-        const key = 'sga'.split('').find(k => o.dataset[k] != null);
+        const key = o.dataset.s != null ? 's' : 'g';
         pick[key] = +o.dataset[key];
         o.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === o)));
         if (key === 's') { row.hidden = pick.s !== OWN; if (pick.s === OWN) input.focus(); }
@@ -318,7 +317,7 @@
         return show();
       }
       const btn = e.target.closest('.mx-add'); if (!btn) return;
-      const miss = ['s', 'g', 'a'].filter(k => k === 's' ? !budget() : pick[k] == null);
+      const miss = ['s', 'g'].filter(k => k === 's' ? !budget() : pick[k] == null);
       if (miss.length) {
         if (miss[0] === 's' && pick.s === OWN) input.focus();
         miss.forEach(k => { const f = el.querySelector(`[data-step="${k}"]`); f.classList.remove('need'); void f.offsetWidth; f.classList.add('need'); });
@@ -326,7 +325,7 @@
         return;
       }
       const s = budget();
-      DC.add({w:'night', id:'mystery', name:'بوكس المفاجأة', opt:`${s.own ? 'ميزانية خاصة ' + DC.money(s.price) : s.name} · ${WHO[pick.g]} · ${AGES[pick.a]}`, price:s.price}, btn);
+      DC.add({w:'night', id:'mystery', name:'بوكس المفاجأة', opt:`${s.own ? 'ميزانية خاصة ' + DC.money(s.price) : s.name} · ${WHO[pick.g]}`, price:s.price}, btn);
       const stage = document.querySelector('.bx-stage'); stage.classList.remove('jiggle'); void stage.offsetWidth; stage.classList.add('jiggle');
       btn.textContent = 'انضافت المفاجأة ✓'; btn.classList.add('done');
       setTimeout(() => { btn.textContent = 'أضف المفاجأة للسلة'; btn.classList.remove('done'); }, 1600);
