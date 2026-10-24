@@ -10,6 +10,13 @@
   // items starting with "+" are the extras a bigger size adds; they get a small tag
   const HB = '«<span class="latin">Happy Birthday</span>»';
   const BOXES = [
+    // the mystery box: no list of contents on purpose; the customer picks a budget, who it's for and their age, and we fill it
+    {id:'mystery', latin:'Mystery Box', name:'المفاجأة', bx:'#6E56CF', bxt:'#F2C94C', tag:'جديد', mystery:true,
+     desc:'اختار ميزانيتك، وقلّنا لمين البوكس وقديش عمرو، والباقي علينا. ما رح تعرف شو جوّا لحتى تفتحو!', sizes:[
+      {name:'صغيرة', who:'٣ لـ ٤ هدايا صغيرة', price:15},
+      {name:'وسط', who:'٥ لـ ٦ هدايا', price:25},
+      {name:'كبيرة', who:'٧ هدايا وأكتر', price:40},
+      {name:'VIP', who:'هدايا أكبر، وفيها قطعة مميزة', price:60}]},
     {id:'movie', latin:'Movie Night', name:'سهرة أفلام', bx:'#D8473F', bxt:'#FF9D8A', tag:'الأكثر طلباً',
      desc:'فشار ومشروب وضو خفيف، وإنتو بس اختاروا الفيلم.', sizes:[
       {name:'لشخصين', who:'لسهرة هادية لاتنين', price:15, items:['سطل فشار مع فشار لشخصين','٢ مشروب غازي','شوكولا وكيسين شيبس','٢ شمعة LED','سلسلة ضو صغيرة (٢ متر)']},
@@ -59,6 +66,17 @@
     ${extra}`;
 
   const BOX_ART = {
+    // mystery: light pouring out of the open box, a big gold "?" rising from it, question marks floating around
+    mystery: shell({body:'#3E2C78', inner:'#160F33', lid:'#5B44A8', lidDeco:'<rect x="150" y="88" width="16" height="26" fill="#F2C94C"/>'},
+      `<path d="M96 116L64 30h192l-32 86z" fill="#F2C94C" opacity=".12"/><path d="M118 116L104 46h112l-14 70z" fill="#F2C94C" opacity=".14"/>
+       <g class="peek" style="--dl:-.8s"><circle cx="160" cy="76" r="34" fill="#F2C94C" opacity=".18"/><text x="160" y="110" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="86" fill="#F2C94C">?</text></g>
+       ${star4(112, 74, 7, '#FFF4D6', 'class="twk"')}${star4(212, 64, 9, '#FFF4D6', 'class="twk" style="--dl:-1.1s"')}${star4(200, 104, 5, '#B9A5F5', 'class="twk" style="--dl:-.5s"')}`,
+      `<rect x="152" y="120" width="16" height="92" fill="#F2C94C"/>` +
+        [[100,148,18],[214,144,-14],[118,196,10],[204,198,-8]].map(([x,y,r]) => `<text x="${x}" y="${y}" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="22" fill="#fff" opacity=".22" transform="rotate(${r} ${x} ${y})">?</text>`).join('') +
+        badge('MYSTERY BOX', '#F2C94C', 124, 12),
+      `<g class="peek" style="--dl:-1.6s"><text x="54" y="100" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="34" fill="#B9A5F5" transform="rotate(-14 54 100)">?</text></g>
+       <g class="peek" style="--dl:-2.3s"><text x="272" y="128" text-anchor="middle" font-family="Fraunces, serif" font-weight="600" font-size="28" fill="#F5B98D" transform="rotate(12 272 128)">?</text></g>`),
+
     movie: shell({body:'#D8473F', inner:'#6E1F1B', lid:'#B83A33', lidDeco:[96,126,156,186,216].map(x => `<rect x="${x}" y="88" width="14" height="26" fill="#F7E9D7" opacity=".85"/>`).join('')},
       `<g class="peek" style="--dl:-1.2s"><g transform="rotate(-12 112 100)"><rect x="98" y="58" width="30" height="70" rx="3" fill="#5A3A2E"/><path d="M98 66h30M98 76h30M113 58v20" stroke="#3E271F" stroke-width="1.5"/><rect x="98" y="82" width="30" height="46" rx="2" fill="#F5B98D"/><path d="M98 82l5 4 5-4 5 4 5-4 5 4 5-4" fill="none" stroke="#E9A57A" stroke-width="1.4"/></g></g>
        <g class="peek" style="--dl:-.5s"><path d="M184 72h34l-5 56h-24z" fill="#F3EBDD"/><path d="M185.6 90H216.4L215.3 102H186.7z" fill="#D8473F"/><rect x="181" y="64" width="40" height="9" rx="3" fill="#fff"/><path d="M206 64l10-28" stroke="#FF9D8A" stroke-width="4" stroke-linecap="round"/></g>
@@ -198,6 +216,7 @@
 
   // ---------- which add-ons go with which box, the two colours each box is mixed from, its page ----------
   const ADDONS_FOR = {
+    mystery:['handcard','starlights','ledcandles'],
     movie:['popcorn','blanket','starlights','ledcandles','handcard'],
     girls:['ledcandles','starlights','blanket','handcard'],
     boys:['popcorn','starlights','handcard'],
@@ -205,16 +224,17 @@
     baby:['reveal','mlabbas','starlights','ledcandles','handcard'],
     engage:['mlabbas','ledcandles','starlights','handcard']
   };
-  const MIX = {movie:['#E0574C','#F2B544'], girls:['#F29BB8','#B9A5F5'], boys:['#3C8DD6','#3CC6B0'], birthday:['#8ED8C0','#F5B98D'], baby:['#9CC8EE','#F5B3C4'], engage:['#E6C27A','#E8B4BC']};
+  const MIX = {mystery:['#6E56CF','#F2B544'], movie:['#E0574C','#F2B544'], girls:['#F29BB8','#B9A5F5'], boys:['#3C8DD6','#3CC6B0'], birthday:['#8ED8C0','#F5B98D'], baby:['#9CC8EE','#F5B3C4'], engage:['#E6C27A','#E8B4BC']};
   const FILE = id => `box-${id === 'engage' ? 'engagement' : id}.html`;
   const art = b => `<svg viewBox="0 0 320 240" width="320" height="240" role="img" aria-label="بوكس ${b.name}">${BOX_ART[b.id]}</svg>`;
   const mixStyle = b => `--m1:${MIX[b.id][0]};--m2:${MIX[b.id][1]}`;
 
   // the hub: one tile per box in its own colour mix; it grows into the box page (same view-transition-name)
   function hub(el){
-    el.innerHTML = BOXES.map(b => `<a class="bxt reveal" href="${FILE(b.id)}" style="${mixStyle(b)};view-transition-name:bx-${b.id}">
+    // the mystery box leads as a wide tile, so the other six sit in full rows
+    el.innerHTML = BOXES.map(b => `<a class="bxt reveal${b.mystery ? ' feature' : ''}" href="${FILE(b.id)}" style="${mixStyle(b)};view-transition-name:bx-${b.id}">
       <div class="bxt-art">${b.tag ? `<span class="p-tag">${b.tag}</span>` : ''}${art(b)}</div>
-      <div class="bxt-info"><span class="latin">${b.latin}</span><h3>بوكس ${b.name}</h3><p>من ${DC.money(b.sizes[0].price)}</p></div></a>`).join('');
+      <div class="bxt-info"><span class="latin">${b.latin}</span><h3>بوكس ${b.name}</h3>${b.mystery ? `<small class="bxt-desc">${b.desc}</small>` : ''}<p>من ${DC.money(b.sizes[0].price)}</p></div></a>`).join('');
   }
 
   // a box page: hero, the three sizes side by side, the add-ons that suit this box, the other boxes
@@ -227,11 +247,19 @@
         <h1 id="heroTitle">بوكس ${b.name}</h1>
         <p class="lede">${b.desc}</p>
         <p class="bx-from">من <b class="num">${DC.money(Math.min(...prices))}</b> لـ <b class="num">${DC.money(Math.max(...prices))}</b> تقريباً</p>
-        <div class="ctas"><a class="btn solid" href="#sizes">اختار الحجم</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
+        <div class="ctas"><a class="btn solid" href="#sizes">${b.mystery ? 'اختار ميزانيتك' : 'اختار الحجم'}</a><button class="btn ghost" type="button" data-cart>شوف السلة</button></div>
         <div class="code-chip">خصم ٢٠٪ على أول بوكس <b>NIGHT20</b><button type="button" data-copy-code="NIGHT20">انسخ وطبّق</button></div>
       </div>
       <div class="bx-stage" style="${mixStyle(b)};view-transition-name:bx-${b.id}" aria-hidden="true">${art(b)}</div></div>`;
 
+    if (b.mystery) mystery(b); else sizes(b);
+
+    DC.renderGrid(document.getElementById('grid'), 'night', ADDONS.filter(a => ADDONS_FOR[id].includes(a.id)), (p, o) => ART[p.art]((o && o.c) || DEF[p.art], o));
+    document.getElementById('others').innerHTML = BOXES.filter(x => x.id !== id).map(x =>
+      `<a class="other" href="${FILE(x.id)}" style="${mixStyle(x)}"><i></i><span>بوكس ${x.name}</span></a>`).join('');
+  }
+
+  function sizes(b){
     const grid = document.getElementById('sizeGrid');
     grid.innerHTML = b.sizes.map((s, i) => `<article class="sz reveal${i === 1 ? ' best' : ''}" data-i="${i}">
       ${i === 1 ? '<span class="p-tag">الأكثر طلباً</span>' : ''}
@@ -246,10 +274,48 @@
       btn.textContent = 'انضاف ✓'; btn.classList.add('done');
       setTimeout(() => { btn.textContent = 'أضف البوكس للسلة'; btn.classList.remove('done'); }, 1400);
     });
+  }
 
-    DC.renderGrid(document.getElementById('grid'), 'night', ADDONS.filter(a => ADDONS_FOR[id].includes(a.id)), (p, o) => ART[p.art]((o && o.c) || DEF[p.art], o));
-    document.getElementById('others').innerHTML = BOXES.filter(x => x.id !== id).map(x =>
-      `<a class="other" href="${FILE(x.id)}" style="${mixStyle(x)}"><i></i><span>بوكس ${x.name}</span></a>`).join('');
+  // the mystery box: three choices (budget, who it's for, age); the box on the stage shakes when it goes into the cart
+  const WHO = ['شب', 'صبية', 'ما بفرق'], AGES = ['من ٣ لـ ٧ سنين', 'من ٨ لـ ١٢', 'من ١٣ لـ ١٧', 'من ١٨ لـ ٣٠', 'فوق الـ ٣٠'];
+  function mystery(b){
+    const el = document.getElementById('mxPick'), pick = {s:null, g:null, a:null};
+    const chips = (key, list) => list.map((t, i) => `<button class="mx-chip" type="button" data-${key}="${i}" aria-pressed="false">${t}</button>`).join('');
+    el.innerHTML = `<div class="mx">
+      <fieldset class="mx-step" data-step="s"><legend><span class="mx-n">١</span>قديش ميزانيتك؟</legend>
+        <div class="mx-budgets">${b.sizes.map((s, i) => `<button class="mx-budget" type="button" data-s="${i}" aria-pressed="false"><b class="num">${DC.money(s.price)}</b><span>${s.name}</span><small>${s.who}</small></button>`).join('')}</div></fieldset>
+      <fieldset class="mx-step" data-step="g"><legend><span class="mx-n">٢</span>لمين البوكس؟</legend><div class="mx-chips">${chips('g', WHO)}</div></fieldset>
+      <fieldset class="mx-step" data-step="a"><legend><span class="mx-n">٣</span>قديش عمرو؟</legend><div class="mx-chips">${chips('a', AGES)}</div></fieldset>
+      <div class="mx-go"><p class="mx-sum" aria-live="polite"></p><button class="btn solid mx-add" type="button">أضف المفاجأة للسلة</button></div>
+      <p class="mx-promise">منختار الهدايا حسب العمر ولمين البوكس، قيمتها أكتر من يلي دفعتو، ومنلفّها بتغليف <span class="latin">D&amp;S</span>. وإذا في شي ما بيحبو أو عندو حساسية، اكتبلنا بالملاحظات بالسلة.</p></div>`;
+    const sum = el.querySelector('.mx-sum');
+    const show = () => {
+      const miss = [pick.s == null && 'الميزانية', pick.g == null && 'لمين', pick.a == null && 'العمر'].filter(Boolean);
+      sum.textContent = miss.length ? 'باقي تختار: ' + miss.join('، ') : `مفاجأة ${b.sizes[pick.s].name} بـ ${DC.money(b.sizes[pick.s].price)} لـ ${WHO[pick.g] === 'ما بفرق' ? 'أي حدا' : WHO[pick.g]}، العمر ${AGES[pick.a]}. شو جوّا؟ ما رح نقلك!`;
+    };
+    show();
+    el.addEventListener('click', e => {
+      const o = e.target.closest('[data-s],[data-g],[data-a]');
+      if (o) {
+        const key = 'sga'.split('').find(k => o.dataset[k] != null);
+        pick[key] = +o.dataset[key];
+        o.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', String(x === o)));
+        o.closest('.mx-step').classList.remove('need');
+        return show();
+      }
+      const btn = e.target.closest('.mx-add'); if (!btn) return;
+      const miss = ['s', 'g', 'a'].filter(k => pick[k] == null);
+      if (miss.length) {
+        miss.forEach(k => { const f = el.querySelector(`[data-step="${k}"]`); f.classList.remove('need'); void f.offsetWidth; f.classList.add('need'); });
+        el.querySelector(`[data-step="${miss[0]}"]`).scrollIntoView({behavior:DC.reduce ? 'auto' : 'smooth', block:'center'});
+        return;
+      }
+      const s = b.sizes[pick.s];
+      DC.add({w:'night', id:'mystery', name:'بوكس المفاجأة', opt:`${s.name} · ${WHO[pick.g]} · ${AGES[pick.a]}`, price:s.price}, btn);
+      const stage = document.querySelector('.bx-stage'); stage.classList.remove('jiggle'); void stage.offsetWidth; stage.classList.add('jiggle');
+      btn.textContent = 'انضافت المفاجأة ✓'; btn.classList.add('done');
+      setTimeout(() => { btn.textContent = 'أضف المفاجأة للسلة'; btn.classList.remove('done'); }, 1600);
+    });
   }
 
   window.DCBoxes = {hub, page, BOXES};

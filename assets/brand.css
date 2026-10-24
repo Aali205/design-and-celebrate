@@ -276,6 +276,32 @@ dialog.dc-cart[open]::backdrop{opacity:1}
 .ei-msg:empty{display:none}
 @media (max-width:860px){.ei-grid{grid-template-columns:minmax(0,1fr);gap:24px}}
 
+/* ---------- the mystery box picker (assets/boxes.js, box-mystery.html) ---------- */
+.mx{display:grid;gap:18px;max-width:860px}
+.mx-step{border:1px solid var(--line);border-radius:var(--r);background:var(--surface);padding:16px;margin:0;min-width:0}
+.mx-step legend{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:1.2rem;padding-inline:6px}
+.mx-n{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--accent);color:var(--on-accent);font:700 1rem var(--body)}
+.mx-budgets{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.mx-budget{display:grid;gap:2px;justify-items:center;text-align:center;border:1.5px solid var(--line);border-radius:16px;background:var(--bg);color:var(--ink);padding:14px 8px;cursor:pointer;font:inherit;transition:border-color .2s,background .2s,transform .15s}
+.mx-budget b{font-size:1.5rem;color:var(--accent)}
+.mx-budget span{font-weight:600}
+.mx-budget small{color:var(--dim);font-size:.8rem;line-height:1.4}
+.mx-budget[aria-pressed=true]{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 14%,var(--bg))}
+.mx-chips{display:flex;flex-wrap:wrap;gap:8px}
+.mx-chip{border:1.5px solid var(--line);border-radius:999px;background:var(--bg);color:var(--ink);padding:8px 16px;font:inherit;font-weight:500;cursor:pointer;transition:border-color .2s,background .2s,transform .15s}
+.mx-chip[aria-pressed=true]{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.mx-budget:active,.mx-chip:active{transform:scale(.96)}
+@media (hover:hover){.mx-budget:hover,.mx-chip:hover{border-color:var(--accent)}}
+.mx-step.need{border-color:#E26D6D;animation:mxneed .5s}
+@keyframes mxneed{25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-3px)}}
+.mx-go{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;background:var(--tint);border-radius:var(--r);padding:14px 16px}
+.mx-sum{margin:0;font-weight:600;flex:1;min-width:200px}
+.mx-add.done{background:var(--accent-2);border-color:var(--accent-2)}
+.mx-promise{margin:0;color:var(--dim);font-size:.9rem}
+.bx-stage.jiggle svg{animation:jig .7s cubic-bezier(.3,1.5,.5,1)}
+@keyframes jig{20%{transform:rotate(-6deg) scale(1.04)}40%{transform:rotate(5deg) translateY(-8px)}60%{transform:rotate(-3deg)}80%{transform:rotate(2deg)}}
+@media (max-width:640px){.mx-budgets{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
 /* ---------- feedback: a small button in the corner + a dialog (assets/track.js) ---------- */
 .fb-btn{position:fixed;z-index:40;inset-inline-end:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;gap:4px;
   border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding-block:3px;padding-inline:4px 14px;font:600 .9rem var(--body);cursor:pointer;
@@ -319,6 +345,7 @@ img,svg,canvas,video{-webkit-user-drag:none}
 }
 
 /* ---------- Night Vibe Box: one palette per box, each mixed from two colours (--m1 → --m2) ---------- */
+[data-box=mystery]{--bg:#140F26;--surface:#1D1636;--tint:#2A2050;--ink:#F1ECFA;--dim:#B3A9CC;--line:#322858;--accent:#F2C94C;--accent-2:#B9A5F5;--on-accent:#1B1240;--m1:#6E56CF;--m2:#F2B544;color-scheme:dark}
 [data-box=movie]   {--bg:#1B1013;--surface:#27171B;--tint:#35202A;--ink:#F7ECE4;--dim:#C9B2AC;--line:#42272E;--accent:#F2B544;--accent-2:#E0574C;--on-accent:#2A1608;--m1:#E0574C;--m2:#F2B544;color-scheme:dark}
 [data-box=boys]    {--bg:#0E1822;--surface:#152331;--tint:#1C3042;--ink:#EAF2F5;--dim:#A7B9C4;--line:#243A4E;--accent:#3CC6B0;--accent-2:#9AD35B;--on-accent:#06201B;--m1:#3C8DD6;--m2:#3CC6B0;color-scheme:dark}
 [data-box=girls]   {--bg:#FBF0F4;--surface:#FFFFFF;--tint:#F6DCE6;--ink:#3A2333;--dim:#7A5E6E;--line:#F0D6E0;--accent:#B9487F;--accent-2:#8C73D6;--on-accent:#fff;--m1:#F29BB8;--m2:#B9A5F5;color-scheme:light}
@@ -347,6 +374,11 @@ img,svg,canvas,video{-webkit-user-drag:none}
 .bxt-info h3{font-size:1.12rem}
 .bxt-info p{font-size:.88rem;color:var(--accent);font-weight:600}
 @media (max-width:560px){.bxt-info{padding:10px 12px 12px}.bxt-info h3{font-size:1rem}.bxt .p-tag{font-size:.68rem;padding:2px 8px;top:8px;inset-inline-start:8px}}
+
+.bxt.feature{grid-column:1/-1}
+.bxt.feature .bxt-info h3{font-size:1.35rem}
+.bxt-desc{color:var(--dim);font-size:.9rem;line-height:1.55}
+@media (min-width:560px){.bxt.feature{flex-direction:row}.bxt.feature .bxt-art{flex:0 0 52%}.bxt.feature .bxt-info{align-content:center;padding:20px 24px;gap:6px}}
 
 /* a box page */
 .bx-hero{position:relative;overflow:hidden;padding-block:36px 56px;
