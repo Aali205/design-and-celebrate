@@ -277,7 +277,7 @@
   }
 
   // the mystery box: two choices (budget, who it's for); the box on the stage shakes when it goes into the cart
-  const WHO = ['شب', 'صبية', 'ما بفرق'];
+  const WHO = ['ولد', 'بنت'];
   const OWN_MIN = 25;   // the lowest budget a customer may type for their own amount
   function mystery(b){
     const el = document.getElementById('mxPick'), pick = {s:null, g:null}, OWN = b.sizes.length;
@@ -289,7 +289,7 @@
         <div class="mx-own-row" hidden><label for="mxAmount">قديش بدك تكون ميزانيتك؟</label>
           <div class="mx-amount"><input id="mxAmount" inputmode="decimal" autocomplete="off" maxlength="6" placeholder="مثلاً ٣٥"><span class="latin">$</span></div>
           <small class="mx-hint">أقل ميزانية ${DC.money(OWN_MIN)}</small></div></fieldset>
-      <fieldset class="mx-step" data-step="g"><legend><span class="mx-n">٢</span>لمين البوكس؟</legend><div class="mx-chips">${chips('g', WHO)}</div></fieldset>
+      <fieldset class="mx-step" data-step="g"><legend><span class="mx-n">٢</span>البوكس لولد ولا لبنت؟</legend><div class="mx-chips">${chips('g', WHO)}</div></fieldset>
       <div class="mx-go"><p class="mx-sum" aria-live="polite"></p><button class="btn solid mx-add" type="button">أضف المفاجأة للسلة</button></div>
       <p class="mx-promise">منختار الهدايا حسب لمين البوكس، قيمتها أكتر من يلي دفعتو، ومنلفّها بتغليف <span class="latin">D&amp;S</span>. وإذا في شي ما بيحبو أو عندو حساسية، اكتبلنا بالملاحظات بالسلة.</p></div>`;
     const sum = el.querySelector('.mx-sum'), row = el.querySelector('.mx-own-row'), input = el.querySelector('#mxAmount'), hint = el.querySelector('.mx-hint');
@@ -299,7 +299,7 @@
     const show = () => {
       const bud = budget();
       const miss = [!bud && (pick.s === OWN ? `ميزانيتك (أقل شي ${DC.money(OWN_MIN)})` : 'الميزانية'), pick.g == null && 'لمين'].filter(Boolean);
-      sum.textContent = miss.length ? 'باقي تختار: ' + miss.join('، ') : `مفاجأة ${bud.name} بـ ${DC.money(bud.price)} لـ ${WHO[pick.g] === 'ما بفرق' ? 'أي حدا' : WHO[pick.g]}. شو جوّا؟ ما رح نقلك!`;
+      sum.textContent = miss.length ? 'باقي تختار: ' + miss.join('، ') : `مفاجأة ${bud.name} بـ ${DC.money(bud.price)} ل${WHO[pick.g]}. شو جوّا؟ ما رح نقلك!`;
       const v = amount();
       hint.classList.toggle('bad', input.value.trim() !== '' && !(v >= OWN_MIN));
       hint.textContent = input.value.trim() !== '' && !(v >= OWN_MIN) ? `الميزانية لازم تكون ${DC.money(OWN_MIN)} أو أكتر` : `أقل ميزانية ${DC.money(OWN_MIN)}`;
