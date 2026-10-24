@@ -40,6 +40,7 @@ html.in-lock,html.in-lock body{overflow:hidden}
 .intro{position:relative;height:100vh;height:100svh;min-height:540px;overflow:hidden;color:#F4F0FF;isolation:isolate;
   background:radial-gradient(70% 55% at 50% 64%,#3A2A7A 0%,#1E1746 46%,#110D27 100%);font-family:"IBM Plex Sans Arabic",system-ui,sans-serif}
 .intro *{box-sizing:border-box}
+.intro::after{content:"";position:absolute;inset:auto 0 0;height:120px;background:linear-gradient(transparent,#171139);z-index:-1;pointer-events:none}   /* melts into the page below */
 .in-brand{position:absolute;top:max(18px,env(safe-area-inset-top));inset-inline:0;text-align:center;font-family:Fraunces,serif;font-size:15px;letter-spacing:.06em;color:#CFC4F5;opacity:.9}
 .in-brand i{color:#F2C94C}
 .in-star{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;opacity:.25;animation:inTw 3.2s ease-in-out infinite}

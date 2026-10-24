@@ -8,20 +8,28 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#171139">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/brand.css?v=15">
 <style>
 /* Home: the store is the centre, every celebration is a world orbiting it ("Same store, different world").
    Below the hero, each world is a tile whose animated background shows what's inside. */
 
+/* the home page wears the intro's night sky in every section (Ali's ask); worlds keep their own palettes */
+body.night-home{--bg:#171139;--surface:#211A4A;--tint:#2B225B;--ink:#F2EDFF;--dim:#B5ACD8;--line:#342A68;
+  --accent:#C7B4FF;--accent-2:#F2C94C;--on-accent:#1A1238;color-scheme:dark}
+.night-home .core,.night-home .steps li::before{background:linear-gradient(135deg,#6E56CF,#D9963A)}
+.night-home .site-foot{background:color-mix(in srgb,var(--bg) 70%,#000);color:var(--ink)}
+.night-home .q-pick:not([aria-pressed=true]){background:#F2EDFF}   /* dark world colours stay visible */
+
 /* ---------- hero ---------- */
 .home-hero{position:relative;padding-block:48px 72px;overflow:hidden;
-  background:radial-gradient(50% 60% at 18% 40%,#F1DCCB 0,transparent 70%),radial-gradient(40% 50% at 95% 10%,#E8DDF0 0,transparent 70%),var(--bg)}
+  background:radial-gradient(50% 60% at 18% 40%,#2E2368 0,transparent 70%),radial-gradient(40% 50% at 95% 10%,rgb(242 201 76/.1) 0,transparent 70%),var(--bg)}
 .hh-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
 .slogan{margin:18px 0 0;font:400 clamp(3rem,7.4vw,5.6rem)/1.02 var(--latin);letter-spacing:-.035em}
 .slogan span{display:block;direction:ltr;text-align:right}
 .slogan em{display:block;direction:ltr;text-align:right;font-style:italic;font-weight:600;padding-bottom:.08em;
-  background:linear-gradient(90deg,#C9963F,#C8576F,#2B7359,#A9526C,#A0532F,#7B66C9,#C9963F) 0 0/300% 100%;
+  background:linear-gradient(90deg,#F2C94C,#F28FA8,#5FD3A4,#E9899F,#F0A06A,#B9A5F5,#F2C94C) 0 0/300% 100%;
   -webkit-background-clip:text;background-clip:text;color:transparent;animation:worlds 14s linear infinite}
 @keyframes worlds{to{background-position:300% 0}}   /* the words slowly pass through every world's colour */
 .slogan-ar{font:700 clamp(1.35rem,2.6vw,1.8rem)/1.5 var(--display);margin-top:14px}
@@ -179,7 +187,7 @@
 @keyframes pop{0%,30%{opacity:0;transform:translateY(30px) scale(.4)}45%{opacity:1;transform:translateY(-34px) scale(1)}72%{opacity:1}85%,100%{opacity:0;transform:translateY(10px) scale(.6)}}
 
 /* ---------- code band ---------- */
-.band{background:linear-gradient(120deg,#3E2A4A,#6B4577 55%,#B9775A);color:#FBF3EA;border-radius:28px;padding:34px clamp(20px,4vw,48px);display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.band{background:linear-gradient(120deg,#3B2775,#6B4596 55%,#B9775A);color:#FBF3EA;border-radius:28px;padding:34px clamp(20px,4vw,48px);display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
 .band h2{color:#fff}
 .band p{opacity:.85;margin-top:8px}
 .band .code-chip{background:rgb(255 255 255/.1);color:#F4E8EC;border-color:rgb(255 255 255/.45);margin-top:0;justify-self:start}
@@ -190,7 +198,7 @@
 /* ---------- packaging link ---------- */
 .pk-link{display:flex;align-items:center;gap:16px;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:16px 20px}
 .pk-link:active{transform:scale(.98)}
-.pk-ico{width:56px;height:56px;border-radius:16px;flex:none;display:grid;place-items:center;background:#3E2A4A;color:#F6E3B4}
+.pk-ico{width:56px;height:56px;border-radius:16px;flex:none;display:grid;place-items:center;background:#3A2A7A;color:#F6E3B4}
 .pk-ico svg{width:34px;height:34px}
 .pk-link b{display:block;font-family:var(--display);font-size:1.2rem}
 .pk-link small{display:block;color:var(--dim);font-size:.9rem;line-height:1.6}
@@ -237,8 +245,8 @@
 .faq details p{padding-bottom:16px;color:var(--dim)}
 </style>
 </head>
-<body>
-<script src="assets/intro.js?v=1"></script>
+<body class="night-home">
+<script src="assets/intro.js?v=2"></script>
 <div class="site">
 <header class="top"><div class="wrap">
   <a class="brand" href="index.html" aria-label="Design & Celebrate، الصفحة الرئيسية"><span class="mono">D<i>&amp;</i>S</span><span class="word"><b>Design <i>&amp;</i> Celebrate</b><small>Same store, different world</small></span></a>
